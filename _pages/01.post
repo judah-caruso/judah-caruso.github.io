@@ -1,0 +1,248 @@
+\meta-title  { Allocators and You }
+\meta-date   { 2021/07/19 }
+\meta-edited { 2021/09/10 }
+\meta-kind   { blog }
+
+\paragraph {
+	Today's topic is \bold{allocators}: what they are, how they're made, and why they're actually not that scary. But before we move on, what is an allocator? An allocator is a way to get some number of bytes of memory from the operating system that you can modify and use in your program in some meaningful \italic{(or less than meaningful)} way. Doing so allows you to do many things such as string concatenation, dynamic arrays, object pools, temporary storage, and more!
+}
+
+\paragraph {
+	But what do \italic{those} things actually mean? While I won't be covering everything I listed, a few of those subjects actually show off why memory allocation is important and not a horrifying dark art that only \italic{wise programming wizards} can understand. I'll first be talking about string concatenation and, by proxy, string interpolation.
+}
+
+\paragraph {
+	Here's an example program that generates greeting messages for people in a list and prints each message. Note: this is done in Python (in a less-than-optimal way) to illustrate how memory allocation is done behind the scenes in \link{https://en.wikipedia.org/wiki/Garbage_collection_(computer_science) garbage collected} languages.
+}
+
+\code-python {
+	names = [
+		"Bob",
+		"Doug",
+		"Other Doug",
+		"Bob, but worse",
+		"Brother of Doug"
+	]
+
+	messages = [
+	  "Hello, _!",
+	  "How's it going, _?",
+	  "Howdy, _.",
+	]
+
+	# We already know '_' is in our messages, so we're not checking for errors.
+	for name in names:
+		message = get_random_message()
+
+		prefix = None
+		suffix = None
+		for index, character in enumerate(message):
+			if character == '_':
+				prefix = message[:index]
+				suffix = message[index + 1:]
+				break
+
+		greeting = prefix + name + suffix
+		print(greeting)
+}
+
+\paragraph {
+	If you're not familiar with Python, the \monospace{message[:index]} syntax just means: \quote{get me every character from \monospace{0} to \monospace{index},} and the \monospace{message[index + 1:]} syntax just means: \quote{get me every character from \monospace{index + 1} to the end of \monospace{message}.} The allocation we'll be talking about is when we create the \monospace{greeting} variable. It simply combines our prefix, name, and suffix into one string we can use in whatever way we'd like. To do this, our program must first allocate some bytes of memory and fill those bytes with the values of those strings. While the whole allocate-and-forget practice is useful for small/short running programs or things we may not care about, writing larger programs \italic{(i.e. games)} in this way leads to performance issues and workarounds that are the same, if not more, difficult and annoying than doing things ourselves. Custom allocators actually come close to fixing this entire problem. But before we see allocators, let's see what's actually happening in the above example. Here's the same program but written in C.
+}
+
+\code-c {
+	static char *names[] = \{
+		"Bob",
+		"Doug",
+		"Other Doug",
+		"Bob, but worse",
+		"Brother of Doug",
+	\};
+
+	static char *messages[] = \{
+		"Hello, _!",
+		"How's it going, _?",
+		"Howdy, _.",
+	\};
+
+	int
+	main(int argc, char* argv[])
+	\{
+		char *name = 0;
+
+		// Iterate through 'names'.
+		for (int i = 0; (name = names[i]) != NULL; i++) \{
+			int prefix = 0;
+			int suffix = 0;
+			int index  = 0;
+
+			// Get a random message and find where its '_' character is.
+			char *message = get_random_message();
+			for (char *copy = message; *copy; copy++, index++) \{
+				if (copy[0] == '_') \{
+					prefix = index;
+					suffix = index + 1;
+					break;
+				\}
+			\}
+
+			int name_len = strlen(name);
+			int needed   = prefix   +    // Allocate enough space for our prefix. 
+			               name_len +    // Allocate enough space for our name.
+			               suffix   + 1; // Allocate enough space for our suffix + null terminator.
+
+			char *greeting = malloc(needed * sizeof(char));
+
+			int pushed = 0;
+
+			// Push the prefix of our message (everything before the '_').
+			for (int i = 0; i < prefix; i++)
+				greeting[pushed++] = message[i];
+
+			// Push the user's name.
+			for (int i = 0; i < name_len; i++)
+				greeting[pushed++] = name[i];
+
+			// Push the suffix of our message (everything after the '_').
+			for (int i = 0; i < (suffix - prefix); i++)
+				greeting[pushed++] = message[prefix + 1 + i];
+
+			// Push the null terminator.
+			greeting[pushed] = '\\0';
+
+			printf("%s\\n", greeting); // Print the greeting.
+
+			free(greeting); // Free the allocated memory.
+		\}
+
+		return 0;
+	\}
+}
+
+\paragraph{
+	So what's happening, exactly? There's obviously many more lines and a call to \monospace{malloc}, but why should this sway you to use allocators and do things yourself? Well first, \monospace{malloc} is a somewhat slow, generalized procedure meant to handle every case for anybody programming in C. Using it for everything leads to buggy, memory leak-ridden code that's harder to maintain and isn't very fun to write. Pair it with C-style strings and you have a rather shitty programming experience that you definitely wouldn't rate 5 stars on Yelp or any other restaurant review website. However, C is a language that allows us to do almost any programming-related thing we'd like, including making string concatenation and managing memory much nicer. This is done by \quote{optimizing} or customizing for the cases we care about, similarly to how Python has optimized its semantics for that case in the first example. Here's another C example that \quote{optimizes} string concatenation using a custom allocator.
+}
+
+\code-c{
+	#include "allocators.h"
+	#include "utilities.h"
+
+	static char *names[] = \{
+		"Bob",
+		"Doug",
+		"Other Doug",
+		"Bob, but worse",
+		"Brother of Doug",
+	\};
+
+	static char *messages[] = \{
+		"Hello, _!",
+		"How's it going, _?",
+		"Howdy, _.",
+	\};
+
+	int
+	main(int argc, char* argv[])
+	\{
+		// Allocate more than enough memory for our program to run.
+		Static_Allocator allocator = make_static_allocator(Mb(1)); 
+
+		for_each(char *name, names, \{
+			char *message  = get_random_message();
+			char *greeting = push_char(&allocator, 0);
+
+			// Iterate through each character in 'message'.
+			for_each(char chr, message, \{
+				// If the current character is an underscore, push the
+				// entirety of the user's name in its place.
+				if (chr == '_') \{
+					push_string(&allocator, name);
+				\}
+				else \{
+					push_char(&allocator, chr);
+				\}
+			\});
+
+			// Push the null terminator and print our greeting.
+			push_char(&allocator, '\\0');
+			print("%s\\n", greeting);
+		\});
+
+		release_allocator(&allocator);
+		return 0;
+	\}
+}
+
+\paragraph{
+	Nice! Much shorter and easier to understand! Suddenly the manual work we did in the last example doesn't feel so manual. We \quote{optimized} by making helper functions/macros like \monospace{for_each}, \monospace{push_char}, and \monospace{push_string}. However, unlike the previous example, it's no longer obvious when memory is allocated. Is \monospace{push_char} doing it? How about \monospace{push_string}? It's actually neither, \monospace{allocator} is doing that for us when we make it! Notice that we didn't have to free each string we created. Instead we simply \quote{released} our custom allocator at the end of \monospace{main}. The scary memory leaks everyone keeps talking about simply aren't possible if we design and use the language in this way. Let's look inside \monospace{Static_Allocator} to see how and why this works.
+}
+
+\code-c{
+	typedef struct static_allocator \{
+		s64 length;
+		s64 occupied;
+		u8* memory;
+	\} Static_Allocator;
+
+	Static_Allocator
+	make_static_allocator(s64 length)
+	\{
+		Static_Allocator new_allocator = \{0\};
+		new_allocator.length = length;
+		new_allocator.memory = malloc(length);
+
+		assert(new_allocator.memory != NULL); // If this fails our program shouldn't run.
+		return new_allocator;
+	\}
+
+	void *
+	alloc(Static_Allocator *allocator, s64 size)
+	\{
+		// Align the size we wish to allocate.
+		s64 aligned = (size + 7) & ~7;
+
+		// Get the position in allocator->memory we're allocating from.
+		s64 offset  = allocator->occupied + aligned;
+
+		// If our allocator ran out of memory. Error handle accordingly.
+		if offset > allocator->length return NULL;
+
+		// Move our allocator forward and return a pointer to the new position.
+		allocator->occupied += aligned;
+		u8 *pointer = allocator->memory + (offset - aligned);
+
+		return pointer;
+	\}
+
+	void
+	release_allocator(Static_Allocator *allocator)
+	\{
+		free(allocator->memory);
+		allocator->length   = 0;
+		allocator->occupied = 0;
+	\}
+}
+
+\paragraph{
+	This is all the code we need to create a simple allocator that solves the problems we had in the beginning. Note that while ours is called \monospace{Static_Allocator} \italic{(because it allocates a block of memory that never resizes)}, this kind is commonly called an Arena: an allocator that frees its memory all at once, hence the lack of a custom \monospace{free} procedure. This kind of allocator is perfect for what we were trying to do: allocate a bunch of strings, use them, then free them. It, however, isn't the end-all-be-all for allocators. There's many different kinds we can use in a variety of different contexts: Push Allocators, Buddy Allocators, Pool Allocators, Free List Allocators, etc; the possibilities are \italic{literally} endless. Your boner for Big-O notation can now grow exponentially.
+}
+
+\paragraph{
+	But before you embark on your journey of custom allocators, doing C, being cool, and also becoming a low-level programming zealot that writes off any new language or idea or group of people, here's a few tips that'll make your new allocating life easier.
+}
+
+\paragraph{
+	1) Each allocator should have the same interface; that is they should be used the same by the programmer. Sure they can have different ways of initialization, but the ways you \monospace{alloc}, \monospace{release}, and \monospace{resize} with them should be the same. It's very poor design to have a \monospace{pool_alloc} procedure that has completely different arguments than an \monospace{arena_alloc} one. If possible, utilize \link{https://en.cppreference.com/w/c/language/generic#Example C _Generic macros} or \link{https://en.cppreference.com/w/cpp/language/templates C++ Templates \italic{(oh no)}}. Like most things in programming, however, this isn't a dead-set rule; only something to keep in mind when designing the API.
+}
+
+\paragraph{
+	2) Static Allocators \italic{(ones that never resize their main memory block)} should crash if initialization fails! This is because they're usually the \bold{only} memory your program uses, and if it can't use that, it can't run. This might sound like a bad idea, or unnecessarily restrictive, but working with slight memory limitations is quite nice and actually leads to nicer designs. Also, if your program can't allocate your allocator's memory block, there are much larger problems ahead.
+}
+
+\paragraph{
+	3) Due to allocators giving you full control over the \quote{allocation scheme} of your program, you can directly track and alert for double frees, leaks, etc. The \monospace{__LINE__} and \monospace{__FILE__} directives are your best friends in this scenario.
+}
+
+\paragraph{
+	Hopefully this post taught you something or made some parts of lower-level programming less taboo or scary. Thanks for reading :)
+}

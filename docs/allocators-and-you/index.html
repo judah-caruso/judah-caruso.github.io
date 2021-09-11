@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png"
+    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAkCAYAAADo6zjiAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAK9JREFUWIXtWEEOgCAMK8YnslfCH/WiiQECTqc1Zr1JkJWWdISADTHGBS8i5xwAIDCKH0kEVvEdE7M4AMzlQEpJtYCIVGO9Ncr55gpoN0C3gE6gOgOlR6WkLc97GM3vKtDyU+vxCHQLLhGwVKFKwrs5MPr/8RzQ4hQBEVGffjMCx8JnSGiJejd0Aub3AW3voCvgBIY5oPX0n73g1wSqHLCG58DnCfh9gP9AsX+wnmhW1GlFK0LJsVcAAAAASUVORK5CYII=" />
+    <!-- NORMALIZE CSS -->
+<style>
+    /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+
+    /* Document
+       ========================================================================== */
+
+    /**
+     * 1. Correct the line height in all browsers.
+     * 2. Prevent adjustments of font size after orientation changes in iOS.
+     */
+
+    html {
+      line-height: 1.15; /* 1 */
+      -webkit-text-size-adjust: 100%; /* 2 */
+    }
+
+    /* Sections
+       ========================================================================== */
+
+    /**
+     * Remove the margin in all browsers.
+     */
+
+    body {
+      margin: 0;
+    }
+
+    /**
+     * Render the `main` element consistently in IE.
+     */
+
+    main {
+      display: block;
+    }
+
+    /**
+     * Correct the font size and margin on `h1` elements within `section` and
+     * `article` contexts in Chrome, Firefox, and Safari.
+     */
+
+    h1 {
+      font-size: 2em;
+      margin: 0.67em 0;
+    }
+
+    /* Grouping content
+       ========================================================================== */
+
+    /**
+     * 1. Add the correct box sizing in Firefox.
+     * 2. Show the overflow in Edge and IE.
+     */
+
+    hr {
+      box-sizing: content-box; /* 1 */
+      height: 0; /* 1 */
+      overflow: visible; /* 2 */
+    }
+
+    /**
+     * 1. Correct the inheritance and scaling of font size in all browsers.
+     * 2. Correct the odd `em` font sizing in all browsers.
+     */
+
+    pre {
+      font-family: monospace, monospace; /* 1 */
+      font-size: 1em; /* 2 */
+    }
+
+    /* Text-level semantics
+       ========================================================================== */
+
+    /**
+     * Remove the gray background on active links in IE 10.
+     */
+
+    a {
+      background-color: transparent;
+    }
+
+    /**
+     * 1. Remove the bottom border in Chrome 57-
+     * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+     */
+
+    abbr[title] {
+      border-bottom: none; /* 1 */
+      text-decoration: underline; /* 2 */
+      text-decoration: underline dotted; /* 2 */
+    }
+
+    /**
+     * Add the correct font weight in Chrome, Edge, and Safari.
+     */
+
+    b,
+    strong {
+      font-weight: bolder;
+    }
+
+    /**
+     * 1. Correct the inheritance and scaling of font size in all browsers.
+     * 2. Correct the odd `em` font sizing in all browsers.
+     */
+
+    code,
+    kbd,
+    samp {
+      font-family: monospace, monospace; /* 1 */
+      font-size: 1em; /* 2 */
+    }
+
+    /**
+     * Add the correct font size in all browsers.
+     */
+
+    small {
+      font-size: 80%;
+    }
+
+    /**
+     * Prevent `sub` and `sup` elements from affecting the line height in
+     * all browsers.
+     */
+
+    sub,
+    sup {
+      font-size: 75%;
+      line-height: 0;
+      position: relative;
+      vertical-align: baseline;
+    }
+
+    sub {
+      bottom: -0.25em;
+    }
+
+    sup {
+      top: -0.5em;
+    }
+
+    /* Embedded content
+       ========================================================================== */
+
+    /**
+     * Remove the border on images inside links in IE 10.
+     */
+
+    img {
+      border-style: none;
+    }
+
+    /* Forms
+       ========================================================================== */
+
+    /**
+     * 1. Change the font styles in all browsers.
+     * 2. Remove the margin in Firefox and Safari.
+     */
+
+    button,
+    input,
+    optgroup,
+    select,
+    textarea {
+      font-family: inherit; /* 1 */
+      font-size: 100%; /* 1 */
+      line-height: 1.15; /* 1 */
+      margin: 0; /* 2 */
+    }
+
+    /**
+     * Show the overflow in IE.
+     * 1. Show the overflow in Edge.
+     */
+
+    button,
+    input { /* 1 */
+      overflow: visible;
+    }
+
+    /**
+     * Remove the inheritance of text transform in Edge, Firefox, and IE.
+     * 1. Remove the inheritance of text transform in Firefox.
+     */
+
+    button,
+    select { /* 1 */
+      text-transform: none;
+    }
+
+    /**
+     * Correct the inability to style clickable types in iOS and Safari.
+     */
+
+    button,
+    [type="button"],
+    [type="reset"],
+    [type="submit"] {
+      -webkit-appearance: button;
+    }
+
+    /**
+     * Remove the inner border and padding in Firefox.
+     */
+
+    button::-moz-focus-inner,
+    [type="button"]::-moz-focus-inner,
+    [type="reset"]::-moz-focus-inner,
+    [type="submit"]::-moz-focus-inner {
+      border-style: none;
+      padding: 0;
+    }
+
+    /**
+     * Restore the focus styles unset by the previous rule.
+     */
+
+    button:-moz-focusring,
+    [type="button"]:-moz-focusring,
+    [type="reset"]:-moz-focusring,
+    [type="submit"]:-moz-focusring {
+      outline: 1px dotted ButtonText;
+    }
+
+    /**
+     * Correct the padding in Firefox.
+     */
+
+    fieldset {
+      padding: 0.35em 0.75em 0.625em;
+    }
+
+    /**
+     * 1. Correct the text wrapping in Edge and IE.
+     * 2. Correct the color inheritance from `fieldset` elements in IE.
+     * 3. Remove the padding so developers are not caught out when they zero out
+     *    `fieldset` elements in all browsers.
+     */
+
+    legend {
+      box-sizing: border-box; /* 1 */
+      color: inherit; /* 2 */
+      display: table; /* 1 */
+      max-width: 100%; /* 1 */
+      padding: 0; /* 3 */
+      white-space: normal; /* 1 */
+    }
+
+    /**
+     * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+     */
+
+    progress {
+      vertical-align: baseline;
+    }
+
+    /**
+     * Remove the default vertical scrollbar in IE 10+.
+     */
+
+    textarea {
+      overflow: auto;
+    }
+
+    /**
+     * 1. Add the correct box sizing in IE 10.
+     * 2. Remove the padding in IE 10.
+     */
+
+    [type="checkbox"],
+    [type="radio"] {
+      box-sizing: border-box; /* 1 */
+      padding: 0; /* 2 */
+    }
+
+    /**
+     * Correct the cursor style of increment and decrement buttons in Chrome.
+     */
+
+    [type="number"]::-webkit-inner-spin-button,
+    [type="number"]::-webkit-outer-spin-button {
+      height: auto;
+    }
+
+    /**
+     * 1. Correct the odd appearance in Chrome and Safari.
+     * 2. Correct the outline style in Safari.
+     */
+
+    [type="search"] {
+      -webkit-appearance: textfield; /* 1 */
+      outline-offset: -2px; /* 2 */
+    }
+
+    /**
+     * Remove the inner padding in Chrome and Safari on macOS.
+     */
+
+    [type="search"]::-webkit-search-decoration {
+      -webkit-appearance: none;
+    }
+
+    /**
+     * 1. Correct the inability to style clickable types in iOS and Safari.
+     * 2. Change font properties to `inherit` in Safari.
+     */
+
+    ::-webkit-file-upload-button {
+      -webkit-appearance: button; /* 1 */
+      font: inherit; /* 2 */
+    }
+
+    /* Interactive
+       ========================================================================== */
+
+    /*
+     * Add the correct display in Edge, IE 10+, and Firefox.
+     */
+
+    details {
+      display: block;
+    }
+
+    /*
+     * Add the correct display in all browsers.
+     */
+
+    summary {
+      display: list-item;
+    }
+
+    /* Misc
+       ========================================================================== */
+
+    /**
+     * Add the correct display in IE 10+.
+     */
+
+    template {
+      display: none;
+    }
+
+    /**
+     * Add the correct display in IE 10.
+     */
+
+    [hidden] {
+      display: none;
+    }
+</style>
+
+<!-- SITE CSS -->
+<style>
+    :root {
+        --var_background           : #ececec;
+        --var_foreground           : #242424;
+        --var_link_background      : #e2e2e2;
+        --var_link_foreground      : #242424;
+        --var_scrollbar_background : #c0c0c0;
+    }
+
+
+    :focus      { outline: none;                                                         }
+    ::selection { color: var(--var_background); background-color: var(--var_foreground); }
+
+    body::-webkit-scrollbar             { width        : 1em;                                       }
+    body::-webkit-scrollbar-thumb       { border-right : 8px solid var(--var_scrollbar_background); }
+    body::-webkit-scrollbar-thumb:hover { border-right : 8px solid var(--var_foreground);           }
+
+    pre::-webkit-scrollbar             { width         : 1em;                                       }
+    pre::-webkit-scrollbar-thumb       { border-bottom : 8px solid var(--var_scrollbar_background); }
+    pre::-webkit-scrollbar-thumb:hover { border-bottom : 8px solid var(--var_foreground);           }
+
+    summary::-webkit-details-marker { display        : none;              }
+    details summary::before         { padding        : 5px; content: "+"; }
+    details[open] summary::before   { padding        : 5px; content: "-"; }
+    details                         { padding-bottom : 5px;               }
+
+    html {
+        quotes     : initial;
+        overflow-y : scroll; 
+    }
+
+    html, body { padding: 0; margin: 0; }
+
+    body {
+        color            : var(--var_foreground);
+        background-color : var(--var_background);
+        font-size        : 13pt;
+        line-height      : 1.60;
+        margin           : 0 auto;
+        height           : 100%;
+        max-width        : 800px;
+        overflow-x       : hidden;
+        padding-bottom   : 25px;
+        padding-top      : 25px;
+        font-family      : monospace;
+    }
+
+    a {
+        color          : var(--var_link_foreground);
+        padding        : 0;
+        padding-inline : 4px;
+    }
+
+    a:hover {
+        color            : #ffffff;
+        background-color : #242424;
+        text-decoration  : none;
+    }
+
+    p {
+        font-family : serif;
+        font-size   : 13.5pt;
+        text-align  : justify;
+    }
+
+    h1 {
+        font-size   : 1.8em;
+        font-weight : normal;
+        line-height : 1;
+    }
+
+    h2 {
+        font-size      : 1.3em;
+        font-weight    : normal;
+        line-height    : 1;
+        padding-top    : 5px;
+        padding-bottom : 5px;
+    }
+
+    h2:before {
+        content: ":: ";
+    }
+
+    header {
+        display : inline-block;
+        height  : 100%;
+        width   : 50px;
+    }
+
+    header a       { all    : revert;            }
+    header a:hover { all    : revert;            }
+    header svg     { height : 100%; width: 100%; }
+
+    nav {
+        display        : inline-block;
+        vertical-align : super;
+    }
+
+    nav ul {
+        padding       : 0;
+        margin        : 0;
+        margin-block  : 0;
+        margin-inline : 0;
+        list-style    : none;
+    }
+
+    nav ul li { display: inline-block; }
+
+    pre  { tab-size    : 2;                     }
+    code { font-weight : bold; font-size: 13pt; }
+
+    main aside      { display: block; width      : 100%;                   }
+    main aside span { display: block; text-align : right; font-size: 12pt; }
+
+    #logo-bg {
+        fill   : var(--var_link_background);
+        stroke : var(--var_link_background);
+    }
+
+    #logo-bg:hover {
+        fill   : #242424;
+        stroke : #242424;
+    }
+
+    #logo-mid {
+        fill           : #ffffff;
+        stroke         : #ffffff;
+        pointer-events : none;
+    }
+
+    #logo-fg {
+        fill           : none;
+        stroke         : #ffffff;
+        pointer-events : none;
+    }
+
+    #info p      { font-family: monospace; font-size: 12pt; }
+    #outro       { transition: opacity 0.2s; /* filter: blur(2px); */ opacity: 0.30; }
+    #outro:hover { transition: opacity 0.2s; /* filter: blur(0); */ opacity: 1; }
+
+    .block {
+        display          : block;
+        background-color : var(--var_link_background);
+        font-weight      : normal;
+        line-height      : 1.2em;
+        padding          : 20px 0 10px 0;
+        overflow-x       : scroll;
+    }
+
+    .break { display: block; padding: 10px; }
+
+    .project {
+    }
+
+    .project span {
+        display: inline-block;
+        font-weight: bold;
+    }
+
+    .project sub {
+        opacity        : 50%;
+        display        : block;
+        font-size      : 12pt;
+        font-style     : italic;
+        vertical-align : unset;
+        bottom         : 0;
+        line-height    : 1em;
+        padding-bottom : 10px;
+    }
+
+    .project div:before {
+        content: "|";
+    }
+
+    .project div {
+        display: inline-block;
+    }
+
+    .project div a {
+        display: inline-block;
+    }
+
+    .project p {
+        margin         : 0;
+        padding-bottom : 20px;
+        line-height    : 1.35;
+    }
+
+    /* Mobile/low-width */
+    @media (max-width: 800px) and (min-width: 501px) {
+        header { display : block; margin     : 0 auto; }
+        nav    { display : block; text-align : center; }
+        hr     { width   : 80%;                        }
+
+        footer div, main { width: 80%; margin: 0 auto; }
+
+        p { text-align: revert !important; }
+    }
+
+    @media (max-width: 500px) and (min-width: 351px) {
+        header { display : block; margin     : 0 auto; }
+        nav    { display : block; text-align : center; }
+        hr     { width   : 80%;                        }
+
+        footer div, main { width: 80%; margin: 0 auto; }
+
+        footer                       { text-align : center;          }
+        footer div span:nth-child(2) { display    : none;            }
+        footer div span:nth-child(1) { float      : none !important; }
+
+        p { text-align: revert !important; }
+    }
+
+    @media (max-width: 350px) {
+        header { display : block; margin     : 0 auto; }
+        nav    { display : block; text-align : center; }
+        hr     { width   : 80%;                        }
+
+        footer div, main { width: 70%; margin: 0 auto; }
+
+        footer                       { text-align : center;          }
+        footer div span:nth-child(2) { display    : none;            }
+        footer div span:nth-child(1) { float      : none !important; }
+
+        p { text-align: revert !important; }
+    }
+</style>
+    <title>JC: Allocators and You</title>
+</head>
+<body>
+    <main>
+        <header>
+    <svg version="1.1" width="121" height="136" style="fill:none" id="svg75" xmlns="http://www.w3.org/2000/svg"
+        xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 121 136">
+        <a xlink:href="/">
+            <!-- 121, 136 -->
+            <defs id="defs31" />
+            <path id="logo-bg" d="M 8,8 V 8 H 113 V 128 H 8 Z"
+                style="stroke-width:16;stroke-linecap:round;stroke-linejoin:bevel" id="path21" />
+            <path id="logo-fg"
+                d="M 23,23 H 38 A 15,30 0 0 1 23,53 m 0,30 v 0 H 53 M 98,23 v 0 H 83 V 53 H 98 M 83,83 v 0 30 m 0,-15 v 0 H 98 M 38,83 v 0 30 m 0,-90 v 0 h 15 m -15,0 a 15,30 0 0 0 15,30"
+                style="stroke-width:16;stroke-linecap:square;stroke-linejoin:bevel" id="path25" />
+        </a>
+    </svg>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="/info">Info</a></li>
+        <li><a href="/projects">Projects</a></li>
+    </ul>
+</nav>
+
+<hr />
+
+        
+        <article>
+            <h1>Allocators and You</h1>
+            <p>
+Today's topic is <strong>allocators</strong>: what they are, how they're made, and why they're actually not that scary. But before we move on, what is an allocator? An allocator is a way to get some number of bytes of memory from the operating system that you can modify and use in your program in some meaningful <em>(or less than meaningful)</em> way. Doing so allows you to do many things such as string concatenation, dynamic arrays, object pools, temporary storage, and more!
+</p>
+<p>
+But what do <em>those</em> things actually mean? While I won't be covering everything I listed, a few of those subjects actually show off why memory allocation is important and not a horrifying dark art that only <em>wise programming wizards</em> can understand. I'll first be talking about string concatenation and, by proxy, string interpolation.
+</p>
+<p>
+Here's an example program that generates greeting messages for people in a list and prints each message. Note: this is done in Python (in a less-than-optimal way) to illustrate how memory allocation is done behind the scenes in <a href='https://en.wikipedia.org/wiki/Garbage_collection_(computer_science)'>garbage collected</a> languages.
+</p>
+<pre class='block lang-python'>
+	names = [
+		"Bob",
+		"Doug",
+		"Other Doug",
+		"Bob, but worse",
+		"Brother of Doug"
+	]
+
+	messages = [
+	  "Hello, _!",
+	  "How's it going, _?",
+	  "Howdy, _.",
+	]
+
+	# We already know '_' is in our messages, so we're not checking for errors.
+	for name in names:
+		message = get_random_message()
+
+		prefix = None
+		suffix = None
+		for index, character in enumerate(message):
+			if character == '_':
+				prefix = message[:index]
+				suffix = message[index + 1:]
+				break
+
+		greeting = prefix + name + suffix
+		print(greeting)
+</pre>
+<p>
+If you're not familiar with Python, the <code>message[:index]</code> syntax just means: <q>get me every character from <code>0</code> to <code>index</code>,</q> and the <code>message[index + 1:]</code> syntax just means: <q>get me every character from <code>index + 1</code> to the end of <code>message</code>.</q> The allocation we'll be talking about is when we create the <code>greeting</code> variable. It simply combines our prefix, name, and suffix into one string we can use in whatever way we'd like. To do this, our program must first allocate some bytes of memory and fill those bytes with the values of those strings. While the whole allocate-and-forget practice is useful for small/short running programs or things we may not care about, writing larger programs <em>(i.e. games)</em> in this way leads to performance issues and workarounds that are the same, if not more, difficult and annoying than doing things ourselves. Custom allocators actually come close to fixing this entire problem. But before we see allocators, let's see what's actually happening in the above example. Here's the same program but written in C.
+</p>
+<pre class='block lang-c'>
+	static char *names[] = {
+		"Bob",
+		"Doug",
+		"Other Doug",
+		"Bob, but worse",
+		"Brother of Doug",
+	};
+
+	static char *messages[] = {
+		"Hello, _!",
+		"How's it going, _?",
+		"Howdy, _.",
+	};
+
+	int
+	main(int argc, char* argv[])
+	{
+		char *name = 0;
+
+		// Iterate through 'names'.
+		for (int i = 0; (name = names[i]) != NULL; i++) {
+			int prefix = 0;
+			int suffix = 0;
+			int index  = 0;
+
+			// Get a random message and find where its '_' character is.
+			char *message = get_random_message();
+			for (char *copy = message; *copy; copy++, index++) {
+				if (copy[0] == '_') {
+					prefix = index;
+					suffix = index + 1;
+					break;
+				}
+			}
+
+			int name_len = strlen(name);
+			int needed   = prefix   +    // Allocate enough space for our prefix. 
+			               name_len +    // Allocate enough space for our name.
+			               suffix   + 1; // Allocate enough space for our suffix + null terminator.
+
+			char *greeting = malloc(needed * sizeof(char));
+
+			int pushed = 0;
+
+			// Push the prefix of our message (everything before the '_').
+			for (int i = 0; i < prefix; i++)
+				greeting[pushed++] = message[i];
+
+			// Push the user's name.
+			for (int i = 0; i < name_len; i++)
+				greeting[pushed++] = name[i];
+
+			// Push the suffix of our message (everything after the '_').
+			for (int i = 0; i < (suffix - prefix); i++)
+				greeting[pushed++] = message[prefix + 1 + i];
+
+			// Push the null terminator.
+			greeting[pushed] = '\0';
+
+			printf("%s\n", greeting); // Print the greeting.
+
+			free(greeting); // Free the allocated memory.
+		}
+
+		return 0;
+	}
+</pre>
+<p>
+So what's happening, exactly? There's obviously many more lines and a call to <code>malloc</code>, but why should this sway you to use allocators and do things yourself? Well first, <code>malloc</code> is a somewhat slow, generalized procedure meant to handle every case for anybody programming in C. Using it for everything leads to buggy, memory leak-ridden code that's harder to maintain and isn't very fun to write. Pair it with C-style strings and you have a rather shitty programming experience that you definitely wouldn't rate 5 stars on Yelp or any other restaurant review website. However, C is a language that allows us to do almost any programming-related thing we'd like, including making string concatenation and managing memory much nicer. This is done by <q>optimizing</q> or customizing for the cases we care about, similarly to how Python has optimized its semantics for that case in the first example. Here's another C example that <q>optimizes</q> string concatenation using a custom allocator.
+</p>
+<pre class='block lang-c'>
+	#include "allocators.h"
+	#include "utilities.h"
+
+	static char *names[] = {
+		"Bob",
+		"Doug",
+		"Other Doug",
+		"Bob, but worse",
+		"Brother of Doug",
+	};
+
+	static char *messages[] = {
+		"Hello, _!",
+		"How's it going, _?",
+		"Howdy, _.",
+	};
+
+	int
+	main(int argc, char* argv[])
+	{
+		// Allocate more than enough memory for our program to run.
+		Static_Allocator allocator = make_static_allocator(Mb(1)); 
+
+		for_each(char *name, names, {
+			char *message  = get_random_message();
+			char *greeting = push_char(&allocator, 0);
+
+			// Iterate through each character in 'message'.
+			for_each(char chr, message, {
+				// If the current character is an underscore, push the
+				// entirety of the user's name in its place.
+				if (chr == '_') {
+					push_string(&allocator, name);
+				}
+				else {
+					push_char(&allocator, chr);
+				}
+			});
+
+			// Push the null terminator and print our greeting.
+			push_char(&allocator, '\0');
+			print("%s\n", greeting);
+		});
+
+		release_allocator(&allocator);
+		return 0;
+	}
+</pre>
+<p>
+Nice! Much shorter and easier to understand! Suddenly the manual work we did in the last example doesn't feel so manual. We <q>optimized</q> by making helper functions/macros like <code>for_each</code>, <code>push_char</code>, and <code>push_string</code>. However, unlike the previous example, it's no longer obvious when memory is allocated. Is <code>push_char</code> doing it? How about <code>push_string</code>? It's actually neither, <code>allocator</code> is doing that for us when we make it! Notice that we didn't have to free each string we created. Instead we simply <q>released</q> our custom allocator at the end of <code>main</code>. The scary memory leaks everyone keeps talking about simply aren't possible if we design and use the language in this way. Let's look inside <code>Static_Allocator</code> to see how and why this works.
+</p>
+<pre class='block lang-c'>
+	typedef struct static_allocator {
+		s64 length;
+		s64 occupied;
+		u8* memory;
+	} Static_Allocator;
+
+	Static_Allocator
+	make_static_allocator(s64 length)
+	{
+		Static_Allocator new_allocator = {0};
+		new_allocator.length = length;
+		new_allocator.memory = malloc(length);
+
+		assert(new_allocator.memory != NULL); // If this fails our program shouldn't run.
+		return new_allocator;
+	}
+
+	void *
+	alloc(Static_Allocator *allocator, s64 size)
+	{
+		// Align the size we wish to allocate.
+		s64 aligned = (size + 7) & ~7;
+
+		// Get the position in allocator->memory we're allocating from.
+		s64 offset  = allocator->occupied + aligned;
+
+		// If our allocator ran out of memory. Error handle accordingly.
+		if offset > allocator->length return NULL;
+
+		// Move our allocator forward and return a pointer to the new position.
+		allocator->occupied += aligned;
+		u8 *pointer = allocator->memory + (offset - aligned);
+
+		return pointer;
+	}
+
+	void
+	release_allocator(Static_Allocator *allocator)
+	{
+		free(allocator->memory);
+		allocator->length   = 0;
+		allocator->occupied = 0;
+	}
+</pre>
+<p>
+This is all the code we need to create a simple allocator that solves the problems we had in the beginning. Note that while ours is called <code>Static_Allocator</code> <em>(because it allocates a block of memory that never resizes)</em>, this kind is commonly called an Arena: an allocator that frees its memory all at once, hence the lack of a custom <code>free</code> procedure. This kind of allocator is perfect for what we were trying to do: allocate a bunch of strings, use them, then free them. It, however, isn't the end-all-be-all for allocators. There's many different kinds we can use in a variety of different contexts: Push Allocators, Buddy Allocators, Pool Allocators, Free List Allocators, etc; the possibilities are <em>literally</em> endless. Your boner for Big-O notation can now grow exponentially.
+</p>
+<p>
+But before you embark on your journey of custom allocators, doing C, being cool, and also becoming a low-level programming zealot that writes off any new language or idea or group of people, here's a few tips that'll make your new allocating life easier.
+</p>
+<p>
+1) Each allocator should have the same interface; that is they should be used the same by the programmer. Sure they can have different ways of initialization, but the ways you <code>alloc</code>, <code>release</code>, and <code>resize</code> with them should be the same. It's very poor design to have a <code>pool_alloc</code> procedure that has completely different arguments than an <code>arena_alloc</code> one. If possible, utilize <a href='https://en.cppreference.com/w/c/language/generic#Example'>C _Generic macros</a> or <a href='https://en.cppreference.com/w/cpp/language/templates'>C++ Templates <em>(oh no)</em></a>. Like most things in programming, however, this isn't a dead-set rule; only something to keep in mind when designing the API.
+</p>
+<p>
+2) Static Allocators <em>(ones that never resize their main memory block)</em> should crash if initialization fails! This is because they're usually the <strong>only</strong> memory your program uses, and if it can't use that, it can't run. This might sound like a bad idea, or unnecessarily restrictive, but working with slight memory limitations is quite nice and actually leads to nicer designs. Also, if your program can't allocate your allocator's memory block, there are much larger problems ahead.
+</p>
+<p>
+3) Due to allocators giving you full control over the <q>allocation scheme</q> of your program, you can directly track and alert for double frees, leaks, etc. The <code>__LINE__</code> and <code>__FILE__</code> directives are your best friends in this scenario.
+</p>
+<p>
+Hopefully this post taught you something or made some parts of lower-level programming less taboo or scary. Thanks for reading :)
+</p>
+
+        </article>
+
+        <aside>
+            <span>Posted: 2021/07/19, Updated: September 10, 2021</span>
+        </aside>
+    </main>
+</body>
+</html>

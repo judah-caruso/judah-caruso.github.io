@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png"
+    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAkCAYAAADo6zjiAAAACXBIWXMAAAPoAAAD6AG1e1JrAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAK9JREFUWIXtWEEOgCAMK8YnslfCH/WiiQECTqc1Zr1JkJWWdISADTHGBS8i5xwAIDCKH0kEVvEdE7M4AMzlQEpJtYCIVGO9Ncr55gpoN0C3gE6gOgOlR6WkLc97GM3vKtDyU+vxCHQLLhGwVKFKwrs5MPr/8RzQ4hQBEVGffjMCx8JnSGiJejd0Aub3AW3voCvgBIY5oPX0n73g1wSqHLCG58DnCfh9gP9AsX+wnmhW1GlFK0LJsVcAAAAASUVORK5CYII=" />
+    <!-- NORMALIZE CSS -->
+<style>
+    /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+
+    /* Document
+       ========================================================================== */
+
+    /**
+     * 1. Correct the line height in all browsers.
+     * 2. Prevent adjustments of font size after orientation changes in iOS.
+     */
+
+    html {
+      line-height: 1.15; /* 1 */
+      -webkit-text-size-adjust: 100%; /* 2 */
+    }
+
+    /* Sections
+       ========================================================================== */
+
+    /**
+     * Remove the margin in all browsers.
+     */
+
+    body {
+      margin: 0;
+    }
+
+    /**
+     * Render the `main` element consistently in IE.
+     */
+
+    main {
+      display: block;
+    }
+
+    /**
+     * Correct the font size and margin on `h1` elements within `section` and
+     * `article` contexts in Chrome, Firefox, and Safari.
+     */
+
+    h1 {
+      font-size: 2em;
+      margin: 0.67em 0;
+    }
+
+    /* Grouping content
+       ========================================================================== */
+
+    /**
+     * 1. Add the correct box sizing in Firefox.
+     * 2. Show the overflow in Edge and IE.
+     */
+
+    hr {
+      box-sizing: content-box; /* 1 */
+      height: 0; /* 1 */
+      overflow: visible; /* 2 */
+    }
+
+    /**
+     * 1. Correct the inheritance and scaling of font size in all browsers.
+     * 2. Correct the odd `em` font sizing in all browsers.
+     */
+
+    pre {
+      font-family: monospace, monospace; /* 1 */
+      font-size: 1em; /* 2 */
+    }
+
+    /* Text-level semantics
+       ========================================================================== */
+
+    /**
+     * Remove the gray background on active links in IE 10.
+     */
+
+    a {
+      background-color: transparent;
+    }
+
+    /**
+     * 1. Remove the bottom border in Chrome 57-
+     * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+     */
+
+    abbr[title] {
+      border-bottom: none; /* 1 */
+      text-decoration: underline; /* 2 */
+      text-decoration: underline dotted; /* 2 */
+    }
+
+    /**
+     * Add the correct font weight in Chrome, Edge, and Safari.
+     */
+
+    b,
+    strong {
+      font-weight: bolder;
+    }
+
+    /**
+     * 1. Correct the inheritance and scaling of font size in all browsers.
+     * 2. Correct the odd `em` font sizing in all browsers.
+     */
+
+    code,
+    kbd,
+    samp {
+      font-family: monospace, monospace; /* 1 */
+      font-size: 1em; /* 2 */
+    }
+
+    /**
+     * Add the correct font size in all browsers.
+     */
+
+    small {
+      font-size: 80%;
+    }
+
+    /**
+     * Prevent `sub` and `sup` elements from affecting the line height in
+     * all browsers.
+     */
+
+    sub,
+    sup {
+      font-size: 75%;
+      line-height: 0;
+      position: relative;
+      vertical-align: baseline;
+    }
+
+    sub {
+      bottom: -0.25em;
+    }
+
+    sup {
+      top: -0.5em;
+    }
+
+    /* Embedded content
+       ========================================================================== */
+
+    /**
+     * Remove the border on images inside links in IE 10.
+     */
+
+    img {
+      border-style: none;
+    }
+
+    /* Forms
+       ========================================================================== */
+
+    /**
+     * 1. Change the font styles in all browsers.
+     * 2. Remove the margin in Firefox and Safari.
+     */
+
+    button,
+    input,
+    optgroup,
+    select,
+    textarea {
+      font-family: inherit; /* 1 */
+      font-size: 100%; /* 1 */
+      line-height: 1.15; /* 1 */
+      margin: 0; /* 2 */
+    }
+
+    /**
+     * Show the overflow in IE.
+     * 1. Show the overflow in Edge.
+     */
+
+    button,
+    input { /* 1 */
+      overflow: visible;
+    }
+
+    /**
+     * Remove the inheritance of text transform in Edge, Firefox, and IE.
+     * 1. Remove the inheritance of text transform in Firefox.
+     */
+
+    button,
+    select { /* 1 */
+      text-transform: none;
+    }
+
+    /**
+     * Correct the inability to style clickable types in iOS and Safari.
+     */
+
+    button,
+    [type="button"],
+    [type="reset"],
+    [type="submit"] {
+      -webkit-appearance: button;
+    }
+
+    /**
+     * Remove the inner border and padding in Firefox.
+     */
+
+    button::-moz-focus-inner,
+    [type="button"]::-moz-focus-inner,
+    [type="reset"]::-moz-focus-inner,
+    [type="submit"]::-moz-focus-inner {
+      border-style: none;
+      padding: 0;
+    }
+
+    /**
+     * Restore the focus styles unset by the previous rule.
+     */
+
+    button:-moz-focusring,
+    [type="button"]:-moz-focusring,
+    [type="reset"]:-moz-focusring,
+    [type="submit"]:-moz-focusring {
+      outline: 1px dotted ButtonText;
+    }
+
+    /**
+     * Correct the padding in Firefox.
+     */
+
+    fieldset {
+      padding: 0.35em 0.75em 0.625em;
+    }
+
+    /**
+     * 1. Correct the text wrapping in Edge and IE.
+     * 2. Correct the color inheritance from `fieldset` elements in IE.
+     * 3. Remove the padding so developers are not caught out when they zero out
+     *    `fieldset` elements in all browsers.
+     */
+
+    legend {
+      box-sizing: border-box; /* 1 */
+      color: inherit; /* 2 */
+      display: table; /* 1 */
+      max-width: 100%; /* 1 */
+      padding: 0; /* 3 */
+      white-space: normal; /* 1 */
+    }
+
+    /**
+     * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+     */
+
+    progress {
+      vertical-align: baseline;
+    }
+
+    /**
+     * Remove the default vertical scrollbar in IE 10+.
+     */
+
+    textarea {
+      overflow: auto;
+    }
+
+    /**
+     * 1. Add the correct box sizing in IE 10.
+     * 2. Remove the padding in IE 10.
+     */
+
+    [type="checkbox"],
+    [type="radio"] {
+      box-sizing: border-box; /* 1 */
+      padding: 0; /* 2 */
+    }
+
+    /**
+     * Correct the cursor style of increment and decrement buttons in Chrome.
+     */
+
+    [type="number"]::-webkit-inner-spin-button,
+    [type="number"]::-webkit-outer-spin-button {
+      height: auto;
+    }
+
+    /**
+     * 1. Correct the odd appearance in Chrome and Safari.
+     * 2. Correct the outline style in Safari.
+     */
+
+    [type="search"] {
+      -webkit-appearance: textfield; /* 1 */
+      outline-offset: -2px; /* 2 */
+    }
+
+    /**
+     * Remove the inner padding in Chrome and Safari on macOS.
+     */
+
+    [type="search"]::-webkit-search-decoration {
+      -webkit-appearance: none;
+    }
+
+    /**
+     * 1. Correct the inability to style clickable types in iOS and Safari.
+     * 2. Change font properties to `inherit` in Safari.
+     */
+
+    ::-webkit-file-upload-button {
+      -webkit-appearance: button; /* 1 */
+      font: inherit; /* 2 */
+    }
+
+    /* Interactive
+       ========================================================================== */
+
+    /*
+     * Add the correct display in Edge, IE 10+, and Firefox.
+     */
+
+    details {
+      display: block;
+    }
+
+    /*
+     * Add the correct display in all browsers.
+     */
+
+    summary {
+      display: list-item;
+    }
+
+    /* Misc
+       ========================================================================== */
+
+    /**
+     * Add the correct display in IE 10+.
+     */
+
+    template {
+      display: none;
+    }
+
+    /**
+     * Add the correct display in IE 10.
+     */
+
+    [hidden] {
+      display: none;
+    }
+</style>
+
+<!-- SITE CSS -->
+<style>
+    :root {
+        --var_background           : #ececec;
+        --var_foreground           : #242424;
+        --var_link_background      : #e2e2e2;
+        --var_link_foreground      : #242424;
+        --var_scrollbar_background : #c0c0c0;
+    }
+
+
+    :focus      { outline: none;                                                         }
+    ::selection { color: var(--var_background); background-color: var(--var_foreground); }
+
+    body::-webkit-scrollbar             { width        : 1em;                                       }
+    body::-webkit-scrollbar-thumb       { border-right : 8px solid var(--var_scrollbar_background); }
+    body::-webkit-scrollbar-thumb:hover { border-right : 8px solid var(--var_foreground);           }
+
+    pre::-webkit-scrollbar             { width         : 1em;                                       }
+    pre::-webkit-scrollbar-thumb       { border-bottom : 8px solid var(--var_scrollbar_background); }
+    pre::-webkit-scrollbar-thumb:hover { border-bottom : 8px solid var(--var_foreground);           }
+
+    summary::-webkit-details-marker { display        : none;              }
+    details summary::before         { padding        : 5px; content: "+"; }
+    details[open] summary::before   { padding        : 5px; content: "-"; }
+    details                         { padding-bottom : 5px;               }
+
+    html {
+        quotes     : initial;
+        overflow-y : scroll; 
+    }
+
+    html, body { padding: 0; margin: 0; }
+
+    body {
+        color            : var(--var_foreground);
+        background-color : var(--var_background);
+        font-size        : 13pt;
+        line-height      : 1.60;
+        margin           : 0 auto;
+        height           : 100%;
+        max-width        : 800px;
+        overflow-x       : hidden;
+        padding-bottom   : 25px;
+        padding-top      : 25px;
+        font-family      : monospace;
+    }
+
+    a {
+        color          : var(--var_link_foreground);
+        padding        : 0;
+        padding-inline : 4px;
+    }
+
+    a:hover {
+        color            : #ffffff;
+        background-color : #242424;
+        text-decoration  : none;
+    }
+
+    p {
+        font-family : serif;
+        font-size   : 13.5pt;
+        text-align  : justify;
+    }
+
+    h1 {
+        font-size   : 1.8em;
+        font-weight : normal;
+        line-height : 1;
+    }
+
+    h2 {
+        font-size      : 1.3em;
+        font-weight    : normal;
+        line-height    : 1;
+        padding-top    : 5px;
+        padding-bottom : 5px;
+    }
+
+    h2:before {
+        content: ":: ";
+    }
+
+    header {
+        display : inline-block;
+        height  : 100%;
+        width   : 50px;
+    }
+
+    header a       { all    : revert;            }
+    header a:hover { all    : revert;            }
+    header svg     { height : 100%; width: 100%; }
+
+    nav {
+        display        : inline-block;
+        vertical-align : super;
+    }
+
+    nav ul {
+        padding       : 0;
+        margin        : 0;
+        margin-block  : 0;
+        margin-inline : 0;
+        list-style    : none;
+    }
+
+    nav ul li { display: inline-block; }
+
+    pre  { tab-size    : 2;                     }
+    code { font-weight : bold; font-size: 13pt; }
+
+    main aside      { display: block; width      : 100%;                   }
+    main aside span { display: block; text-align : right; font-size: 12pt; }
+
+    #logo-bg {
+        fill   : var(--var_link_background);
+        stroke : var(--var_link_background);
+    }
+
+    #logo-bg:hover {
+        fill   : #242424;
+        stroke : #242424;
+    }
+
+    #logo-mid {
+        fill           : #ffffff;
+        stroke         : #ffffff;
+        pointer-events : none;
+    }
+
+    #logo-fg {
+        fill           : none;
+        stroke         : #ffffff;
+        pointer-events : none;
+    }
+
+    #info p      { font-family: monospace; font-size: 12pt; }
+    #outro       { transition: opacity 0.2s; /* filter: blur(2px); */ opacity: 0.30; }
+    #outro:hover { transition: opacity 0.2s; /* filter: blur(0); */ opacity: 1; }
+
+    .block {
+        display          : block;
+        background-color : var(--var_link_background);
+        font-weight      : normal;
+        line-height      : 1.2em;
+        padding          : 20px 0 10px 0;
+        overflow-x       : scroll;
+    }
+
+    .break { display: block; padding: 10px; }
+
+    .project {
+    }
+
+    .project span {
+        display: inline-block;
+        font-weight: bold;
+    }
+
+    .project sub {
+        opacity        : 50%;
+        display        : block;
+        font-size      : 12pt;
+        font-style     : italic;
+        vertical-align : unset;
+        bottom         : 0;
+        line-height    : 1em;
+        padding-bottom : 10px;
+    }
+
+    .project div:before {
+        content: "|";
+    }
+
+    .project div {
+        display: inline-block;
+    }
+
+    .project div a {
+        display: inline-block;
+    }
+
+    .project p {
+        margin         : 0;
+        padding-bottom : 20px;
+        line-height    : 1.35;
+    }
+
+    /* Mobile/low-width */
+    @media (max-width: 800px) and (min-width: 501px) {
+        header { display : block; margin     : 0 auto; }
+        nav    { display : block; text-align : center; }
+        hr     { width   : 80%;                        }
+
+        footer div, main { width: 80%; margin: 0 auto; }
+
+        p { text-align: revert !important; }
+    }
+
+    @media (max-width: 500px) and (min-width: 351px) {
+        header { display : block; margin     : 0 auto; }
+        nav    { display : block; text-align : center; }
+        hr     { width   : 80%;                        }
+
+        footer div, main { width: 80%; margin: 0 auto; }
+
+        footer                       { text-align : center;          }
+        footer div span:nth-child(2) { display    : none;            }
+        footer div span:nth-child(1) { float      : none !important; }
+
+        p { text-align: revert !important; }
+    }
+
+    @media (max-width: 350px) {
+        header { display : block; margin     : 0 auto; }
+        nav    { display : block; text-align : center; }
+        hr     { width   : 80%;                        }
+
+        footer div, main { width: 70%; margin: 0 auto; }
+
+        footer                       { text-align : center;          }
+        footer div span:nth-child(2) { display    : none;            }
+        footer div span:nth-child(1) { float      : none !important; }
+
+        p { text-align: revert !important; }
+    }
+</style>
+    <title>JC: Back Online</title>
+</head>
+<body>
+    <main>
+        <header>
+    <svg version="1.1" width="121" height="136" style="fill:none" id="svg75" xmlns="http://www.w3.org/2000/svg"
+        xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 121 136">
+        <a xlink:href="/">
+            <!-- 121, 136 -->
+            <defs id="defs31" />
+            <path id="logo-bg" d="M 8,8 V 8 H 113 V 128 H 8 Z"
+                style="stroke-width:16;stroke-linecap:round;stroke-linejoin:bevel" id="path21" />
+            <path id="logo-fg"
+                d="M 23,23 H 38 A 15,30 0 0 1 23,53 m 0,30 v 0 H 53 M 98,23 v 0 H 83 V 53 H 98 M 83,83 v 0 30 m 0,-15 v 0 H 98 M 38,83 v 0 30 m 0,-90 v 0 h 15 m -15,0 a 15,30 0 0 0 15,30"
+                style="stroke-width:16;stroke-linecap:square;stroke-linejoin:bevel" id="path25" />
+        </a>
+    </svg>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="/info">Info</a></li>
+        <li><a href="/projects">Projects</a></li>
+    </ul>
+</nav>
+
+<hr />
+
+        
+        <article>
+            <h1>Back Online</h1>
+            <p>
+After many moons the most active blog in the world is now back online. I can't say there were many reasons for it being offline besides someone stealing my original domain&mdash;which I had been wanting to get rid of anyways&mdash;and a lack of interest in rebuilding my site generator; another thing I had wanted to do but didn't feel the need to start. That was until one fruitful night when YouTube decided to recommend me a slew of
+
+<a href='https://www.youtube.com/channel/UCzdg4pZb-viC3EdA1zxRl4A'>Hundred Rabbits</a>
+
+videos. If you're unfamiliar with them, take a moment to click that link and watch some of their videos, it'll be much more interesting than this post.
+</p>
+<p>
+I'd been a fan of 100r' tools for as long as I can remember, but never knew they made video content. From using
+
+<a href='https://wiki.xxiivv.com/site/pilot.html'>Pilot</a>
+
+and
+
+<a href='https://wiki.xxiivv.com/site/orca.html'>Orca</a>
+
+to redesigning my "logo" in
+
+<a href='https://100r.co/site/dotgrid'>Dotgrid</a>,
+
+even utilizing
+
+<a href='https://100r.co/site/left.html'>Left</a>
+
+during my time as a writer, I was, and still am, a fan. Stumbling on their videos expanded, or rather informed, my preconceived notions of minimalism in life and in software.
+</p>
+<p>
+Sure designing a user-interface with few buttons, boxes, and text is <em>one</em> way to achieve something close in definition, but is a lack of <q>click me</q> buttons really minimal? To me, no. Minimalism, in the software-sense at least, is function over form, in-line over compression. Here's an example of what I mean. The following code takes input like "Hello, World" and splits it into identifiers and delimiters like <code>Hello</code> and <code>,</code> and <code>World</code>.
+</p>
+<pre class='block lang-c'>
+	int
+	main(int argc, char* argv[])
+	{
+		char* words = "This is a test.\nThese are some words :)\n";
+
+		char current = 0;
+		while ((current = *words++)) {
+			// Skip all whitespace.
+			if (current == ' ' || current == '\n') continue;
+
+			// Identifiers
+			if (is_letter(current)) {
+				char* identifier = start_string(current);
+
+				while ((current = *words++) && is_letter(current)) {
+					push_char(current);
+				}
+
+				end_string();
+
+				printf("Identifier: %s\n", identifier);
+				continue;
+			}
+
+			// Valid delimiters
+			switch (current) {
+				case '.':
+				case ',':
+				case ':':
+				case '(':
+				case ')': {
+					printf("Delimiter: %c\n", current);
+					continue;
+				} break;
+			}
+
+			// Invalid values
+			printf("Invalid character: %c\n", current);
+			break;
+		}
+
+		return 0;
+	}
+</pre>
+<p>
+It would be very easy to compress this example, implementing functions like <code>valid_delimiter</code>, <code>consume_identifier</code>, even <code>process_string</code> (which may be what we already have, just with a <code>char* string_to_process</code> argument). In practice this wouldn't be a terrible idea if we <em>knew</em> those functions were going to be needed later on, but we don't know that yet.
+</p>
+<p>
+This is where the problem starts, we all know this about the code we write. We write something and think, "we might need this later" and do what we were taught: split the code into its own function, genericize it (within reason), and provide a simple API for outside code. Using these steps on the code above, we might split that delimiter switch into something like <code>bool valid_delimiter(char chr)</code> and plop that switch directly in the function. However, instead of handling the <q>we found a valid delimiter</q> situation where we did before, we simply return <code>true</code> and let the caller handle that for us. We've essentially created a higher level abstraction for a switch statement used in one place.
+</p>
+<p>
+Let's expand and say we do need that abstracted away, as we've started parsing numbers and want to check if they contain periods, dashes, underscores, etc. It's tempting&mdash;and easy&mdash;to do something like:
+</p>
+<p>
+You'll notice two small bugs in what we consider to be a number, and in how we capture a number: we only begin capturing a number if we find a digit; negative numbers and small floats be gone! We also only consider something as part of a number if it's a digit, period, underscore, or dash. However, our <code>valid_delimiter</code> function does not care about that distinction. We might cut out the middle man and write a <code>valid_numeric_delimiter</code> function, but then we have another problem: numbers can contain a subset of delimiters; ones we still care about in other contexts. This means we'd have to incorporate our <code>valid_numeric_delimiter</code> function into our <code>valid_delimiter</code> function. This suddenly turns the <code>valid_delimiter</code> function into a dispatch for delimiter subset matching functions? Whatever that means.
+</p>
+<p>
+What if identifiers are allowed to use underscores and dashes, too? Do we now create a <code>valid_identifier_delimiter</code> function that gets called in <code>valid_delimiter</code>? This thought process has the possibility of taking miles, while giving less than inches.
+</p>
+<p>
+This is a small problem I'm choosing to over-complicate to prove a point. In the quest to compress code early, we put ourselves in the mindset of compressing everything as soon as we have the opportunity to. As programmers, we like consistency. Consistency in our tools, consistency in our code, consistency in our methodologies. If one of our methods is to write small, general-purpose functions out of anything we repeat once or twice, in order to stay consistent, we're going to write small, general-purpose functions out of anything we repeat once or twice. What's a programmer without rules and processes they follow rigorously and defend to the death?
+</p>
+<p>
+So how does this tie into Hundred Rabbits, my site generator, and minimalism?
+</p>
+<p>
+I had originally written my site generator in Go. It was an overly complex mess with its own templating engine where templates could include other templates and pass metadata to and from. If a post used a template, it would recursively resolve and <q>fill in the blanks</q> for each template required. This was all for a static blog. Not a <em>super</em> cool blog with tons of users and a forum and a Patreon and a newsletter. Just something I would (very) occasionally post on. Funnily enough the templates even suffered from the over-the-top compression I was just talking about. Who knows how many times you'll need to use <em>just</em> the profile picture and site name template.
+</p>
+<p>
+But that doesn't answer the question of why I swapped from Go to C for the rewrite? As much as I like Go as a language (quite a lot), it's not nearly as simple as C. In C I can write everything myself and know exactly what's happening, and more importantly, what's generated. In Go I don't have this luxury. Of course I can avoid using the higher level interfaces provided by the standard library and try calling into the system directly. But then, due to Go's design, I'm forced to wrap things in unsafe (like a dirty Rust programmer) and deal with any oddities of the interop system. Unfortunately that still leaves the issue of knowing <em>what</em> is generated by Go. Because of its higher-level nature, no line of code is ever as it seems. Everything has to be managed by the garbage collector and runtime. This was something I wanted to avoid for this project.
+</p>
+<p>
+I'm pleased to say that rewriting this tool has been an enjoyable experience in both furthering my ability to write minimal code and learning how to not over-engineer a problem. I think a lot of programmers (myself included) obsess over aesthetics and use that to solve the problems they're working on sometimes; the <q>right</q> solution should be aesthetically pleasing, right? This, however, isn't true. Good, efficient code isn't always aesthetically pleasing. For instance, some of the original lexing/parsing code
+
+<a href='https://www.youtube.com/watch?v=0woxSWjWsb8&t=4450s'>Per Vognsen</a>
+
+wrote during his compiler series was auto generated by a simple Python script and didn't go anywhere until many episodes later when it actually needed to.
+</p>
+<p>
+Current-day-me tends to write code this way; in-line unless necessary and avoid sprawling interfaces. However, this was one of the rare times I tried thinking about it directly, fighting against the draw of perceived simplicity. I both won and lost. See <code>void consume_tags(Post*, char**)</code>, a function used one time, in one place, for one task. Progress, but we're not out of the woods yet.
+</p>
+<code>Small code != simple code.</code>
+
+        </article>
+
+        <aside>
+            <span>Posted: 2021/05/28, Updated: September 10, 2021</span>
+        </aside>
+    </main>
+</body>
+</html>

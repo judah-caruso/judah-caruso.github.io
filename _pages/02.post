@@ -1,0 +1,133 @@
+\meta-title  { Back Online }
+\meta-date   { 2021/05/28 }
+\meta-edited { 2021/09/10 }
+\meta-kind   { blog }
+
+\paragraph {
+	After many moons the most active blog in the world is now back online. I can't say there were many reasons for it being offline besides someone stealing my original domain\dash{}which I had been wanting to get rid of anyways\dash{}and a lack of interest in rebuilding my site generator; another thing I had wanted to do but didn't feel the need to start. That was until one fruitful night when YouTube decided to recommend me a slew of
+
+	\link{https://www.youtube.com/channel/UCzdg4pZb-viC3EdA1zxRl4A Hundred Rabbits}
+
+	videos. If you're unfamiliar with them, take a moment to click that link and watch some of their videos, it'll be much more interesting than this post.
+}
+
+\paragraph{
+	I'd been a fan of 100r' tools for as long as I can remember, but never knew they made video content. From using
+
+	\link{https://wiki.xxiivv.com/site/pilot.html Pilot}
+
+	and
+
+	\link{https://wiki.xxiivv.com/site/orca.html Orca}
+
+	to redesigning my "logo" in
+
+	\link{https://100r.co/site/dotgrid Dotgrid},
+
+	even utilizing
+
+	\link{https://100r.co/site/left.html Left}
+
+	during my time as a writer, I was, and still am, a fan. Stumbling on their videos expanded, or rather informed, my preconceived notions of minimalism in life and in software.
+}
+
+\paragraph{
+	Sure designing a user-interface with few buttons, boxes, and text is \italic{one} way to achieve something close in definition, but is a lack of \quote{click me} buttons really minimal? To me, no. Minimalism, in the software-sense at least, is function over form, in-line over compression. Here's an example of what I mean. The following code takes input like "Hello, World" and splits it into identifiers and delimiters like \monospace{Hello} and \monospace{,} and \monospace{World}.
+}
+
+\code-c{
+	int
+	main(int argc, char* argv[])
+	\{
+		char* words = "This is a test.\\nThese are some words :)\\n";
+
+		char current = 0;
+		while ((current = *words++)) \{
+			// Skip all whitespace.
+			if (current == ' ' || current == '\\n') continue;
+
+			// Identifiers
+			if (is_letter(current)) \{
+				char* identifier = start_string(current);
+
+				while ((current = *words++) && is_letter(current)) \{
+					push_char(current);
+				\}
+
+				end_string();
+
+				printf("Identifier: %s\\n", identifier);
+				continue;
+			\}
+
+			// Valid delimiters
+			switch (current) \{
+				case '.':
+				case ',':
+				case ':':
+				case '(':
+				case ')': \{
+					printf("Delimiter: %c\\n", current);
+					continue;
+				\} break;
+			\}
+
+			// Invalid values
+			printf("Invalid character: %c\\n", current);
+			break;
+		\}
+
+		return 0;
+	\}
+}
+
+\paragraph{
+    It would be very easy to compress this example, implementing functions like \monospace{valid_delimiter}, \monospace{consume_identifier}, even \monospace{process_string} (which may be what we already have, just with a \monospace{char* string_to_process} argument). In practice this wouldn't be a terrible idea if we \italic{knew} those functions were going to be needed later on, but we don't know that yet.
+}
+
+\paragraph {
+    This is where the problem starts, we all know this about the code we write. We write something and think, "we might need this later" and do what we were taught: split the code into its own function, genericize it (within reason), and provide a simple API for outside code. Using these steps on the code above, we might split that delimiter switch into something like \monospace{bool valid_delimiter(char chr)} and plop that switch directly in the function. However, instead of handling the \quote{we found a valid delimiter} situation where we did before, we simply return \monospace{true} and let the caller handle that for us. We've essentially created a higher level abstraction for a switch statement used in one place.
+}
+
+\paragraph {
+    Let's expand and say we do need that abstracted away, as we've started parsing numbers and want to check if they contain periods, dashes, underscores, etc. It's tempting\dash{}and easy\dash{}to do something like:
+}
+
+
+\paragraph{
+    You'll notice two small bugs in what we consider to be a number, and in how we capture a number: we only begin capturing a number if we find a digit; negative numbers and small floats be gone! We also only consider something as part of a number if it's a digit, period, underscore, or dash. However, our \monospace{valid_delimiter} function does not care about that distinction. We might cut out the middle man and write a \monospace{valid_numeric_delimiter} function, but then we have another problem: numbers can contain a subset of delimiters; ones we still care about in other contexts. This means we'd have to incorporate our \monospace{valid_numeric_delimiter} function into our \monospace{valid_delimiter} function. This suddenly turns the \monospace{valid_delimiter} function into a dispatch for delimiter subset matching functions? Whatever that means.
+}
+
+\paragraph {
+    What if identifiers are allowed to use underscores and dashes, too? Do we now create a \monospace{valid_identifier_delimiter} function that gets called in \monospace{valid_delimiter}? This thought process has the possibility of taking miles, while giving less than inches.
+}
+
+\paragraph {
+    This is a small problem I'm choosing to over-complicate to prove a point. In the quest to compress code early, we put ourselves in the mindset of compressing everything as soon as we have the opportunity to. As programmers, we like consistency. Consistency in our tools, consistency in our code, consistency in our methodologies. If one of our methods is to write small, general-purpose functions out of anything we repeat once or twice, in order to stay consistent, we're going to write small, general-purpose functions out of anything we repeat once or twice. What's a programmer without rules and processes they follow rigorously and defend to the death?
+}
+
+\paragraph {
+	So how does this tie into Hundred Rabbits, my site generator, and minimalism?
+}
+
+\paragraph{
+    I had originally written my site generator in Go. It was an overly complex mess with its own templating engine where templates could include other templates and pass metadata to and from. If a post used a template, it would recursively resolve and \quote{fill in the blanks} for each template required. This was all for a static blog. Not a \italic{super} cool blog with tons of users and a forum and a Patreon and a newsletter. Just something I would (very) occasionally post on. Funnily enough the templates even suffered from the over-the-top compression I was just talking about. Who knows how many times you'll need to use \italic{just} the profile picture and site name template.
+}
+
+\paragraph{
+    But that doesn't answer the question of why I swapped from Go to C for the rewrite? As much as I like Go as a language (quite a lot), it's not nearly as simple as C. In C I can write everything myself and know exactly what's happening, and more importantly, what's generated. In Go I don't have this luxury. Of course I can avoid using the higher level interfaces provided by the standard library and try calling into the system directly. But then, due to Go's design, I'm forced to wrap things in unsafe (like a dirty Rust programmer) and deal with any oddities of the interop system. Unfortunately that still leaves the issue of knowing \italic{what} is generated by Go. Because of its higher-level nature, no line of code is ever as it seems. Everything has to be managed by the garbage collector and runtime. This was something I wanted to avoid for this project.
+}
+
+\paragraph{
+    I'm pleased to say that rewriting this tool has been an enjoyable experience in both furthering my ability to write minimal code and learning how to not over-engineer a problem. I think a lot of programmers (myself included) obsess over aesthetics and use that to solve the problems they're working on sometimes; the \quote{right} solution should be aesthetically pleasing, right? This, however, isn't true. Good, efficient code isn't always aesthetically pleasing. For instance, some of the original lexing/parsing code
+
+    \link{https://www.youtube.com/watch?v=0woxSWjWsb8&t=4450s Per Vognsen}
+
+    wrote during his compiler series was auto generated by a simple Python script and didn't go anywhere until many episodes later when it actually needed to.
+}
+
+\paragraph{
+    Current-day-me tends to write code this way; in-line unless necessary and avoid sprawling interfaces. However, this was one of the rare times I tried thinking about it directly, fighting against the draw of perceived simplicity. I both won and lost. See \monospace{void consume_tags(Post*, char**)}, a function used one time, in one place, for one task. Progress, but we're not out of the woods yet.
+}
+
+\monospace{ Small code != simple code. }

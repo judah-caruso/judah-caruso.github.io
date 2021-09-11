@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    \include{meta.html}
+    \include{style.html}
+    <title>JC: Information</title>
+</head>
+<body>
+    \include{header.html}
+
+    <main>
+        <article id="info">
+            <p>
+                Hi,
+
+                <span class="break"></span>
+
+                I'm Judah! A programmer, music producer, and game designer.
+
+                <span class="break"></span>
+
+                <span id="outro">Thanks for taking a look at my site &#9829;</span>
+            </p>
+        </article>
+    </main>
+
+    \include{footer.html}
+
+    <script>
+        window.addEventListener("load", function (event) {
+            var info             = document.getElementById("info");
+            var element          = info.children[0];
+            var element_original = element.innerHTML;
+
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghhijklmnopqrstuvwxyz0123456789@#$%^&*()_+=-";
+            var intro_time  = 13;
+            var update_rate = 30;
+
+            var shuffleCharacter = function(chr) {
+                switch (chr) {
+                    case "\n":
+                    case "\t":
+                    case "'":
+                    case ",":
+                    case ".":
+                    case "!":
+                    case " ":
+                        return chr;
+                        break;
+                    default:
+                        return chars[Math.floor(Math.random() * chars.length)];
+                }
+            };
+
+            var interval = setInterval(function() {
+                if (intro_time <= 0) {
+                    clearInterval(interval);
+                    element.innerHTML = element_original;
+
+                    var hovering = false;
+
+                    element = document.getElementById("outro");
+                    element.addEventListener("mouseover", function() { element.textContent = element_original; hovering = true; });
+                    element.addEventListener("mouseout", function() { hovering = false; });
+
+                    element_original = element.textContent;
+
+                    interval = setInterval(function() {
+                        if (hovering) return;
+                        var contentLength = element.textContent.trim().length;
+                        element.textContent = element.textContent.split("").map(shuffleCharacter).join("");
+                    }, update_rate);
+
+                    return;
+                }
+
+                var nodes = element.childNodes;
+                for (var i = 0; i < nodes.length; i++) {
+                    if (nodes[i].textContent.length > 0) {
+                        var lines = nodes[i].textContent.split("\n");
+                        nodes[i].textContent = lines.map(function(line) {
+                            return line.trim().split("").map(shuffleCharacter).join("");
+                        }).join("\n");
+                    }
+                }
+
+                element.childNodes = nodes;
+                intro_time -= 1;
+            }, update_rate);
+        });
+    </script>
+</body>
+</html>
