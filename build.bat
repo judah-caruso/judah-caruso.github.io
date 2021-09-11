@@ -7,3 +7,5 @@ if exist docs (
 doc html &&^
 move /Y out\html docs &&^
 rmdir /S /Q out
+
+echo judahcaruso.com > docs\CNAME
