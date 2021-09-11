@@ -3,6 +3,10 @@
 \meta-edited { 2021/09/10 }
 \meta-kind   { blog }
 
+\. @Todo(Judah): This should probably be re-formatted since it was directly
+\. ported from the original site generator and would be probably generate
+\. broken markdown/plaintext files.
+
 \paragraph {
 	After many moons the most active blog in the world is now back online. I can't say there were many reasons for it being offline besides someone stealing my original domain\dash{}which I had been wanting to get rid of anyways\dash{}and a lack of interest in rebuilding my site generator; another thing I had wanted to do but didn't feel the need to start. That was until one fruitful night when YouTube decided to recommend me a slew of
 
