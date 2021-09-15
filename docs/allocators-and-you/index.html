@@ -470,8 +470,8 @@
     pre  { tab-size    : 2;                     }
     code { font-weight : bold; font-size: 13pt; }
 
-    main aside      { display: block; width      : 100%;                   }
-    main aside span { display: block; text-align : right; font-size: 12pt; }
+    main aside      { display: block; width   : 100%;                                    }
+    main aside span { display: block; opacity : 0.5; text-align: right; font-size: 10pt; }
 
     #logo-bg {
         fill   : var(--var_link_background);
@@ -496,8 +496,23 @@
     }
 
     #info p      { font-family: monospace; font-size: 12pt; }
+
     #outro       { transition: opacity 0.2s; /* filter: blur(2px); */ opacity: 0.30; }
     #outro:hover { transition: opacity 0.2s; /* filter: blur(0); */ opacity: 1; }
+
+    #post-title {
+        margin-bottom: 0.2em;
+    }
+
+    #post-tags {
+        opacity   : 0.5;
+        font-size : 10pt;
+    }
+
+    #post-tags a {
+        display : inline-block;
+        padding : 0;
+    }
 
     .block {
         display          : block;
@@ -510,8 +525,7 @@
 
     .break { display: block; padding: 10px; }
 
-    .project {
-    }
+    .project {}
 
     .project span {
         display: inline-block;
@@ -553,9 +567,10 @@
         nav    { display : block; text-align : center; }
         hr     { width   : 80%;                        }
 
-        footer div, main { width: 80%; margin: 0 auto; }
+        footer div, main { width   : 80%; margin: 0 auto; }
 
         p { text-align: revert !important; }
+        main aside span { text-align: center; }
     }
 
     @media (max-width: 500px) and (min-width: 351px) {
@@ -563,7 +578,8 @@
         nav    { display : block; text-align : center; }
         hr     { width   : 80%;                        }
 
-        footer div, main { width: 80%; margin: 0 auto; }
+        footer div, main { width   : 80%; margin: 0 auto; }
+        main aside span  { display : none;                }
 
         footer                       { text-align : center;          }
         footer div span:nth-child(2) { display    : none;            }
@@ -577,7 +593,8 @@
         nav    { display : block; text-align : center; }
         hr     { width   : 80%;                        }
 
-        footer div, main { width: 70%; margin: 0 auto; }
+        footer div, main { width   : 70%; margin: 0 auto; }
+        main aside span  { display : none;                }
 
         footer                       { text-align : center;          }
         footer div span:nth-child(2) { display    : none;            }
@@ -616,7 +633,12 @@
 
         
         <article>
-            <h1>Allocators and You</h1>
+            <h1 id="post-title">Allocators and You</h1>
+            <div id="post-tags">
+                <span>Tags: </span><a href="/?tags=guide">guide</a>
+
+            </div>
+
             <p>
 Today's topic is <strong>allocators</strong>: what they are, how they're made, and why they're actually not that scary. But before we move on, what is an allocator? An allocator is a way to get some number of bytes of memory from the operating system that you can modify and use in your program in some meaningful <em>(or less than meaningful)</em> way. Doing so allows you to do many things such as string concatenation, dynamic arrays, object pools, temporary storage, and more!
 </p>

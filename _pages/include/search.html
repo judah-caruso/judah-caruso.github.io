@@ -1,0 +1,41 @@
+<script>
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const params          = Object.fromEntries(urlSearchParams.entries());
+
+    if (params.hasOwnProperty("tags")) {
+        const raw_search_string = params.tags;
+        const kinds = raw_search_string.split(",").map(k => k.trim());
+
+        let shown = 0;
+        let posts = document.getElementById("posts");
+
+        if (posts) {
+            for (let i = 0; i < posts.children.length; i++) {
+                let post           = posts.children[i];
+                let raw_post_kinds = post.getAttribute("tags");
+                let post_kinds     = raw_post_kinds.split(" ").map(k => k.trim());
+                let has_right_kind = false;
+
+                for (let k = 0; k < post_kinds.length; k++) { 
+                    for (let x = 0; x < kinds.length; x++) {
+                        if (post_kinds[k] === kinds[x]) {
+                            has_right_kind = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (has_right_kind) {
+                    shown += 1;
+                }
+                else {
+                    post.style.display = "none";
+                }
+            }
+
+            if (shown <= 0) {
+                posts.innerHTML = `No posts with tags '${kinds}' found!`;
+            }
+        }
+    }
+</script>

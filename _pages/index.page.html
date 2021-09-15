@@ -9,11 +9,12 @@
     \include{header.html}
 
     <main>
-        <ol>
-            \posts{<li><a href="%u">%t</a></li>}
+        <ol id="posts">
+            \posts{<li tags="%k"><a href="%u">%t</a></li>}
         </ol>
     </main>
 
     \include{footer.html}
+    \include{search.html}
 </body>
 </html>
