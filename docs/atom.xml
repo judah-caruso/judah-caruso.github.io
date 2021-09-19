@@ -1,0 +1,48 @@
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <generator uri="https://github.com/judah-caruso/doc" version="0.0.4">Doc</generator>
+
+    <link href="https://judahcaruso.com/atom.xml" rel="self" type="application/atom+xml"/>
+    <link href="https://judahcaruso.com/" rel="alternate" type="text/html"/>
+
+    <title>Judah Caruso</title>
+    <subtitle>A website for webthings</subtitle>
+
+    <id>https://judahcaruso.com/atom.xml</id>
+    <updated>2021-09-19T00:00:00+00:00</updated>
+
+    <author>
+        <name>Judah Caruso</name>
+    </author>
+
+    
+    <entry>
+        <title>미래에 오신 것을 환영합니다</title>
+        <link href="https://judahcaruso.com/welcome-to-the-future" title="미래에 오신 것을 환영합니다"/>
+        <id>https://judahcaruso.com/welcome-to-the-future</id>
+        <published>2021-09-19T00:00:00+00:00</published>
+        <updated></updated>
+        <content>I have made mighty leaps towards website superiority by adding an RSS feed.</content>
+    </entry>
+    
+
+    <entry>
+        <title>Allocators and You</title>
+        <link href="https://judahcaruso.com/allocators-and-you" title="Allocators and You"/>
+        <id>https://judahcaruso.com/allocators-and-you</id>
+        <published>2021-07-19T00:00:00+00:00</published>
+        <updated>2021-09-10T00:00:00+00:00</updated>
+        <content></content>
+    </entry>
+    
+
+    <entry>
+        <title>Back Online</title>
+        <link href="https://judahcaruso.com/back-online" title="Back Online"/>
+        <id>https://judahcaruso.com/back-online</id>
+        <published>2021-05-28T00:00:00+00:00</published>
+        <updated>2021-09-10T00:00:00+00:00</updated>
+        <content></content>
+    </entry>
+    
+
+</feed>

@@ -1,7 +1,7 @@
 \meta-title  { Allocators and You }
 \meta-date   { 2021/07/19 }
 \meta-edited { 2021/09/10 }
-\meta-kind   { guide }
+\meta-kind   { guide english }
 
 \paragraph {
 	Today's topic is \bold{allocators}: what they are, how they're made, and why they're actually not that scary. But before we move on, what is an allocator? An allocator is a way to get some number of bytes of memory from the operating system that you can modify and use in your program in some meaningful \italic{(or less than meaningful)} way. Doing so allows you to do many things such as string concatenation, dynamic arrays, object pools, temporary storage, and more!

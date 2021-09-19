@@ -1,0 +1,17 @@
+\meta-title { 미래에 오신 것을 환영합니다 }
+\meta-url   { welcome-to-the-future }
+\meta-date  { 2021/09/19 }
+\meta-intro { I have made mighty leaps towards website superiority by adding an RSS feed. }
+\meta-kind  { update english 한국어 }
+
+\paragraph {
+	Welcome back to the most advanced website on the internet. Today's tidings are of how we are now on par with every blog from the past 20 years, as a magically-auto-generating \link{/atom.xml RSS feed} has been created. For those of you who's eyes haven't glazed over at yet another acronym in the tech world, the rejoicing can now begin and the bi-seasonal updates from an obscure multilingual tech blog on the internet can now be received. I have yet to properly test the functionality of the aforementioned feed \italic{(this post is, for the most part, doing that)} so if you notice any flaws in its functionality with your respective aggregation service, please let me know.
+}
+
+\paragraph {
+	I should also mention that the site now has tag filtering! When viewing a post, click on a tag and you'll be taken back to a filtered version of the homepage. Note that this feature does require JavaScript, however, the site is still completely usable without it. So for the wizards using Links or some emacs web browser incantation, you can rest easy knowing this site will remain cookie-free and static if you so choose.
+}
+
+\paragraph {
+	Until next time, cheers!
+}
