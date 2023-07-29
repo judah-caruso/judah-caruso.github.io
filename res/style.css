@@ -103,9 +103,11 @@ main a[target="_blank"]:after {
   content:"]"
 }
 
+/*
 main p {
   text-align: justify;
 }
+*/
 
 main figure > *,
 main figure > div > *,
