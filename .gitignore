@@ -1,0 +1,3 @@
+zig-cache/*
+res/*.tmp
+*.DS_Store
