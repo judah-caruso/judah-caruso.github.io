@@ -27,7 +27,7 @@
 body {
   margin: 0 auto;
   max-width: 700px;
-  font-size: 1.1em;
+  font-size: 1em;
   line-height: 1.62;
   font-family: serif;
   background-color: var(--color-background);
@@ -133,7 +133,7 @@ figure > figcaption {
 
 main pre {
   display: block;
-  width: fit-content;
+  /* width: fit-content;*/
   max-width: 100%;
   overflow: scroll;
   background: #efefef;

@@ -118,7 +118,7 @@ pub fn main() !void {
         };
 
         var nav = std.ArrayList(u8).init(arena);
-        // std.sort.insertion(Text, page.nav_links.items, {}, Text.sort);
+        std.sort.insertion(Text, page.nav_links.items, {}, Text.sort);
 
         {
             var writer = nav.writer();
@@ -437,7 +437,7 @@ fn parseRivitSource(index: *Index, page: *Page, src: []const u8, res_dir: std.fs
         const delim = line[0];
         switch (delim) {
             // comment
-            '\\' => continue,
+            '#' => continue,
 
             // code block
             '\t', ' ' => {
@@ -484,7 +484,7 @@ fn parseRivitSource(index: *Index, page: *Page, src: []const u8, res_dir: std.fs
             },
 
             // nav links
-            '>' => {
+            '+' => {
                 const link = std.mem.trimLeft(u8, line[1..], " \t");
                 if (index.tryRef(link)) |ref| {
                     page.addNavLink(.{
