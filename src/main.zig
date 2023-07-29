@@ -483,6 +483,20 @@ fn parseRivitSource(index: *Index, page: *Page, src: []const u8, res_dir: std.fs
                 });
             },
 
+            // nav links
+            '>' => {
+                const link = std.mem.trimLeft(u8, line[1..], " \t");
+                if (index.tryRef(link)) |ref| {
+                    page.addNavLink(.{
+                        .style = .internal_link,
+                        .value = ref.display_name,
+                        .extra = ref.out_path,
+                    });
+                } else {
+                    log.warn("'{s}' has a broken nav link '{s}'", .{ page.local_path, link });
+                }
+            },
+
             // list item
             // @todo: this definitely doesn't handle nested lists due to
             // the structure of Rivit/Text. could be done easily but I'm lazy.
@@ -686,22 +700,6 @@ fn parseText(index: *Index, page: *Page, body: *std.ArrayList(Text), line: []con
                 }
 
                 i = chunk_end;
-            },
-
-            // nav links
-            '>' => {
-                const link = std.mem.trimLeft(u8, line[1..], " \t");
-                if (index.tryRef(link)) |ref| {
-                    page.addNavLink(.{
-                        .style = .internal_link,
-                        .value = ref.display_name,
-                        .extra = ref.out_path,
-                    });
-                } else {
-                    log.warn("'{s}' has a broken nav link '{s}'", .{ page.local_path, link });
-                }
-
-                i += line.len;
             },
 
             // internal links

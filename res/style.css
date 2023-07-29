@@ -7,7 +7,7 @@
 @media (prefers-color-scheme: light) {
   html {
     --color-foreground: #000;
-    --color-background: #f9f9f9;
+    --color-background: #f7f7f7;
   }
 }
 
@@ -27,9 +27,9 @@
 body {
   margin: 0 auto;
   max-width: 700px;
+  font-size: 1.1em;
   line-height: 1.62;
   font-family: serif;
-  font-size: 16px;
   background-color: var(--color-background);
   color: var(--color-foreground);
   padding-left: 30px;
@@ -70,7 +70,16 @@ header > nav > ul > li {
 main h1,
 main h2,
 main h3 {
+  margin-top: 20px;
   margin-bottom: 10px;
+  max-width: 350px;
+  text-transform: lowercase;
+}
+
+main h1:first-letter,
+main h2:first-letter,
+main h3:first-letter {
+  text-transform: uppercase;
 }
 
 figure > img {
@@ -95,7 +104,6 @@ main a[target="_blank"]:after {
 }
 
 main p {
-  line-height: 160%;
   text-align: justify;
 }
 
@@ -131,8 +139,29 @@ main pre {
   tab-size: 3;
   font-size: 80%;
   font-family: monospace;
-  line-height: 1.25em;
+  line-height: 1.4;
   margin-bottom: 30px;
+}
+
+main ul {
+  margin-bottom: 20px;
+}
+
+main ul > li {
+  list-style: none;
+  margin-left: 30px;
+}
+
+main ul > li:before {
+  content: "- ";
+}
+
+main h1 {
+  font-size: 1.5em;
+}
+
+main h2 {
+  font-size: 1.25em;
 }
 
 footer {
