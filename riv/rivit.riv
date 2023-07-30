@@ -122,9 +122,3 @@ Lines starting with '+' are used to specify **local** links we'd like to referen
    + foo
    + bar
    + baz
-
-
-IMPLEMENTATION
-
-[https://github.com/judah-caruso Here] is a reference implementation of a Rivit parser. How the final document is generated is undefined. This site generates fully static HTML pages, and only allows specific file types to be embedded. See {what-is-this-place} for more information.
-

@@ -3,11 +3,21 @@
     --color-foreground: #b5b5c0;
     --color-background: #1b1c22;
   }
+
+  main pre {
+    background: #16171c;
+/*    #25272f*/
+/*    background: #efefef;*/
+  }
 }
 @media (prefers-color-scheme: light) {
   html {
     --color-foreground: #000;
     --color-background: #f7f7f7;
+  }
+
+  main pre {
+    background: #efefef;
   }
 }
 
@@ -103,12 +113,6 @@ main a[target="_blank"]:after {
   content:"]"
 }
 
-/*
-main p {
-  text-align: justify;
-}
-*/
-
 main figure > *,
 main figure > div > *,
 main p {
@@ -133,10 +137,8 @@ figure > figcaption {
 
 main pre {
   display: block;
-  /* width: fit-content;*/
   max-width: 100%;
   overflow: scroll;
-  background: #efefef;
   padding: 10px;
   tab-size: 3;
   font-size: 80%;
