@@ -97,6 +97,13 @@ figure > img {
   height: auto;
 }
 
+figure > audio {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
 main a:before {
   content:"{";
 }

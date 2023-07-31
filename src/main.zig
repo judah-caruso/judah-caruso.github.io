@@ -15,8 +15,8 @@ const res_path = "res";
 const base_url = "https://github.com/judah-caruso/judah-caruso.github.io";
 const template = @embedFile("template.htm");
 
-// 10mb max memory
-const max_memory: usize = (1024 * 1024) * 10;
+// 100mb max memory (shouldn't have to worry about this ever)
+const max_memory: usize = (1024 * 1024) * 100;
 
 var arena: std.mem.Allocator = undefined;
 
@@ -220,8 +220,8 @@ pub fn main() !void {
                         var media_type = MediaType.unknown;
                         if (std.mem.eql(u8, ext, ".png")) {
                             media_type = .png;
-                        } else if (std.mem.eql(u8, ext, ".wav")) {
-                            media_type = .wav;
+                        } else if (std.mem.eql(u8, ext, ".ogg")) {
+                            media_type = .ogg;
                         } else if (std.mem.eql(u8, ext, ".svg")) {
                             media_type = .svg;
                         } else {
@@ -253,15 +253,15 @@ pub fn main() !void {
                         switch (media_type) {
                             .png => {
                                 const prefix = "data:image/png;base64";
-                                try writer.print("<img src='{s},{s}'/>", .{ prefix, b64 });
+                                try writer.print("<img class='image' src='{s},{s}'/>", .{ prefix, b64 });
                             },
                             .svg => {
                                 const prefix = "data:image/svg+xml;base64";
-                                try writer.print("<img src='{s},{s}'/>", .{ prefix, b64 });
+                                try writer.print("<img class='vector' src='{s},{s}'/>", .{ prefix, b64 });
                             },
-                            .wav => {
-                                const prefix = "data:audio/wav;base64";
-                                try writer.print("<audio controls autobuffer src='{s}, {s}'></audio>", .{ prefix, b64 });
+                            .ogg => {
+                                const prefix = "data:audio/ogg;base64";
+                                try writer.print("<audio class='sound' loop controls autobuffer src='{s}, {s}'></audio>", .{ prefix, b64 });
                             },
                             else => unreachable,
                         }
@@ -457,7 +457,7 @@ const Page = struct {
 const MediaType = enum {
     unknown,
     png,
-    wav,
+    ogg,
     svg,
 };
 
