@@ -1,0 +1,3 @@
+[submodule "src/lib/rivit"]
+	path = src/lib/rivit
+	url = https://github.com/judah-caruso/rivit-zig/

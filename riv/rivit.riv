@@ -5,18 +5,13 @@
 
 A TOOL FOR WRITING
 
-# To me, digital writing will never feel as tactile or productive as a typewriter. Each key press leaving a permanent mark on the page gives weight to words and the thoughts behind them. Losing your train of thought and mistyping *"and then they"* pushes you down a path normally destroyed by the backspace key. *And then they what?* - your current page (and future ones) are now at the mercy of your brain and its ability to save a sentence. Granted, you could get up and grab the white marker across the room... but then you have scroll the page up, fix the mistake, scroll back down, adjust everything, *then* figure out what you meant to say.
-
-# They're not entirely sunshine and rainbows, typewriters; they jam, need upkeep, and are missing some of the creature comforts found on modern keyboards (a "1" key comes to mind).
-
 Rivit *(Finnish for 'lines')* is a minimal, line-based markup format meant to stay out of the writer's way.
-
 
 QUICK REFERENCE
 
    UPPERCASE LINES ARE HEADERS
    
-   # Lines can be commented out like so.
+   # Lines can be commented out.
    
    Lines are paragraphs and can contain *italics*, **bolds**, local {links}, or [www.some-url.com external links].
    Styles cannot be combined.
@@ -41,11 +36,12 @@ QUICK REFERENCE
    + bar
    + baz
 
+If you're curious, here's a [https://github.com/judah-caruso/rivit-zig reference implementation] for the parser.
 
 
 SYNTAX DESCRIPTION
 
-Each line is considered a new paragraph and blank lines are ignored. Paragraphs can be styled with *italics*, **bolds**, {index} (local links), and [https://judahcaruso.com external links].
+Each line is considered a new paragraph and blank lines are ignored. Paragraphs can be styled with *italics*, **bolds**, {index local links}, and [https://judahcaruso.com external links].
 
    *Italics* are written like so.
    

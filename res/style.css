@@ -6,8 +6,6 @@
 
   main pre {
     background: #16171c;
-/*    #25272f*/
-/*    background: #efefef;*/
   }
 }
 @media (prefers-color-scheme: light) {
@@ -152,13 +150,15 @@ main ul {
 }
 
 main ul > li {
-  list-style: none;
+  list-style: inside;
   margin-left: 30px;
 }
 
+/*
 main ul > li:before {
   content: "- ";
 }
+*/
 
 main h1 {
   font-size: 1.5em;
@@ -166,6 +166,10 @@ main h1 {
 
 main h2 {
   font-size: 1.25em;
+}
+
+main li.list-item > ul {
+  margin-bottom: 0;
 }
 
 footer {

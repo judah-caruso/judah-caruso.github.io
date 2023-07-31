@@ -11,6 +11,12 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
     });
 
+    const rivit = b.addModule("rivit", .{
+        .source_file = .{ .path = "src/lib/rivit/src/rivit.zig" },
+    });
+
+    exe.addModule("rivit", rivit);
+
     const run_cmd = b.addRunArtifact(exe);
     run_cmd.step.dependOn(b.getInstallStep());
 
