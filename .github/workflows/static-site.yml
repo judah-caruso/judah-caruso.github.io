@@ -47,7 +47,7 @@ jobs:
         uses: actions/upload-pages-artifact@v2
         with:
           # Upload generated site only
-          path: 'docs'
+          path: 'web'
       
       - name: Deploy to GitHub Pages
         id: deployment

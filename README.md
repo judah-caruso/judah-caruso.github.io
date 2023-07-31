@@ -17,9 +17,9 @@ zig build run
 - `src`: site generator code
 - `riv`: site pages (given to site generator)
 - `res`: static resources
-- `docs`: output website
+- `web`: generated website
 
 ## Licensing
 
-All source code within this repository (.zig, .htm, .css) is licensed under [MIT](./LICENSE). Images, text, and audio files (.png, .riv, .wav) are licensed under [CC-BY-SA-4.0](./LICENSE.CC-BY-SA-4.0).
+All source code within this repository (.zig, .htm, .css) is licensed under [MIT](./LICENSE). Images, text, and audio files (.png, .riv, .ogg) are licensed under [CC-BY-SA-4.0](./LICENSE.CC-BY-SA-4.0).
 

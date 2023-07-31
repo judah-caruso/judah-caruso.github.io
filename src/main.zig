@@ -10,7 +10,7 @@ pub const std_options = struct {
 
 const site_name = "beton brutalism";
 const in_path = "riv";
-const out_path = "docs";
+const out_path = "web";
 const res_path = "res";
 const base_url = "https://github.com/judah-caruso/judah-caruso.github.io";
 const template = @embedFile("template.htm");
