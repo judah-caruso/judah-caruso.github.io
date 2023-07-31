@@ -1,3 +1,4 @@
+*.DS_Store
 zig-cache/*
 res/*.tmp
-*.DS_Store
+docs/*.htm
