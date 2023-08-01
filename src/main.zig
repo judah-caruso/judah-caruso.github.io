@@ -338,7 +338,7 @@ fn listToHtml(index: *Index, page: *Page, writer: anytype, list: std.ArrayList(r
     try writer.writeAll("<ul class='" ++ class_ul ++ "'>");
 
     for (list.items) |li| {
-        try writer.writeAll("<li class='" ++ class_li ++ "'");
+        try writer.writeAll("<li class='" ++ class_li ++ "'>");
         try styledTextToHtml(index, page, writer, li.value);
 
         if (li.sublist) |sublist| {
