@@ -47,8 +47,6 @@ pub fn main() !void {
     var a = std.heap.FixedBufferAllocator.init(mem);
     main_mem = a.allocator();
 
-    std.debug.print("\n", .{}); // build output doesn't have \n
-
     const cwd = fs.cwd();
     var wiki_dir = cwd.openIterableDir(in_path, .{}) catch {
         log.err("required directory '{s}' doesn't exist!", .{in_path});
