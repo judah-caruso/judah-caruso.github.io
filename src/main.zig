@@ -8,17 +8,32 @@ pub const std_options = struct {
     pub const logFn = loggerFn;
 };
 
-const site_name = "beton brutalism";
 const in_path = "riv";
 const out_path = "web";
 const res_path = "res";
+const site_name = "beton brutalism";
 const base_url = "https://github.com/judah-caruso/judah-caruso.github.io";
 const template = @embedFile("template.htm");
 
+const class_p = "paragraph";
+const class_h1 = "title";
+const class_h2 = "header";
+const class_ul = "list";
+const class_li = "list-item";
+const class_pre = "code";
+const class_bold = "bold";
+const class_italic = "italic";
+const class_a_int = "internal link";
+const class_a_ext = "external link";
+const class_embed = "embed";
+const class_embed_caption = "embed-caption";
+const class_embed_img = "image";
+const class_embed_svg = "vector";
+const class_embed_snd = "sound";
+
 // 100mb max memory (shouldn't have to worry about this ever)
 const max_memory: usize = (1024 * 1024) * 100;
-
-var arena: std.mem.Allocator = undefined;
+var main_mem: std.mem.Allocator = undefined;
 
 pub fn main() !void {
     const sys = std.heap.page_allocator;
@@ -30,7 +45,7 @@ pub fn main() !void {
     defer sys.free(mem);
 
     var a = std.heap.FixedBufferAllocator.init(mem);
-    arena = a.allocator();
+    main_mem = a.allocator();
 
     std.debug.print("\n", .{}); // build output doesn't have \n
 
@@ -43,17 +58,17 @@ pub fn main() !void {
 
     var res_dir = cwd.openIterableDir(res_path, .{}) catch {
         log.err("required directory '{s}' doesn't exist!", .{res_path});
-        std.os.exit(3);
+        std.os.exit(4);
     };
     defer res_dir.close();
 
-    const styles = res_dir.dir.readFileAlloc(arena, "style.css", max_memory) catch {
+    const styles = res_dir.dir.readFileAlloc(main_mem, "style.css", max_memory) catch {
         log.err("required stylesheet 'style.css' doesn't exist!", .{});
-        std.os.exit(3);
+        std.os.exit(5);
     };
 
-    const stylesheet = std.mem.replaceOwned(u8, arena, styles, "\n", "") catch @panic("out of memory!");
-    arena.free(styles);
+    const stylesheet = std.mem.replaceOwned(u8, main_mem, styles, "\n", "") catch @panic("out of memory!");
+    main_mem.free(styles);
 
     var index = Index.init();
 
@@ -81,7 +96,7 @@ pub fn main() !void {
     var generated: usize = 0;
     var out_dir = cwd.makeOpenPath(out_path, .{}) catch {
         log.err("unable to create/open output directory '{s}'!", .{out_path});
-        std.os.exit(4);
+        std.os.exit(6);
     };
 
     defer out_dir.close();
@@ -92,18 +107,18 @@ pub fn main() !void {
         var page = kv.value_ptr;
         const sys_path = page.local_path;
 
-        var src = wiki_dir.dir.readFileAlloc(arena, sys_path, std.math.maxInt(usize)) catch {
-            log.err("unable to open page '{s}'! skipping...", .{sys_path});
+        var src = wiki_dir.dir.readFileAlloc(main_mem, sys_path, std.math.maxInt(usize)) catch {
+            log.err("unable to open page '{s}'", .{sys_path});
             continue;
         };
 
-        page.body = rivit.parse(arena, src) catch {
-            log.err("unable to parse '{s}'! skipping...", .{sys_path});
+        page.body = rivit.parse(main_mem, src) catch {
+            log.err("unable to parse '{s}'!", .{sys_path});
             continue;
         };
 
         var out_file = out_dir.createFile(page.out_path, .{}) catch {
-            log.err("unable to create output page '{s}'! skipping...", .{page.out_path});
+            log.err("unable to create output page '{s}'!", .{page.out_path});
             continue;
         };
 
@@ -125,7 +140,7 @@ pub fn main() !void {
             if (mp < 10) month += 3 else month -= 9;
             if (month <= 2) year += 2;
 
-            break :c std.fmt.allocPrint(arena, "{d}{d:0>2}{d:0>2}", .{ year - 2000, month, day }) catch @panic("out of memory!");
+            break :c std.fmt.allocPrint(main_mem, "{d}{d:0>2}{d:0>2}", .{ year - 2000, month, day }) catch @panic("out of memory!");
         };
 
         // setup nav links
@@ -136,23 +151,23 @@ pub fn main() !void {
             if (index.getPage(name)) |p| {
                 page.addNavLink(p);
             } else {
-                log.warn("'{s}' has a broken nav link '{s}'! skipping...", .{ page.local_path, name });
+                log.warn("'{s}' has a broken nav link '{s}'", .{ page.local_path, name });
             }
         }
 
         std.sort.insertion(*Page, page.nav_links.items, {}, Page.sortByName);
 
         // generate nav list html
-        var nav = std.ArrayList(u8).init(arena);
+        var nav = std.ArrayList(u8).init(main_mem);
         defer nav.deinit();
 
         {
             var writer = nav.writer();
-            try writer.writeAll("<ul class='list'>");
+            try writer.writeAll("<ul class='" ++ class_ul ++ "'>");
 
             for (page.nav_links.items) |p| {
-                try writer.writeAll("<li class='list-item'>");
-                try writer.print("<a class='internal link' href='{s}'>{s}</a>", .{
+                try writer.writeAll("<li class='" ++ class_li ++ "'>");
+                try writer.print("<a class='" ++ class_a_int ++ "' href='{s}'>{s}</a>", .{
                     p.out_path,
                     p.display_name,
                 });
@@ -163,28 +178,34 @@ pub fn main() !void {
         }
 
         // output rivit as html
-        var body = std.ArrayList(u8).init(arena);
+        var body = std.ArrayList(u8).init(main_mem);
         defer body.deinit();
 
         {
             var writer = body.writer();
-            for (page.body.lines.items, 0..) |item, idx| {
+            for (page.body.lines.items) |item| {
                 if (item == .nav_link) continue;
 
                 switch (item) {
                     .paragraph => |p| {
-                        try writer.writeAll("<p class='paragraph'>");
+                        try writer.writeAll("<p class='" ++ class_p ++ "'>");
                         try styledTextToHtml(&index, page, &writer, p);
                         try writer.writeAll("</p>");
                     },
 
                     .header => |h| {
-                        const level: usize = if (idx == 0) 1 else 2;
-                        try writer.print("<h{[0]} class='header'>{[1]s}</h{[0]}>", .{ level, h });
+                        // make a title if it's the first thing written
+                        if (body.items.len == 0) {
+                            try writer.print("<h1 class='" ++ class_h1 ++ "'>{s}</h1>", .{h});
+                        }
+                        // otherwise it's a standard header
+                        else {
+                            try writer.print("<h2 class='" ++ class_h2 ++ "'>{s}</h2>", .{h});
+                        }
                     },
 
                     .block => |b| {
-                        try writer.writeAll("<pre class='code'>");
+                        try writer.writeAll("<pre class='" ++ class_pre ++ "'>");
 
                         var lines = std.mem.split(u8, b.body, "\n");
                         while (lines.next()) |l| {
@@ -215,6 +236,14 @@ pub fn main() !void {
                     },
 
                     .embed => |e| {
+                        // all supported media types
+                        const MediaType = enum {
+                            unknown,
+                            png,
+                            ogg,
+                            svg,
+                        };
+
                         const ext = std.fs.path.extension(e.path);
 
                         var media_type = MediaType.unknown;
@@ -225,49 +254,49 @@ pub fn main() !void {
                         } else if (std.mem.eql(u8, ext, ".svg")) {
                             media_type = .svg;
                         } else {
-                            log.warn("'{s}' references an unsupported media type '{s}'! skipping...", .{ page.local_path, ext });
+                            log.warn("'{s}' references an unsupported media type '{s}'!", .{ page.local_path, ext });
                             continue;
                         }
 
-                        const file = res_dir.dir.readFileAlloc(arena, e.path, max_memory) catch |err| {
+                        const file = res_dir.dir.readFileAlloc(main_mem, e.path, max_memory) catch |err| {
                             if (err == error.FileNotFound) {
-                                log.warn("'{s}' references media '{s}' that doesn't exist! skipping...", .{ page.local_path, e.path });
+                                log.warn("'{s}' references media '{s}' that doesn't exist!", .{ page.local_path, e.path });
                                 continue;
                             }
 
-                            log.err("'{s}' references media '{s}' that is too large! skipping...", .{ page.local_path, e.path });
+                            log.err("'{s}' references media '{s}' that is too large!", .{ page.local_path, e.path });
                             continue;
                         };
 
-                        defer arena.free(file);
+                        defer main_mem.free(file);
 
                         const encoder = std.base64.standard.Encoder;
                         const size = encoder.calcSize(file.len);
 
-                        const buf = arena.alloc(u8, size) catch @panic("out of memory!");
+                        const buf = main_mem.alloc(u8, size) catch @panic("out of memory!");
                         const b64 = encoder.encode(buf, file);
 
-                        try writer.writeAll("<figure>");
+                        try writer.writeAll("<figure class='" ++ class_embed ++ "'>");
 
                         // image files
                         switch (media_type) {
                             .png => {
                                 const prefix = "data:image/png;base64";
-                                try writer.print("<img class='image' src='{s},{s}'/>", .{ prefix, b64 });
+                                try writer.print("<img class='" ++ class_embed_img ++ "' src='{s},{s}'/>", .{ prefix, b64 });
                             },
                             .svg => {
                                 const prefix = "data:image/svg+xml;base64";
-                                try writer.print("<img class='vector' src='{s},{s}'/>", .{ prefix, b64 });
+                                try writer.print("<img class='" ++ class_embed_svg ++ "' src='{s},{s}'/>", .{ prefix, b64 });
                             },
                             .ogg => {
                                 const prefix = "data:audio/ogg;base64";
-                                try writer.print("<audio class='sound' loop controls autobuffer src='{s}, {s}'></audio>", .{ prefix, b64 });
+                                try writer.print("<audio class='" ++ class_embed_snd ++ "' loop controls autobuffer src='{s}, {s}'></audio>", .{ prefix, b64 });
                             },
                             else => unreachable,
                         }
 
                         if (e.alt_text) |alt| {
-                            try writer.writeAll("<figcaption>");
+                            try writer.writeAll("<figcaption class='" ++ class_embed_caption ++ "'>");
                             try styledTextToHtml(&index, page, &writer, alt);
                             try writer.writeAll("</figcaption>");
                         }
@@ -289,7 +318,7 @@ pub fn main() !void {
             .body = body.items,
             .style = stylesheet,
             .created = created,
-            .edit_url = std.fmt.allocPrint(arena, "{s}/edit/main/{s}/{s}", .{ base_url, in_path, page.local_path }) catch @panic("out of memory!"),
+            .edit_url = std.fmt.allocPrint(main_mem, "{s}/edit/main/{s}/{s}", .{ base_url, in_path, page.local_path }) catch @panic("out of memory!"),
         });
 
         generated += 1;
@@ -304,15 +333,14 @@ pub fn main() !void {
         }
     }
 
-    std.debug.print("\n", .{});
     log.info("generated {} {s}", .{ generated, if (generated == 1) "page" else "pages" });
 }
 
 fn listToHtml(index: *Index, page: *Page, writer: anytype, list: std.ArrayList(rivit.Line.ListItem)) !void {
-    try writer.writeAll("<ul class='list'>");
+    try writer.writeAll("<ul class='" ++ class_ul ++ "'>");
 
     for (list.items) |li| {
-        try writer.writeAll("<li class='list-item'>");
+        try writer.writeAll("<li class='" ++ class_li ++ "'");
         try styledTextToHtml(index, page, writer, li.value);
 
         if (li.sublist) |sublist| {
@@ -328,9 +356,15 @@ fn listToHtml(index: *Index, page: *Page, writer: anytype, list: std.ArrayList(r
 fn styledTextToHtml(index: *Index, page: *Page, writer: anytype, text: std.ArrayList(rivit.StyledText)) !void {
     for (text.items) |t| {
         switch (t) {
-            .unstyled => |u| try writer.writeAll(u),
-            .bold => |b| try writer.print("<strong class='bold'>{s}</strong>", .{b}),
-            .italic => |i| try writer.print("<em class='italic'>{s}</em>", .{i}),
+            .unstyled => |u| {
+                try writer.writeAll(u);
+            },
+            .bold => |b| {
+                try writer.print("<strong class='" ++ class_bold ++ "'>{s}</strong>", .{b});
+            },
+            .italic => |i| {
+                try writer.print("<em class='" ++ class_italic ++ "'>{s}</em>", .{i});
+            },
             .escaped => |e| switch (e) {
                 '*' => try writer.writeAll("&times;"),
                 '{' => try writer.writeAll("&#123;"),
@@ -342,14 +376,14 @@ fn styledTextToHtml(index: *Index, page: *Page, writer: anytype, text: std.Array
 
                 var fallback_name = i.name;
                 if (index.getPage(i.name)) |p| {
-                    try writer.writeAll("class='internal link' ");
+                    try writer.writeAll("class='" ++ class_a_int ++ "' ");
                     try writer.print("href='{s}'>", .{p.out_path});
 
                     fallback_name = p.display_name;
                 } else {
                     log.warn("'{s}' has a broken internal link '{s}'", .{ page.local_path, i.name });
 
-                    try writer.writeAll("class='broken internal link' target='_blank' ");
+                    try writer.writeAll("class='broken " ++ class_a_int ++ "' target='_blank' ");
                     try writer.print("href='{s}/new/main/{s}?filename={s}.riv'>", .{
                         base_url,
                         in_path,
@@ -367,7 +401,7 @@ fn styledTextToHtml(index: *Index, page: *Page, writer: anytype, text: std.Array
             },
             .external_link => |e| {
                 const v = e.value orelse e.url;
-                try writer.print("<a class='external link' target='_blank' href='{s}'>{s}</a>", .{ e.url, v });
+                try writer.print("<a class='" ++ class_a_ext ++ "' target='_blank' href='{s}'>{s}</a>", .{ e.url, v });
             },
         }
     }
@@ -381,7 +415,7 @@ const Index = struct {
 
     pub fn init() Self {
         return .{
-            .pages = PageMap.init(arena),
+            .pages = PageMap.init(main_mem),
         };
     }
 
@@ -421,8 +455,8 @@ const Page = struct {
     pub fn create(local_path: []const u8, create_time: i128) Self {
         const ext = fs.path.extension(local_path);
         const id = local_path[0 .. local_path.len - ext.len];
-        const display = std.mem.replaceOwned(u8, arena, id, "-", " ") catch @panic("out of memory!");
-        const out = std.fmt.allocPrint(arena, "{s}.htm", .{id}) catch @panic("out of memory!");
+        const display = std.mem.replaceOwned(u8, main_mem, id, "-", " ") catch @panic("out of memory!");
+        const out = std.fmt.allocPrint(main_mem, "{s}.htm", .{id}) catch @panic("out of memory!");
 
         return .{
             .refs = 0,
@@ -432,7 +466,7 @@ const Page = struct {
             .local_path = local_path,
             .out_path = out,
             .body = undefined,
-            .nav_links = std.ArrayList(*Self).init(arena),
+            .nav_links = std.ArrayList(*Self).init(main_mem),
         };
     }
 
@@ -454,13 +488,6 @@ const Page = struct {
     }
 };
 
-const MediaType = enum {
-    unknown,
-    png,
-    ogg,
-    svg,
-};
-
 fn loggerFn(
     comptime level: std.log.Level,
     comptime scope: @TypeOf(.EnumLiteral),
@@ -476,7 +503,7 @@ fn loggerFn(
         else => "31",
     };
 
-    const prefix = ".. \x1b[1:" ++ color ++ "m" ++ comptime level.asText() ++ "\x1b[0m ";
+    const prefix = "\x1b[1:" ++ color ++ "m" ++ comptime level.asText() ++ "\x1b[0m ";
 
     std.debug.getStderrMutex().lock();
     defer std.debug.getStderrMutex().unlock();

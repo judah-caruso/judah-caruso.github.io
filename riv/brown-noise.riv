@@ -8,4 +8,4 @@ It was created in [https://reaper.fm Reaper] using [https://github.com/RCJacH/Re
 
 EQ: -2db Low Shelf @ 139hz, -3db Band @ 438hz, and -5db High Shelf @ 1835hz (frequencies chosen by ear), reverb, and a limiter were applied as well.
 
-Exported in OGG Vorbis @ 48kbps (44100 with linear interpoation resampling).
+Exported in OGG Vorbis @ 48kbps (44100, linear interpolation resampling).
