@@ -36,6 +36,8 @@ jobs:
 
       - name: Setup Go
         uses: actions/setup-go@v4
+        with:
+          go-version: '1.21'
 
       - name: Build site
         run: go run -v .
