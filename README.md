@@ -7,7 +7,7 @@ The source code for my [personal site](http://judahcaruso.com).
 To build it from source, simply run:
 
 ```sh
-git clone --recurse-submodules https://github.com/judah-caruso/judah-caruso.github.io
+git clone https://github.com/judah-caruso/judah-caruso.github.io
 cd judah-caruso.github.io/
 go run . # generate site
 go run . --server=true --port=8080 # start local server at port 8080
