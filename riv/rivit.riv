@@ -10,27 +10,27 @@ Rivit *(Finnish for 'lines')* is a minimal, line-based markup format meant to st
 QUICK REFERENCE
 
    UPPERCASE LINES ARE HEADERS
-   
+
    # Lines can be commented out.
-   
-   Lines are paragraphs and can contain *italics*, **bolds**, local {links}, or [www.some-url.com external links].
+
+   Lines are paragraphs and can contain *italics*, **bolds**, {some-page local links}, or [www.some-url.com external links].
    Styles cannot be combined.
-   
-   . List items are written like so and can be styled like paragraphs.
+
+   . List items use '.' and can be styled like paragraphs.
    .. Sub items must have >= dots of the previous line.
-   
+
    Code blocks are lines with matching indentation:
-   
+
       int
       main(int argc, char* argv[]) {
          return 0;
       }
-   
+
    Media can be embedded within the generated document like so:
-   
+
    @ path/img.png optional alt text
    @ path/song.wav
-   
+
    # Add pages to the generated navbar (can be placed anywhere)
    + foo
    + bar
@@ -44,15 +44,15 @@ SYNTAX DESCRIPTION
 Each line is considered a new paragraph and blank lines are ignored. Paragraphs can be styled with *italics*, **bolds**, {index local links}, and [https://judahcaruso.com external links].
 
    *Italics* are written like so.
-   
+
    *Bolds* are written like so.
-   
+
    Local {links} are written like so.
       'links' is expected to be a 'links.riv' file.
-   
+
    [https://some-url.com External links are written like so].
       They're expected to open a new tab.
-   
+
    Styles cannot be combined. For example:
       ***this*** will NOT generate bold-italics.
       [https://foo.bar *this*] will NOT generate an italic link.
@@ -67,35 +67,35 @@ Lines starting with '#' will not be included in the final output. This is useful
 Lines with matching indentation are treated as code blocks. Rivit has no notion of syntax highlighting.
 
    This is not code.
-   
+
       // This is code
       int main(void) {
          return 0;
       }
-      
+
    This is also not code.
 
 
 Lines containing no capital letters are treated as headers. This is different from Markdown where '#' gives you control over the size of the header. In Rivit, headers are the same size. However, a small exception is made if the first line output is a header: it will be treated as a title and made larger than subsequent headers.
 
    THIS IS A TITLE
-   
+
    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod...
-   
+
    I'M A HEADER & CAN CONTAIN SPECIAL CHARACTERS
-   
+
    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod...
 
 
 Lines starting with '.' are treated as list items. Subsequent lines with an equal number of dots are considered part of the same list. Subsequent lines with a greater number of dots are considered sub-lists of the previous line.
 
    SHOPPING LIST
-   
+
    . Cleaning
    .. Soap
    .. Mop
    .. Broom
-   
+
    . Cooking
    .. Vegetables
    .. Fruit
@@ -104,11 +104,11 @@ Lines starting with '.' are treated as list items. Subsequent lines with an equa
 Lines starting with '@' are used to embed media within the generated document. Rivit has no notion of acceptable media types.
 
    Here's an image:
-   
+
    @ img/file-path.png Alt text for the image (can be excluded)
-   
+
    Here's some music:
-   
+
    @ mus/file-path.wav
 
 

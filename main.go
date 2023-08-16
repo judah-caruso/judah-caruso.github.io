@@ -45,6 +45,7 @@ const (
 var (
 	flagPort        = flag.Int("port", 8080, "sets the port for the HTTP server")
 	flagStartServer = flag.Bool("server", false, "start a simple HTTP server after generation")
+	siteYear        = time.Now().Year()
 )
 
 func main() {
@@ -259,13 +260,14 @@ func main() {
 		}
 
 		tmp := template
-		tmp = strings.ReplaceAll(tmp, "$site:title", siteTitle)
-		tmp = strings.ReplaceAll(tmp, "$site:name", page.DisplayName)
-		tmp = strings.ReplaceAll(tmp, "$site:style", styles)
-		tmp = strings.ReplaceAll(tmp, "$site:nav", nav.String())
-		tmp = strings.ReplaceAll(tmp, "$site:body", body.String())
-		tmp = strings.ReplaceAll(tmp, "$site:edit", fmt.Sprintf("%s/edit/main/%s/%s", siteBase, inPath, page.LocalName))
-		tmp = strings.ReplaceAll(tmp, "$site:created", fmt.Sprintf("%02d%02d%02d", y-2000, m, d))
+		tmp = strings.Replace(tmp, "$site:title", siteTitle, 1)
+		tmp = strings.Replace(tmp, "$site:name", page.DisplayName, 1)
+		tmp = strings.Replace(tmp, "$site:style", styles, 1)
+		tmp = strings.Replace(tmp, "$site:nav", nav.String(), 1)
+		tmp = strings.Replace(tmp, "$site:body", body.String(), 1)
+		tmp = strings.Replace(tmp, "$site:edit", fmt.Sprintf("%s/edit/main/%s/%s", siteBase, inPath, page.LocalName), 1)
+		tmp = strings.Replace(tmp, "$site:created", fmt.Sprintf("%02d%02d%02d", y-2000, m, d), 1)
+		tmp = strings.Replace(tmp, "$site:year", fmt.Sprintf("%d", siteYear), 1)
 
 		err = writeEntireFile(outPath, page.OutName, tmp)
 		if err != nil {
