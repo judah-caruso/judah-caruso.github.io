@@ -1,3 +1,3 @@
-module github.com/judah-caruso/judah-caruso.github.io
+module github.com/judah-caruso/website
 
 go 1.21.0
