@@ -54,6 +54,9 @@ func main() {
 		template string
 	)
 
+	log.SetFlags(0)
+	flag.Parse()
+
 	{
 		styles, err = readEntireFile(resPath, siteStylePath)
 		if err != nil {
@@ -352,11 +355,6 @@ func styledTextToHtml(index *Index, page *Page, text []StyledText) string {
 	}
 
 	return b.String()
-}
-
-func init() {
-	log.SetFlags(0)
-	flag.Parse()
 }
 
 type (
