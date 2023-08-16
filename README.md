@@ -15,7 +15,6 @@ go run . --server=true --port=8080 # start local server at port 8080
 
 ## Folder structure
 
-- `src`: site generator code
 - `riv`: site pages (given to site generator)
 - `res`: static resources
 - `web`: generated website
