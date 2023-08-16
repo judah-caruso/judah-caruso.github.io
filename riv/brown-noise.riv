@@ -1,0 +1,11 @@
+BROWN NOISE (SMOOTHED)
+
+I like listening to [https://en.wikipedia.org/wiki/Brownian_noise smoothed brown noise] to drown out background noise and focus.  
+
+@ brown-noise.ogg **Disclaimer: lower the volume before playing the audio.**
+
+It was created in [https://reaper.fm Reaper] using [https://github.com/RCJacH/ReaScripts RCNoiseBuzz by RCJacH].
+
+EQ: -2db Low Shelf @ 139hz, -3db Band @ 438hz, and -5db High Shelf @ 1835hz (frequencies chosen by ear), reverb, and a limiter were applied as well.
+
+Exported in OGG Vorbis @ 48kbps (44100, linear interpolation resampling).

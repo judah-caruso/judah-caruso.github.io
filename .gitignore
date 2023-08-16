@@ -1,0 +1,4 @@
+res/*.tmp
+web/*.htm
+
+*.DS_Store
