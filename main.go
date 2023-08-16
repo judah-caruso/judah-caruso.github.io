@@ -43,9 +43,9 @@ const (
 )
 
 var (
+	siteYear        = time.Now().Year()
 	flagPort        = flag.Int("port", 8080, "sets the port for the HTTP server")
 	flagStartServer = flag.Bool("server", false, "start a simple HTTP server after generation")
-	siteYear        = time.Now().Year()
 )
 
 func main() {
