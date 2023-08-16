@@ -113,7 +113,7 @@ Lines starting with '@' are used to embed media within the generated document. R
 
 Lines starting with '+' are used to specify **local** links we'd like to reference but don't mention in the body of the page. This is useful for generating a navbar for wiki-style sites. Note: when generating navbars, links added with '+' take precedence over local links included in the body of the page.
 
-   # Hidden local links that to the navbar
+   # Hidden local links shown in the navbar
    + foo
    + bar
    + baz
