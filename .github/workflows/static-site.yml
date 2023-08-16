@@ -40,7 +40,7 @@ jobs:
           go-version: '1.21'
 
       - name: Build site
-        run: go run -v .
+        run: go run .
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
