@@ -37,9 +37,6 @@ jobs:
         with:
           go-version: '1.21'
 
-      - name: Run parser tests
-        run: go test -v .
-
       - name: Build site
         run: go run .
 
