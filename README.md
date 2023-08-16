@@ -21,5 +21,5 @@ go run . --server=true --port=8080 # start local server at port 8080
 
 ## Licensing
 
-All source code within this repository (.zig, .htm, .css) is licensed under [MIT](./LICENSE). Images, text, and audio files (.png, .riv, .ogg) are licensed under [CC-BY-SA-4.0](./LICENSE.CC-BY-SA-4.0).
+All source code within this repository (.go, .htm, .css) is licensed under [MIT](./LICENSE). Images, text, and audio files (.png, .riv, .ogg) are licensed under [CC-BY-SA-4.0](./LICENSE.CC-BY-SA-4.0).
 

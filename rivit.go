@@ -319,34 +319,14 @@ func ParseStyledText(line string) []StyledText {
 	return parsed
 }
 
-type Rivit []Line
-
-type LineKind int
-
-const (
-	LineNone LineKind = iota
-	LineHeader
-	LineNavLink
-	LineParagraph
-	LineBlock
-	LineList
-	LineEmbed
-)
-
-type TextStyle int
-
-const (
-	StyleNone TextStyle = iota
-	StyleItalic
-	StyleBold
-	StyleInternalLink
-	StyleExternalLink
-)
-
 type (
-	Line interface {
+	Rivit []Line
+	Line  interface {
 		Kind() LineKind
 	}
+
+	LineKind  int
+	TextStyle int
 
 	Header    string
 	NavLink   string
@@ -373,6 +353,24 @@ type (
 		Value string
 		Link  string // Only set if Style is StyleInternalLink, StyleExternalLink
 	}
+)
+
+const (
+	LineNone LineKind = iota
+	LineHeader
+	LineNavLink
+	LineParagraph
+	LineBlock
+	LineList
+	LineEmbed
+)
+
+const (
+	StyleNone TextStyle = iota
+	StyleItalic
+	StyleBold
+	StyleInternalLink
+	StyleExternalLink
 )
 
 func (_ Header) Kind() LineKind    { return LineHeader }
