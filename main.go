@@ -332,7 +332,8 @@ func styledTextToHtml(index *Index, page *Page, text []StyledText) string {
 					display = p.DisplayName
 				}
 
-				fmt.Fprintf(&b, "<a class=%q href=%q>%s</a>", classIntLink, page.OutName, display)
+				p.Refs += 1
+				fmt.Fprintf(&b, "<a class=%q href=%q>%s</a>", classIntLink, p.OutName, display)
 			} else {
 				log.Printf(".. '%s' has a broken internal link '%s'\n", page.LocalName, t.Link)
 
