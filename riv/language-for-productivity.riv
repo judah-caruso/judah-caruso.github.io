@@ -16,7 +16,7 @@ See:
 
 THE COMPILER SHOULD BE EASY TO IMPLEMENT
 
-. Compilers should evolve, but should **not** take decades to reach 1.0
+. Compilers should evolve but **not** take decades to reach 1.0
 .. Core expectations need to be defined from the start
 .. The language should **not** cater to a specific domain until these expectations are fully defined
 .. "Will Not Implement" needs to be a frequently used phrase
@@ -64,17 +64,17 @@ KEYWORDS OVER DIRECTIVES
 USER-LEVEL CODE OVER INTRINSICS
 
 . Intrinsics, like directives, are magic procedure-like entities that are internal to the compiler and can't be inspected in userland
-. Intrinsics, should be relegated to an importable package; their usage should be explicit
+. Intrinsics should be relegated to an importable package; their usage should be explicit
 
 
 RESTRICTIVE SYNTAX
 
-. Syntax won't make a bad language usable but, will make a good one better
+. Good syntax won't make a bad language good, but will make a good language great
 . Standard formatting should be enforced by the compiler, remove code style from the programmer's brain
-. The syntax should look the same everywhere, spaces over tabs
+. The syntax should look the same everywhere; spaces are preferred over tabs
 . K&R bracing style: foo() {
-. Spacing should be placed between around operators: x==y -> x == y
-. Parentheses should not be required for conditionals or loops: if (x) { -> if x {
+. Spacing should be placed around operators: x==y -> x == y
+. Parentheses should not be required for conditionals or loops: if (x) -> if x
 . Inline statements should not be allowed: if x return 10 -> if x {
 
 
@@ -93,13 +93,13 @@ NO MORE VOID POINTERS
 . A dereference of void* becomes a unit type who's semantics don't align with the rest of the language (what's the zero-value of void?)
 . A specific type (rawptr) should be created that allows T* -> rawptr conversions
 . rawptr should not cast to other pointer types automatically, however, it should be allowed to do so if done explicitly
-. rawptr must be cast before dereferencing is allowed (no zero-value is needed)
-. Pointer arithmetic is not allowed. Pointers must be cast to rawptr then to a pointer sized integer and back: T* <-> rawptr <-> intptr (rawptr is the bridge to type unsafe code)
+. rawptr must be cast to a T* before dereferencing is allowed 
+. Pointer arithmetic is not allowed. A T* must be cast to rawptr then to a pointer sized integer and back: T* <-> rawptr <-> intptr (rawptr is the bridge to type unsafe code)
 
 
 NO MORE IMPLICIT CONVERSION
 
-. Implicit conversion is nice from a writing perspective, but terrible from a grokking one
+. Implicit conversion is nice from the "getting things done" perspective, but terrible from a "refactor my code" one
 . All conversions are explicit
 . Untyped constants (integers, floats, bools, etc.) are range-checked at compile time to ensure their conversion is safe, otherwise they follow the rules of everything else
 . The language should feature an auto cast keyword/operator to make explicit conversion less annoying to work with 
@@ -222,10 +222,11 @@ Some syntactic ideas to outline how certain features would work:
 		}
 		
 		// method calls
-		bob.AddFriend(jon)
-		jon.AddFriend(bob)
+		bob.AddFriend(*jon) // pointers
+		jon.AddFriend(*bob)
 		
 		bob.RemoveFriend(jon)
+		bob.RemoveFriendById(id: 0) // named arguments
 	}
 
 	
@@ -250,7 +251,7 @@ A small example of building the language **in** the language.
 			if arg in {
 				case "-d", "debug", "--debug":
 					options.DebugInfo    = true
-					options.Optimization = .None // anonymous enums
+					options.Optimization = .None // type-inferred enum literals
 				
 				case "-r", "release", "--release":
 					options.Optimization = .ReleaseSmall
@@ -261,7 +262,8 @@ A small example of building the language **in** the language.
 			}
 		}
 		
-		// anonymous switch statement (breaks on the first true branch unless continue is used)
+		// anonymous switch statement
+		// (breaks on the first true branch unless continue is used)
 		if {
 			case options.Optimization == .None:
 				fmt.Println("Compiling with no optimizations...")
@@ -272,5 +274,6 @@ A small example of building the language **in** the language.
 				continue
 				
 			// a default case here would always be executed
+			// case:
 		}
 	}
