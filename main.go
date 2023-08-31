@@ -10,9 +10,10 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
-	"sort"
 	"strings"
 	"time"
+
+	"github.com/judah-caruso/rivit"
 )
 
 const (
@@ -24,35 +25,20 @@ const (
 	siteTitle        = "beton brutalism"
 	siteStylePath    = "style.css"    // within resPath
 	siteTemplatePath = "template.htm" // within resPath
-
-	classP       = "paragraph"
-	classH1      = "title"
-	classH2      = "header"
-	classUl      = "list"
-	classLi      = "list-item"
-	classPre     = "code"
-	classBold    = "bold"
-	classItalic  = "italic"
-	classIntLink = "internal link"
-	classExtLink = "external link"
-	classEmbed   = "embed"
-	classCaption = "embed-caption"
-	classImage   = "image"
-	classSvg     = "vector"
-	classSound   = "sound"
 )
 
 var (
 	siteYear        = time.Now().Year()
-	flagPort        = flag.Int("port", 8080, "sets the port for the HTTP server")
+	flagPort        = flag.Int("port", 8000, "sets the port for the HTTP server")
 	flagStartServer = flag.Bool("server", false, "start a simple HTTP server after generation")
 )
 
 func main() {
 	var (
-		err      error
-		styles   string
-		template string
+		err       error
+		styles    string
+		template  string
+		generated int
 	)
 
 	log.SetFlags(0)
@@ -121,9 +107,11 @@ func main() {
 		os.Exit(4)
 	}
 
-	generated := 0
 	for _, page := range index.Pages {
-		y, m, d := time.Now().Date()
+		info, err := os.Stat(filepath.Join(inPath, page.LocalName))
+		if err == nil {
+			page.Updated = info.ModTime()
+		}
 
 		src, err := readEntireFile(inPath, page.LocalName)
 		if err != nil {
@@ -131,13 +119,13 @@ func main() {
 			continue
 		}
 
-		page.Body = Parse(src)
+		page.Body = rivit.Parse(src)
 		for _, riv := range page.Body {
-			if riv.Kind() != LineNavLink {
+			if riv.Kind() != rivit.LineNavLink {
 				continue
 			}
 
-			name := string(riv.(NavLink))
+			name := string(riv.(rivit.NavLink))
 			if p, ok := index.Pages[name]; ok {
 				exists := false
 				for _, nl := range page.Nav {
@@ -156,58 +144,59 @@ func main() {
 			}
 		}
 
-		// sort nav links before output
-		sort.SliceStable(page.Nav, func(i, j int) bool {
-			l := page.Nav[i]
-			r := page.Nav[j]
-			return l.UniqueName[0] < r.UniqueName[0]
-		})
+		var (
+			nav  bytes.Buffer
+			body bytes.Buffer
+		)
 
-		var nav bytes.Buffer
+		nav.WriteString("<ul>")
 
-		fmt.Fprintf(&nav, "<ul class=%q>", classUl)
 		for _, nl := range page.Nav {
 			fmt.Fprintf(&nav,
-				"<li class=%q><a class=%q href=%q>%s</a></li>",
-				classLi, classIntLink,
+				"<li><a href=%q>%s</a></li>",
 				nl.OutName, nl.DisplayName,
 			)
 		}
-		fmt.Fprint(&nav, "</ul>")
 
-		var body bytes.Buffer
-	loop:
+		nav.WriteString("</ul>")
+
 		for i, line := range page.Body {
-			if line.Kind() == LineNavLink {
+			if line.Kind() == rivit.LineNavLink {
 				continue
 			}
 
 			switch v := line.(type) {
-			case Paragraph:
-				fmt.Fprintf(&body, "<p class=%q>%s</p>", classP, styledTextToHtml(index, page, v))
-			case List:
+			case rivit.Paragraph:
+				fmt.Fprintf(&body, "<p>%s</p>", styledTextToHtml(index, page, v))
+
+			case rivit.List:
 				fmt.Fprint(&body, listToHtml(index, page, v))
-			case Header:
+
+			case rivit.Header:
 				if i == 0 {
-					fmt.Fprintf(&body, "<h1 class=%q>%s</h1>", classH1, v)
+					fmt.Fprintf(&body, "<h1>%s</h1>", v)
 				} else {
-					fmt.Fprintf(&body, "<h2 class=%q>%s</h2>", classH2, v)
+					fmt.Fprintf(&body, "<h2>%s</h2>", v)
 				}
-			case Block:
-				fmt.Fprintf(&body, "<pre class=%q>", classPre)
+
+			case rivit.Block:
+				body.WriteString("<pre>")
+
 				for i, line := range v.Body {
 					l := line[v.Indent:]
 					l = strings.ReplaceAll(l, "<", "&lt;")
 					l = strings.ReplaceAll(l, ">", "&gt;")
 
-					fmt.Fprint(&body, l)
+					body.WriteString(l)
 
 					if i < len(v.Body) {
-						fmt.Fprint(&body, "\n")
+						body.WriteString("\n")
 					}
 				}
-				fmt.Fprint(&body, "</pre>")
-			case Embed:
+
+				body.WriteString("</pre>")
+
+			case rivit.Embed:
 				type MediaKind int
 				const (
 					MediaPng MediaKind = iota
@@ -225,7 +214,7 @@ func main() {
 					kind = MediaSvg
 				default:
 					log.Printf(".. '%s' references an unsupported media type '%s'\n", page.LocalName, ext)
-					continue loop
+					continue
 				}
 
 				file, err := readEntireFile(resPath, v.Path)
@@ -236,40 +225,45 @@ func main() {
 
 				enc := base64.StdEncoding.EncodeToString([]byte(file))
 
-				fmt.Fprintf(&body, "<figure class=%q>", classEmbed)
+				body.WriteString("<figure>")
+
 				switch kind {
 				case MediaPng:
 					const prefix = "data:image/png;base64"
-					fmt.Fprintf(&body, "<img class=%q src='%s,%s'/>", classImage, prefix, enc)
+					fmt.Fprintf(&body, "<img src='%s,%s'/>", prefix, enc)
 				case MediaSvg:
 					const prefix = "data:image/svg+xml;base64"
-					fmt.Fprintf(&body, "<img class=%q src='%s,%s'/>", classSvg, prefix, enc)
+					fmt.Fprintf(&body, "<img src='%s,%s'/>", prefix, enc)
 				case MediaOgg:
 					const prefix = "data:audio/ogg;base64"
-					fmt.Fprintf(&body, "<audio class=%q loop controls autobuffer src='%s,%s'></audio>", classSound, prefix, enc)
+					fmt.Fprintf(&body, "<audio loop controls autobuffer src='%s,%s'></audio>", prefix, enc)
 				}
 
 				if len(v.Alt) != 0 {
-					fmt.Fprintf(&body, "<figcaption class=%q>%s</figcaption>", classCaption, styledTextToHtml(index, page, v.Alt))
+					fmt.Fprintf(&body, "<figcaption>%s</figcaption>", styledTextToHtml(index, page, v.Alt))
 				}
-				fmt.Fprint(&body, "</figure>")
+
+				body.WriteString("</figure>")
 
 			default:
 				panic(fmt.Sprintf("unimplemented line kind: %T", v))
 			}
 		}
 
-		tmp := template
-		tmp = strings.Replace(tmp, "$site:title", siteTitle, 1)
-		tmp = strings.Replace(tmp, "$site:name", page.DisplayName, 1)
-		tmp = strings.Replace(tmp, "$site:style", styles, 1)
-		tmp = strings.Replace(tmp, "$site:nav", nav.String(), 1)
-		tmp = strings.Replace(tmp, "$site:body", body.String(), 1)
-		tmp = strings.Replace(tmp, "$site:edit", fmt.Sprintf("%s/edit/main/%s/%s", siteBase, inPath, page.LocalName), 1)
-		tmp = strings.Replace(tmp, "$site:created", fmt.Sprintf("%02d%02d%02d", y-2000, m, d), 1)
-		tmp = strings.Replace(tmp, "$site:year", fmt.Sprintf("%d", siteYear), 1)
+		y, m, d := page.Updated.Date()
 
-		err = writeEntireFile(outPath, page.OutName, tmp)
+		r := strings.NewReplacer(
+			"$site:title", siteTitle,
+			"$site:name", page.DisplayName,
+			"$site:style", styles,
+			"$site:nav", nav.String(),
+			"$site:body", body.String(),
+			"$site:edit", fmt.Sprintf("%s/edit/main/%s/%s", siteBase, inPath, page.LocalName),
+			"$site:updated", fmt.Sprintf("%02d%02d%02d", y-2000, m, d),
+			"$site:year", fmt.Sprintf("%d", siteYear),
+		)
+
+		err = writeEntireFile(outPath, page.OutName, r.Replace(template))
 		if err != nil {
 			log.Printf(".. unable to create output file '%s%c%s': %s", outPath, filepath.Separator, page.OutName, err)
 			continue
@@ -298,34 +292,42 @@ func main() {
 	}
 }
 
-func listToHtml(index *Index, page *Page, lst List) string {
+func listToHtml(index *Index, page *Page, lst rivit.List) string {
 	var b bytes.Buffer
-	fmt.Fprintf(&b, "<ul class=%q>", classUl)
+
+	b.WriteString("<ul>")
 
 	for _, l := range lst {
-		fmt.Fprintf(&b, "<li class=%q>%s", classLi, styledTextToHtml(index, page, l.Value))
+		fmt.Fprintf(&b, "<li>%s", styledTextToHtml(index, page, l.Value))
 		if len(l.Sublist) != 0 {
 			fmt.Fprint(&b, listToHtml(index, page, l.Sublist))
 		}
 		fmt.Fprint(&b, "</li>")
 	}
 
-	fmt.Fprint(&b, "</ul>")
+	b.WriteString("</ul>")
+
 	return b.String()
 }
 
-func styledTextToHtml(index *Index, page *Page, text []StyledText) string {
+func styledTextToHtml(index *Index, page *Page, text []rivit.StyledText) string {
 	var b bytes.Buffer
 
 	for _, t := range text {
 		switch t.Style {
-		case StyleNone:
+		case rivit.StyleNone:
 			b.WriteString(t.Value)
-		case StyleItalic:
-			fmt.Fprintf(&b, "<em class=%q>%s</em>", classItalic, t.Value)
-		case StyleBold:
-			fmt.Fprintf(&b, "<strong class=%q>%s</strong>", classBold, t.Value)
-		case StyleInternalLink:
+
+		case rivit.StyleItalic:
+			fmt.Fprintf(&b, "<em>%s</em>", t.Value)
+
+		case rivit.StyleBold:
+			fmt.Fprintf(&b, "<strong>%s</strong>", t.Value)
+
+		case rivit.StyleMono:
+			fmt.Fprintf(&b, "<code>%s</code>", t.Value)
+
+		case rivit.StyleInternalLink:
 			if p, ok := index.Pages[t.Link]; ok {
 				display := t.Value
 				if len(display) == 0 {
@@ -333,7 +335,7 @@ func styledTextToHtml(index *Index, page *Page, text []StyledText) string {
 				}
 
 				p.Refs += 1
-				fmt.Fprintf(&b, "<a class=%q href=%q>%s</a>", classIntLink, p.OutName, display)
+				fmt.Fprintf(&b, "<a href=%q>%s</a>", p.OutName, display)
 			} else {
 				log.Printf(".. '%s' has a broken internal link '%s'\n", page.LocalName, t.Link)
 
@@ -343,15 +345,17 @@ func styledTextToHtml(index *Index, page *Page, text []StyledText) string {
 				}
 
 				url := fmt.Sprintf("%s/new/main/%s?filename=%s.riv", siteBase, inPath, t.Link)
-				fmt.Fprintf(&b, "<a class='broken %s' href=%q target='_blank'>%s</a>", classExtLink, url, display)
+				fmt.Fprintf(&b, "<a class='broken' href=%q target='_blank'>%s</a>", url, display)
 			}
-		case StyleExternalLink:
+
+		case rivit.StyleExternalLink:
 			display := t.Value
 			if len(display) == 0 {
 				display = t.Link
 			}
 
-			fmt.Fprintf(&b, "<a class=%q href=%q target='_blank'>%s</a>", classExtLink, t.Link, display)
+			fmt.Fprintf(&b, "<a href=%q target='_blank'>%s</a>", t.Link, display)
+
 		default:
 			panic(fmt.Sprintf("unimplemented style: %s (%v)", t.Value, t.Style))
 		}
@@ -365,9 +369,10 @@ type (
 		Pages map[string]*Page
 	}
 	Page struct {
-		Refs uint // how many pages reference this one
-		Body Rivit
-		Nav  []*Page
+		Refs    uint // how many pages reference this one
+		Body    rivit.Rivit
+		Nav     []*Page
+		Updated time.Time
 
 		UniqueName  string // path without extension
 		DisplayName string // user-facing name

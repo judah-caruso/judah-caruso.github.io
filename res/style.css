@@ -4,7 +4,7 @@
     --color-background: #1b1c22;
   }
 
-  main pre {
+  main pre, main code {
     background: #16171c;
   }
 }
@@ -14,7 +14,7 @@
     --color-background: #f7f7f7;
   }
 
-  main pre {
+  main pre, main code {
     background: #efefef;
   }
 }
@@ -155,6 +155,14 @@ main pre {
   line-height: 1.4;
   margin-bottom: 20px;
   overflow-y: hidden;
+  border-radius: 5px;
+}
+
+main code {
+  padding: 3px;
+  margin: 0px;
+  font-family: monospace;
+  border-radius: 3px;
 }
 
 main ul {

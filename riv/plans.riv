@@ -1,0 +1,14 @@
+/ whoami
+
+WHAT I'M WORKING ON
+
+230830:
+
+- Working on an immediate-mode gui (using Ebitengen) in Go
+- Planning a tiny conlang
+- Planning a {language-for-productivity compiler} project
+- Adding more features to [https://github.com/judah-caruso/SpeedUtils SpeedUtils]
+-- "Dream sequence" teleports
+-- No-clip
+-- Save states
+-- Fixing issue where the in-game vsync option disables the frame limiter

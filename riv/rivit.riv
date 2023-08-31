@@ -1,4 +1,4 @@
-+ tools
+/ tools
 
 @ olympia-deluxe.png Olympia De Luxe typewriter (circa. 1960)
 
@@ -15,8 +15,8 @@ QUICK REFERENCE
    Lines are paragraphs and can contain *italics*, **bolds**, {some-page local links}, or [www.some-url.com external links].
    Styles cannot be combined.
    
-   . List items use '.' and can be styled like paragraphs.
-   .. Sub items must have >= dots of the previous line.
+   - List items use '-' and can be styled like paragraphs.
+   -- Sub items must have >= dots of the previous line.
    
    Code blocks are lines with matching indentation:
    
@@ -30,21 +30,23 @@ QUICK REFERENCE
    @ path/img.png optional alt text
    @ path/song.wav
    
-   # Add pages to the generated navbar (can be placed anywhere)
-   + foo
-   + bar
-   + baz
+   # Add referenced pages (can be used to generate a navbar, etc.)
+   / foo
+   / bar
+   / baz
 
 If you're curious, here's a [https://github.com/judah-caruso/rivit-zig reference implementation] for the parser.
 
 
 SYNTAX DESCRIPTION
 
-Each line is considered a new paragraph and blank lines are ignored. Paragraphs can be styled with *italics*, **bolds**, {index local links}, and [https://judahcaruso.com external links].
+Each line is considered a new paragraph and blank lines are ignored. Paragraphs can be styled with *italics*, **bolds**, `monospace`, {index local links}, and [https://judahcaruso.com external links].
 
    *Italics* are written like so.
    
-   *Bolds* are written like so.
+   **Bolds** are written like so.
+   
+   `Monospace` is written like so.
    
    Local {links} are written like so.
       'links' is expected to be a 'links.riv' file.
@@ -90,14 +92,14 @@ Lines starting with '.' are treated as list items. Subsequent lines with an equa
 
    SHOPPING LIST
    
-   . *Cleaning*
-   .. Soap
-   .. Mop
-   .. Broom
+   - *Cleaning*
+   -- Soap
+   -- Mop
+   -- Broom
    
-   . Cooking
-   .. Vegetables
-   .. Fruit
+   - Cooking
+   -- Vegetables
+   -- Fruit
 
 
 Lines starting with '@' are used to embed media within the generated document. Rivit has no notion of acceptable media types.
@@ -111,9 +113,9 @@ Lines starting with '@' are used to embed media within the generated document. R
    @ mus/file-path.wav
 
 
-Lines starting with '+' are used to specify **local** links we'd like to reference but don't mention in the body of the page. This is useful for generating a navbar for wiki-style sites. Note: when generating navbars, links added with '+' take precedence over local links included in the body of the page.
+Lines starting with '/' are used to specify **local** links we'd like to reference but don't mention in the body of the page. This is useful for generating a navbar for wiki-style sites.
 
    # Hidden local links shown in the navbar
-   + foo
-   + bar
-   + baz
+   / foo
+   / bar
+   / baz

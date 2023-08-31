@@ -7,138 +7,138 @@ However, these languages have a common pitfall: productivity is relative to the 
 A programmer only becomes more productive in these languages as they do things the "right way" (as defined by the language or expected domain). The moment they do things outside of the philosophy they have to fight the language or change their solution to fit back in the box. If they're lucky, the language designers will evolve the language to fit the domain at the cost of complexity.
 
 See:
-. TypeScript's type system
-. Python type hints
-. Any C++ specification after C++98
-. Rust's async traits
+- TypeScript's type system
+- Python type hints
+- Any C++ specification after C++98
+- Rust's async traits
 
-\. . .
+. . .
 
 THE COMPILER SHOULD BE EASY TO IMPLEMENT
 
-. Compilers should evolve but **not** take decades to reach 1.0
-.. Core expectations need to be defined from the start
-.. The language should **not** cater to a specific domain until these expectations are fully defined
-.. "Will Not Implement" needs to be a frequently used phrase
-. A baseline compiler for a specific target should take a **week** at most, ideally a **weekend**
-.. Baseline as-in: declarations, control flow, base type system (**no** pointer mutability, polymorphism, or methods), and code generation
-. A spec should **not** be created until 1.0, instead a large test suite to ensure stability should be used
-. Alternate implementations should not be encouraged until 1.0
-. The spec should avoid "implementation defined" details
+- Compilers should evolve but **not** take decades to reach 1.0
+-- Core expectations need to be defined from the start
+-- The language should **not** cater to a specific domain until these expectations are fully defined
+-- "Will Not Implement" needs to be a frequently used phrase
+- A baseline compiler for a specific target should take a **week** at most, ideally a **weekend**
+-- Baseline as-in: declarations, control flow, base type system (**no** pointer mutability, polymorphism, or methods), and code generation
+- A spec should **not** be created until 1.0, instead a large test suite to ensure stability should be used
+- Alternate implementations should not be encouraged until 1.0
+- The spec should avoid "implementation defined" details
 
 
 THE LANGUAGE SHOULD STAY SIMPLE
 
-. 1.0 should mark a stopping point for large language changes
-. Source code five years after a major version should compile on the same architecture
-. Major versions (2.0, 3.0, etc.) should be the removal point of deprecated standard library features
-. Major versions should be a reflection point for how the language is used in its most popular domains
-.. This reflection point should allow smaller quality-of-life changes to be added to the language
+- 1.0 should mark a stopping point for large language changes
+- Source code five years after a major version should compile on the same architecture
+- Major versions (2.0, 3.0, etc.) should be the removal point of deprecated standard library features
+- Major versions should be a reflection point for how the language is used in its most popular domains
+-- This reflection point should allow smaller quality-of-life changes to be added to the language
 
 
 CUSTOM MEMORY MANAGEMENT
 
 Most designers pick a memory model and throw away the others, limiting the number of applicable domains.
- 
-. The memory model should start out as manual and the language should provide features to manage the memory in a simple way
-. Allocators should be first class citizens
-.. Features to manage allocated memory and share it between allocators is required
-. Allocators should always be in userland, memory allocation should not be an implementation detail of the compiler
-.. In this world, garbage collection is an allocator you opt into
-.. In this world, reference counting is an allocator you opt into
-.. In this world, memory is controlled, not feared
+
+- The memory model should start out as manual and the language should provide features to manage the memory in a simple way
+- Allocators should be first class citizens
+-- Features to manage allocated memory and share it between allocators is required
+- Allocators should always be in userland, memory allocation should not be an implementation detail of the compiler
+-- In this world, garbage collection is an allocator you opt into
+-- In this world, reference counting is an allocator you opt into
+-- In this world, memory is controlled, not feared
 
 
 KEYWORDS OVER DIRECTIVES
 
-. Directives are bespoke, usually implementation specific, and are different from the language; they should be avoided
-. Keywords limit user naming but that doesn't matter
-. Keywords should be reused in different contexts, rather than adding more:
-.. for, while -> for
-.. if, switch, ? -> if
-.. else, : -> else
-.. case, default -> case
-.. continue, fallthrough -> continue
+- Directives are bespoke, usually implementation specific, and are different from the language; they should be avoided
+- Keywords limit user naming but that doesn't matter
+- Keywords should be reused in different contexts, rather than adding more:
+-- for, while -> for
+-- if, switch, ? -> if
+-- else, : -> else
+-- case, default -> case
+-- continue, fallthrough -> continue
 
 
 USER-LEVEL CODE OVER INTRINSICS
 
-. Intrinsics, like directives, are magic procedure-like entities that are internal to the compiler and can't be inspected in userland
-. Intrinsics should be relegated to an importable package; their usage should be explicit
+- Intrinsics, like directives, are magic procedure-like entities that are internal to the compiler and can't be inspected in userland
+- Intrinsics should be relegated to an importable package; their usage should be explicit
 
 
 RESTRICTIVE SYNTAX
 
-. Good syntax won't make a bad language good, but will make a good language great
-. Standard formatting should be enforced by the compiler, remove code style from the programmer's brain
-. The syntax should look the same everywhere; spaces are preferred over tabs
-. K&R bracing style: foo() {
-. Spacing should be placed around operators: x==y -> x == y
-. Parentheses should not be required for conditionals or loops: if (x) -> if x
-. Inline statements should not be allowed: if x return 10 -> if x {
+- Good syntax won't make a bad language good, but will make a good language great
+- Standard formatting should be enforced by the compiler, remove code style from the programmer's brain
+- The syntax should look the same everywhere; spaces are preferred over tabs
+- K&R bracing style: foo() {
+- Spacing should be placed around operators: x==y -> x == y
+- Parentheses should not be required for conditionals or loops: if (x) -> if x
+- Inline statements should not be allowed: if x return 10 -> if x {
 
 
 FOLDER-BASED PACKAGES & EXPLICIT DEPENDENCIES
 
-. Folder-based packages are annoying but clearly describe the structure of code
-. Prelude packages are annoying and shouldn't exist
-. A namespace defaults to the enclosing folder's name
-. Dependencies should default to local vendoring over external fetching
-. Dependencies, their source (not source code), version, and a checksum should be declared explicitly within a package - this can be an separate file, but it must be done 
+- Folder-based packages are annoying but clearly describe the structure of code
+- Prelude packages are annoying and shouldn't exist
+- A namespace defaults to the enclosing folder's name
+- Dependencies should default to local vendoring over external fetching
+- Dependencies, their source (not source code), version, and a checksum should be declared explicitly within a package - this can be an separate file, but it must be done
 
 
 NO MORE VOID POINTERS
 
-. void* is a great tool within a poor type system
-. A dereference of void* becomes a unit type who's semantics don't align with the rest of the language (what's the zero-value of void?)
-. A specific type (rawptr) should be created that allows T* -> rawptr conversions
-. rawptr should not cast to other pointer types automatically, however, it should be allowed to do so if done explicitly
-. rawptr must be cast to a T* before dereferencing is allowed 
-. Pointer arithmetic is not allowed. A T* must be cast to rawptr then to a pointer sized integer and back: T* <-> rawptr <-> intptr (rawptr is the bridge to type unsafe code)
+- void* is a great tool within a poor type system
+- A dereference of void* becomes a unit type who's semantics don't align with the rest of the language (what's the zero-value of void?)
+- A specific type (rawptr) should be created that allows T* -> rawptr conversions
+- rawptr should not cast to other pointer types automatically, however, it should be allowed to do so if done explicitly
+- rawptr must be cast to a T* before dereferencing is allowed
+- Pointer arithmetic is not allowed. A T* must be cast to rawptr then to a pointer sized integer and back: T* <-> rawptr <-> intptr (rawptr is the bridge to type unsafe code)
 
 
 NO MORE IMPLICIT CONVERSION
 
-. Implicit conversion is nice from the "getting things done" perspective, but terrible from a "refactor my code" one
-. All conversions are explicit
-. Untyped constants (integers, floats, bools, etc.) are range-checked at compile time to ensure their conversion is safe, otherwise they follow the rules of everything else
-. The language should feature an auto cast keyword/operator to make explicit conversion less annoying to work with 
+- Implicit conversion is nice from the "getting things done" perspective, but terrible from a "refactor my code" one
+- All conversions are explicit
+- Untyped constants (integers, floats, bools, etc.) are range-checked at compile time to ensure their conversion is safe, otherwise they follow the rules of everything else
+- The language should feature an auto cast keyword/operator to make explicit conversion less annoying to work with
 
 
 TYPES SHOULD DESCRIBE THE DATA
 
-. Types and data should not exist in separate worlds and rely on deserialization to communicate
-. Types should not rely on workarounds or directives to accurately model their data
-. Integers and booleans should not be fixed size (ie. uint1, sint7, bool3)
-. Alignment and padding of struct fields should be configurable in their declaration
+- Types and data should not exist in separate worlds and rely on deserialization to communicate
+- Types should not rely on workarounds or directives to accurately model their data
+- Integers and booleans should not be fixed size (ie. uint1, sint7, bool3)
+- Alignment and padding of struct fields should be configurable in their declaration
 
 
 DATA SHOULD BE MUTATED
 
-. Everything is mutable by default (only const declarations and const pointers cannot be mutated)
-. Everything is public by default (only local declarations are kept to the current module)
+- Everything is mutable by default (only const declarations and const pointers cannot be mutated)
+- Everything is public by default (only local declarations are kept to the current module)
 
 
 ERRORS SHOULD JUST BE VALUES
 
-. Errors should be simple values that the language allows special handling of (see: Zig)
-. Data can be attached to errors so the world can stop relying on error code and GetErrorMessage(code) styles of handling
+- Errors should be simple values that the language allows special handling of (see: Zig)
+- Data can be attached to errors so the world can stop relying on error code and GetErrorMessage(code) styles of handling
 
 
 THE BUILD SYSTEM SHOULD BE THE LANGUAGE
 
-. Shell scripts, makefiles, etc. should **not** be required to build complex projects in this language
-. The build system should **not** use a subset of the core language
-.. This leads to a scripting language with the flavor of the main one 
+- Shell scripts, makefiles, etc. should **not** be required to build complex projects in this language
+- The build system should **not** use a subset of the core language
+-- This leads to a scripting language with the flavor of the main one
 
 
-COMPILER TOOLING SHOULD NOT BE FIRST CLASS 
+COMPILER TOOLING SHOULD NOT BE FIRST CLASS
 
-. The compiler must remain small and easy to grok; adding tools to the core makes reimplementing more difficult than it needs to be
-. The standard library should provide helpful packages to make writing external tools easier
+- The compiler must remain small and easy to grok; adding tools to the core makes reimplementing more difficult than it needs to be
+- The standard library should provide helpful packages to make writing external tools easier
 
 
-\. . .
+. . .
 
 
 SYNTAX IDEAS
@@ -229,7 +229,7 @@ Some syntactic ideas to outline how certain features would work:
 		bob.RemoveFriendById(id: 0) // named arguments
 	}
 
-	
+
 *Build system:*
 
 A small example of building the language **in** the language.
