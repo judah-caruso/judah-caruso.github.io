@@ -160,7 +160,7 @@ func main() {
 
 		nav.WriteString("</ul>")
 
-		for i, line := range page.Body {
+		for _, line := range page.Body {
 			if line.Kind() == rivit.LineNavLink {
 				continue
 			}
@@ -173,7 +173,7 @@ func main() {
 				fmt.Fprint(&body, listToHtml(index, page, v))
 
 			case rivit.Header:
-				if i == 0 {
+				if body.Len() == 0 {
 					fmt.Fprintf(&body, "<h1>%s</h1>", v)
 				} else {
 					fmt.Fprintf(&body, "<h2>%s</h2>", v)

@@ -1,4 +1,5 @@
 res/*.tmp
 web/*.htm
+riv/*.draft
 
 *.DS_Store

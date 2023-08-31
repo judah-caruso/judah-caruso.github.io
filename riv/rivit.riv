@@ -12,83 +12,81 @@ QUICK REFERENCE
    UPPERCASE LINES ARE HEADERS
    # Lines can be commented out.
    
-   Lines are paragraphs and can contain *italics*, **bolds**, {some-page local links}, or [www.some-url.com external links].
+   Lines are individual paragraphs.
+   
+   They can contain *italic*, **bold**, `monospace`, or linked text.
+   
+   Links have special syntax:
+   
+      Internal: {some-page display text}
+      External: [www.some-url.com display text]
+   
    Styles cannot be combined.
    
-   - List items use '-' and can be styled like paragraphs.
-   -- Sub items must have >= dots of the previous line.
+   - List items start with '-' and have the same styling rules as paragraphs.
+   -- Sub-lists can be created with more dashes.
    
    Code blocks are lines with matching indentation:
    
       int
-      main(int argc, char* argv[]) {
+      main(int argc, char* argv[])
+      {
          return 0;
       }
-      
-   Media can be embedded within the generated document like so:
    
-   @ path/img.png optional alt text
+   Media is embedded with '@':
+   
+   @ path/img.png *optional* alt text
    @ path/song.wav
    
-   # Add referenced pages (can be used to generate a navbar, etc.)
+   Page references start with '/':
+   
    / foo
    / bar
    / baz
 
-If you're curious, here's a [https://github.com/judah-caruso/rivit-zig reference implementation] for the parser.
+If you're curious, here's a [https://github.com/judah-caruso/rivit reference implementation].
 
 
-SYNTAX DESCRIPTION
+BASIC RULES
 
-Each line is considered a new paragraph and blank lines are ignored. Paragraphs can be styled with *italics*, **bolds**, `monospace`, {index local links}, and [https://judahcaruso.com external links].
+Each line is considered a separate paragraph and blank lines are ignored. Paragraphs can contain *italics*, **bolds**, `monospace`, {index local links}, or [https://judahcaruso.com external links].
 
-   *Italics* are written like so.
+   *Italic* text
    
-   **Bolds** are written like so.
+   **Bold** text
    
-   `Monospace` is written like so.
+   `Monospace` text
    
-   Local {links} are written like so.
-      'links' is expected to be a 'links.riv' file.
-      
-   [https://some-url.com External links are written like so].
-      They're expected to open a new tab.
-      
+   {links Local links}
+      'links' is expected to be a 'links.riv' file
+   
+   [https://some-url.com External links]
+      They're expected to open a new tab
+   
    Styles cannot be combined. For example:
-      ***this*** will NOT generate bold-italics.
-      [https://foo.bar *this*] will NOT generate an italic link.
-
-
-Lines starting with '#' will not be included in the final output. This is useful for comments.
-
-   # This line is excluded
-   This line is included.
-
-
-Lines with matching indentation are treated as code blocks. Rivit has no notion of syntax highlighting.
-
-   This is not code.
+      ***this*** will NOT generate bold-italics
+      [https://foo.bar *this*] will NOT generate an italic link
    
-      // This is code
-      int main(void) {
-         return 0;
-      }
-      
-   This is also not code.
+   # This is a comment. It will not be included in the output text
 
 
-Lines containing no capital letters are treated as headers. This is different from Markdown where '#' gives you control over the size of the header. In Rivit, headers are the same size. However, a small exception is made if the first line output is a header: it will be treated as a title and made larger than subsequent headers.
+HEADERS
+
+Lines containing no lowercase letters are treated as headers. This is different from Markdown where `#` gives you control over the size of the header. In Rivit, headers are the same size. However, a small exception is made if the first line output is a header: it will be treated as a title and made larger than subsequent headers.
 
    THIS IS A TITLE
    
    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod...
    
-   I'M A HEADER & CAN CONTAIN SPECIAL CHARACTERS
+   I'M A HEADER
    
    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod...
 
 
-Lines starting with '.' are treated as list items. Subsequent lines with an equal number of dots are considered part of the same list. Subsequent lines with a greater number of dots are considered sub-lists of the previous line.
+LISTS
+
+Lines starting with `-` are treated as list items. Subsequent lines with an equal number of dashes are considered part of the same list. Subsequent lines with a greater number of dashes are considered sub-lists of the previous.
 
    SHOPPING LIST
    
@@ -99,23 +97,45 @@ Lines starting with '.' are treated as list items. Subsequent lines with an equa
    
    - Cooking
    -- Vegetables
+   --- Broccoli
    -- Fruit
+   --- Apples
 
 
-Lines starting with '@' are used to embed media within the generated document. Rivit has no notion of acceptable media types.
+CODE BLOCKS
+
+Lines with matching indentation are treated as pre-formatted blocks. Rivit has no notion of syntax highlighting.
+
+   This is not code.
+   
+      // This is code
+      int main(void) {
+         return 0;
+      }
+      
+   This is also not code.
+
+MEDIA
+
+Lines starting with `@` are used to embed external files within the generated document. Rivit has no notion of acceptable media types.
 
    Here's an image:
    
-   @ img/file-path.png Alt text for the image (can be excluded)
+   @ img/file-path.png Alt text for the image *(can be excluded)*
    
    Here's some music:
    
    @ mus/file-path.wav
+   
+   How about a text file?
+   
+   @ txt/file-path.txt
 
 
-Lines starting with '/' are used to specify **local** links we'd like to reference but don't mention in the body of the page. This is useful for generating a navbar for wiki-style sites.
+PAGE REFERENCES
 
-   # Hidden local links shown in the navbar
+Lines starting with `/` are used to specify page references. These are local links that won't be included in the generated text. Page references are useful for navigational links or supplemental information not included in the page itself.
+
    / foo
    / bar
    / baz
