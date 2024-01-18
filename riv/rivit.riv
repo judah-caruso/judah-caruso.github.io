@@ -2,10 +2,10 @@
 
 @ olympia-deluxe.png Olympia De Luxe typewriter (circa. 1960)
 
-
 A TOOL FOR WRITING
 
 Rivit *(Finnish for 'lines')* is a minimal, line-based markup format meant to stay out of the writer's way.
+
 
 QUICK REFERENCE
 
@@ -114,6 +114,7 @@ Lines with matching indentation are treated as pre-formatted blocks. Rivit has n
       }
       
    This is also not code.
+
 
 MEDIA
 
