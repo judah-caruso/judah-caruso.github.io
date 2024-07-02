@@ -1,0 +1,83 @@
+JAI MANUAL OF STYLE
+
+This document is my personal style guide for the Jai programming language. It's meant as a reference that I can refer back to and change as the style evolves over time. Note, my style is not meant to be hyper-consistent and errs on the side of aesthetics.
+
+Topics are laid out most-general to most-specific.
+
+DECLARATIONS
+
+Declarations of similar types or initialization should be grouped and aligned. Grouped declarations without an initial value should be placed on different lines. Once a group of declarations changes, a newline should separate them.
+
+	// YES
+	first:  int;
+	second: int;
+	third:  int;
+	
+	a, b := GetFruit();
+	
+	FIRST  :: 0;
+	SECOND :: 1;
+	THIRD  :: 2;
+	
+	A, B :: #run GetFruit();
+	
+	// NO
+	first, second, third: int;
+	
+	a: int;
+	b: int;
+	a, b = GetFruit();
+	
+	FIRST, SECOND, THIRD :: 0, 1, 2;
+
+
+CONSTANTS
+
+Constants (regardless of their level) should use `UPPER_SNAKE_CASE` and follow the same grouping rules as declarations.
+
+	// YES
+	A: int     : 10;
+	B: float32 : 3.14;
+	
+	C :: 30;
+	
+	// NO
+	A : int : 10;
+	B : float32 : 3.14;
+	C :: 30;
+
+
+VARIABLES
+
+Local variables should use `snake_case` and prefer lengthier, more descriptive names over shorter ones. Their declaration should rely on type-inference unless a type is explicitly needed or the value is set later on. Variables without initial values should be zero-initialized and avoid using the `---` operator unless there are known, concrete benefits for its use in that scenario. 
+
+	// YES
+	entity: *Entity;
+	weapon: *Weapon;
+	
+	kill_entity_btn := Button("Kill Entity");
+	buy_weapon_btn  := Button("Buy Weapon");
+	
+	// NO
+	entity          : *Entity;
+	weapon          : *Weapon;
+	kill_entity_btn := Button("Kill Entity");
+	buy_weapon_btn  := Button("Buy Weapon");
+
+
+Global variables follow the same rules as local variables, however, they should use `UPPER_SNAKE_CASE` instead.
+
+	// YES
+	THE_GAME:    Game;
+	THE_PLAYER: *Player;
+	THE_GUI:    *Gui;
+	
+	CURRENT_FILE   := "default.txt";
+	CURRENT_FILEID := 0;
+	
+	// NO
+	the_game: Game;
+	the_player: *Player;
+	the_gui: *Gui;
+	current_file := "default.txt";
+	current_file_id := 0;

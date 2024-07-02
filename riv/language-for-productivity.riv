@@ -1,6 +1,6 @@
 A LANGUAGE FOR PRODUCTIVITY
 
-This file is a "living" document of notes and ideas for a productivity-focused programming language. I do not mean to imply languages of the modern age are designed with productivity as an afterthought. In fact, it's quite the opposite. Languages like Python, JavaScript, C++, and Rust were all designed to be more "expressive" and claim to improve productivity.
+This file is a living document of notes and ideas for a productivity-focused programming language. I do not mean to imply languages of the modern age are designed with productivity as an afterthought. In fact, it's quite the opposite. Languages like Python, JavaScript, C++, and Rust were all designed to be more "expressive" and claim to improve productivity.
 
 However, these languages have a common pitfall: productivity is relative to the amount of philosophical buy-in.
 
@@ -12,46 +12,49 @@ See:
 - Any C++ specification after C++98
 - Rust's async traits
 
-. . .
+Below is a rough, unordered list of tenets I would follow when designing a new programming language. People should disagree, but I believe a language with these ideas at the forefront would create a better environment to create better software.
+
 
 THE COMPILER SHOULD BE EASY TO IMPLEMENT
 
-- Compilers should evolve but **not** take decades to reach 1.0
+- Compilers should not take decades to reach 1.0
 -- Core expectations need to be defined from the start
--- The language should **not** cater to a specific domain until these expectations are fully defined
--- "Will Not Implement" needs to be a frequently used phrase
-- A baseline compiler for a specific target should take a **week** at most, ideally a **weekend**
--- Baseline as-in: declarations, control flow, base type system (**no** pointer mutability, polymorphism, or methods), and code generation
-- A spec should **not** be created until 1.0, instead a large test suite to ensure stability should be used
-- Alternate implementations should not be encouraged until 1.0
-- The spec should avoid "implementation defined" details
+-- The language should not cater to a specific domain until it's generally useful
+- A baseline compiler for a specific target should take a week at most, ideally a weekend
+- A spec should not be created until 1.0, instead a large test suite to ensure stability should be used
+- "Implementation defined" or "compiler-specific" should be avoided full-stop
 
 
-THE LANGUAGE SHOULD STAY SIMPLE
+THE LANGUAGE SHOULD STAY FLAT
 
 - 1.0 should mark a stopping point for large language changes
-- Source code five years after a major version should compile on the same architecture
-- Major versions (2.0, 3.0, etc.) should be the removal point of deprecated standard library features
-- Major versions should be a reflection point for how the language is used in its most popular domains
+- Major versions (2.0, 3.0, etc.) should be the removal point of deprecated or failed features
+- Major versions should be a reflection point for how the language is used and how it's solving real problems
 -- This reflection point should allow smaller quality-of-life changes to be added to the language
+
+
+LANGUAGE DESIGN IS NOT A SCIENCE
+
+- Designing a language should be utilitarian over scientific
+- Scientific language design leads to worse languages
+- Inconsistencies and ambiguities are fine when fleshing out "language feel"
 
 
 CUSTOM MEMORY MANAGEMENT
 
-Most designers pick a memory model and throw away the others, limiting the number of applicable domains.
+Most language designers pick a memory model and throw away the others, limiting the number of applicable domains.
 
-- The memory model should start out as manual and the language should provide features to manage the memory in a simple way
-- Allocators should be first class citizens
--- Features to manage allocated memory and share it between allocators is required
+- The memory model should default to manual, with the language providing features to manage it in any way
+- Allocators should be supported by the type system
 - Allocators should always be in userland, memory allocation should not be an implementation detail of the compiler
--- In this world, garbage collection is an allocator you opt into
--- In this world, reference counting is an allocator you opt into
+-- In this world, garbage collection is an allocator you can inspect and tweak
+-- In this world, reference counting is an allocator you can inspect and tweak
 -- In this world, memory is controlled, not feared
 
 
 KEYWORDS OVER DIRECTIVES
 
-- Directives are bespoke, usually implementation specific, and are different from the language; they should be avoided
+- Directives are bespoke, usually implementation specific, and different from the language; they should be avoided
 - Keywords limit user naming but that doesn't matter
 - Keywords should be reused in different contexts, rather than adding more:
 -- for, while -> for
@@ -65,6 +68,7 @@ USER-LEVEL CODE OVER INTRINSICS
 
 - Intrinsics, like directives, are magic procedure-like entities that are internal to the compiler and can't be inspected in userland
 - Intrinsics should be relegated to an importable package; their usage should be explicit
+- Ideally, intrinsics should be debuggable
 
 
 RESTRICTIVE SYNTAX
@@ -73,34 +77,48 @@ RESTRICTIVE SYNTAX
 - Standard formatting should be enforced by the compiler, remove code style from the programmer's brain
 - The syntax should look the same everywhere; spaces are preferred over tabs
 - K&R bracing style: foo() {
-- Spacing should be placed around operators: x==y -> x == y
-- Parentheses should not be required for conditionals or loops: if (x) -> if x
-- Inline statements should not be allowed: if x return 10 -> if x {
+- Spacing should be placed around operators: `x==y` -> `x == y`
+- Parentheses should not be required for conditionals or loops: `if (x)` -> `if x`
+- Inline statements should not be allowed: `if x return 10` -> `if x {`
 
 
-FOLDER-BASED PACKAGES & EXPLICIT DEPENDENCIES
+PACKAGES & EXPLICIT DEPENDENCIES
 
-- Folder-based packages are annoying but clearly describe the structure of code
-- Prelude packages are annoying and shouldn't exist
-- A namespace defaults to the enclosing folder's name
+- Folder-based packages are annoying to work with and lead to the "diamond problem"
+- Prelude packages are annoying and essentially function like header files
+- The compiler should be smart enough to allow cyclic imports (see: Jai)
+- The user should be allowed to quickly import code
 - Dependencies should default to local vendoring over external fetching
 - Dependencies, their source (not source code), version, and a checksum should be declared explicitly within a package - this can be an separate file, but it must be done
 
 
-NO MORE VOID POINTERS
+THE BUILD SYSTEM SHOULD BE THE LANGUAGE
+
+- Shell scripts, makefiles, cmake, etc. should not be required to build complex projects in this language
+- The build system should not use a subset of the core language
+-- This leads to a scripting language with the flavor of the main one
+- Linking external libraries should be done in code
+
+
+# COMPILER TOOLING SHOULD NOT BE FIRST CLASS
+# - The compiler must remain small and easy to grok; adding tools to the core makes # re-implementing more difficult than it needs to be
+# - The standard library should provide helpful packages to make writing external tools # easier
+
+
+VOID POINTERS SHOULD BE BETTER
 
 - void* is a great tool within a poor type system
 - A dereference of void* becomes a unit type who's semantics don't align with the rest of the language (what's the zero-value of void?)
 - A specific type (rawptr) should be created that allows T* -> rawptr conversions
-- rawptr should not cast to other pointer types automatically, however, it should be allowed to do so if done explicitly
+- rawptr should not cast to other pointer types automatically, conversions are explicit
 - rawptr must be cast to a T* before dereferencing is allowed
-- Pointer arithmetic is not allowed. A T* must be cast to rawptr then to a pointer sized integer and back: T* <-> rawptr <-> intptr (rawptr is the bridge to type unsafe code)
+- Pointer arithmetic is not allowed. A T* must be cast to rawptr, then to a pointer-sized integer and back: T* <-> rawptr <-> uintptr (rawptr is the bridge to type unsafe code)
+- This can be made nicer with a dedicated 'unsafe' package: `unsafe.Add(rawptr(T), 10))`
 
 
 NO MORE IMPLICIT CONVERSION
 
-- Implicit conversion is nice from the "getting things done" perspective, but terrible from a "refactor my code" one
-- All conversions are explicit
+- All conversions are explicit, but easy to do
 - Untyped constants (integers, floats, bools, etc.) are range-checked at compile time to ensure their conversion is safe, otherwise they follow the rules of everything else
 - The language should feature an auto cast keyword/operator to make explicit conversion less annoying to work with
 
@@ -109,8 +127,13 @@ TYPES SHOULD DESCRIBE THE DATA
 
 - Types and data should not exist in separate worlds and rely on deserialization to communicate
 - Types should not rely on workarounds or directives to accurately model their data
-- Integers and booleans should not be fixed size (ie. uint1, sint7, bool3)
+- Integers and booleans should be any size (ie. uint1, sint7, bool3)
 - Alignment and padding of struct fields should be configurable in their declaration
+
+
+TYPE INFORMATION & METADATA
+
+- Runtime type information (or reflection) should not be a second-class citizen
 
 
 DATA SHOULD BE MUTATED
@@ -125,155 +148,10 @@ ERRORS SHOULD JUST BE VALUES
 - Data can be attached to errors so the world can stop relying on error code and GetErrorMessage(code) styles of handling
 
 
-THE BUILD SYSTEM SHOULD BE THE LANGUAGE
+EASY INTEROP WITH C
 
-- Shell scripts, makefiles, etc. should **not** be required to build complex projects in this language
-- The build system should **not** use a subset of the core language
--- This leads to a scripting language with the flavor of the main one
-
-
-COMPILER TOOLING SHOULD NOT BE FIRST CLASS
-
-- The compiler must remain small and easy to grok; adding tools to the core makes reimplementing more difficult than it needs to be
-- The standard library should provide helpful packages to make writing external tools easier
-
-
-. . .
-
-
-SYNTAX IDEAS
-
-Some syntactic ideas to outline how certain features would work:
-
-*Structs and methods:*
-
-	// struct declaration
-	User :: struct {
-		Name    string    // string type (pointer + length)
-		Age     sint      // signed integer
-		Friends [..]*User // dynamic array type
-	}
-	
-	// "constructor"
-	MakeUser :: fn(name string, age sint) User {
-		// type-inferred struct literal
-		return .{
-			Name:    strings.Clone(name),
-			Age:     age,
-			Friends: .[], // type-inferred array literal
-		}
-	}
-	
-	// Method (first argument is User)
-	AddFriend :: fn(u *User, f *const User) void {
-		if u.Friends == nil {
-			u.Friends = mem.Make([]*User, 1)
-		}
-		
-		// error handling
-		mem.Append(*u.Friends, f) catch e {
-			log.Fatal(e)
-		}
-	}
-	
-	RemoveFriend :: fn(u *User, f *const User) void {
-		if u.Friends == nil {
-			return
-		}
-		
-		// for-each loop (i is optional)
-		for fp, i in u.Friends {
-			if fp != f {
-				continue
-			}
-			
-			// ...
-		}
-	}
-	
-	RemoveFriendById :: fn(u *User, id usize) void {
-		if u.Friends == nil || id >= len(u.Friends) {
-			return
-		}
-		
-		// ...
-	}
-	
-	// Return type is always required
-	Release :: fn(u *User) void {
-		if u.Name != nil {
-			mem.Release(u.Name)
-		}
-		
-		if u.Friends != nil {
-			mem.Release(u.Friends)
-		}
-	}
-	
-	main :: fn() void {
-		// variable declarations
-		bob := MakeUser("Bob", 88)
-		jon := MakeUser("Jon", 94)
-		
-		// scoped defer
-		defer {
-			bob.Release()
-			jon.Release()
-		}
-		
-		// method calls
-		bob.AddFriend(*jon) // pointers
-		jon.AddFriend(*bob)
-		
-		bob.RemoveFriend(jon)
-		bob.RemoveFriendById(id: 0) // named arguments
-	}
-
-
-*Build system:*
-
-A small example of building the language **in** the language.
-
-	// within a build.lang file
-	build :: fn(package *build.Package, options *build.Options) !void {
-		package.* = .{
-			Type:    .Binary,
-			Name:    "my package",
-			Version: "0.0.1",
-			Authors: .[ "my name <my@name.email>" ],
-			Link:    "https://github.com/my-name/my-package",
-		}
-		
-		// change build based on command-line arguments passed to the build command
-		args := options.Args
-		for arg in args {
-			// switch statement (each branch breaks unless continue is used)
-			if arg in {
-				case "-d", "debug", "--debug":
-					options.DebugInfo    = true
-					options.Optimization = .None // type-inferred enum literals
-				
-				case "-r", "release", "--release":
-					options.Optimization = .ReleaseSmall
-					
-				case:
-					options.DebugInfo    = true
-					options.Optimization = .None
-			}
-		}
-		
-		// anonymous switch statement
-		// (breaks on the first true branch unless continue is used)
-		if {
-			case options.Optimization == .None:
-				fmt.Println("Compiling with no optimizations...")
-				continue
-				
-			case options.DebugInfo:
-				fmt.Println("Compiling with debug info...")
-				continue
-				
-			// a default case here would always be executed
-			// case:
-		}
-	}
+- C will be around forever
+- Languages should take advantage of the large amounts of C code in the wild
+- The ability to directly import and start using a C library should be allowed
+- Imported C code should go in its own namespace
+- A bound library should directly import the C code and create wrappers/type-aliases

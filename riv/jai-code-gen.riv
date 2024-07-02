@@ -1,0 +1,285 @@
+EASY CODE GENERATION IN JAI
+
+Note: this article assumes you already know what `#insert` and `#run` do. If not, I've made a [https://www.youtube.com/watch?v=Y1RQHM9G4AM video] explaining them.
+
+
+PREAMBLE
+
+Jai has many ways to generate code, however, there's one way I use most: `#insert #run`.
+
+At a baseline, `#insert` just puts a string of Jai code into your source file; going through the same processes of regular code. However, when paired with `#run`, which lets you run arbitrary code at compile-time, it becomes the easiest way to generate anything without having a build metaprogram.
+
+	#insert "X :: 10;";
+	#insert #run sprint("Y :: %;\n", CalculateSomeValue(X)); 
+	
+	// Now the constants X, Y live in my program.
+
+To show how versatile this is, here's my most recent use case: creating a small game driven by WebAssembly (wasm).
+
+Because of this goal, I have a few problems by default:
+
+- Creating wasm wrappers so gameplay code can call into the engine;
+- Linking the exposed wrappers to wasm;
+- Enjoying the act of writing code (not filling out tax forms);
+
+
+This article tackles each problem individually, explaining the solution I went with.
+
+
+GENERATING WASM PROCEDURES
+
+The first step is to expose some Jai procedure to the wasm module by creating a wrapper [https://github.com/wasm3/wasm3 wasm3] expects. The code below is directly interfacing with the wasm virtual machine, popping arguments off the stack and pushing return values. We can also return errors for the wasm runtime to report.
+
+Here's an example of a wasm wrapper:
+
+	WasmAdd :: (runtime: IM3Runtime, _ctx: IM3ImportContext, _sp: *u64, _mem: *void) -> *void #c_call {
+		// First specify the return type, returns a pointer to the wasm stack
+		// where the return value lives.
+		res := m3ApiReturnType(s32);
+		
+		// Next, pop our arguments off the wasm stack and assign to the return value.
+		a := m3ApiGetArg(s32);
+		b := m3ApiGetArg(s32);
+		res.* = a + b;
+		
+		/*
+			Alternatively, I could call into Jai like so:
+			
+			push_context wasm_ctx {
+				res.* = JaiAdd(a, b);
+			}
+		*/
+		
+		return m3Err_none;
+	};
+
+While this isn't hard code to write, it's not something I want to manually do for every procedure exposed by the engine. Plus, the code is very "generatable" due to it just being a wrapper for a known Jai procedure.
+
+The easiest solution was to keep all engine and wasm code separate, using a struct to bridge the gap. The struct(s) holds all procedures I want to expose to wasm and is only used to generate wrappers.
+
+We can see how this works with my `PlatformApi`:
+
+	 PlatformApi :: struct {
+	 	Log :: PlatformLog; // PlatformLog :: (message: string) { ... } 
+	 	// ...
+	}
+	
+	// These two calls bridge between Jai and wasm automatically.
+	#insert #run CtGenerateWasmNamespace(PlatformApi);
+	#insert #run CtGenerateWasmLinkProc(WasmPlatformApi);
+
+There's definitely a bit of magic going on here, but the magic is pretty straightforward.
+
+First I create a struct called `PlatformApi` that's just a collection of procedures I want the wasm module to have access to. The identifier on the left is what wasm should import, while the identifier on the right is the actual Jai procedure within the engine.
+
+Next I call `CtGenerateWasmNamespace` which generates a struct of wasm wrappers so they're all collected in one place (and to avoid accidentally calling those over their Jai versions).
+
+There's only a few things `CtGenerateWasmNamespace` needs to do:
+
+- Ensure the struct given has procedure declarations;
+- Ensure each declaration can be converted into a wasm wrapper;
+- Generate a wrapper that pops arguments off the stack, calls into Jai, and pushes return values (converting between wasm and Jai types accordingly);
+
+Here's the code to do it:
+
+	// Note: 'Ct' is what I use to annotate that something should only be called at compile-time.
+	CtGenerateWasmNamespace :: ($api: Type) -> string {
+		// A constant Type can be cast to *Type_Info and all Type_Info_XXXs share the same header.
+		info := cast(*Type_Info_Struct)api;
+		assert(info.type == .STRUCT, "a struct is required, given: ", info.type);
+		
+		// This will hold all of our generated struct code.
+		struct_b: String_Builder;
+		
+		// Generate the start of our new struct declaration.
+		print_to_builder(*struct_b, "Wasm% :: struct {\n", info.name);
+		
+		// We only care to loop over all procedure declarations within the struct.
+		for proc: info.members if proc.type.type == .PROCEDURE {
+			proc_info := cast(*Type_Info_Procedure)proc.type;
+			
+			// Ensure proc_info can be converted correctly
+			// (only has args/returns that wasm can represent)
+			// ...
+			
+			// Generate the first part of our wasm wrapper
+			print_to_builder(*struct_b, "% :: (runtime: IM3Runtime, _ctx: IM3ImportContext, _sp: *u64, _mem: *void) -> *void #c_call {\n", proc.name);
+			
+			// Start generating the body of the wrapper.
+			// We only need the type info from the procedure to do this.
+			
+			// If we have return types, generate variable declarations
+			// similar to 'res0 := m3ApiReturnType(...)'
+			// ...
+			
+			// For each procedure argument, convert them into something we can easily use.
+			args: [..]struct  {
+				name:      string;
+				jai_type:  Type;   // Type we'll use when calling the real procedure
+				wasm_type: string; // Type we'll use when pulling from the wasm stack
+			};
+			
+			for proc_info.argument_types {
+				name := tprint("arg%", it_index);
+				
+				if it.type == {
+					case .STRING;
+						// This is a special case that's explained later.
+						array_add(*args, .{ name = name, jai_type = string });
+					
+					case .INTEGER;
+						i := cast(*Type_Info_Integer)it;
+						if i.runtime_size == {
+							// The size is what matters for wasm_type, not signedness.
+							case 1; array_add(*args, .{ name = name, jai_type = ifx i.signed then s8  else u8,  wasm_type = "u8" });
+							case 2; array_add(*args, .{ name = name, jai_type = ifx i.signed then s16 else u16, wasm_type = "u16" });
+							case 4; array_add(*args, .{ name = name, jai_type = ifx i.signed then s32 else u32, wasm_type = "u32" });
+							case 8; array_add(*args, .{ name = name, jai_type = ifx i.signed then s64 else u64, wasm_type = "u64" });
+						}
+						
+					case .FLOAT;
+						if it.runtime_size == {
+							case 4; array_add(*args, .{ name = name, jai_type = float32, wasm_type = "float32" });
+							case 8; array_add(*args, .{ name = name, jai_type = float64, wasm_type = "float64" });
+						}
+						
+					case .BOOL;
+						assert(it.runtime_size == 1);
+						array_add(*args, .{ name = name, jai_type = bool, wasm_type = "u8" });
+					
+					case;
+						assert(false, "unsupported type: %", it.type);
+				}
+			}
+			
+			// Now that we've filled our args array, we can generate declarations.
+			for args {
+				// Because strings in wasm are represented by an offset into memory
+				// and a length, we need two separate declarations.
+				if it.jai_type == string {
+					print_to_builder(*struct_b, "%_off   := m3ApiGetArg(u32);\n", it.name);
+					print_to_builder(*struct_b, "%_count := m3ApiGetArg(u32);\n", it.name);
+				}
+				else {
+					print_to_builder(*struct_b, "% := m3ApiGetArg(%);\n", it.name, it.wasm_type);
+				}
+			}
+			
+			// Generate the code to call into Jai.
+			
+			// Note: we need to push a Jai Context when calling into Jai from something
+			// with a C calling convention.
+			append(*struct_b, "push_context wasm_ctx {\n");
+			
+			// Once again, generate assigns to our results if we have return values.
+			// ...
+			
+			// We can now generate the Jai procedure call using our arguments.
+			// This will generate something like: PlatformApi.Log(...)
+			
+			print_to_builder(*struct_b, "%.%(", info.name, proc.name);
+			
+			for args {
+				// Once again we need to handle the special case for strings
+				if it.jai_type == string {
+					print_to_builder(*struct_b, "string.{ data = cast(*u8)_mem + %1_off, count = cast,trunc(int)%1_count }", it.name);
+				}
+				else {
+					print_to_builder(*struct_b, "cast,trunc(%)%", it.jai_type, it.name);
+				}
+				
+				if it_index < args.count - 1 {
+					append(*struct_b, ",");
+				}
+			}
+			
+			append(*struct_b, ");\n"); // End of the call
+			append(*struct_b, "};\n"); // End of push_context
+			
+			append(*struct_b, "return m3Err_none;\n");
+			
+			append(*struct_b, "};\n"); // End of the procedure body
+		}
+		
+		append(*struct_b, "}\n"); // End of the struct
+		
+		// Return the generated struct of wrappers.
+		return builder_to_string(*struct_b);
+	}
+
+Our original `#insert #run CtGenerateWasmNamespace(PlatformApi)` now generates:
+
+	WasmPlatformApi :: struct {
+		Log :: (runtime: IM3Runtime, _ctx: IM3ImportContext, _sp: *u64, _mem: *void) -> *void #c_call {
+			arg0_off   := m3ApiGetArg(u32);
+			arg0_count := m3ApiGetArg(u32);
+			
+			push_context wasm_ctx {
+				PlatformApi.Log(string.{ data = (cast(*u8)_mem) + arg0_off, count = xx arg0_count });
+			}
+			
+			return m3Err_none;
+		};
+	}
+
+Stopping here wouldn't be a bad thing. We now have a way to go from Jai procedures to wasm wrappers with a simple call at compile-time. However, linking these wrappers to the wasm module is still a minor annoyance as we're missing some information.
+
+
+LINKING TO WASM
+
+The call `#insert #run CtGenerateWasmLinkProc(WasmPlatformApi)` takes care of this for us. It expects a `WasmXXXApi` struct to be generated prior, then uses that struct to generate a Jai procedure which links each wrapper to the wasm module.
+
+Linking procedures to a newly loaded wasm module is very simple. First, describe the exported procedure with the following:
+
+- An export name (what the wasm code will import)
+- A wasm signature
+- A pointer to the wrapper
+
+Then give it to wasm3.
+
+An example call looks like this:
+
+	res := m3_LinkRawFunction(wasm_module, wasm_env, "PlatformLog", "i()", WasmPlatformApi.Log);
+	if res != null && res != m3Err_functionLookupFailed {
+		// handle the error
+		// ...
+	}
+
+A problem is that the generated `WasmPlatformApi` struct is missing one of these requirements: a wasm signature.
+
+Signatures are expected have this syntax (`r0rN(a0aN)`) and use the following types:
+	
+- `v`: void
+- `i`: i32
+- `I`: i64
+- `f`: f32
+- `F`: f64
+- `*`: address
+
+Note: each wasm library has a different way to describe signatures. Some use strings like wasm3, others expect arrays of typeids (wasmtime).
+
+The generated `WasmPlatformApi` struct is missing this type information because our wrappers have the same signature and no longer describe their Jai counterpart. This is because I left a small bit out of `CtGenerateWasmNamespace`. My version actually generates this:
+
+	WasmPlatformApi :: struct {
+		Log :: (runtime: IM3Runtime, _ctx: IM3ImportContext, _sp: *u64, _mem: *void) -> *void #c_call {
+			// ...
+		}; @v(ii)
+	}
+	
+Notice the `@v(ii)`. In Jai, this is a note that can be attached to any declaration, placing the note string in its `Type_Info`. While I'm converting the arguments and return types I have another `String_Builder` that builds the wasm signature, then when I'm finished, I just output the signature with an `@` prefixed so Jai treats it like a note.
+
+So now `CtGenerateWasmLinkProc` just needs to generate calls to `m3_LinkRawFunction` using the `Type_Info` and note it was given. But rather than generating each call individually, it generates a procedure to link that specific API like so:
+
+	LinkWasmPlatformApi :: (mod: IM3Module, env: string) -> bool {
+		// Code gen implementation left to the reader.
+		// ...
+	}
+
+After this is generated, I simply call `LinkWasmPlatformApi` when loading a module and everything works as expected. I made the choice to lock this behind an explicit call in code so I have more control over which APIs are linked; I've already run into situations where I didn't want to link things for debugging purposes.
+
+
+IT'S ALL UP FROM HERE
+
+Because Jai lets you run arbitrary code and insert strings at compile-time, I can do a great deal in the language without ever setting up a dedicated build. It's an amazing feature and I hope this article showed you some of its capabilities.
+
+Thanks for reading,
