@@ -1,1 +1,6 @@
-# @todo: add sample-search, tank-tactics, etc.
+/ demos
+
+- [https://judahcaruso.com/samplesearch Sample Search], obscure YouTube search generator
+- [https://judahcaruso.com/schemes Schemes], editor-agnostic color scheme creator
+- [https://www.youtube.com/watch?v=KWRn7R96in0 Tank Tactics], Discord bot version of Tank Turn Tactics
+- {rivit}, line-based markup format
