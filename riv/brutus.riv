@@ -1,0 +1,27 @@
+/ projects
+/ brut
+/ luajit
+
+
+BRUTUS 
+
+A cross-platform runner for {brut} files. Brutus uses Lua (via LuaJIT) to drive applications, allowing either a bundled `brut.dat` or `main.lua` file to start execution. If a `main.lua` file is found, execution works like a standard Lua interpreter environment. When running in a bundled context, Brutus emulates the Lua package system via modules found in the {brut} file; falling back to the filesystem for modules not contained in the bundle.
+
+Bundles can easily be created with the `brutus ship` command. This gathers all `.lua` files in the current directory, compiles them to Lua bytecode, compresses the bytecode via [https://lz4.org LZ4], then base64 encodes the data before adding it to the bundle.
+
+
+MODULES
+
+The platform module exposes information about the current executing context:
+
+	local platform = require 'platform'
+	
+	platform.arch: string -- x86, x86-64, arm32, arm64
+	platform.os: string -- windows, darwin, unix
+	platform.bundle: bool -- if executed via a brut.dat file	
+	platform.readall: fn(path: string): string|nil -- reads a file and returns the contents or nil
+	
+
+SOURCE
+
+The implementation of Brutus can be found [https://github.com/judah-caruso/brutus here].
