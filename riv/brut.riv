@@ -5,7 +5,7 @@ BRUT
 
 Brut files are bundled source files used to execute programs with {brutus}. The format is little-endian and contains base64 encoded, and optionally lz4 compressed, code; currently {luajit} bytecode.
 
-Files begin with the 4-byte magic `brut`, followed by a major and minor version (1-byte each) - the current magic is `brut10`. Ending the header is a 16-bit unsigned integer denoting the number of chunks in the file.
+Files begin with the 4-byte magic `brut`, followed by a major and minor version (1-byte each) - the current magic is `brut11`. Ending the header is a 16-bit unsigned integer denoting the number of chunks in the file and 8-bytes of metadata. This metadata is program-specific and can be used to describe what data is within the chunks or to validate the Brut file is what the program expects.
 
 	[Header]
 	
@@ -13,6 +13,7 @@ Files begin with the 4-byte magic `brut`, followed by a major and minor version 
 		u8    :: major version (>= 1)
 		u8    :: minor version (>= 0)
 		u16   :: number of following chunks
+		[8]u8 :: program-specific metadata
 
 Chunks encode a name (null-terminated byte-string), set of flags (1-byte), length (32-bit unsigned integer), and data (base64 encoded string of 'chunk length' bytes). Data within a chunk is always base64 encoded. If the compressed flag is set, the data was [https://lz4.org LZ4] compressed before encoding. Chunks are placed one-by-one until the end-of-file.
 
@@ -26,4 +27,4 @@ Chunks encode a name (null-terminated byte-string), set of flags (1-byte), lengt
 
 DESIGN & RATIONALE
 
-The format was designed to be easy to parse, decently compact, and moderately obfuscated to prevent basic meddling. It *could* be obfuscated further but that is left to the specific application using Brut files. The format is also general enough to support arbitrary data in the chunks, not just code. This, however, is left to the application.
+The format was designed to be easy to parse, decently compact, and moderately obfuscated to prevent basic meddling. It *could* be obfuscated further but that is left to the specific program using Brut files. The format is also general enough to support arbitrary data in the chunks, not just code. This is left to the specific program as well.
