@@ -18,7 +18,6 @@ The `brutus` module exposes information about the current context and is importe
 	brutus.os: string -- windows, darwin, unix
 	brutus.bundle: bool -- true if executed via a brut.dat file	
 	brutus.readall: fn(path: string): string|nil -- reads a file and returns the contents or nil
-	
 
 SOURCE
 
