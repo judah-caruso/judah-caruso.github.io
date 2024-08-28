@@ -12,14 +12,12 @@ Bundles can easily be created with the `brutus ship` command. This gathers all `
 
 MODULES
 
-The platform module exposes information about the current executing context:
+The `brutus` module exposes information about the current context and is imported implicitly:
 
-	local platform = require 'platform'
-	
-	platform.arch: string -- x86, x86-64, arm32, arm64
-	platform.os: string -- windows, darwin, unix
-	platform.bundle: bool -- if executed via a brut.dat file	
-	platform.readall: fn(path: string): string|nil -- reads a file and returns the contents or nil
+	brutus.arch: string -- x86, x86-64, arm32, arm64
+	brutus.os: string -- windows, darwin, unix
+	brutus.bundle: bool -- true if executed via a brut.dat file	
+	brutus.readall: fn(path: string): string|nil -- reads a file and returns the contents or nil
 	
 
 SOURCE
