@@ -1,0 +1,173 @@
+GO TIDBITS
+
+Below are a few bits of information I'd like to remember when writing [https://go.dev Go] programs.
+
+
+ANALYSIS REPORTING
+
+Sometimes it's difficult to know how the compiler will reason about certain pieces of code. This command will report analysis/optimization decisions made during compilation.
+
+	$ go build -gcflags="-m" .
+	
+	<source>:5:6 can inline SomeProcedure
+	<source>:8:4 can inline AnotherProcedure[go.shape.float64]
+	<source>:8:4 ... argument does not escape
+	<source>:10:2 foo escapes to heap
+	<source>:10:5 bar escapes to heap
+
+
+BOUNDS CHECK REPORTING
+
+It's helpful to know when bounds checks are added to the generated code. This command will report any cases where this happens.
+
+	$ go build -gcflags="-d=ssa/check_bce/debug=1" .
+	
+	<source>:10:8: Found IsInBounds
+	<source>:11:4: Found IsInBounds
+
+When bounds checks are removed:
+
+- When the length of a slice and the index are known at compile-time
+- When a bounds check has been performed manually ahead of indexing
+- When a hint is given ahead of indexing
+- When compiling with `gcflags=-B` (removes all bounds checks)
+
+Code examples:
+
+	// Slice length and index are known at compile-time
+	func Get0th(data [255]int) int {
+		return data[0]
+	}
+	
+	// Manual bounds check was performed before indexing
+	func GetNth(data [255]int, idx int) int {
+		if idx < 0 || idx >= len(data) {
+			return data[0]
+		}
+		
+		return data[idx]
+	}
+	
+	// Bounds hint
+	func Get1st(data []int) int {
+		_ = data[1]
+		return data[1]
+	}
+
+
+SEE GENERATED ASSEMBLY
+
+Besides using [https://godbolt.org Compiler Explorer], Go can directly output human-readable assembly for a target platform with this command.
+
+	$ go tool compile -S -trimpath="$(realpath $1)" file.go
+	
+	main.add STEXT size=16 args=0x10 locals=0x0 funcid=0x0 align=0x0 leaf
+		0x0000 00000 (file.go:3)	TEXT	main.add(SB), LEAF|NOFRAME|ABIInternal, $0-16
+		0x0000 00000 (file.go:3)	FUNCDATA	$0, gclocals·g2BeySu+wFnoycgXfElmcg==(SB)
+		0x0000 00000 (file.go:3)	FUNCDATA	$1, gclocals·g2BeySu+wFnoycgXfElmcg==(SB)
+		0x0000 00000 (file.go:3)	FUNCDATA	$5, main.add.arginfo1(SB)
+		0x0000 00000 (file.go:3)	FUNCDATA	$6, main.add.argliveinfo(SB)
+		0x0000 00000 (file.go:3)	PCDATA	$3, $1
+		0x0000 00000 (file.go:4)	ADD	R1, R0, R0
+		0x0004 00004 (file.go:4)	RET	(R30)
+
+Outputting assembly for a platform other than the host machine:
+		
+	$ GOOS=js GOARCH=wasm go tool compile -S -trimpath="$(realpath $1)" file.go
+	
+	main.add STEXT size=2 args=0x18 locals=0x0 funcid=0x0 align=0x0
+		0x0000 00000 (file.go:3)	TEXT	main.add(SB), ABIInternal, $0-24
+		0x0000 00000 (file.go:3)	Block
+		0x0000 00000 (file.go:3)	Block
+		0x0000 00000 (file.go:3)	Get	PC_B
+		0x0000 00000 (file.go:3)	BrTable
+		0x0000 00000 (file.go:3)	End
+		0x0000 00000 (file.go:3)	FUNCDATA	$0, gclocals·g2BeySu+wFnoycgXfElmcg==(SB)
+		0x0000 00000 (file.go:3)	FUNCDATA	$1, gclocals·g2BeySu+wFnoycgXfElmcg==(SB)
+		0x0000 00000 (file.go:3)	FUNCDATA	$5, main.add.arginfo1(SB)
+		0x0000 00000 (file.go:4)	Get	SP
+		0x0000 00000 (file.go:4)	I64ExtendI32U
+		0x0000 00000 (file.go:4)	I64Const	$24
+		0x0000 00000 (file.go:4)	I64Add
+		0x0000 00000 (file.go:4)	I32WrapI64
+		0x0000 00000 (file.go:4)	Get	SP
+		0x0000 00000 (file.go:4)	I64Load	$8
+		0x0000 00000 (file.go:4)	Get	SP
+		0x0000 00000 (file.go:4)	I64Load	$16
+		0x0000 00000 (file.go:4)	I64Add
+		0x0000 00000 (file.go:4)	I64Store	$0
+		0x0000 00000 (file.go:4)	Get	SP
+		0x0000 00000 (file.go:4)	I32Const	$8
+		0x0000 00000 (file.go:4)	I32Add
+		0x0000 00000 (file.go:4)	Set	SP
+		0x0000 00000 (file.go:4)	I32Const	$0
+		0x0000 00000 (file.go:4)	Return
+		0x0001 00001 (file.go:4)	End
+
+
+CLEANING UP ASSEMBLY
+
+If we use `go tool -S` to generate assembly for a bit of code, there's a few modifications we have to make to its output before the compiler can reuse it.
+
+Starting with a regular Go file:
+
+	package main
+	
+	func asm_add(x, y int) int {
+		return x + y
+	}
+
+Update `OS` and `ARCH` then run this command:
+	
+	$ GOOS=OS GOARCH=ARCH go tool compile -S -trimpath="$(realpath $1)" file.go > file_[ARCH].s
+
+This will generate a `file_[ARCH].s` file (will look different depending on architecture):
+
+	main.asm_add STEXT size=16 args=0x10 locals=0x0 funcid=0x0 align=0x0 leaf
+		0x0000 00000 (asm.go:3)	TEXT	main.asm_add(SB), LEAF|NOFRAME|ABIInternal, $0-16
+		0x0000 00000 (asm.go:3)	FUNCDATA	$0, gclocals·g2BeySu+wFnoycgXfElmcg==(SB)
+		0x0000 00000 (asm.go:3)	FUNCDATA	$1, gclocals·g2BeySu+wFnoycgXfElmcg==(SB)
+		0x0000 00000 (asm.go:3)	FUNCDATA	$5, main.asm_add.arginfo1(SB)
+		0x0000 00000 (asm.go:3)	FUNCDATA	$6, main.asm_add.argliveinfo(SB)
+		0x0000 00000 (asm.go:3)	PCDATA	$3, $1
+		0x0000 00000 (asm.go:4)	ADD	R1, R0, R0
+		0x0004 00004 (asm.go:4)	RET	(R30)
+		0x0000 00 00 01 8b c0 03 5f d6 00 00 00 00 00 00 00 00  ......_.........
+	go:cuinfo.producer.<unlinkable> SDWARFCUINFO dupok size=0
+		0x0000 72 65 67 61 62 69                                regabi
+	go:cuinfo.packagename.main SDWARFCUINFO dupok size=0
+		0x0000 6d 61 69 6e                                      main
+	main..inittask SNOPTRDATA size=8
+		0x0000 00 00 00 00 00 00 00 00                          ........
+	gclocals·g2BeySu+wFnoycgXfElmcg== SRODATA dupok size=8
+		0x0000 01 00 00 00 00 00 00 00                          ........
+	main.asm_add.arginfo1 SRODATA static dupok size=5
+		0x0000 00 08 08 08 ff                                   .....
+	main.asm_add.argliveinfo SRODATA static dupok size=2
+		0x0000 00 00                                            ..
+
+Make the following modifications:
+	
+- Remove the first line (unnecessary preamble)
+- Remove all lines after the final return instruction
+- Remove `FUNCDATA` and `PCDATA` instruction lines
+- Remove prefix addresses and file locations
+- Remove addressing modes (`LEAF`, `NOFRAME`, etc.) from the `TEXT` line
+- Change any instance of `main.name` to `·name`
+- Change any instance of `namespace.name` to `namespace·name`
+
+The file should now resemble:
+
+	TEXT	·asm_add(SB), $0-16
+	ADD	R1, R0, R0
+	RET	(R30)
+
+Finally, remove the function body from the original Go file:
+
+	package main
+	
+	func asm_add(x, y int) int
+
+`asm_add` can now be called from Go and the assembly version will be used (if compiling for that specific architecture). 
+
+[https://github.com/golang/go/issues/29538 GitHub issue] around simplifying this process.
