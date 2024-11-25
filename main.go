@@ -161,6 +161,10 @@ func main() {
 
 			break
 		}
+
+		if page.DisplayName == "Index" {
+			page.Title = "Home"
+		}
 	}
 
 	// Page generation pass
@@ -404,8 +408,8 @@ type (
 		Nav     []*Page
 		Updated time.Time
 
-		Title       string // First title line or empty if none
 		UniqueName  string // path without extension
+		Title       string // First title line or empty if none
 		DisplayName string // user-facing name
 		LocalName   string // .riv filename
 		OutName     string // .htm filename
