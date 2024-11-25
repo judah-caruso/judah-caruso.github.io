@@ -12,7 +12,7 @@
 @media (prefers-color-scheme: light) {
   html {
     --color-foreground: #000;
-    --color-background: #ddd9ce;
+    --color-background: #f1ede4;
   }
 
   main pre, main code {
