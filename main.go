@@ -97,8 +97,6 @@ func main() {
 			DisplayName: strings.Title(strings.ReplaceAll(unique, "-", " ")), // @todo: remove
 			OutName:     unique + ".htm",
 		}
-
-		log.Printf(".. indexed %s", path)
 	}
 
 	err = os.Mkdir(outPath, fs.ModeDir)
@@ -107,6 +105,7 @@ func main() {
 		os.Exit(4)
 	}
 
+	// Pre-pass pages to make sure everything we expect is filled out
 	for _, page := range index.Pages {
 		info, err := os.Stat(filepath.Join(inPath, page.LocalName))
 		if err == nil {
@@ -140,10 +139,32 @@ func main() {
 					page.Nav = append(page.Nav, p)
 				}
 			} else {
-				log.Printf(".. page '%s' has a broken nav link '%s'\n", page.LocalName, name)
+				log.Printf(".. page '%s' has a broken internal link '%s'\n", page.LocalName, name)
 			}
 		}
 
+		for _, riv := range page.Body {
+			if riv.Kind() == rivit.LineNavLink {
+				continue
+			}
+
+			if riv.Kind() != rivit.LineHeader {
+				break
+			}
+
+			h := riv.(rivit.Header)
+			t := strings.Title(strings.ToLower(string(h)))
+			if t != page.DisplayName {
+				page.Title = t
+				log.Printf(".. page '%s' has title '%s', was '%s'\n", page.LocalName, page.Title, page.DisplayName)
+			}
+
+			break
+		}
+	}
+
+	// Page generation pass
+	for _, page := range index.Pages {
 		var (
 			nav  bytes.Buffer
 			body bytes.Buffer
@@ -252,12 +273,18 @@ func main() {
 
 		y, m, d := page.Updated.Date()
 
+		name := page.DisplayName
+		if len(page.Title) > 0 {
+			name = page.Title
+		}
+
 		r := strings.NewReplacer(
 			"$site:title", siteTitle,
-			"$site:name", page.DisplayName,
+			"$site:name", name,
 			"$site:style", styles,
 			"$site:nav", nav.String(),
 			"$site:body", body.String(),
+			"$site:link", page.OutName,
 			"$site:edit", fmt.Sprintf("%s/edit/main/%s/%s", siteBase, inPath, page.LocalName),
 			"$site:updated", fmt.Sprintf("%02d%02d%02d", y-2000, m, d),
 			"$site:year", fmt.Sprintf("%d", siteYear),
@@ -274,7 +301,7 @@ func main() {
 
 	for _, p := range index.Pages {
 		if p.UniqueName != "index" && p.Refs == 0 {
-			log.Printf(".. orphaned page '%s'", p.LocalName)
+			log.Printf(".. page '%s' is orphaned", p.LocalName)
 		}
 	}
 
@@ -332,6 +359,9 @@ func styledTextToHtml(index *Index, page *Page, text []rivit.StyledText) string 
 				display := t.Value
 				if len(display) == 0 {
 					display = p.DisplayName
+					if len(p.Title) > 0 {
+						display = p.Title
+					}
 				}
 
 				p.Refs += 1
@@ -374,6 +404,7 @@ type (
 		Nav     []*Page
 		Updated time.Time
 
+		Title       string // First title line or empty if none
 		UniqueName  string // path without extension
 		DisplayName string // user-facing name
 		LocalName   string // .riv filename

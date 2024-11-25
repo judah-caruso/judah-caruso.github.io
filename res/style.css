@@ -172,6 +172,10 @@ main ul > li {
   margin-bottom: 4px;
 }
 
+main > ul {
+  margin-bottom: 20px;
+}
+
 /*
 main ul > li:before {
   content: "- ";

@@ -1,3 +1,5 @@
+/ compilers
+
 A LANGUAGE FOR PRODUCTIVITY
 
 This file is a living document of notes and ideas for a productivity-focused programming language. I do not mean to imply languages of the modern age are designed with productivity as an afterthought. In fact, it's quite the opposite. Languages like Python, JavaScript, C++, and Rust were all designed to be more "expressive" and claim to improve productivity.

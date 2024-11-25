@@ -3,7 +3,7 @@
 
 BRUT
 
-Brut files are bundled source files used to execute programs with {brutus}. The format is little-endian and contains base64 encoded, and optionally lz4 compressed, code; currently {luajit} bytecode.
+Brut files are bundled source files used to execute programs with {brutus}. The format is little-endian and contains base64 encoded, and optionally lz4 compressed code; currently luajit bytecode.
 
 	[Header]
 		[4]u8 :: magic (always 'brut')

@@ -4,6 +4,6 @@
 
 @ cityofglass.png
 
-- 240916: {go-tidbits Go Tidbits}
-- 240702: {jai-code-gen Easy Code Generation in Jai}
-- 240521: {language-for-productivity Notes on Language Design} 
+# - 241125: {practical-lexing}
+- 240916: {go-tidbits}
+- 240702: {jai-code-gen}
