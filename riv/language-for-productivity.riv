@@ -4,7 +4,7 @@ This file is a living document of notes and ideas for a productivity-focused pro
 
 However, these languages have a common pitfall: productivity is relative to the amount of philosophical buy-in.
 
-A programmer only becomes more productive in these languages as they do things the "right way" (as defined by the language or expected domain). The moment they do things outside of the philosophy they have to fight the language or change their solution to fit back in the box. If they're lucky, the language designers will evolve the language to fit the domain at the cost of complexity.
+A programmer only becomes more productive in these languages as they do things the "right way" (as defined by the language or expected domain). The moment they do things outside of the philosophy, they have to fight the language or change their solution to fit back in the box. If they're lucky, the language designers will evolve the language to make this box larger at the cost of complexity.
 
 See:
 - TypeScript's type system
@@ -35,18 +35,18 @@ THE LANGUAGE SHOULD STAY FLAT
 
 LANGUAGE DESIGN IS NOT A SCIENCE
 
-- Designing a language should be utilitarian over scientific
 - Scientific language design leads to worse languages
-- Inconsistencies and ambiguities are fine when fleshing out "language feel"
+- Inconsistencies and ambiguities are fine
+- An EBNF grammar does not dictate how good a language is
 
 
 CUSTOM MEMORY MANAGEMENT
 
 Most language designers pick a memory model and throw away the others, limiting the number of applicable domains.
 
-- The memory model should default to manual, with the language providing features to manage it in any way
-- Allocators should be supported by the type system
-- Allocators should always be in userland, memory allocation should not be an implementation detail of the compiler
+- The memory model should be manual by default
+-- The language should provide features to make any memory model possible
+- Allocators should always be in userland, memory *allocation* should not be an implementation detail of the compiler
 -- In this world, garbage collection is an allocator you can inspect and tweak
 -- In this world, reference counting is an allocator you can inspect and tweak
 -- In this world, memory is controlled, not feared
@@ -57,11 +57,10 @@ KEYWORDS OVER DIRECTIVES
 - Directives are bespoke, usually implementation specific, and different from the language; they should be avoided
 - Keywords limit user naming but that doesn't matter
 - Keywords should be reused in different contexts, rather than adding more:
--- for, while -> for
--- if, switch, ? -> if
--- else, : -> else
--- case, default -> case
--- continue, fallthrough -> continue
+-- `for`, `while` -> `for`
+-- `if`, `switch`, `?` -> `if`
+-- `else`, `:` -> `else`
+-- `case`, `default` -> `case`
 
 
 USER-LEVEL CODE OVER INTRINSICS
@@ -76,7 +75,7 @@ RESTRICTIVE SYNTAX
 - Good syntax won't make a bad language good, but will make a good language great
 - Standard formatting should be enforced by the compiler, remove code style from the programmer's brain
 - The syntax should look the same everywhere; spaces are preferred over tabs
-- K&R bracing style: foo() {
+- K&R bracing style: `foo() {`
 - Spacing should be placed around operators: `x==y` -> `x == y`
 - Parentheses should not be required for conditionals or loops: `if (x)` -> `if x`
 - Inline statements should not be allowed: `if x return 10` -> `if x {`
@@ -96,7 +95,7 @@ THE BUILD SYSTEM SHOULD BE THE LANGUAGE
 
 - Shell scripts, makefiles, cmake, etc. should not be required to build complex projects in this language
 - The build system should not use a subset of the core language
--- This leads to a scripting language with the flavor of the main one
+-- This leads to a scripting language with the flavor of the main one (see: Nim)
 - Linking external libraries should be done in code
 
 
@@ -113,7 +112,7 @@ VOID POINTERS SHOULD BE BETTER
 - rawptr should not cast to other pointer types automatically, conversions are explicit
 - rawptr must be cast to a T* before dereferencing is allowed
 - Pointer arithmetic is not allowed. A T* must be cast to rawptr, then to a pointer-sized integer and back: T* <-> rawptr <-> uintptr (rawptr is the bridge to type unsafe code)
-- This can be made nicer with a dedicated 'unsafe' package: `unsafe.Add(rawptr(T), 10))`
+- This can be made nicer with a dedicated 'unsafe' package: `unsafe.Add[u8](*foo, 10)`
 
 
 NO MORE IMPLICIT CONVERSION
@@ -127,7 +126,7 @@ TYPES SHOULD DESCRIBE THE DATA
 
 - Types and data should not exist in separate worlds and rely on deserialization to communicate
 - Types should not rely on workarounds or directives to accurately model their data
-- Integers and booleans should be any size (ie. uint1, sint7, bool3)
+- Integers and booleans should be any size (ie. `uint1`, `sint7`, `bool3`)
 - Alignment and padding of struct fields should be configurable in their declaration
 
 
@@ -145,13 +144,12 @@ DATA SHOULD BE MUTATED
 ERRORS SHOULD JUST BE VALUES
 
 - Errors should be simple values that the language allows special handling of (see: Zig)
-- Data can be attached to errors so the world can stop relying on error code and GetErrorMessage(code) styles of handling
+- Data can be attached to errors so the world can stop relying on error code and `GetErrorMessage(code)` styles of handling
 
 
 EASY INTEROP WITH C
 
 - C will be around forever
-- Languages should take advantage of the large amounts of C code in the wild
-- The ability to directly import and start using a C library should be allowed
-- Imported C code should go in its own namespace
-- A bound library should directly import the C code and create wrappers/type-aliases
+- Languages should (more easily) take advantage of the large amounts of C code in the wild
+- C libraries should be able to be imported and used without bindings
+- Imported C code should go in its own namespace that can be tweaked

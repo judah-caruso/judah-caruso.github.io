@@ -166,13 +166,10 @@ main code {
   border-radius: 3px;
 }
 
-main ul {
-  margin-bottom: 20px;
-}
-
 main ul > li {
   list-style: inside;
   margin-left: 30px;
+  margin-bottom: 4px;
 }
 
 /*
