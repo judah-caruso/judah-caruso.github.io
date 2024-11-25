@@ -4,7 +4,7 @@
 
 BRUTUS 
 
-A cross-platform runner for {brut} files. Brutus uses {luajit} to drive applications, allowing either a bundled `brut.dat` or `main.lua` file to start execution. If a `main.lua` file is found, execution works like a standard Lua interpreter environment. When running in a bundled context, Brutus emulates the Lua package system via modules found in the {brut} file; falling back to the filesystem for modules not contained in the bundle.
+A cross-platform runner for {brut} files. Brutus uses luajit to drive applications, allowing either a bundled `brut.dat` or `main.lua` file to start execution. If a `main.lua` file is found, execution works like a standard Lua interpreter environment. When running in a bundled context, Brutus emulates the Lua package system via modules found in the {brut} file; falling back to the filesystem for modules not contained in the bundle.
 
 Bundles can easily be created with the `brutus ship` command. This gathers all `.lua` files in the current directory, compiles them to Lua bytecode, compresses the bytecode via [https://lz4.org LZ4], then base64 encodes the data before adding it to the bundle.
 
