@@ -210,6 +210,16 @@ a.broken {
   font-style: italic;
 }
 
+hr {
+  height: 2px;
+  color: var(--color-background);
+  background: var(--color-foreground);
+  font-size: 0;
+  border: 0;
+  opacity: 0.15;
+  margin-bottom: 25px;
+}
+
 #logo-fg {
   fill: none;
   stroke: var(--color-background);

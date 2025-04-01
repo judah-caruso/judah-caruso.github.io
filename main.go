@@ -192,7 +192,12 @@ func main() {
 
 			switch v := line.(type) {
 			case rivit.Paragraph:
-				fmt.Fprintf(&body, "<p>%s</p>", styledTextToHtml(index, page, v))
+				if len(v) == 1 && v[0].Value == ". . ." {
+					fmt.Fprintf(&body, "<hr/>")
+				} else {
+					fmt.Fprintf(&body, "<p>%s</p>", styledTextToHtml(index, page, v))
+				}
+
 
 			case rivit.List:
 				fmt.Fprint(&body, listToHtml(index, page, v))
