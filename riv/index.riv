@@ -1,9 +1,10 @@
-/ projects
-/ demos
 / whoami
+/ projects
+/ log
 
 @ cityofglass.png
 
 # - 241125: {practical-lexing}
+# - 250326: {is-d-a-contender}
 - 240916: {go-tidbits}
 - 240702: {jai-code-gen}
