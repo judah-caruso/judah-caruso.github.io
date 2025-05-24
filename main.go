@@ -338,7 +338,7 @@ func main() {
 			fmt.Fprintf(&body, "\t<title>%s</title>\n", p.DisplayName)
 			fmt.Fprintf(&body, "\t<link>https://judahcaruso.com/%s</link>\n", p.OutName)
 			fmt.Fprintf(&body, "\t<pubDate>%s</pubDate>\n", p.Updated.Format(time.RFC1123))
-			fmt.Fprintf(&body, "\t<description><![CDATA[%s]]</description>\n", p.Final)
+			fmt.Fprintf(&body, "\t<description><![CDATA[%s]]></description>\n", p.Final)
 			body.WriteString("</item>\n")
 		}
 
