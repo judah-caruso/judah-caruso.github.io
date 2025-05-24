@@ -25,6 +25,7 @@ const (
 	siteTitle        = "beton brutalism"
 	siteStylePath    = "style.css"    // within resPath
 	siteTemplatePath = "template.htm" // within resPath
+	rssTemplatePath  = "rss.htm"      // within resPath
 )
 
 var (
@@ -198,7 +199,6 @@ func main() {
 					fmt.Fprintf(&body, "<p>%s</p>", styledTextToHtml(index, page, v))
 				}
 
-
 			case rivit.List:
 				fmt.Fprint(&body, listToHtml(index, page, v))
 
@@ -299,7 +299,8 @@ func main() {
 			"$site:year", fmt.Sprintf("%d", siteYear),
 		)
 
-		err = writeEntireFile(outPath, page.OutName, r.Replace(template))
+		page.Final = r.Replace(template)
+		err = writeEntireFile(outPath, page.OutName, page.Final)
 		if err != nil {
 			log.Printf(".. unable to create output file '%s%c%s': %s", outPath, filepath.Separator, page.OutName, err)
 			continue
@@ -311,6 +312,47 @@ func main() {
 	for _, p := range index.Pages {
 		if p.UniqueName != "index" && p.Refs == 0 {
 			log.Printf(".. page '%s' is orphaned", p.LocalName)
+		}
+	}
+
+	// Generate RSS feed
+	{
+		template, err = readEntireFile(resPath, rssTemplatePath)
+		if err != nil {
+			log.Printf("required template '%s%c%s' did not exist\n", resPath, filepath.Separator, siteStylePath)
+			os.Exit(2)
+		}
+
+		lines := strings.Split(template, "\n")
+		for i := range lines {
+			lines[i] = strings.TrimSpace(lines[i])
+		}
+
+		template = strings.Join(lines, "\n")
+	}
+
+	{
+		var body strings.Builder
+		for _, p := range index.Pages {
+			body.WriteString("<item>\n")
+			fmt.Fprintf(&body, "\t<title>%s</title>\n", p.DisplayName)
+			fmt.Fprintf(&body, "\t<link>https://judahcaruso.com/%s</link>\n", p.OutName)
+			fmt.Fprintf(&body, "\t<pubDate>%s</pubDate>\n", p.Updated.Format(time.RFC1123))
+			fmt.Fprintf(&body, "\t<description>%s</description>\n", p.Final)
+			body.WriteString("</item>\n")
+		}
+
+		r := strings.NewReplacer(
+			"$site:title", siteTitle,
+			"$site:name", siteTitle,
+			"$site:updated", time.Now().Format(time.RFC1123),
+			"$site:posts", body.String(),
+		)
+
+		err = writeEntireFile(outPath, "rss.xml", r.Replace(template))
+		if err != nil {
+			log.Printf(".. unable to create output file '%s%crss.xml': %s", outPath, filepath.Separator, err)
+			os.Exit(3)
 		}
 	}
 
@@ -412,6 +454,7 @@ type (
 		Body    rivit.Rivit
 		Nav     []*Page
 		Updated time.Time
+		Final   string
 
 		UniqueName  string // path without extension
 		Title       string // First title line or empty if none
