@@ -315,46 +315,49 @@ func main() {
 		}
 	}
 
+	// @todo(judah): Dates need to be fixed first before this is decent
 	// Generate RSS feed
-	{
-		template, err = readEntireFile(resPath, rssTemplatePath)
-		if err != nil {
-			log.Printf("required template '%s%c%s' did not exist\n", resPath, filepath.Separator, siteStylePath)
-			os.Exit(2)
+	/*
+		{
+			template, err = readEntireFile(resPath, rssTemplatePath)
+			if err != nil {
+				log.Printf("required template '%s%c%s' did not exist\n", resPath, filepath.Separator, siteStylePath)
+				os.Exit(2)
+			}
+
+			lines := strings.Split(template, "\n")
+			for i := range lines {
+				lines[i] = strings.TrimSpace(lines[i])
+			}
+
+			template = strings.Join(lines, "\n")
 		}
 
-		lines := strings.Split(template, "\n")
-		for i := range lines {
-			lines[i] = strings.TrimSpace(lines[i])
+		{
+			var body strings.Builder
+			for _, p := range index.Pages {
+				body.WriteString("<item>\n")
+				fmt.Fprintf(&body, "\t<title>%s</title>\n", p.DisplayName)
+				fmt.Fprintf(&body, "\t<link>https://judahcaruso.com/%s</link>\n", p.OutName)
+				fmt.Fprintf(&body, "\t<pubDate>%s</pubDate>\n", p.Updated.Format(time.RFC1123))
+				fmt.Fprintf(&body, "\t<description><![CDATA[%s]]></description>\n", p.Final)
+				body.WriteString("</item>\n")
+			}
+
+			r := strings.NewReplacer(
+				"$site:title", siteTitle,
+				"$site:name", siteTitle,
+				"$site:updated", time.Now().Format(time.RFC1123),
+				"$site:posts", body.String(),
+			)
+
+			err = writeEntireFile(outPath, "rss.xml", r.Replace(template))
+			if err != nil {
+				log.Printf(".. unable to create output file '%s%crss.xml': %s", outPath, filepath.Separator, err)
+				os.Exit(3)
+			}
 		}
-
-		template = strings.Join(lines, "\n")
-	}
-
-	{
-		var body strings.Builder
-		for _, p := range index.Pages {
-			body.WriteString("<item>\n")
-			fmt.Fprintf(&body, "\t<title>%s</title>\n", p.DisplayName)
-			fmt.Fprintf(&body, "\t<link>https://judahcaruso.com/%s</link>\n", p.OutName)
-			fmt.Fprintf(&body, "\t<pubDate>%s</pubDate>\n", p.Updated.Format(time.RFC1123))
-			fmt.Fprintf(&body, "\t<description><![CDATA[%s]]></description>\n", p.Final)
-			body.WriteString("</item>\n")
-		}
-
-		r := strings.NewReplacer(
-			"$site:title", siteTitle,
-			"$site:name", siteTitle,
-			"$site:updated", time.Now().Format(time.RFC1123),
-			"$site:posts", body.String(),
-		)
-
-		err = writeEntireFile(outPath, "rss.xml", r.Replace(template))
-		if err != nil {
-			log.Printf(".. unable to create output file '%s%crss.xml': %s", outPath, filepath.Separator, err)
-			os.Exit(3)
-		}
-	}
+	*/
 
 	log.Printf(".. generated pages %d", generated)
 
