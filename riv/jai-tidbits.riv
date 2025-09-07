@@ -1,0 +1,128 @@
+JAI TIDBITS
+
+Random bits of information I'd like to remember when writing Jai programs.
+
+Note: This information is valid as of the version 0.2.017 (August 2025).
+
+DISASSEMBLE PROCEDURES
+
+Procedures marked with the `#dump` directive will have their internal IR dumped at compile-time. Jai's IR isn't 1:1 with assembly instructions, but it does give a decent indicator for what instructions the compiler will generate.
+
+	// file.jai
+	AddTwoNumbers :: (x: int, y: int) -> int #dump {
+		return x + y;
+	}
+	
+	ShowChecks :: (values: []u16) -> u8 #dump {
+		// Trigger array bounds and overflow checks
+	   return values[0].(u8) + values[1].(u8);
+	}
+
+	$ jai file.jai
+	
+	Disassembly of 'AddTwoNumbers' in Workspace 2 at file.jai:1
+	- Stack size 0
+	
+	-------- Basic Block 0 -------- defines v4 --------
+	
+	           (no dominating)
+	           
+	   0|        binop   v4, v1 + v2
+	   1| return_value   v4 -> 1
+	   2|       return   
+	   
+	Disassembly of 'ShowChecks' in Workspace 2 at file.jai:5
+	- Stack size 0
+	   
+	-------- Basic Block 0 -------- defines v3-15 --------
+	
+	           (no dominating)
+	           
+	   0|     constant   v3 = 0
+	   1|          mov   v4, [v1] :8b
+	   2|  array_check   v3, v4
+	   3|          mov   v5, [v1+0x8] :8b
+	   4|        binop   v7, v3 * 2
+	   5|          mov   v6, [v5+v7*1] :2b
+	   6|  cast_number   v8 (u8), v6 (u16)
+	   7|   cast_check   v6, v8 {fatal=1}
+	   8|     constant   v10 = 1
+	   9|          mov   v11, [v1] :8b
+	  10|  array_check   v10, v11
+	  11|          mov   v12, [v1+0x8] :8b
+	  12|        binop   v14, v10 * 2
+	  13|          mov   v13, [v12+v14*1] :2b
+	  14|  cast_number   v15 (u8), v13 (u16)
+	  15|   cast_check   v13, v15 {fatal=1}
+	  16|        binop   v9, v8 + v15
+	  17| return_value   v9 -> 1
+	  18|       return   
+
+
+DIRECTIVES
+
+Here's a list of the current (non-deprecated) compiler directives and what they generally do. Because many of these are undocumented, it's possible some number of directives are missing.
+
+	#add_context                            inject declaration into the base context
+	#align                                  alignment of a struct field
+	#as                                     struct implicitly casts to this type
+	#asm                                    inline assembly
+	#bake_arguments                         bake arguments as constants
+	#bake_constants                         [todo]
+	#body_text                              [todo]
+	#bytes                                  inline binary data
+	#c_call                                 c calling convention
+	#caller_location                        location of calling code
+	#char                                   character literal
+	#code                                   create a Code node
+	#compile_time                           check if running at compile-time
+	#compiler                               internal compiler declaration
+	#complete                               check that all enum cases are handled
+	#Context                                type of Context (post #add_context)
+	#cpp_method                             c++ calling convention
+	#cpp_return_type_is_non_pod             return type has c++ methods
+	#deprecated                             display deprecation warning
+	#discard                                argument is unused
+	#dump                                   dump procedure's IR
+	#dynamic_specialize                     [todo]
+	#exists				                      check if symbol exists at compile-time
+	#expand                                 procedure is a macro
+	#file                                   current filename as string
+	#filepath                               path of current file as string
+	#foreign                                foreign procedure
+	#if, #else                              compile-time if/switch
+	#ifx                                    compile-time ternary
+	#import                                 import module
+	#insert                                 insert code, string at location
+	#intrinsic                              procedure implemented by compiler
+	#library                                link to a library
+	#line                                   current line number as int
+	#load                                   import file into namespace
+	#location                               source location of a symbol
+	#modify                                 check or assign polymorphic variables
+	#module_parameters                      declare import arguments
+	#no_abc                                 disable array bounds checking
+	#no_alias                               [todo]
+	#no_aoc                                 disable arithmetic overflow checking
+	#no_context                             procedure is called without the context
+	#no_debug                               disable debug information for a macro or macro call
+	#no_padding                             disable struct field padding
+	#no_reset                               global data persists from compile-time
+	#place                                  struct field memory offset
+	#placeholder                            symbol will be filled in at compile-time
+	#poke_name                              inject symbol into another namespace
+	#procedure_name                         procedure name as string
+	#run                                    execute block or procedure at compile-time
+	#scope_export                           visible to importers 
+	#scope_file                             visible to file only
+	#scope_module                           visible to module files
+	#specified                              enum fields must be given values
+	#string                                 multi-line string
+	#symmetric                              procedure arguments are order independent
+	#system_library                         link to a system library
+	#this                                   the type of the current block
+	#through                                fall-through to next case
+	#type                                   proceeding expression is a type
+	#type_info_no_size_complaint            [todo]
+	#type_info_none                         disable type info for type
+	#type_info_procedures_are_void_pointers [todo]
