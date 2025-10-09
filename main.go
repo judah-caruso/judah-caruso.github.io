@@ -232,6 +232,7 @@ func main() {
 					MediaPng MediaKind = iota
 					MediaOgg
 					MediaSvg
+					MediaMp4
 				)
 
 				kind := MediaKind(0)
@@ -242,6 +243,8 @@ func main() {
 					kind = MediaOgg
 				case ".svg":
 					kind = MediaSvg
+				case ".mp4":
+					kind = MediaMp4
 				default:
 					log.Printf(".. '%s' references an unsupported media type '%s'\n", page.LocalName, ext)
 					continue
@@ -266,7 +269,10 @@ func main() {
 					fmt.Fprintf(&body, "<img src='%s,%s'/>", prefix, enc)
 				case MediaOgg:
 					const prefix = "data:audio/ogg;base64"
-					fmt.Fprintf(&body, "<audio loop controls autobuffer src='%s,%s'></audio>", prefix, enc)
+					fmt.Fprintf(&body, "<audio loop controls src='%s,%s'></audio>", prefix, enc)
+				case MediaMp4:
+					const prefix = "data:video/mp4;base64"
+					fmt.Fprintf(&body, "<video controls src='%s,%s'></video>", prefix, enc)
 				}
 
 				if len(v.Alt) != 0 {

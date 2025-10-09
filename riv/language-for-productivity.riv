@@ -1,0 +1,157 @@
+/ compilers
+
+A LANGUAGE FOR PRODUCTIVITY
+
+This file is a living document of notes and ideas for a productivity-focused programming language. I do not mean to imply languages of the modern age are designed with productivity as an afterthought. In fact, it's quite the opposite. Languages like Python, JavaScript, C++, and Rust were all designed to be more "expressive" and claim to improve productivity.
+
+However, these languages have a common pitfall: productivity is relative to the amount of philosophical buy-in.
+
+A programmer only becomes more productive in these languages as they do things the "right way" (as defined by the language or expected domain). The moment they do things outside of the philosophy, they have to fight the language or change their solution to fit back in the box. If they're lucky, the language designers will evolve the language to make this box larger at the cost of complexity.
+
+See:
+- TypeScript's type system
+- Python type hints
+- Any C++ specification after C++98
+- Rust's async traits
+
+Below is a rough, unordered list of tenets I would follow when designing a new programming language. People should disagree, but I believe a language with these ideas at the forefront would create a better environment to create better software.
+
+
+THE COMPILER SHOULD BE EASY TO IMPLEMENT
+
+- Compilers should not take decades to reach 1.0
+-- Core expectations need to be defined from the start
+-- The language should not cater to a specific domain until it's generally useful
+- A baseline compiler for a specific target should take a week at most, ideally a weekend
+- A spec should not be created until 1.0, instead a large test suite to ensure stability should be used
+- "Implementation defined" or "compiler-specific" should be avoided full-stop
+
+
+THE LANGUAGE SHOULD STAY FLAT
+
+- 1.0 should mark a stopping point for large language changes
+- Major versions (2.0, 3.0, etc.) should be the removal point of deprecated or failed features
+- Major versions should be a reflection point for how the language is used and how it's solving real problems
+-- This reflection point should allow smaller quality-of-life changes to be added to the language
+
+
+LANGUAGE DESIGN IS NOT A SCIENCE
+
+- Scientific language design leads to worse languages
+- Inconsistencies and ambiguities are fine
+- An EBNF grammar does not dictate how good a language is
+
+
+CUSTOM MEMORY MANAGEMENT
+
+Most language designers pick a memory model and throw away the others, limiting the number of applicable domains.
+
+- The memory model should be manual by default
+-- The language should provide features to make any memory model possible
+- Allocators should always be in userland, memory *allocation* should not be an implementation detail of the compiler
+-- In this world, garbage collection is an allocator you can inspect and tweak
+-- In this world, reference counting is an allocator you can inspect and tweak
+-- In this world, memory is controlled, not feared
+
+
+KEYWORDS OVER DIRECTIVES
+
+- Directives are bespoke, usually implementation specific, and different from the language; they should be avoided
+- Keywords limit user naming but that doesn't matter
+- Keywords should be reused in different contexts, rather than adding more:
+-- `for`, `while` -> `for`
+-- `if`, `switch`, `?` -> `if`
+-- `else`, `:` -> `else`
+-- `case`, `default` -> `case`
+
+
+USER-LEVEL CODE OVER INTRINSICS
+
+- Intrinsics, like directives, are magic procedure-like entities that are internal to the compiler and can't be inspected in userland
+- Intrinsics should be relegated to an importable package; their usage should be explicit
+- Ideally, intrinsics should be debuggable
+
+
+RESTRICTIVE SYNTAX
+
+- Good syntax won't make a bad language good, but will make a good language great
+- Standard formatting should be enforced by the compiler, remove code style from the programmer's brain
+- The syntax should look the same everywhere; spaces are preferred over tabs
+- K&R bracing style: `foo() {`
+- Spacing should be placed around operators: `x==y` -> `x == y`
+- Parentheses should not be required for conditionals or loops: `if (x)` -> `if x`
+- Inline statements should not be allowed: `if x return 10` -> `if x {`
+
+
+PACKAGES & EXPLICIT DEPENDENCIES
+
+- Folder-based packages are annoying to work with and lead to the "diamond problem"
+- Prelude packages are annoying and essentially function like header files
+- The compiler should be smart enough to allow cyclic imports (see: Jai)
+- The user should be allowed to quickly import code
+- Dependencies should default to local vendoring over external fetching
+- Dependencies, their source (not source code), version, and a checksum should be declared explicitly within a package - this can be an separate file, but it must be done
+
+
+THE BUILD SYSTEM SHOULD BE THE LANGUAGE
+
+- Shell scripts, makefiles, cmake, etc. should not be required to build complex projects in this language
+- The build system should not use a subset of the core language
+-- This leads to a scripting language with the flavor of the main one (see: Nim)
+- Linking external libraries should be done in code
+
+
+# COMPILER TOOLING SHOULD NOT BE FIRST CLASS
+# - The compiler must remain small and easy to grok; adding tools to the core makes # re-implementing more difficult than it needs to be
+# - The standard library should provide helpful packages to make writing external tools # easier
+
+
+VOID POINTERS SHOULD BE BETTER
+
+- void* is a great tool within a poor type system
+- A dereference of void* becomes a unit type who's semantics don't align with the rest of the language (what's the zero-value of void?)
+- A specific type (rawptr) should be created that allows T* -> rawptr conversions
+- rawptr should not cast to other pointer types automatically, conversions are explicit
+- rawptr must be cast to a T* before dereferencing is allowed
+- Pointer arithmetic is not allowed. A T* must be cast to rawptr, then to a pointer-sized integer and back: T* <-> rawptr <-> uintptr (rawptr is the bridge to type unsafe code)
+- This can be made nicer with a dedicated 'unsafe' package: `unsafe.Add[u8](*foo, 10)`
+
+
+NO MORE IMPLICIT CONVERSION
+
+- All conversions are explicit, but easy to do
+- Untyped constants (integers, floats, bools, etc.) are range-checked at compile time to ensure their conversion is safe, otherwise they follow the rules of everything else
+- The language should feature an auto cast keyword/operator to make explicit conversion less annoying to work with
+
+
+TYPES SHOULD DESCRIBE THE DATA
+
+- Types and data should not exist in separate worlds and rely on deserialization to communicate
+- Types should not rely on workarounds or directives to accurately model their data
+- Integers and booleans should be any size (ie. `uint1`, `sint7`, `bool3`)
+- Alignment and padding of struct fields should be configurable in their declaration
+
+
+TYPE INFORMATION & METADATA
+
+- Runtime type information (or reflection) should not be a second-class citizen
+
+
+DATA SHOULD BE MUTATED
+
+- Everything is mutable by default (only const declarations and const pointers cannot be mutated)
+- Everything is public by default (only local declarations are kept to the current module)
+
+
+ERRORS SHOULD JUST BE VALUES
+
+- Errors should be simple values that the language allows special handling of (see: Zig)
+- Data can be attached to errors so the world can stop relying on error code and `GetErrorMessage(code)` styles of handling
+
+
+EASY INTEROP WITH C
+
+- C will be around forever
+- Languages should (more easily) take advantage of the large amounts of C code in the wild
+- C libraries should be able to be imported and used without bindings
+- Imported C code should go in its own namespace that can be tweaked

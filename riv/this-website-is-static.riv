@@ -1,0 +1,9 @@
+/ talks-i-like
+/ dumping-grounds
+
+THIS WEBSITE IS STATIC
+
+Everything on this website is completely static with **zero** JavaScript code or extra networking calls. Every image, audio, and video is directly embedded into the page. While this instantly balloons the size of pages, it means anything on here can be archived easily.
+
+This will never change.
+
