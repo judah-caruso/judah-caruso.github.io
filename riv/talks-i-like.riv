@@ -1,10 +1,8 @@
 / dumping-grounds
 
-Archive of various talks that had a lasting impact on me. 
+Archive of various talks that totally rock my socks. 
 
-Similar to the {dumping-grounds}, so this probably {this-website-is-static took a while to load}.
-
-All videos have been compressed and fps-limited.
+Similar to {dumping-grounds}, so this probably {this-website-is-static took a while to load}. Videos have been altered for size and consistency: 640x360 @ 800 kbps (H.264) - 32 kbps (AAC)
 
 PROGRAMMING
 
@@ -14,8 +12,12 @@ PROGRAMMING
 
 @ immediate-mode-graphical-user-interfaces-cmuratori-2005.mp4 Casey Muratori -  Immediate-Mode Graphical User Interfaces (2005)
 
+@ tomorrow-corporation-tech-demo-ablomquist-2023.mp4 Allan Blomquist - Tomorrow Corporation Tech Demo (2023)
+
 @ designing-and-evaluating-reusable-components-cmuratori-2004.mp4 Casey Muratori - Designing And Evaluating Reusable Components (2004)
 
 @ how-i-program-c-esteenberg-2016.mp4 Eskil Steenberg - How I program C (2016)
 
 @ advice-for-writing-small-programs-in-c-sbarrett-2015.mp4 Sean Barrett - Advice for Writing Small Programs in C (2015)
+
+@ fixing-c-tlottes-2025.mp4 Timothy Lottes - Fixing C (2025)

@@ -106,6 +106,13 @@ figure > audio {
   width: 80%;
 }
 
+figure > video {
+  margin: 0 auto;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 main a:before,
 header > nav > ul > li > a:before {
   content:"{";

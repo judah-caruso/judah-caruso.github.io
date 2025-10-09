@@ -157,7 +157,7 @@ func main() {
 			t := strings.Title(strings.ToLower(string(h)))
 			if t != page.DisplayName {
 				page.Title = t
-				log.Printf(".. page '%s' has title '%s', was '%s'\n", page.LocalName, page.Title, page.DisplayName)
+				log.Printf(".. page '%s' has title override '%s', was '%s'\n", page.LocalName, page.Title, page.DisplayName)
 			}
 
 			break
