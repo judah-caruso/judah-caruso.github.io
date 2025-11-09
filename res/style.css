@@ -35,6 +35,7 @@
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
+  text-transform: lowercase;
   color: var(--color-foreground);
 }
 
@@ -99,7 +100,7 @@ main h3 {
 main h1:first-letter,
 main h2:first-letter,
 main h3:first-letter {
-  text-transform: uppercase;
+  text-transform: lowercase;
 }
 
 figure > img {
