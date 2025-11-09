@@ -2,11 +2,11 @@ JAI TIDBITS
 
 Random bits of information I'd like to remember when writing Jai programs.
 
-Note: This information is valid as of the version 0.2.017 (August 2025).
+Note: This information is valid as of version 0.2.017 (August 2025).
 
 DISASSEMBLE PROCEDURES
 
-Procedures marked with the `#dump` directive will have their internal IR dumped at compile-time. Jai's IR isn't 1:1 with assembly instructions, but it does give a decent indicator for what instructions the compiler will generate.
+Procedures marked with the `#dump` directive will have their internal IR (intermediate representation) dumped at compile-time. Jai's IR isn't 1:1 with assembly instructions, but it is a decent indicator for what the compiler will generate.
 
 	// file.jai
 	AddTwoNumbers :: (x: int, y: int) -> int #dump {

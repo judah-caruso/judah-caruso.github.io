@@ -26,6 +26,9 @@ const (
 	siteStylePath    = "style.css"    // within resPath
 	siteTemplatePath = "template.htm" // within resPath
 	rssTemplatePath  = "rss.htm"      // within resPath
+
+	sansFontPath = "AtkinsonUltralegible-Regular.otf"     // within resPath
+	monoFontPath = "AtkinsonUltralegibleMono-Regular.otf" // within resPath
 )
 
 var (
@@ -52,6 +55,23 @@ func main() {
 			os.Exit(1)
 		}
 
+		sansfont, err := readEntireFile(resPath, sansFontPath)
+		if err != nil {
+			log.Printf("required font '%s%c%s' did not exist\n", resPath, filepath.Separator, sansFontPath)
+			os.Exit(1)
+		}
+
+		monofont, err := readEntireFile(resPath, monoFontPath)
+		if err != nil {
+			log.Printf("required font '%s%c%s' did not exist\n", resPath, filepath.Separator, monoFontPath)
+			os.Exit(1)
+		}
+
+		sansfont = base64.StdEncoding.EncodeToString([]byte(sansfont))
+		monofont = base64.StdEncoding.EncodeToString([]byte(monofont))
+
+		styles = strings.ReplaceAll(styles, "$site:sansfont", sansfont)
+		styles = strings.ReplaceAll(styles, "$site:monofont", monofont)
 		styles = strings.ReplaceAll(styles, "\n", "")
 	}
 

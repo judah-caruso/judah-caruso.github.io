@@ -1,0 +1,38 @@
+THIS WEBSITE IS ENGLISH
+
+All English text on this website uses a new alphabet. The font (Atkinson Ultralegible) is based on [https://www.brailleinstitute.org/freefont Atkinson Hyperlegible] from the [https://www.brailleinstitute.org Braille Institute]. 
+
+Major changes:
+
+- `t+h` is now 'th'
+- `n+g` is now 'ng'
+- `c+h` is now 'ch'
+- `s+h` is now 'sh'
+
+
+SAMPLES
+
+The quick brown fox jumps over the lazy dog.
+
+. . .
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+. . . 
+
+Hoefler’s Proof: Lowercase 1.0
+
+Angel Adept Blind Bodice Clique Coast Dunce Docile Enact Eosin Furlong Focal Gnome Gondola Human Hoist Inlet Iodine Justin Jocose Knoll Koala Linden Loads Milliner Modal Number Nodule Onset Oddball Pneumo Poncho Quanta Qophs Rhone Roman Snout Sodium Tundra Tocsin Uncle Udder Vulcan Vocal Whale Woman Xmas Xenon Yunnan Young Zloty Zodiac. Angel angel adept for the nuance loads of the arena cocoa and quaalude. Blind blind bodice for the submit oboe of the club snob and abbot. Clique clique coast for the pouch loco of the franc assoc and accede. Dunce dunce docile for the loudness mastodon of the loud statehood and huddle. Enact enact eosin for the quench coed of the pique canoe and bleep. Furlong furlong focal for the genuflect profound of the motif aloof and offers. Gnome gnome gondola for the impugn logos of the unplug analog and smuggle. Human human hoist for the buddhist alcohol of the riyadh caliph and bathhouse. Inlet inlet iodine for the quince champion of the ennui scampi and shiite. Justin justin jocose for the djibouti sojourn of the oranj raj and hajjis. Knoll knoll koala for the banknote lookout of the dybbuk outlook and trekked. Linden linden loads for the ulna monolog of the consul menthol and shallot. Milliner milliner modal for the alumna solomon of the album custom and summon. Number number nodule for the unmade economic of the shotgun bison and tunnel. Onset onset oddball for the abandon podium of the antiquo tempo and moonlit. Pneumo pneumo poncho for the dauphin opossum of the holdup bishop and supplies. Quanta quanta qophs for the inquest sheqel of the cinq coq and suqqu. Rhone rhone roman for the burnt porous of the lemur clamor and carrot. Snout snout sodium for the ensnare bosom of the genus pathos and missing. Tundra tundra tocsin for the nutmeg isotope of the peasant ingot and ottoman. Uncle uncle udder for the dunes cloud of the hindu thou and continuum. Vulcan vulcan vocal for the alluvial ovoid of the yugoslav chekhov and revved. Whale whale woman for the meanwhile blowout of the forepaw meadow and glowworm. Xmas xmas xenon for the bauxite doxology of the tableaux equinox and exxon. Yunnan yunnan young for the dynamo coyote of the obloquy employ and sayyid. Zloty zloty zodiac for the gizmo ozone of the franz laissez and buzzing.
+
+. . .
+
+aaron abduct accidental adjacent aeron afghan after agnostic aint anaheim and anybody although allotted ambidextrous amend announced aqua arrangement ask aspin ate attitude authorised avant avery award axolotl baby baghdad banana balter batty baste beeped bent binded billow bizarre blood bottle bowwow boyfriend builder bubbly buzzing byproduct bystander byzantine cappuccino cattle cent chant cicero close coccyx cooked copyright coyote croquet cumbersome cutting cycle cylinder czech dabble daddy day dear dented divide don’t drown during dyke each ebb eek ensnare eons epiphany estuary etcetera etching equine ew fabric farming feared filler fizzy fjord fluid foggy foxxy frontal fungal gaggle geared gifted gong gnome grubby gush happened happiness hellish hinge hope hungry hyphen ian icy idiot i’m impossible intolerant iota it’s irritant i’ve jazzy jagged jenga jill joint just kangaroo kettle kitchen kookaburra kong laboratory landing left likely lilac little loco lolly lover’s luna luxurious lying master metres miss moonlight morph mr mrs ms mummy nasal neanderthal necessarily nine nifty nonsense noon numb oar obfuscate occult oddly often oh okay omission oscillate ozone parallel pang pear phase picnic pneumonic poppy porous psychology punch pygmy quantum queen quince quota radii rafferty rattle reassure resist retiree rice roommate running sassafras savvy scent scuttle seismic shamed shining sieve sister skink slump snide soup spire stay subject sultana svelte swiftly swung tallied tattooed tension the theatre title totally trekked tutor twenty tying vacuum variable vent vivid void vulnerable vying waffle wally warranted water weather whale winch withheld worry wurst wysiwyg wyvern xavier xenon xmas xylophone yak yeah yip you’re yuck zac zeal zigzag zing zodiac zoo
+
+. . .
+
+	int
+	main(int argc, char* argv[])
+	{
+		printf("This is a monospace test for the font!");
+		return 0;
+	}
