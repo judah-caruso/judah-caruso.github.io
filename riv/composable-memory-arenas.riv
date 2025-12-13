@@ -1,0 +1,414 @@
+/ go
+
+COMPOSABLE MEMORY ARENAS
+
+This article covers a "new" design for memory arenas (or allocators). If you're unfamiliar with this style of memory management, I highly recommend checking out these resources first:
+
+- [https://www.gingerbill.org/series/memory-allocation-strategies Memory Allocation Strategies by Ginger Bill]
+- [https://www.youtube.com/watch?v=LIb3L4vKZ7U "std::allocator..." by Andrei Alexandrescu]
+- [https://www.youtube.com/watch?v=TZ5a3gCCZYo Enter The Arena by Ryan Fleury]
+
+I originally mocked up this design in Go, so that's the language I will use to explain it. However, I've  included an alternate implementation in C++ towards the end.
+
+IN GO
+
+. . . 
+
+The most important piece of this design is the `Arena` function type. This unifies all arenas under a single type and API:
+
+	type Arena func(a Action, size, align uintptr) (unsafe.Pointer, error)
+
+The next piece is the `Action` enum. Actions are *things* we want arenas to do generally. While we could infer these from the arguments passed to `Arena`, adding a separate type simplifies things:
+
+	type Action int
+	
+	const (
+		ACTION_ALLOC Action = iota
+		ACTION_RESET
+		// ...
+	)
+
+To implement an arena, we create a single function that *returns* an `Arena`:
+
+	// Linear is a simple bump allocator with a fixed amount of backing memory.
+	func Linear(max_size uintptr) Arena {
+		var (
+			data   = make([]byte, max_size)
+			offset uintptr
+		)
+		return func(a Action, size, align uintptr) (unsafe.Pointer, error) {
+			switch a {
+			case ACTION_ALLOC:
+				// ...
+				ptr := &data[offset]
+				offset += aligned
+				return unsafe.Pointer(ptr), nil
+			
+			case ACTION_RESET:
+				offset = 0
+			
+			default:
+				panic("unimplemented action: " + a.String())
+			}
+			
+			return nil, nil
+		}
+	}
+
+`Linear` is just a  "constructor" that initializes any internal state and returns a new `Arena` for us to use, which we can do by calling the function it returned:
+
+	func main() {
+		// Create a new Linear Arena with 1Kb of memory
+		arena := Linear(1024)
+		
+		// Ensure arena is reset at the end of the function
+		defer func() {
+			if _, err := arena(ACTION_RESET, 0, 0); err != nil {
+				panic(err)
+			}
+		}()
+		
+		// Allocate an int
+		ptr, err := arena(ACTION_ALLOC, unsafe.Sizeof(int(0)), unsafe.Alignof(int(0)))
+		if err != nil {
+			panic(err) // ...
+		}
+		
+		v := (*int)(ptr)
+		// ...
+	}
+
+While this works, the current API is unnecessarily verbose and error-prone. Let's add a few helper functions:
+
+	// New returns an arena allocated value of type T.
+	//
+	// New returns a pointer to the value.
+	func New[T any](arena Arena) *T {
+		var t T
+		ptr, err := arena(ACTION_ALLOC, unsafe.Sizeof(t), unsafe.Alignof(t))
+		if err != nil {
+			panic(err) // ...
+		}
+		
+		return (*T)(ptr)
+	}
+	
+	// Reset restores an arena back to its original state.
+	//
+	// Note: An arena may choose to free its underlying memory.
+	// Use of memory allocated by an arena after calling Reset is unsafe.
+	func Reset(arena Arena) {
+		if _, err := arena(ACTION_RESET, 0, 0); err != nil {
+			panic(err)
+		}
+	}
+
+Updating the original code, it now looks more like what we'd expect:
+
+	func main() {
+		arena := Linear(1024)
+		defer Reset(arena)
+		
+		v := New[int](arena)
+		// ...
+	}
+
+So far, we haven't lost anything with this design. Arenas can easily be implemented, instantiated, and passed to functions that want to use them. We don't have to declare separate types or an interface to unify them; we just use *functions*.  
+
+However, there are a few problems with `Linear`'s current implementation that would lead to bugs and issues in practice. 
+
+The first is that `Linear` was not written with concurrency in mind, so using it from multiple goroutines would quickly cause issues. Luckily these arenas are composable, so this is solved with another `Arena`:
+
+	// Concurrent wraps an Arena, allowing it to be used concurrently.
+	func Concurrent(arena Arena) Arena {
+		var mtx sync.Mutex
+		return func(a Action, size, align uintptr) (unsafe.Pointer, error) {
+			mtx.Lock()
+			ptr, err := arena(a, size, align)
+			mtx.Unlock()
+			return ptr, err
+		}
+	}
+
+An added bonus is that our code only requires a single change:
+
+	func main() {
+		arena := Concurrent(Linear(1024))
+		defer Reset(arena)
+		
+		// We're now free to use arena concurrently!
+		var wg sync.WaitGroup
+		wg.Go(func() {
+			v := New[int](arena)
+			// ...
+		})
+		
+		// ...
+	}
+
+The second (Go-specific) issue is that arenas return an `unsafe.Pointer`. This means we're effectively hiding memory from the garbage collector. While this sounds like a good idea on the surface, the original memory most likely came from Go's runtime in the first place (via `new` or `make`).
+
+Because of this, the garbage collector might consider the memory unreachable and free it while it's still in use. If this happens, we'll get the classic null-pointer dereference or use-after-free bugs. In practice `Linear` wouldn't run into this problem, but a more sophisticated arena might.
+
+The fix is to use `runtime.Pinner` (added in `Go 1.21`) which allows us to force the garbage collector to treat memory as reachable and immovable. Wrapping that in another `Arena` is simple:
+
+	// Pinned wraps an Arena, ensuring its memory is stable until Reset is called.
+	// 
+	// The memory returned by Pinned is safe to pass over cgo boundaries.
+	func Pinned(arena Arena) Arena {
+		var pinner runtime.Pinner
+		return func(a Action, size, align uintptr) (unsafe.Pointer, error) {
+			ptr, err := arena(a, size, align)
+			if err != nil {
+				return ptr, err
+			}
+			
+			if action == ACTION_RESET {
+				pinner.Unpin()
+			} else {
+				pinner.Pin(ptr)
+			}
+			
+			return ptr, nil
+		}
+	}
+	
+	func main() {
+		arena := Pinned(Concurrent(Linear(1024)))
+		// ...
+	}
+	
+We now have an arena that has stable non-gc pointers, and can be used concurrently; all without complicating the underlying implementation. This is the "beauty" of the design. Because Go allows closures (with captures), we can create tiny arena implementations with function-local state and simple APIs. 
+
+The last problem I'll cover is *logging* - we currently have no insight into where our allocations are coming from. In C we'd add `const char* file` and `const int line` to `Arena`, then pass `__LINE__` and `__FILE__` everywhere.
+
+In Go we can use `runtime.Caller` and another `Arena`:
+
+	// Logger wraps an Arena, logging its usage locations.
+	func Logger(arena Arena) Arena {
+		return func(a Action, size, align uintptr) (unsafe.Pointer, error) {
+			// We expect arenas to be used via the high-level API,
+			// so we grab the caller location relative to those functions.
+			_, file, line, ok := runtime.Caller(2)
+			if !ok {
+				file = "<unknown>"
+				line = 0
+			}
+			
+			log.Printf("%s:%d - Arena %s (size: %d, align: %d)", file, line, action, size, align)
+			return arena(action, size, align)
+		}
+	}
+
+
+EXTENDING THE DESIGN
+
+. . .
+
+Now that the arenas are composable and more importantly, *useful*, let's expand the design to get another powerful feature: **temporary regions**. These allow subsets of an arena's memory to be reset/reused, rather than all of it.
+
+All we need to do is extend our two types:
+
+	type Arena func(a Action, size, align uintptr, watermark *uintptr) (unsafe.Pointer, error)
+	
+	const (
+		// ...
+		ACTION_SAVE
+		ACTION_RESTORE
+	)
+
+Add two helper functions:
+
+	// Save returns the restorable state of an Arena.
+	// The returned value is internal to the particular Arena and should not be modified.
+	func Save(arena Arena) (watermark uintptr) {
+		if _, err := arena(ACTION_SAVE, 0, 0, &watermark); err != nil {
+			panic(err)
+		}
+		
+		return
+	}
+	
+	// Restore restores an Arena to a previously saved state.
+	func Restore(arena Arena, watermark uintptr) {
+		if _, err := arena(ACTION_RESTORE, 0, 0, &watermark); err != nil {
+			panic(err)
+		}
+	}
+	
+And test it out:
+
+	func main() {
+		arena := Pinned(Concurrent(Linear(1024)))
+		// ...
+		
+		a := New[int](arena)
+		// ...
+		
+		{
+			watermark := Save(arena)
+			for i := range N {
+				v := New[int](arena)
+				// ...
+				
+				Restore(arena, watermark)
+			}
+		}
+		
+		b := New[int](arena)
+		// ...
+	}
+
+Arenas are free to treat `watermark` however they'd like: it could be a pointer to an internal block of memory, an offset, etc.; it's up to the implementation. The only requirement is that the user does not modify `watermark` after it's been given to them.
+
+We can actually enforce this with *another* `Arena`:
+
+	// Region wraps an Arena, restoring it to its previous state when Reset is called.
+	func Region(alloc Arena) Arena {
+		watermark := Save(alloc)
+		return func(a Action, size, align uintptr, wm *uintptr) (unsafe.Pointer, error) {
+			if a == ACTION_RESET {
+				Restore(alloc, watermark)
+				return nil, nil
+			}
+			
+			return alloc(a, size, align, wm)
+		}
+	}
+
+Now regions compose nicely with the rest of the API and are harder to misuse:
+	
+	func main() {
+		arena := Pinned(Concurrent(Linear(1024)))
+		// ...
+		
+		{
+			// Shadow 'arena' to ensure we can't allocate incorrectly.
+			arena := Region(arena)
+			for i := range N {
+				v := New[int](arena)
+				// ...
+				Reset(arena)
+			}
+		}
+	}
+
+
+PERFORMANCE
+
+. . .
+
+If this design looks familiar, it's because we've essentially recreated interfaces. The functions emulate an interface type, while the function-local state emulates the implementing struct. Because we're essentially re-implementing a core feature of Go, it's fair to assume we're opting out of any interface-specific optimizations the Go compiler has.
+
+To test this, I wrote a benchmark that compared Go's builtin allocator (`new`, `make`), the closure-based design, and one that used interfaces. The closure and interface designs had identicial implementations of the `Linear` arena.
+
+Here are the results:
+
+	goos: darwin
+	goarch: arm64
+	pkg: arena
+	cpu: Apple M2
+	BenchmarkArena_New_Small
+	BenchmarkArena_New_Small-8           	146076520	     7.868 ns/op
+	BenchmarkArena_Closure_Small
+	BenchmarkArena_Closure_Small-8       	528476730	     2.297 ns/op
+	BenchmarkArena_Interface_Small
+	BenchmarkArena_Interface_Small-8     	372402877	     3.322 ns/op
+	BenchmarkArena_New_Large
+	BenchmarkArena_New_Large-8           	68840397	        15.60 ns/op
+	BenchmarkArena_Closure_Large
+	BenchmarkArena_Closure_Large-8       	264998598	     4.493 ns/op
+	BenchmarkArena_Interface_Large
+	BenchmarkArena_Interface_Large-8     	268819261	     4.568 ns/op
+	BenchmarkArena_Closure_HotPath
+	BenchmarkArena_Closure_HotPath-8     	16362241	        70.24 ns/op
+	BenchmarkArena_Interface_HotPath
+	BenchmarkArena_Interface_HotPath-8   	17589729	        68.36 ns/op
+
+As you can see, both implementations perform better than the builtin allocator. This isn't surprising as we're directly avoiding GC bookkeeping in hot-loops.
+
+The fascinating bit is that closures and interfaces perform similarly in all cases, meaning the Go compiler can optimize either design to be on par with the other.
+
+
+IN OTHER LANGUAGES
+
+. . .
+
+This design thrives when the language supports closures + captures; otherwise you're better off going for the usual function pointer + data pointer approach. Sadly, it means the "new" design doesn't nicely fit in languages like C, Odin, Zig, etc. However, there is another notable systems programming language that has everything we need: **C++**.
+
+I very rarely write C++, so I went with the easiest approach to prove out the design. I'm sure there are many *"C++-y"* ways to improve it further, but I'd rather not lose my sanity.
+
+This example uses C++11's `std::function` because it greatly simplifies the design. Older versions can replace it with two classes: one that concretizes the closures, and one that unifies all arenas under a single type. 
+
+Let's do some basic setup so we're on-par with the Go implementation:
+
+	enum Action {
+	   ALLOC,
+	   RESET,
+	   FREE_ALL, // Ain't no garbage collector here
+	};
+	
+	using Arena = std::function<void*(Action, size_t, size_t)>;
+	
+	template<typename T>
+	T* New(Arena arena) {
+	   return (T*)(arena(Action::arena, sizeof(T), alignof(T), nullptr));
+	}
+	
+	void Reset(Arena arena) {
+	   (void)arena(Action::RESET, 0, 0, nullptr);
+	}
+	
+	void Free(Arena arena) {
+	   (void)arena(Action::FREE_ALL, 0, 0, nullptr);
+	}
+
+Now we just need to implement the arenas like before:
+
+	Arena Linear(size_t max_size) {
+		// Setup the internal state
+	   uint8_t* data = (uint8_t*)malloc(max_size);
+	   memset(data, 0, max_size);
+	   
+	   size_t* offset = (size_t*)malloc(sizeof(size_t));
+	   *offset = 0;
+	   
+	   return [data, offset, max_size](Action a, size_t size, size_t align) -> void* {
+	   	switch (a) {
+	   		// ...
+	   	}
+	   };
+	}
+	
+	Arena Parallel(Arena arena) {
+		// ...
+		return [arena](Action a, size_t size, size_t align) -> void* {
+			// Enter the critical section
+			void* ptr = arena(a, size, align);
+			// Leave the critical section
+			return ptr;
+		}
+	}
+
+And put them to good use:
+	
+	void main() {
+		Arena arena = Parallel(Linear(1024));
+		// ...
+		int* v = New<int>(arena);
+		// ...
+		Free(arena);
+	}
+
+
+CLOSING
+
+. . .
+
+I'm a big fan of this design as it drastically simplifies the process of implementing and using arenas (or allocators). We no longer have to manage multiple types or deal with implementation-specific APIs; we just use functions.
+
+And because arenas easily compose: a particular implementation can make larger assumptions, leading to less code. If an arena lacks a particular feature, we can tack it on without changing the underlying implementation. This strength is, of course, an exercise in `999_temperance`, as overly generic code is slow code.
+
+I'm planning on porting this design to more languages. If you've already done so, drop me a line!
+
+As always, thanks for reading,

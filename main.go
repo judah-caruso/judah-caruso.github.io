@@ -27,8 +27,8 @@ const (
 	siteTemplatePath = "template.htm" // within resPath
 	rssTemplatePath  = "rss.htm"      // within resPath
 
-	sansFontPath = "AtkinsonUltralegible-Regular.otf"     // within resPath
-	monoFontPath = "AtkinsonUltralegibleMono-Regular.otf" // within resPath
+	sansFontPath = "Atkinson-Hyperlegible-Regular.otf"    // within resPath
+	monoFontPath = "AtkinsonHyperlegibleMono-Regular.otf" // within resPath
 )
 
 var (
