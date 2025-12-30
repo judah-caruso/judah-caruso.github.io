@@ -173,3 +173,57 @@ Finally, remove the function body from the original Go file:
 `asm_add` can now be called from Go and the assembly version will be used (if compiling for that specific architecture). 
 
 [https://github.com/golang/go/issues/29538 GitHub issue] around simplifying this process.
+
+
+C-STYLE UNIONS
+
+	type MultipleTypes [max(
+		unsafe.Sizeof(Type1{}),
+		unsafe.Sizeof(Type2{}),
+		unsafe.Sizeof(Type3{}),
+	)]byte
+	
+	func (m *MultipleTypes) Type1() *Type1 {
+		return (*Type1)(unsafe.Pointer(&m[0]))
+	}
+	func (m *MultipleTypes) Type2() *Type2 {
+		return (*Type2)(unsafe.Pointer(&m[0]))
+	}
+	func (m *MultipleTypes) Type3() *Type3 {
+		return (*Type3)(unsafe.Pointer(&m[0]))
+	}
+	
+	// ...
+	
+	var v MultipleTypes
+	*v.Type1() = Type1{ ... }
+
+This takes advantage of `unsafe.Sizeof` and `max` (builtin as of 1.21.0) evaluating their arguments at compile-time. If we use this to create a fixed-size array, we'll have a type that has enough space to store any of the types specified. 
+
+There's one issue. Using `unsafe.Sizeof` and `max` won't account for any padding bytes required to align the union. This is a problem if we're trying to interop with C.
+
+	// C union
+	union {
+	 	char  c[5]; // 5 byte size, 1 byte alignment
+	 	float f;    // 4 byte size, 4 byte alignment
+	} ShouldBePadded;
+	
+	printf("%d\n", sizeof(ShouldBePadded)); // 8 (CORRECT)
+	
+	// Go representation
+	type ShouldBePadded [max(
+		unsafe.Sizeof([5]byte{0}),
+		unsafe.Sizeof(float32(0)),
+	)]byte
+	
+	print(unsafe.Sizeof(ShouldBePadded{})) // 5 (INCORRET)
+
+If we know this ahead of time, we can add another `unsafe.Sizeof` to force the sizes to match:
+
+	type ShouldBePadded [max(
+		unsafe.Sizeof([5]byte{0}),
+		unsafe.Sizeof(float32(0)),
+		unsafe.Sizeof([8]byte{0}), // padding
+	)]byte
+	
+	print(unsafe.Sizeof(ShouldBePadded{})) // 8 (CORRECT)
