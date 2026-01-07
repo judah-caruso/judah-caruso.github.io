@@ -15,9 +15,17 @@ window.addEventListener("load", () => {
    const L  = 78.4;
    const H  = (A / L) * 24;
    const HH = Math.floor(H);
-   const MM = Math.floor((H - HH) * 60);
+   const M  = (H - HH) * 60;
+   const MM = Math.floor(M);
+   const SS = Math.floor((M - MM) * 60);
+
+   const pad   = (n) => n.toString().padStart(2, '0');
+   const short = `${pad(HH % 12 || 12)}:${pad(MM)} ${HH >= 12 ? 'PM' : 'AM'}`;
+   const full  = `${pad(HH % 12 || 12)}:${pad(MM)}:${pad(SS)} ${HH >= 12 ? 'PM' : 'AM'}`;
 
    const time = document.getElementById("time");
-   time.innerHTML = `${(HH % 12 || 12).toString().padStart(2, '0')}:${MM.toString().padStart(2, '0')} ${HH >= 12 ? 'PM' : 'AM'}`;
+   time.innerHTML = short;
+
+   document.title = document.title.replace("Time", full);
 });
 </script>
