@@ -1,0 +1,5 @@
+/ whoami
+
+<h1>THE TIME IS <span id="time">NOW</span></h1>
+
+@ time.js
