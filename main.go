@@ -256,6 +256,8 @@ func main() {
 				)
 
 				kind := MediaKind(0)
+				verbatim := false
+
 				switch ext := filepath.Ext(v.Path); ext {
 				case ".png":
 					kind = MediaPng
@@ -265,6 +267,8 @@ func main() {
 					kind = MediaSvg
 				case ".mp4":
 					kind = MediaMp4
+				case ".js":
+					verbatim = true
 				default:
 					log.Printf(".. '%s' references an unsupported media type '%s'\n", page.LocalName, ext)
 					continue
@@ -276,30 +280,34 @@ func main() {
 					continue
 				}
 
-				enc := base64.StdEncoding.EncodeToString([]byte(file))
+				if verbatim {
+					body.WriteString("\n" + file + "\n")
+				} else {
+					enc := base64.StdEncoding.EncodeToString([]byte(file))
 
-				body.WriteString("<figure>")
+					body.WriteString("<figure>")
 
-				switch kind {
-				case MediaPng:
-					const prefix = "data:image/png;base64"
-					fmt.Fprintf(&body, "<img src='%s,%s'/>", prefix, enc)
-				case MediaSvg:
-					const prefix = "data:image/svg+xml;base64"
-					fmt.Fprintf(&body, "<img src='%s,%s'/>", prefix, enc)
-				case MediaOgg:
-					const prefix = "data:audio/ogg;base64"
-					fmt.Fprintf(&body, "<audio loop controls src='%s,%s'></audio>", prefix, enc)
-				case MediaMp4:
-					const prefix = "data:video/mp4;base64"
-					fmt.Fprintf(&body, "<video controls src='%s,%s'></video>", prefix, enc)
+					switch kind {
+					case MediaPng:
+						const prefix = "data:image/png;base64"
+						fmt.Fprintf(&body, "<img src='%s,%s'/>", prefix, enc)
+					case MediaSvg:
+						const prefix = "data:image/svg+xml;base64"
+						fmt.Fprintf(&body, "<img src='%s,%s'/>", prefix, enc)
+					case MediaOgg:
+						const prefix = "data:audio/ogg;base64"
+						fmt.Fprintf(&body, "<audio loop controls src='%s,%s'></audio>", prefix, enc)
+					case MediaMp4:
+						const prefix = "data:video/mp4;base64"
+						fmt.Fprintf(&body, "<video controls src='%s,%s'></video>", prefix, enc)
+					}
+
+					if len(v.Alt) != 0 {
+						fmt.Fprintf(&body, "<figcaption>%s</figcaption>", styledTextToHtml(index, page, v.Alt))
+					}
+
+					body.WriteString("</figure>")
 				}
-
-				if len(v.Alt) != 0 {
-					fmt.Fprintf(&body, "<figcaption>%s</figcaption>", styledTextToHtml(index, page, v.Alt))
-				}
-
-				body.WriteString("</figure>")
 
 			default:
 				panic(fmt.Sprintf("unimplemented line kind: %T", v))
