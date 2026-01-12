@@ -3,3 +3,7 @@
 Below are some game demos from the past that don't have a good place to live. Most were to test specific game mechanics and aren't fully fleshed out.
 
 @ wonksnek.png [https://judahcaruso.com/demos/wonksnek WonkSnek] - A simple snake-like game to test the feasibility of Raylib + Wasm.
+
+@ cube.png [https://judahcaruso.com/demos/cube Cube] - Cross-platform 3D cube rendered via bytecode virtual machine.
+
+
