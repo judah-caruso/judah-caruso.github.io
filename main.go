@@ -253,6 +253,7 @@ func main() {
 					MediaOgg
 					MediaSvg
 					MediaMp4
+					MediaTxt
 				)
 
 				kind := MediaKind(0)
@@ -267,6 +268,8 @@ func main() {
 					kind = MediaSvg
 				case ".mp4":
 					kind = MediaMp4
+				case ".txt":
+					fallthrough
 				case ".js":
 					verbatim = true
 				default:
@@ -281,7 +284,7 @@ func main() {
 				}
 
 				if verbatim {
-					body.WriteString("\n" + file + "\n")
+					body.WriteString(file)
 				} else {
 					enc := base64.StdEncoding.EncodeToString([]byte(file))
 
