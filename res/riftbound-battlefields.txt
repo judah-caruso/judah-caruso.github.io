@@ -1,0 +1,274 @@
+== BATTLEFIELD CARDS (39) ==
+
+Name: Startipped Peak
+Set: Origins
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: When you hold here, you may channel 1 rune exhausted.
+---
+Name: Targon's Peak
+Set: Origins
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: When you conquer here, ready 2 runes at the end of this turn.
+---
+Name: Treasure Hoard
+Set: SFD
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: When you conquer here, you may pay {1 Energy} to play a Gold gear token exhausted.
+---
+Name: Trifarian War Camp
+Set: Origins
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: Units here have +1 {Might}. (This includes attackers.)
+---
+Name: The Candlelit Sanctum
+Set: Origins
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: When you conquer here, look at the top two cards of your Main Deck. You may recycle one or both of them. Put those you don't back in any order.
+---
+Name: The Arena's Greatest
+Set: Origins
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: At the start of each player's first Beginning Phase, that player gains 1 point.
+---
+Name: The Dreaming Tree
+Set: Origins
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: The first time you choose a friendly unit with a spell here each turn, draw 1.
+---
+Name: The Grand Plaza
+Set: Origins
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: When you hold here, if you have 7+ units here, you win the game.
+---
+Name: Ravenbloom Conservatory
+Set: SFD
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: When you defend here, reveal the top card of your Main Deck. If it's a spell, put it in your hand. Otherwise, recycle it.
+---
+Name: Reaver's Row
+Set: Origins
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: When you defend here, you may move a friendly unit here to base.
+---
+Name: Reckoner's Arena
+Set: Origins
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: When you hold here, activate the conquer effects of units here.
+---
+Name: Power Nexus
+Set: SFD
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: When you hold here, you may pay {1 Power (Any)}{1 Power (Any)}{1 Power (Any)}{1 Power (Any)} to score 1 point.
+---
+Name: Sigil of the Storm
+Set: Origins
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: When you conquer here, recycle one of your runes.
+---
+Name: Forgotten Monument
+Set: SFD
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: Players can't score here until their third turn.
+---
+Name: Hall of Legends
+Set: SFD
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: When you conquer here, you may pay {1 Energy} to ready your legend.
+---
+Name: Forge of the Fluft
+Set: SFD
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: While you control this battlefield, friendly legends have &quot;{Exhaust}: Attach an Equipment you control to a unit you control.&quot;
+---
+Name: Marai Spire
+Set: SFD
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: While you control this battlefield, friendly [Repeat] costs cost {1 Energy} less.
+---
+Name: Minefield
+Set: SFD
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: When you conquer here, put the top 2 cards of your Main Deck into your trash.
+---
+Name: Emperor's Dais
+Set: SFD
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: When you conquer here, you may pay {1 Energy} and return a unit you control here to its owner's hand. If you do, play a 2 {Might} Sand Soldier unit token here.
+---
+Name: Seat of Power
+Set: SFD
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: When you conquer here, draw 1 for each other battlefield you or allies control.
+---
+Name: Sunken Temple
+Set: SFD
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: When you conquer here with one or more [Mighty] units, you may pay {1 Energy} to draw 1. (A unit is Mighty while it has 5+ {Might}.)
+---
+Name: The Papertree
+Set: SFD
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: When you hold here, each player channels 1 rune exhausted.
+---
+Name: Veiled Temple
+Set: SFD
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: When you conquer here, you may ready a friendly gear. If it's an Equipment, you may detach it.
+---
+Name: Rockfall Path
+Set: SFD
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: Units can't be played here.
+---
+Name: Void Gate
+Set: Origins
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: Spells and abilities affecting units here each deal 1 Bonus Damage. (Each instance of damage the spell deals is increased by 1.)
+---
+Name: Windswept Hillock
+Set: Origins
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: Units here have [Ganking]. (They can move from battlefield to battlefield.)
+---
+Name: Vilemaw's Lair
+Set: Origins
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: Units can't move from here to base.
+---
+Name: Zaun Warrens
+Set: Origins
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: When you conquer here, discard 1, then draw 1.
+---
+Name: Fortified Position
+Set: Origins
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: When you defend here, choose a unit. It gains [Shield 2] this combat. (+2 {Might} while it's a defender.)
+---
+Name: Back-Alley Bar
+Set: Origins
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: When a unit moves from here, give it +1 {Might} this turn.
+---
+Name: Bandle Tree
+Set: Origins
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: You may hide an additional card here.
+---
+Name: Altar to Unity
+Set: Origins
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: When you hold here, play a 1 {Might} Recruit unit token in your base.
+---
+Name: Aspirant's Climb
+Set: Origins
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: Increase the points needed to win the game by 1.
+---
+Name: Ornn's Forge
+Set: SFD
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: While you control this battlefield, the first friendly non-token gear played each turn costs {1 Energy} less.
+---
+Name: Obelisk of Power
+Set: Origins
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: At the start of each player's first Beginning Phase, that player channels 1 rune.
+---
+Name: Monastery of Hirana
+Set: Origins
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: When you conquer here, you may spend a buff to draw 1.
+---
+Name: Navori Fighting Pit
+Set: Origins
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: When you hold here, buff a unit here. (If it doesn't have a buff, it gets a +1 {Might} buff.)
+---
+Name: Hallowed Tomb
+Set: Origins
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: When you hold here, you may return your Chosen Champion from your trash to your Champion Zone if it is empty.
+---
+Name: Grove of the God-Willow
+Set: Origins
+Rarity: Uncommon
+Type: Battlefield
+Domain: Colorless
+Text: When you hold here, draw 1.

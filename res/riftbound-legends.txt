@@ -1,0 +1,208 @@
+== LEGEND CARDS (29) ==
+
+Name: Swift Scout
+Set: Origins
+Rarity: Showcase
+Type: Legend
+Domain: Mind, Chaos
+Text: You may pay {1 Energy} to hide a card with [Hidden] instead of {1 Power (Any)}.{1 Energy}, {Exhaust}: Put a Teemo unit you own into your hand from your Champion Zone or the board.
+---
+Name: Unforgiven
+Set: Origins
+Rarity: Showcase
+Type: Legend
+Domain: Calm, Chaos
+Text: {2 Energy}, {Exhaust}: Move a friendly unit to or from its base.
+---
+Name: The Boss
+Set: Origins
+Rarity: Showcase
+Type: Legend
+Domain: Body, Order
+Text: When a buffed unit you control would die, you may pay {1 Power (Any)} and exhaust me to spend its buff and recall it exhausted instead. (Send it to base. This isn't a move.)When you conquer, ready me.
+---
+Name: Relentless Storm
+Set: Origins
+Rarity: Showcase
+Type: Legend
+Domain: Fury, Body
+Text: When you play a [Mighty] unit, you may exhaust me to channel 1 rune exhausted. (A unit is Mighty while it has 5+ {Might}.)
+---
+Name: Prodigal Explorer
+Set: SFD
+Rarity: Rare
+Type: Legend
+Domain: Mind, Chaos
+Text: {Exhaust}: [Reaction] — Draw 1. Use only if you've chosen enemy units and/or gear twice this turn with spells or unit abilities.
+---
+Name: Purifier
+Set: SFD
+Rarity: Showcase
+Type: Legend
+Domain: Fury, Body
+Text: Your Equipment each give [Assault]. (+1 {Might} while equipped unit is an attacker.)
+---
+Name: Radiant Dawn
+Set: Origins
+Rarity: Showcase
+Type: Legend
+Domain: Calm, Order
+Text: When you stun one or more enemy units, buff a friendly unit. (If it doesn't have a buff, it gets a +1 {Might} buff.)
+---
+Name: Grandmaster at Arms
+Set: SFD
+Rarity: Showcase
+Type: Legend
+Domain: Calm, Body
+Text: {1 Energy}, {Exhaust}: Attach a detached Equipment you control to a unit you control.{Exhaust}: Attach an attached Equipment you control to a unit you control.
+---
+Name: Emperor of the Sands
+Set: SFD
+Rarity: Showcase
+Type: Legend
+Domain: Calm, Order
+Text: Sand Soldiers you play have [Weaponmaster]. (When they're played, you may [Equip] one of your Equipment to them for {1 Power (Any)} less.){1 Energy}, {Exhaust}: Play a 2 {Might} Sand Soldier unit token to your base. Use only if you've played an Equipment this turn.
+---
+Name: Void Burrower
+Set: SFD
+Rarity: Rare
+Type: Legend
+Domain: Fury, Order
+Text: When you conquer, you may exhaust me to reveal the top 2 cards of your Main Deck. You may play one. Then recycle the rest.
+---
+Name: Battle Mistress
+Set: SFD
+Rarity: Showcase
+Type: Legend
+Domain: Body, Chaos
+Text: When you recycle a rune, you may exhaust me to play a Gold gear token exhausted.When one or more enemy units die, ready me.
+---
+Name: Chem-Baroness
+Set: SFD
+Rarity: Showcase
+Type: Legend
+Domain: Mind, Order
+Text: When you or an ally hold, you may exhaust me to play a Gold gear token exhausted.While your score is within 3 points of the Victory Score, your Gold [ADD] an additional {1 Energy}.
+---
+Name: Wuju Bladesman - Starter
+Set: Proving Grounds
+Rarity: Rare
+Supertype: Champion
+Type: Legend
+Domain: Calm, Body
+Text: While a friendly unit defends alone, it gets +2 {Might}.
+---
+Name: Daughter of the Void
+Set: Origins
+Rarity: Showcase
+Type: Legend
+Domain: Fury, Mind
+Text: {Exhaust}: [Reaction] — [Add] {1 Power (Any)}. Use only to play spells. (Abilities that add resources can't be reacted to.)
+---
+Name: Dark Child - Starter
+Set: Proving Grounds
+Rarity: Rare
+Supertype: Champion
+Type: Legend
+Domain: Fury, Chaos
+Text: At the end of your turn, ready 2 runes.
+---
+Name: Fire Below the Mountain
+Set: SFD
+Rarity: Rare
+Type: Legend
+Domain: Calm, Mind
+Text: {Exhaust}: [Reaction] — [Add] {1 Power (Any)}. Use only to play gear or use gear abilities. (Abilities that add resources can't be reacted to.)
+---
+Name: Emperor of the Sands
+Set: SFD
+Rarity: Rare
+Type: Legend
+Domain: Calm, Order
+Text: Your Sand Soldiers have [Weaponmaster].{1 Energy}, {Exhaust}: Play a 2 {Might} Sand Soldier unit token to your base. Use only if you've played an Equipment this turn.
+---
+Name: Blade Dancer
+Set: SFD
+Rarity: Rare
+Type: Legend
+Domain: Calm, Chaos
+Text: When you choose a friendly unit, you may exhaust me and pay {1 Power (Any)} to ready it.When you conquer, you may pay {1 Energy} to ready me.
+---
+Name: Blind Monk
+Set: Origins
+Rarity: Showcase
+Type: Legend
+Domain: Calm, Body
+Text: {1 Energy}, {Exhaust}: Buff a friendly unit. (If it doesn't have a buff, it gets a +1 {Might} buff.)
+---
+Name: Bounty Hunter
+Set: Origins
+Rarity: Showcase
+Type: Legend
+Domain: Body, Chaos
+Text: {Exhaust}: Give a unit [Ganking] this turn. (It can move from battlefield to battlefield.)
+---
+Name: Mechanized Menace
+Set: SFD
+Rarity: Showcase
+Type: Legend
+Domain: Fury, Mind
+Text: Your Mechs have [Shield]. (+1 {Might} while they're defenders.)
+---
+Name: Might of Demacia - Starter
+Set: Proving Grounds
+Rarity: Rare
+Supertype: Champion
+Type: Legend
+Domain: Body, Order
+Text: When you conquer, if you have 4+ units at that battlefield, draw 2.
+---
+Name: Loose Cannon
+Set: Origins
+Rarity: Rare
+Type: Legend
+Domain: Fury, Chaos
+Text: At start of your Beginning Phase, draw 1 if you have one or fewer cards in your hand.
+---
+Name: Nine-Tailed Fox
+Set: Origins
+Rarity: Showcase
+Type: Legend
+Domain: Calm, Mind
+Text: When an enemy unit attacks a battlefield you control, give it -1 {Might} this turn, to a minimum of 1 {Might}.
+---
+Name: Herald of the Arcane
+Set: Origins
+Rarity: Rare
+Type: Legend
+Domain: Mind, Order
+Text: {1 Energy}, {Exhaust}: Play a 1 {Might} Recruit unit token.
+---
+Name: Hand of Noxus
+Set: Origins
+Rarity: Rare
+Type: Legend
+Domain: Fury, Order
+Text: {Exhaust}: [Reaction], [Legion] — [Add] {1 Energy}. (Abilities that add resources can't be reacted to. Get the effect if you've played a card this turn.)
+---
+Name: Glorious Executioner
+Set: SFD
+Rarity: Rare
+Type: Legend
+Domain: Fury, Chaos
+Text: When you win a combat, draw 1. (You win if only your units remain after combat.)
+---
+Name: Grand Duelist
+Set: SFD
+Rarity: Rare
+Type: Legend
+Domain: Body, Order
+Text: When one of your units becomes [Mighty], you may exhaust me to channel 1 rune exhausted. (A unit is Mighty while it has 5+ {Might}.)
+---
+Name: Lady of Luminosity - Starter
+Set: Proving Grounds
+Rarity: Rare
+Supertype: Champion
+Type: Legend
+Domain: Mind, Order
+Text: When you play a spell that costs {5 Energy} or more, draw 1.

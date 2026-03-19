@@ -1,0 +1,1238 @@
+== SPELL CARDS (138) ==
+
+Name: Stand United
+Set: Origins
+Rarity: Common
+Type: Spell
+Domain: Calm
+Energy: 3
+Text: [Hidden] (Hide now for {1 Power (Any)} to react with later for {0 Energy}.)
+  [Action] (Play on your turn or in showdowns.)Buff a friendly unit. Buffs give an additional +1 {Might} to friendly units this turn. (To buff a unit, give it a +1 {Might} buff if it doesn't already have one.)
+---
+Name: Stormbringer
+Set: Origins
+Rarity: Epic
+Supertype: Signature
+Type: Spell
+Domain: Fury, Body
+Energy: 6
+Power: 2
+Text: Choose a friendly unit in your base. Deal damage equal to its Might to all enemy units at a battlefield, then move your unit there.
+---
+Name: Strike Down
+Set: SFD
+Rarity: Uncommon
+Type: Spell
+Domain: Body
+Energy: 3
+Power: 1
+Text: Choose an equipped friendly unit. It deals damage equal to its Might to an enemy unit. Then detach an Equipment from it.
+---
+Name: Stupefy
+Set: Origins
+Rarity: Common
+Type: Spell
+Domain: Mind
+Energy: 1
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)Give a unit -1 {Might} this turn, to a minimum of 1 {Might}. Draw 1.
+---
+Name: Stacked Deck
+Set: Origins
+Rarity: Uncommon
+Type: Spell
+Domain: Chaos
+Energy: 1
+Text: [Action] (Play on your turn or in showdowns.)Look at the top 3 cards of your Main Deck. Put 1 into your hand and recycle the rest.
+---
+Name: Super Mega Death Rocket!
+Set: Origins
+Rarity: Epic
+Supertype: Signature
+Type: Spell
+Domain: Fury, Chaos
+Energy: 4
+Power: 1
+Text: Deal 5 to a unit.When you conquer, you may discard 1 to return this from your trash to your hand.
+---
+Name: Switcheroo
+Set: SFD
+Rarity: Rare
+Type: Spell
+Domain: Chaos
+Energy: 2
+Power: 2
+Text: [Hidden] (Hide now for {1 Power (Any)} to react with later for {0 Energy}.)
+  [Action]_ (Play on your turn or in showdowns.)_Swap the Might of two units at the same battlefield this turn.
+---
+Name: Sky Splitter
+Set: Origins
+Rarity: Common
+Type: Spell
+Domain: Fury
+Energy: 8
+Power: 1
+Text: [Action] (Play on your turn or in showdowns.)This spell's Energy cost is reduced by the highest Might among units you control.Deal 5 to a unit at a battlefield.
+---
+Name: Smoke Screen
+Set: Origins
+Rarity: Common
+Type: Spell
+Domain: Mind
+Energy: 2
+Power: 1
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)Give a unit -4 {Might} this turn, to a minimum of 1 {Might}.
+---
+Name: Spoils of War
+Set: Origins
+Rarity: Uncommon
+Type: Spell
+Domain: Body
+Energy: 4
+Power: 1
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)If an enemy unit has died this turn, this costs {2 Energy} less.Draw 2.
+---
+Name: Sprite Call
+Set: Origins
+Rarity: Common
+Type: Spell
+Domain: Mind
+Energy: 3
+Text: [Hidden] (Hide now for {1 Power (Any)} to react with later for {0 Energy}.)
+  [Action] (Play on your turn or in showdowns.)Play a ready 3 {Might} Sprite unit token with [Temporary]. (Kill it at the start of its controller's Beginning Phase, before scoring.)
+---
+Name: Time Warp
+Set: Origins
+Rarity: Epic
+Type: Spell
+Domain: Mind
+Energy: 10
+Power: 4
+Text: Take a turn after this one. Banish this.
+---
+Name: Unchecked Power
+Set: Origins
+Rarity: Epic
+Type: Spell
+Domain: Mind
+Energy: 7
+Power: 2
+Text: Exhaust all friendly units, then deal 12 to ALL units at battlefields.
+---
+Name: The Harrowing
+Set: Origins
+Rarity: Rare
+Type: Spell
+Domain: Chaos
+Energy: 6
+Power: 2
+Text: Play a unit from your trash, ignoring its Energy cost. (You must still pay its Power cost.)
+---
+Name: Thermo Beam
+Set: Origins
+Rarity: Uncommon
+Type: Spell
+Domain: Fury
+Energy: 5
+Power: 2
+Text: [Action] (Play on your turn or in showdowns.)Kill all gear.
+---
+Name: Thwonk!
+Set: SFD
+Rarity: Common
+Type: Spell
+Domain: Calm
+Energy: 2
+Text: [Action] (Play on your turn or in showdowns.)
+  [Repeat] {2 Energy} (You may pay the additional cost to repeat this spell's effect.)Stun an attacking unit. (It doesn't deal combat damage this turn.)
+---
+Name: Reinforce
+Set: Origins
+Rarity: Uncommon
+Type: Spell
+Domain: Calm
+Energy: 5
+Text: Look at the top 5 cards of your Main Deck. You may play a unit from among them. Its Energy cost is reduced by {5 Energy}. Then recycle the remaining cards.
+---
+Name: Rebuke
+Set: Origins
+Rarity: Common
+Type: Spell
+Domain: Chaos
+Energy: 2
+Power: 2
+Text: [Action] (Play on your turn or in showdowns.)Return a unit at a battlefield to its owner's hand.
+---
+Name: Recruit the Vanguard
+Set: Proving Grounds
+Rarity: Uncommon
+Type: Spell
+Domain: Order
+Energy: 6
+Text: [Action] (Play on your turn or in showdowns.)Play four 1 {Might} Recruit unit tokens. (They can be played to your base or to battlefields you control.)
+---
+Name: Relentless Pursuit
+Set: SFD
+Rarity: Epic
+Supertype: Signature
+Type: Spell
+Domain: Fury, Body
+Energy: 2
+Power: 1
+Text: [Action] (Play on your turn or in showdowns.)Move a friendly unit. You may attach an Equipment with the same controller to it. This turn, that unit has &quot;When I conquer, you may move me to my base.&quot;
+---
+Name: Progress Day
+Set: Origins
+Rarity: Rare
+Type: Spell
+Domain: Mind
+Energy: 6
+Power: 1
+Text: Draw 4.
+---
+Name: Portal Rescue
+Set: Origins
+Rarity: Uncommon
+Type: Spell
+Domain: Mind
+Energy: 3
+Power: 1
+Text: [Action] (Play on your turn or in showdowns.)Banish a friendly unit, then its owner plays it to their base, ignoring its cost.
+---
+Name: Possession
+Set: Origins
+Rarity: Epic
+Type: Spell
+Domain: Chaos
+Energy: 8
+Power: 3
+Text: [Action] (Play on your turn or in showdowns.)Choose an enemy unit at a battlefield. Take control of it and recall it. (Send it to your base. This isn't a move.)
+---
+Name: Premonition
+Set: SFD
+Rarity: Epic
+Type: Spell
+Domain: Mind
+Energy: 2
+Power: 3
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)Draw 3.
+---
+Name: Primal Strength
+Set: Origins
+Rarity: Rare
+Type: Spell
+Domain: Body
+Energy: 4
+Power: 1
+Text: [Action] (Play on your turn or in showdowns.)Give a unit +7 {Might} this turn.
+---
+Name: Production Surge
+Set: SFD
+Rarity: Uncommon
+Type: Spell
+Domain: Mind
+Energy: 4
+Power: 1
+Text: This costs {2 Energy} less if you control a Mech.Play a 3 {Might} Mech unit token to your base.Draw 1.
+---
+Name: Promising Future
+Set: Origins
+Rarity: Rare
+Type: Spell
+Domain: Mind
+Energy: 5
+Power: 1
+Text: Each player looks at the top 5 cards of their Main Deck, chooses one, then recycles the rest. Starting with the next player, each player plays those cards, ignoring Energy costs. (They must still pay Power costs.)
+---
+Name: Punch First
+Set: SFD
+Rarity: Common
+Type: Spell
+Domain: Body
+Energy: 1
+Power: 2
+Text: [Action] (Play on your turn or in showdowns.)Give a unit +5 {Might} this turn.
+---
+Name: Shakedown
+Set: Origins
+Rarity: Rare
+Type: Spell
+Domain: Fury
+Energy: 2
+Power: 1
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)Choose an enemy unit. Deal 6 to it unless its controller has you draw 2.
+---
+Name: Showstopper
+Set: Origins
+Rarity: Epic
+Supertype: Signature
+Type: Spell
+Domain: Body, Order
+Energy: 1
+Power: 1
+Text: Buff a friendly unit in your base, then move it to a battlefield. (If it doesn't have a buff, it gets a +1 {Might} buff.)
+---
+Name: Singularity
+Set: Origins
+Rarity: Uncommon
+Type: Spell
+Domain: Mind
+Energy: 6
+Power: 2
+Text: Deal 6 to each of up to two units.
+---
+Name: Siphon Power
+Set: Origins
+Rarity: Epic
+Supertype: Signature
+Type: Spell
+Domain: Mind, Order
+Energy: 2
+Power: 1
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)Choose a battlefield. Give friendly units there +1 {Might} this turn and enemy units there -1 {Might} this turn, to a minimum of 1 {Might}.
+---
+Name: Retreat
+Set: Origins
+Rarity: Uncommon
+Type: Spell
+Domain: Mind
+Energy: 1
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)Return a friendly unit to its owner's hand. Its owner channels 1 rune exhausted.
+---
+Name: Ride the Wind
+Set: Origins
+Rarity: Common
+Type: Spell
+Domain: Chaos
+Energy: 2
+Power: 1
+Text: [Action] (Play on your turn or in showdowns.)Move a friendly unit and ready it.
+---
+Name: Rocket Barrage
+Set: SFD
+Rarity: Uncommon
+Type: Spell
+Domain: Mind
+Energy: 4
+Power: 1
+Text: [Repeat] {4 Energy}{1 Power (Mind)} (You may pay the additional cost to repeat this spell's effect, and may make different choices.)Choose one —Deal 4 to a unit in a base.Kill a gear.
+---
+Name: Rune Prison
+Set: Origins
+Rarity: Common
+Type: Spell
+Domain: Calm
+Energy: 2
+Power: 1
+Text: [Action] (Play on your turn or in showdowns.)Stun a unit._ (It doesn't deal combat damage this turn.)_
+---
+Name: Sabotage
+Set: Origins
+Rarity: Rare
+Type: Spell
+Domain: Body
+Energy: 1
+Power: 1
+Text: Choose an opponent. They reveal their hand. Choose a non-unit card from it, and recycle that card.
+---
+Name: Salvage
+Set: Origins
+Rarity: Uncommon
+Type: Spell
+Domain: Order
+Energy: 2
+Power: 1
+Text: [Action] (Play on your turn or in showdowns.)You may kill a gear. Draw 1.
+---
+Name: Hostile Takeover
+Set: SFD
+Rarity: Epic
+Supertype: Signature
+Type: Spell
+Domain: Mind, Order
+Energy: 5
+Power: 2
+Text: [Hidden] (Hide now for {1 Power (Any)} to react with later for {0 Energy}.)Take control of an enemy unit at a battlefield. Ready it. (Start a combat if other enemies are there. Otherwise, conquer.)Lose control of that unit and recall it at end of turn. (Send it to base. This isn't a move.)
+---
+Name: Frigid Touch
+Set: SFD
+Rarity: Common
+Type: Spell
+Domain: Mind
+Energy: 2
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)
+  [Repeat] {2 Energy} (You may pay the additional cost to repeat this spell's effect.)Give a unit -2 {Might} this turn.
+---
+Name: Guards!
+Set: SFD
+Rarity: Common
+Type: Spell
+Domain: Order
+Energy: 3
+Text: [Hidden]_ (Hide now for {1 Power (Any)} to react with later for {0 Energy}.)_Play a 2 {Might} Sand Soldier unit token. You may pay {1 Power (Order)} to ready it.
+---
+Name: On the Hunt
+Set: SFD
+Rarity: Epic
+Supertype: Signature
+Type: Spell
+Domain: Body, Chaos
+Energy: 1
+Power: 2
+Text: Ready your units.
+---
+Name: Deathgrip
+Set: SFD
+Rarity: Uncommon
+Type: Spell
+Domain: Order
+Energy: 2
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)Kill a friendly unit to give +{Might} equal to its Might to another friendly unit this turn. Draw 1.
+---
+Name: Desert's Call
+Set: SFD
+Rarity: Common
+Type: Spell
+Domain: Calm
+Energy: 2
+Text: [Repeat] {2 Energy} (You may pay the additional cost to repeat this spell's effect.)Play a 2 {Might} Sand Soldier unit token.
+---
+Name: Detonate
+Set: SFD
+Rarity: Common
+Type: Spell
+Domain: Fury
+Energy: 1
+Power: 1
+Text: Kill a gear. Its controller draws 2.
+---
+Name: Emperor's Divide
+Set: SFD
+Rarity: Uncommon
+Type: Spell
+Domain: Calm
+Energy: 2
+Text: [Hidden] (Hide now for {1 Power (Any)} to react with later for {0 Energy}.)
+  [Action] (Play on your turn or in showdowns.)Move any number of friendly units at a battlefield to their base.
+---
+Name: Factory Recall
+Set: SFD
+Rarity: Uncommon
+Type: Spell
+Domain: Chaos
+Energy: 1
+Text: [Action] (Play on your turn or in showdowns.)Return a gear to its owner's hand.
+---
+Name: Feral Strength
+Set: SFD
+Rarity: Common
+Type: Spell
+Domain: Calm
+Energy: 2
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)
+  [Repeat] {2 Energy} (You may pay the additional cost to repeat this spell's effect.)Give a unit +2 {Might} this turn.
+---
+Name: Show of Strength
+Set: SFD
+Rarity: Uncommon
+Type: Spell
+Domain: Body
+Energy: 2
+Power: 1
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)Draw 1 for each of your [Mighty] units. (A unit is Mighty while it has 5+ {Might}.)
+---
+Name: Sudden Storm
+Set: SFD
+Rarity: Uncommon
+Type: Spell
+Domain: Fury
+Energy: 3
+Text: [Hidden]** **(Hide now for {1 Power (Any)} to react with later for {0 Energy}.)
+  [Action] (Play on your turn or in showdowns.)Deal 2 to a unit at a battlefield. If it's attacking, deal 4 to it instead.
+---
+Name: Temptation
+Set: SFD
+Rarity: Common
+Type: Spell
+Domain: Chaos
+Energy: 2
+Text: [Repeat] {2 Energy} (You may pay the additional cost to repeat this spell's effect.)Move an enemy unit to a location where there's a unit with the same controller.
+---
+Name: Wages of Pain
+Set: SFD
+Rarity: Common
+Type: Spell
+Domain: Mind
+Energy: 3
+Text: [Hidden] (Hide now for {1 Power (Any)} to react with later for {0 Energy}.)
+  [Action]_ (Play on your turn or in showdowns.)_Deal 3 to a unit at a battlefield. Play a Gold gear token exhausted.
+---
+Name: Rally the Troops
+Set: SFD
+Rarity: Uncommon
+Type: Spell
+Domain: Order
+Energy: 2
+Text: [Action] (Play on your turn or in showdowns.)When a friendly unit is played this turn, buff it. (If it doesn't have a buff, it gets a +1 {Might} buff.)Draw 1.
+---
+Name: Counter Strike
+Set: SFD
+Rarity: Epic
+Supertype: Signature
+Type: Spell
+Domain: Calm, Body
+Energy: 2
+Power: 1
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)Choose a unit. The next time that unit would be dealt damage this turn, prevent it. Draw 1.
+---
+Name: Riposte
+Set: SFD
+Rarity: Epic
+Supertype: Signature
+Type: Spell
+Domain: Body, Order
+Energy: 2
+Power: 2
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)Choose a friendly unit and a spell. Counter that spell and give that unit +{Might} equal to that spell's Energy cost this turn.
+---
+Name: Void Rush
+Set: SFD
+Rarity: Epic
+Supertype: Signature
+Type: Spell
+Domain: Fury, Order
+Energy: 2
+Power: 1
+Text: Reveal the top 2 cards of your Main Deck. You may play one of them, reducing its cost by {2 Energy}. Draw any you did not play this way.
+---
+Name: Void Seeker
+Set: Origins
+Rarity: Uncommon
+Type: Spell
+Domain: Fury
+Energy: 3
+Power: 1
+Text: [Action] (Play on your turn or in showdowns.)Deal 4 to a unit at a battlefield. Draw 1.
+---
+Name: Wallop
+Set: Origins
+Rarity: Uncommon
+Type: Spell
+Domain: Body
+Energy: 2
+Text: [Action] (Play on your turn or in showdowns.)As you play this, you may spend a buff as an additional cost. If you do, ignore this spell's cost.Ready a unit.
+---
+Name: Whirlwind
+Set: Origins
+Rarity: Uncommon
+Type: Spell
+Domain: Chaos
+Energy: 3
+Power: 1
+Text: Starting with the next player, each player may return a unit to its owner's hand.
+---
+Name: Wind Wall
+Set: Origins
+Rarity: Uncommon
+Type: Spell
+Domain: Calm
+Energy: 3
+Power: 2
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)Counter a spell.
+---
+Name: Vengeance
+Set: Origins
+Rarity: Uncommon
+Type: Spell
+Domain: Order
+Energy: 4
+Power: 2
+Text: Kill a unit.
+---
+Name: Unyielding Spirit
+Set: Origins
+Rarity: Uncommon
+Type: Spell
+Domain: Body
+Energy: 1
+Power: 1
+Text: [Reaction]_ (Play any time, even before spells and abilities resolve.)_Prevent all spell and ability damage this turn.
+---
+Name: Angle Shot
+Set: SFD
+Rarity: Uncommon
+Type: Spell
+Domain: Fury
+Energy: 2
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)Choose a unit and an Equipment with the same controller. Attach that Equipment to that unit or detach that Equipment from that unit. Draw 1.
+---
+Name: Arcane Shift
+Set: SFD
+Rarity: Epic
+Supertype: Signature
+Type: Spell
+Domain: Mind, Chaos
+Energy: 3
+Power: 1
+Text: [Action] (Play on your turn or in showdowns.)Banish a friendly unit, then its owner plays it, ignoring its cost. Deal 3 to an enemy unit at a battlefield. Banish this.
+---
+Name: Arise!
+Set: SFD
+Rarity: Epic
+Supertype: Signature
+Type: Spell
+Domain: Calm, Order
+Energy: 6
+Power: 1
+Text: Play a 2 {Might} Sand Soldier unit token for each Equipment you control. Then ready two of them.
+---
+Name: Blood Money
+Set: SFD
+Rarity: Uncommon
+Type: Spell
+Domain: Order
+Energy: 2
+Text: [Action] (Play on your turn or in showdowns.)Kill a unit at a battlefield with 2 {Might} or less. If it was an enemy unit, play a Gold gear token exhausted. If it was a friendly unit, play two Gold gear tokens exhausted.
+---
+Name: Blood Rush
+Set: SFD
+Rarity: Common
+Type: Spell
+Domain: Fury
+Energy: 1
+Text: [Action] (Play on your turn or in showdowns.)
+  [Repeat] {1 Energy} (You may pay the additional cost to repeat this spell's effect.)Give a unit [Assault 2]. (+2 {Might} while it's an attacker.)
+---
+Name: Bushwhack
+Set: SFD
+Rarity: Common
+Type: Spell
+Domain: Fury
+Energy: 2
+Power: 1
+Text: [Hidden] (Hide now for {1 Power (Any)} to react with later for {0 Energy}.)Friendly units enter ready this turn. Play a Gold gear token exhausted.
+---
+Name: Zenith Blade
+Set: Origins
+Rarity: Epic
+Supertype: Signature
+Type: Spell
+Domain: Calm, Order
+Energy: 3
+Power: 2
+Text: [Action] (Play on your turn or in showdowns.)Stun an enemy unit at a battlefield. You may move a friendly unit to that enemy unit's battlefield._ (A stunned unit doesn't deal combat damage this turn.)_
+---
+Name: Divine Judgment
+Set: Origins
+Rarity: Epic
+Type: Spell
+Domain: Order
+Energy: 7
+Power: 2
+Text: Each player chooses 2 units, 2 gear, 2 runes, and 2 cards in their hands. Recycle the rest.
+---
+Name: Decisive Strike
+Set: Proving Grounds
+Rarity: Epic
+Supertype: Signature
+Type: Spell
+Domain: Body, Order
+Energy: 5
+Power: 1
+Text: [Action] (Play on your turn or in showdowns.)Give friendly units +2 {Might} this turn.
+---
+Name: Defiant Dance
+Set: SFD
+Rarity: Epic
+Supertype: Signature
+Type: Spell
+Domain: Calm, Chaos
+Energy: 1
+Power: 1
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)Give a unit +2 {Might} this turn and another unit -2 {Might} this turn.
+---
+Name: Defy
+Set: Origins
+Rarity: Common
+Type: Spell
+Domain: Calm
+Energy: 1
+Power: 1
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)Counter a spell that costs no more than {4 Energy} and no more than {1 Power (Any)}.
+---
+Name: Discipline
+Set: Origins
+Rarity: Uncommon
+Type: Spell
+Domain: Calm
+Energy: 2
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)Give a unit +2 {Might} this turn. Draw 1.
+---
+Name: Disintegrate
+Set: Origins
+Rarity: Common
+Type: Spell
+Domain: Fury
+Energy: 4
+Text: [Action] (Play on your turn or in showdowns.)Deal 3 to a unit at a battlefield. If this kills it, draw 1.
+---
+Name: Downwell
+Set: SFD
+Rarity: Epic
+Type: Spell
+Domain: Chaos
+Energy: 8
+Power: 2
+Text: Return all units and gear to their owners' hands.
+---
+Name: Drag Under
+Set: SFD
+Rarity: Uncommon
+Type: Spell
+Domain: Order
+Energy: 5
+Power: 1
+Text: [Action] (Play on your turn or in showdowns.)I cost {2 Energy} less to play from anywhere other than your hand.Kill a unit at a battlefield.
+---
+Name: Dragon's Rage
+Set: Origins
+Rarity: Epic
+Supertype: Signature
+Type: Spell
+Domain: Calm, Body
+Energy: 4
+Power: 1
+Text: Move an enemy unit. Then choose another enemy unit at its destination. They deal damage equal to their Mights to each other.
+---
+Name: Confront
+Set: Origins
+Rarity: Common
+Type: Spell
+Domain: Body
+Energy: 2
+Text: [Action] (Play on your turn or in showdowns.)Units you play this turn enter ready. Draw 1.
+---
+Name: Consult the Past
+Set: Origins
+Rarity: Common
+Type: Spell
+Domain: Mind
+Energy: 4
+Text: [Hidden] (Hide now for {1 Power (Any)} to react with later for {0 Energy}.)
+  [Reaction] (Play any time, even before spells and abilities resolve.)Draw 2.
+---
+Name: Convergent Mutation
+Set: Origins
+Rarity: Rare
+Type: Spell
+Domain: Mind
+Energy: 2
+Power: 1
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)Choose a friendly unit. If its Might is less than another friendly unit's, its Might becomes the Might of that friendly unit this turn.
+---
+Name: Cull the Weak
+Set: Origins
+Rarity: Common
+Type: Spell
+Domain: Order
+Energy: 2
+Power: 1
+Text: Each player kills one of their units.
+---
+Name: Danger Zone
+Set: SFD
+Rarity: Epic
+Supertype: Signature
+Type: Spell
+Domain: Fury, Mind
+Energy: 1
+Power: 1
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)
+  [Repeat] {1 Energy}{1 Power (Any)} (You may pay the additional cost to repeat this spell's effect.)Give your Mechs +1 {Might} this turn.
+---
+Name: Fight or Flight
+Set: Origins
+Rarity: Common
+Type: Spell
+Domain: Chaos
+Energy: 2
+Text: [Hidden] (Hide now for {1 Power (Any)} to react with later for {0 Energy}.)
+  [Action] (Play on your turn or in showdowns.)Move a unit from a battlefield to its base.
+---
+Name: Final Spark
+Set: Proving Grounds
+Rarity: Epic
+Supertype: Signature
+Type: Spell
+Domain: Mind, Order
+Energy: 8
+Text: [Action] (Play on your turn or in showdowns.)Deal 8 to a unit.
+---
+Name: Find Your Center
+Set: Origins
+Rarity: Common
+Type: Spell
+Domain: Calm
+Energy: 3
+Text: [Action] (Play on your turn or in showdowns.)If an opponent's score is within 3 points of the Victory Score, this costs {2 Energy} less.Draw 1 and channel 1 rune exhausted.
+---
+Name: Falling Star
+Set: Origins
+Rarity: Rare
+Type: Spell
+Domain: Fury
+Energy: 2
+Power: 2
+Text: Do this twice:Deal 3 to a unit. (You can choose different units.)
+---
+Name: Firestorm
+Set: Proving Grounds
+Rarity: Uncommon
+Type: Spell
+Domain: Fury
+Energy: 6
+Power: 1
+Text: Deal 3 to all enemy units at a battlefield.
+---
+Name: Flash
+Set: Proving Grounds
+Rarity: Common
+Type: Spell
+Domain: Chaos
+Energy: 2
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)Move up to 2 friendly units to base.
+---
+Name: Flurry of Blades
+Set: Origins
+Rarity: Common
+Type: Spell
+Domain: Body
+Energy: 1
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)Deal 1 to all units at battlefields.
+---
+Name: Fox-Fire
+Set: Origins
+Rarity: Epic
+Supertype: Signature
+Type: Spell
+Domain: Calm, Mind
+Energy: 3
+Text: [Hidden] (Hide now for {1 Power (Any)} to react with later for {0 Energy}.)
+  [Action] (Play on your turn or in showdowns.)Kill any number of units at a battlefield with total Might 4 or less.
+---
+Name: En Garde
+Set: Origins
+Rarity: Common
+Type: Spell
+Domain: Calm
+Energy: 1
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)Give a friendly unit +1 {Might} this turn, then an additional +1 {Might} this turn if it is the only unit you control there.
+---
+Name: Facebreaker
+Set: Origins
+Rarity: Uncommon
+Type: Spell
+Domain: Order
+Energy: 2
+Text: [Hidden] (Hide now for {1 Power (Any)} to react with later for {0 Energy}.)
+  [Action] (Play on your turn or in showdowns.)Stun a friendly unit and an enemy unit at the same battlefield. (They don't deal combat damage this turn.)
+---
+Name: Fading Memories
+Set: Origins
+Rarity: Uncommon
+Type: Spell
+Domain: Chaos
+Energy: 4
+Power: 1
+Text: Give a unit at a battlefield or a gear [Temporary]. (Kill it at the start of its controller's Beginning Phase, before scoring.)
+---
+Name: Falling Comet
+Set: Origins
+Rarity: Common
+Type: Spell
+Domain: Mind
+Energy: 5
+Text: [Action] (Play on your turn or in showdowns.)Deal 6 to a unit at a battlefield.
+---
+Name: Back to Back
+Set: Origins
+Rarity: Common
+Type: Spell
+Domain: Order
+Energy: 3
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)Give two friendly units each +2 {Might} this turn.
+---
+Name: Bellows Breath
+Set: SFD
+Rarity: Rare
+Type: Spell
+Domain: Mind
+Energy: 1
+Power: 1
+Text: [Action] (Play on your turn or in showdowns.)
+  [Repeat] {1 Energy}{1 Power (Mind)} (You may pay the additional cost to repeat this spell's effect.)Deal 1 to up to three units at the same location.
+---
+Name: Blast of Power
+Set: Proving Grounds
+Rarity: Common
+Type: Spell
+Domain: Order
+Energy: 6
+Power: 1
+Text: [Action] (Play on your turn or in showdowns.)Kill a unit at a battlefield.
+---
+Name: Against the Odds
+Set: SFD
+Rarity: Common
+Type: Spell
+Domain: Fury
+Energy: 2
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)Give a friendly unit at a battlefield +2 {Might} this turn for each enemy unit there.
+---
+Name: Blind Fury
+Set: Origins
+Rarity: Rare
+Type: Spell
+Domain: Fury
+Energy: 4
+Power: 2
+Text: [Action] (Play on your turn or in showdowns.)Each opponent reveals the top card of their Main Deck. Choose one and play it, ignoring its cost. Then recycle the rest.
+---
+Name: Call to Glory
+Set: Origins
+Rarity: Common
+Type: Spell
+Domain: Order
+Energy: 3
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)As you play this, you may spend a buff as an additional cost. If you do, ignore this spell's cost.Give a unit +3 {Might} this turn.
+---
+Name: Called Shot
+Set: SFD
+Rarity: Common
+Type: Spell
+Domain: Chaos
+Energy: 0
+Power: 1
+Text: [Action] (Play on your turn or in showdowns.)
+  [Repeat] {1 Power (Chaos)} (You may pay the additional cost to repeat this spell's effect.)Look at the top 2 cards of your Main Deck. Draw one and recycle the other.
+---
+Name: Cannon Barrage
+Set: Origins
+Rarity: Common
+Type: Spell
+Domain: Body
+Energy: 2
+Power: 1
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)Deal 2 to all enemy units in combat.
+---
+Name: Catalyst of Aeons
+Set: Origins
+Rarity: Uncommon
+Type: Spell
+Domain: Body
+Energy: 4
+Text: Channel 2 runes exhausted. If you couldn't channel 2 runes this way, draw 1.
+---
+Name: Bullet Time
+Set: Origins
+Rarity: Epic
+Supertype: Signature
+Type: Spell
+Domain: Body, Chaos
+Energy: 1
+Text: [Action] (Play on your turn or in showdowns.)Pay any amount of {1 Power (Any)} to deal that much damage to all enemy units at a battlefield.
+---
+Name: Challenge
+Set: Origins
+Rarity: Common
+Type: Spell
+Domain: Body
+Energy: 2
+Power: 1
+Text: [Action] (Play on your turn or in showdowns.)Choose a friendly unit and an enemy unit. They deal damage equal to their Mights to each other.
+---
+Name: Charm
+Set: Origins
+Rarity: Common
+Type: Spell
+Domain: Calm
+Energy: 1
+Power: 1
+Text: Move an enemy unit.
+---
+Name: Cleave
+Set: Origins
+Rarity: Common
+Type: Spell
+Domain: Fury
+Energy: 1
+Text: [Action] (Play on your turn or in showdowns.)Give a unit [Assault 3] this turn. (+3 {Might} while it's an attacker.)
+---
+Name: Block
+Set: Origins
+Rarity: Uncommon
+Type: Spell
+Domain: Calm
+Energy: 2
+Text: [Hidden] (Hide now for {1 Power (Any)} to react with later for {0 Energy}.)
+  [Action] (Play on your turn or in showdowns.)Give a unit [Shield 3] and [Tank] this turn. (+3 {Might} while it's a defender. It must be assigned combat damage first.)
+---
+Name: Bonds of Strength
+Set: SFD
+Rarity: Common
+Type: Spell
+Domain: Order
+Energy: 2
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)
+  [Repeat] {2 Energy} (You may pay the additional cost to repeat this spell's effect.)Give two friendly units each +1 {Might} this turn.
+---
+Name: Marching Orders
+Set: SFD
+Rarity: Rare
+Type: Spell
+Domain: Body
+Energy: 3
+Text: [Action] (Play on your turn or in showdowns.)
+  [Repeat] {3 Energy} (You may pay the additional cost to repeat this spell's effect.)Choose a friendly unit anywhere and an enemy unit at a battlefield. They deal damage equal to their Mights to each other.
+---
+Name: Meditation
+Set: Origins
+Rarity: Common
+Type: Spell
+Domain: Calm
+Energy: 2
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)As an additional cost to play this, you may exhaust a friendly unit. If you do, draw 2. Otherwise, draw 1.
+---
+Name: Overt Operation
+Set: Origins
+Rarity: Rare
+Type: Spell
+Domain: Body
+Energy: 5
+Power: 2
+Text: [Action] (Play on your turn or in showdowns.)For each friendly unit, you may spend its buff to ready it. Then buff all friendly units. (Each one that doesn't have a buff gets a +1 {Might} buff.)
+---
+Name: Party Favors
+Set: Origins
+Rarity: Rare
+Type: Spell
+Domain: Calm
+Energy: 3
+Text: Each other player chooses Cards or Runes. For each player that chooses Cards, you and that player each draw 1. For each player that chooses Runes, you and that player each channel 1 rune exhausted.
+---
+Name: Piercing Light
+Set: SFD
+Rarity: Rare
+Type: Spell
+Domain: Fury
+Energy: 2
+Power: 1
+Text: [Repeat] {2 Energy}{1 Power (Fury)} (You may pay the additional cost to repeat this spell's effect.)Deal 2 to a unit at a battlefield, then deal 2 to up to one other unit.
+---
+Name: Mobilize
+Set: Origins
+Rarity: Common
+Type: Spell
+Domain: Body
+Energy: 2
+Text: Channel 1 rune exhausted. If you can't, draw 1.
+---
+Name: Morbid Return
+Set: Origins
+Rarity: Common
+Type: Spell
+Domain: Chaos
+Energy: 2
+Text: [Action] (Play on your turn or in showdowns.)Return a unit from your trash to your hand.
+---
+Name: Mystic Reversal
+Set: Origins
+Rarity: Epic
+Type: Spell
+Domain: Calm
+Energy: 4
+Power: 3
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)Gain control of a spell. You may make new choices for it.
+---
+Name: Not So Fast
+Set: SFD
+Rarity: Uncommon
+Type: Spell
+Domain: Calm
+Energy: 2
+Power: 1
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)Counter an enemy spell or ability that chooses a friendly unit or gear.
+---
+Name: Noxian Guillotine
+Set: Origins
+Rarity: Epic
+Supertype: Signature
+Type: Spell
+Domain: Fury, Order
+Energy: 4
+Power: 1
+Text: [Action]_ (Play on your turn or in showdowns.)_Choose a unit. Kill it the next time it takes damage this turn.
+  [Legion] — Kill it now instead. (Get the effect if you've played another card this turn.)
+---
+Name: Guerilla Warfare
+Set: Origins
+Rarity: Epic
+Supertype: Signature
+Type: Spell
+Domain: Mind, Chaos
+Energy: 2
+Power: 1
+Text: Return up to two cards with [Hidden] from your trash to your hand. You can hide cards ignoring costs this turn.
+---
+Name: Gust
+Set: Origins
+Rarity: Common
+Type: Spell
+Domain: Chaos
+Energy: 1
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)Return a unit at a battlefield with 3 {Might} or less to its owner's hand.
+---
+Name: Hard Bargain
+Set: SFD
+Rarity: Uncommon
+Type: Spell
+Domain: Chaos
+Energy: 2
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)
+  [Repeat] {2 Energy} (You may pay the additional cost to repeat this spell's effect.)Counter a spell unless its controller pays {2 Energy}.
+---
+Name: Here to Help
+Set: SFD
+Rarity: Rare
+Type: Spell
+Domain: Body
+Energy: 2
+Power: 1
+Text: [Hidden] (Hide now for {1 Power (Any)} to react with later for {0 Energy}.)
+  [Action] (Play on your turn or in showdowns.)You may play a unit from hand to a battlefield you control, reducing its cost by {3 Energy}.
+---
+Name: Hextech Ray
+Set: Origins
+Rarity: Common
+Type: Spell
+Domain: Fury
+Energy: 1
+Power: 1
+Text: [Action] (Play on your turn or in showdowns.)Deal 3 to a unit at a battlefield.
+---
+Name: Hidden Blade
+Set: Origins
+Rarity: Common
+Type: Spell
+Domain: Order
+Energy: 2
+Power: 1
+Text: [Hidden] (Hide now for {1 Power (Any)} to react with later for {0 Energy}.)
+  [Action] (Play on your turn or in showdowns.)Kill a unit at a battlefield. Its controller draws 2.
+---
+Name: Highlander
+Set: Proving Grounds
+Rarity: Epic
+Supertype: Signature
+Type: Spell
+Domain: Calm, Body
+Energy: 4
+Text: [Reaction] (Play any time, even before spells and abilities resolve.)Choose a friendly unit. The next time it dies this turn, recall it exhausted instead. (Send it to base. This isn't a move.)
+---
+Name: Icathian Rain
+Set: Origins
+Rarity: Epic
+Supertype: Signature
+Type: Spell
+Domain: Fury, Mind
+Energy: 7
+Power: 3
+Text: Do this 6 times:Deal 2 to a unit. (You can choose different units.)
+---
+Name: Gentlemen's Duel
+Set: Proving Grounds
+Rarity: Common
+Type: Spell
+Domain: Body
+Energy: 6
+Power: 1
+Text: [Action] (Play on your turn or in showdowns.)Give a friendly unit +3 {Might} this turn. Then choose an enemy unit. They deal damage equal to their Mights to each other.
+---
+Name: Get Excited!
+Set: Origins
+Rarity: Common
+Type: Spell
+Domain: Fury
+Energy: 2
+Power: 1
+Text: [Action] (Play on your turn or in showdowns.)Discard 1. Deal its Energy cost as damage to a unit at a battlefield. (Ignore its Power cost.)
+---
+Name: Grand Strategem
+Set: Origins
+Rarity: Rare
+Type: Spell
+Domain: Order
+Energy: 6
+Power: 3
+Text: [Action] (Play on your turn or in showdowns.)Give friendly units +5 {Might} this turn.
+---
+Name: King's Edict
+Set: Origins
+Rarity: Rare
+Type: Spell
+Domain: Order
+Energy: 6
+Power: 2
+Text: Starting with the next player, each other player chooses a unit you don't control that hasn't been chosen for this spell. Kill those units.
+---
+Name: Last Breath
+Set: Origins
+Rarity: Epic
+Supertype: Signature
+Type: Spell
+Domain: Calm, Chaos
+Energy: 3
+Power: 2
+Text: [Action] (Play on your turn or in showdowns.)Ready a friendly unit. It deals damage equal to its Might to an enemy unit at a battlefield.
+---
+Name: Last Stand
+Set: Origins
+Rarity: Rare
+Type: Spell
+Domain: Calm
+Energy: 3
+Power: 1
+Text: [Action] (Play on your turn or in showdowns.)Double a friendly unit's Might this turn. Give it [Temporary]. (Kill it at the start of its controller's Beginning Phase, before scoring.)
+---
+Name: Imperial Decree
+Set: Origins
+Rarity: Uncommon
+Type: Spell
+Domain: Order
+Energy: 5
+Power: 2
+Text: [Action] (Play on your turn or in showdowns.)When any unit takes damage this turn, kill it.
+---
+Name: Incinerate
+Set: Proving Grounds
+Rarity: Common
+Type: Spell
+Domain: Fury
+Energy: 2
+Text: [Action]_ (Play on your turn or in showdowns.)_Deal 2 to a unit at a battlefield.
+---
+Name: Invert Timelines
+Set: Origins
+Rarity: Epic
+Type: Spell
+Domain: Chaos
+Energy: 3
+Power: 1
+Text: Each player discards their hand, then draws 4.
+---
+Name: Acceptable Losses
+Set: Origins
+Rarity: Uncommon
+Type: Spell
+Domain: Chaos
+Energy: 1
+Text: [Action] (Play on your turn or in showdowns.)Each player kills one of their gear.

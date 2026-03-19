@@ -1,0 +1,29 @@
+== RIFTBOUND KEYWORD GLOSSARY ==
+
+Accelerate (Unit ability): As you play this unit, you may pay {1 Energy} and {1 Power} as an additional cost. If you do, the unit enters ready. The Power must match the unit's domain if it has exactly one domain; otherwise any Power works.
+
+Action (Permissive keyword): Grants permission to play or activate the card or ability during Showdowns, including on an opponent's turn. Timing permission only; does not change other restrictions.
+
+Assault X (Passive Unit ability): While this unit is an attacker, it gains +X Might. If X is omitted, treat as 1. Multiple sources stack.
+
+Deathknell (Triggered Permanent ability): When this permanent is killed and sent to the Trash, perform the stated effect. Does not trigger if the kill is replaced (e.g. by recall).
+
+Deflect X (Passive Permanent ability): Spells and abilities an opponent controls that choose this permanent cost an additional {X Power} of any domain. Multiple sources stack.
+
+Ganking (Passive Unit ability): Grants the unit the option to Standard Move from one battlefield to another battlefield. Does not grant extra moves.
+
+Hidden (Prerequisite keyword): Allows a player to hide the card facedown at a battlefield they control by paying {1 Power (Any)} during their turn in an Open State. A hidden card gains Reaction while facedown and may later be played from Hidden, generally ignoring its base cost.
+
+Legion (Conditional keyword): Legion — [Text]. The text applies only if the controller has already played a Main Deck card earlier in the same turn.
+
+Reaction (Permissive keyword): Grants all permissions of Action plus allows play or activation during Closed States on any player's turn.
+
+Shield X (Passive Unit ability): While this unit is a defender, it gains {+X Might}. If X is omitted, treat as 1. Multiple sources stack.
+
+Tank (Passive Unit ability): This unit must be assigned lethal damage before any non-Tank unit the same player controls when assigning combat damage.
+
+Temporary (Triggered Permanent ability): This permanent is killed at the start of its controller's Beginning Phase (before scoring).
+
+Vision (Triggered Permanent ability): When this enters the board, look at the top card of your Main Deck. You may recycle it.
+
+== END GLOSSARY ==
