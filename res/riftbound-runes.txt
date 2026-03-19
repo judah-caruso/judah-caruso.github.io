@@ -1,43 +1,19 @@
 == RUNE CARDS (6) ==
 
-Name: Calm Rune
-Set: Origins
-Rarity: Showcase
-Supertype: Basic
-Type: Rune
-Domain: Calm
+Name: Calm Rune (Origins, Basic)
+Type: Rune (Calm)
 ---
-Name: Chaos Rune
-Set: Origins
-Rarity: Common
-Supertype: Basic
-Type: Rune
-Domain: Chaos
+Name: Chaos Rune (Origins, Basic)
+Type: Rune (Chaos)
 ---
-Name: Body Rune
-Set: Origins
-Rarity: Showcase
-Supertype: Basic
-Type: Rune
-Domain: Body
+Name: Body Rune (Origins, Basic)
+Type: Rune (Body)
 ---
-Name: Mind Rune
-Set: Origins
-Rarity: Common
-Supertype: Basic
-Type: Rune
-Domain: Mind
+Name: Mind Rune (Origins, Basic)
+Type: Rune (Mind)
 ---
-Name: Order Rune
-Set: Origins
-Rarity: Showcase
-Supertype: Basic
-Type: Rune
-Domain: Order
+Name: Order Rune (Origins, Basic)
+Type: Rune (Order)
 ---
-Name: Fury Rune
-Set: Origins
-Rarity: Showcase
-Supertype: Basic
-Type: Rune
-Domain: Fury
+Name: Fury Rune (Origins, Basic)
+Type: Rune (Fury)

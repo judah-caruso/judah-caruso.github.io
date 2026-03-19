@@ -1,2578 +1,1567 @@
 == UNIT CARDS (260) ==
 
-Name: Stalwart Poro
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Calm
-Energy: 2
+Name: Stalwart Poro (Origins)
+Type: Unit (Calm)
+Cost: 2 Energy
 Might: 2
 Text: [Shield] (+1 {Might} while I'm a defender.)
 ---
-Name: Stealthy Pursuer
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Chaos
-Energy: 4
+Name: Stealthy Pursuer (Origins)
+Type: Unit (Chaos)
+Cost: 4 Energy, 1 Power
 Might: 4
-Power: 1
 Text: When a friendly unit moves from my location, I may be moved with it.
 ---
-Name: Stellacorn Herder
-Set: SFD
-Rarity: Uncommon
-Type: Unit
-Domain: Calm
-Energy: 4
+Name: Stellacorn Herder (SFD)
+Type: Unit (Calm)
+Cost: 4 Energy
 Might: 3
 Text: When I move, draw 1.
 ---
-Name: Stormclaw Ursine
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Body
-Energy: 7
+Name: Stormclaw Ursine (Origins)
+Type: Unit (Body)
+Cost: 7 Energy
 Might: 6
 Text: [Tank] (I must be assigned combat damage first.)When you play me, channel 1 rune exhausted.
 ---
-Name: Sunlit Guardian
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Calm
-Energy: 3
+Name: Sunlit Guardian (Origins)
+Type: Unit (Calm)
+Cost: 3 Energy
 Might: 3
 Text: [Shield] (+1 {Might} while I'm a defender.)
   [Tank] (I must be assigned combat damage first.)
 ---
-Name: Sona, Harmonious
-Set: Origins
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Calm
-Energy: 4
+Name: Sona, Harmonious (Origins, Champion)
+Type: Unit (Calm)
+Cost: 4 Energy, 1 Power
 Might: 4
-Power: 1
 Text: While I'm at a battlefield, ready 4 friendly runes at the end of your turn.
 ---
-Name: Sivir, Mercenary
-Set: SFD
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Chaos
-Energy: 4
+Name: Sivir, Mercenary (SFD, Champion)
+Type: Unit (Chaos)
+Cost: 4 Energy, 1 Power
 Might: 4
-Power: 1
 Text: [Accelerate] (You may pay {1 Energy}{1 Power (Chaos)} as an additional cost to have me enter ready.)If you've spent at least {1 Power (Any)}{1 Power (Any)} this turn, I have +2 {Might} and [Ganking]. (I can move from battlefield to battlefield.)
 ---
-Name: Sneaky Deckhand
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Chaos
-Energy: 3
+Name: Sneaky Deckhand (Origins)
+Type: Unit (Chaos)
+Cost: 3 Energy
 Might: 2
 Text: You may play me to an open battlefield.
 ---
-Name: Soaring Scout
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Order
-Energy: 2
+Name: Soaring Scout (Origins)
+Type: Unit (Order)
+Cost: 2 Energy
 Might: 1
 Text: [Deathknell] — Channel 1 rune exhausted. (When I die, get the effect.)
 ---
-Name: Solari Chief
-Set: Origins
-Rarity: Uncommon
-Type: Unit
-Domain: Order
-Energy: 5
+Name: Solari Chief (Origins)
+Type: Unit (Order)
+Cost: 5 Energy, 1 Power
 Might: 4
-Power: 1
 Text: When you play me, choose an enemy unit. If it is stunned, kill it. Otherwise, stun it. (It doesn't deal combat damage this turn.)
 ---
-Name: Solari Shieldbearer
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Calm
-Energy: 3
+Name: Solari Shieldbearer (Origins)
+Type: Unit (Calm)
+Cost: 3 Energy
 Might: 2
 Text: When you play me, stun a unit. (It doesn't deal combat damage this turn.)
 ---
-Name: Taric, Protector
-Set: Origins
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Calm
-Energy: 4
+Name: Taric, Protector (Origins, Champion)
+Type: Unit (Calm)
+Cost: 4 Energy, 1 Power
 Might: 4
-Power: 1
 Text: [Shield] (+1 {Might} while I'm a defender.)
   [Tank] (I must be assigned combat damage first.)Other friendly units here have [Shield].
 ---
-Name: Soraka, Wanderer
-Set: SFD
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Order
-Energy: 4
+Name: Soraka, Wanderer (SFD, Champion)
+Type: Unit (Order)
+Cost: 4 Energy, 1 Power
 Might: 4
-Power: 1
 Text: I must be assigned combat damage last.If another unit you control here would die, if it has less Might than me, instead heal it, exhaust it, and recall it. (Send it to base. This isn't a move.)
 ---
-Name: Soulgorger
-Set: Origins
-Rarity: Rare
-Type: Unit
-Domain: Chaos
-Energy: 8
+Name: Soulgorger (Origins)
+Type: Unit (Chaos)
+Cost: 8 Energy, 2 Power
 Might: 5
-Power: 2
 Text: When you play me, you may play a unit from your trash, ignoring its Energy cost. (You must still pay its Power cost.)
 ---
-Name: Spectral Matron
-Set: Origins
-Rarity: Uncommon
-Type: Unit
-Domain: Order
-Energy: 4
+Name: Spectral Matron (Origins)
+Type: Unit (Order)
+Cost: 4 Energy, 2 Power
 Might: 4
-Power: 2
 Text: When you play me, you may play a unit costing no more than {3 Energy} and no more than {1 Power (Any)} from your trash, ignoring its cost.
 ---
-Name: Sprite
-Set: Origins
-Rarity: Common
-Supertype: Token
-Type: Unit
-Domain: Colorless
+Name: Sprite (Origins, Token)
+Type: Unit (Colorless)
 Might: 3
 Text: [Temporary] (Kill me at the start of your Beginning Phase, before scoring.)
 ---
-Name: Sprite Mother
-Set: Origins
-Rarity: Uncommon
-Type: Unit
-Domain: Mind
-Energy: 4
+Name: Sprite Mother (Origins)
+Type: Unit (Mind)
+Cost: 4 Energy, 1 Power
 Might: 3
-Power: 1
 Text: When you play me, play a ready 3 {Might} Sprite unit token with [Temporary] here. (Kill it at the start of its controller's Beginning Phase, before scoring.)
 ---
-Name: Tryndamere, Barbarian
-Set: Origins
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Fury
-Energy: 7
+Name: Tryndamere, Barbarian (Origins, Champion)
+Type: Unit (Fury)
+Cost: 7 Energy, 2 Power
 Might: 8
-Power: 2
 Text: When I conquer after an attack, if you assigned 5 or more excess damage to enemy units, you score 1 point.
 ---
-Name: Tideturner
-Set: Origins
-Rarity: Rare
-Type: Unit
-Domain: Chaos
-Energy: 2
+Name: Tideturner (Origins)
+Type: Unit (Chaos)
+Cost: 2 Energy
 Might: 2
 Text: [Hidden] (Hide now for {1 Power (Any)} to react with later for {0 Energy}.)When you play me, you may choose a unit you control. Move me to its location and it to my original location.
 ---
-Name: Traveling Merchant
-Set: Origins
-Rarity: Uncommon
-Type: Unit
-Domain: Chaos
-Energy: 2
+Name: Traveling Merchant (Origins)
+Type: Unit (Chaos)
+Cost: 2 Energy
 Might: 2
 Text: When I move, discard 1, then draw 1.
 ---
-Name: Treasure Hunter
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Chaos
-Energy: 2
+Name: Treasure Hunter (SFD)
+Type: Unit (Chaos)
+Cost: 2 Energy
 Might: 1
 Text: When I move, play a Gold gear token exhausted.
 ---
-Name: Trifarian Gloryseeker
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Order
-Energy: 2
+Name: Trifarian Gloryseeker (Origins)
+Type: Unit (Order)
+Cost: 2 Energy
 Might: 2
 Text: [Legion] — When you play me, buff me. (If I don't have a buff, I get a +1 {Might} buff. Get the effect if you've played another card this turn.)
 ---
-Name: Trove Golem
-Set: SFD
-Rarity: Rare
-Type: Unit
-Domain: Order
-Energy: 8
+Name: Trove Golem (SFD)
+Type: Unit (Order)
+Cost: 8 Energy, 2 Power
 Might: 9
-Power: 2
 Text: When you play me, play four Gold gear tokens exhausted.
 ---
-Name: Tibbers
-Set: Proving Grounds
-Rarity: Epic
-Supertype: Signature
-Type: Unit
-Domain: Fury, Chaos
-Energy: 8
+Name: Tibbers (Proving Grounds, Signature)
+Type: Unit (Fury, Chaos)
+Cost: 8 Energy, 2 Power
 Might: 7
-Power: 2
 Text: When you play me, deal 3 to all units at battlefields.
 ---
-Name: Twisted Fate, Gambler
-Set: Origins
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Chaos
-Energy: 4
+Name: Twisted Fate, Gambler (Origins, Champion)
+Type: Unit (Chaos)
+Cost: 4 Energy
 Might: 4
 Text: When I attack, reveal the top rune of your rune deck, then recycle it. Do one of the following based on its domain:* {1 Power (Fury)} — Deal 2 to an enemy unit here and 1 to all other enemy units here.* {1 Power (Mind)} — Draw 1.* {1 Power (Order)} — Stun an enemy unit.
 ---
-Name: Udyr, Wildman
-Set: Origins
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Body
-Energy: 6
+Name: Udyr, Wildman (Origins, Champion)
+Type: Unit (Body)
+Cost: 6 Energy, 1 Power
 Might: 6
-Power: 1
 Text: Spend my buff: Choose one you've not chosen this turn —* Deal 2 to a unit at a battlefield.* Stun a unit at a battlefield.* Ready me.* Give me [Ganking] this turn.
 ---
-Name: Undercover Agent
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Chaos
-Energy: 5
+Name: Undercover Agent (Origins)
+Type: Unit (Chaos)
+Cost: 5 Energy, 1 Power
 Might: 5
-Power: 1
 Text: [Deathknell] — Discard 2, then draw 2. (When I die, get the effect.)
 ---
-Name: Undertitan
-Set: SFD
-Rarity: Rare
-Type: Unit
-Domain: Order
-Energy: 6
+Name: Undertitan (SFD)
+Type: Unit (Order)
+Cost: 6 Energy, 1 Power
 Might: 5
-Power: 1
 Text: When you play me, give your other units +2 {Might} this turn.As I'm revealed from your deck, [Add] {2 Energy}.
 ---
-Name: Tasty Faefolk
-Set: Origins
-Rarity: Rare
-Type: Unit
-Domain: Calm
-Energy: 7
+Name: Tasty Faefolk (Origins)
+Type: Unit (Calm)
+Cost: 7 Energy
 Might: 6
 Text: [Accelerate] (You may pay {1 Energy}{1 Power (Calm)} as an additional cost to have me enter ready.)
   [Deathknell] — Channel 2 runes exhausted and draw 1. (When I die, get the effect.)
 ---
-Name: Teemo, Scout
-Set: Origins
-Rarity: Showcase
-Supertype: Champion
-Type: Unit
-Domain: Chaos
-Energy: 2
+Name: Teemo, Scout (Origins, Champion)
+Type: Unit (Chaos)
+Cost: 2 Energy
 Might: 1
 Text: [Hidden] (Hide now for {1 Power (Any)} to react with later for {0 Energy}.)When you play me, give me +3 {Might} this turn.
 ---
-Name: Teemo, Strategist
-Set: Origins
-Rarity: Epic
-Supertype: Champion
-Type: Unit
-Domain: Mind
-Energy: 2
+Name: Teemo, Strategist (Origins, Champion)
+Type: Unit (Mind)
+Cost: 2 Energy, 1 Power
 Might: 2
-Power: 1
 Text: [Hidden] (Hide now for {1 Power (Any)} to react with later for {0 Energy}.)When I defend or I'm played from [Hidden], reveal the top 5 cards of your Main Deck. Deal 1 to an enemy unit here for each card with [Hidden], then recycle them.
 ---
-Name: Sivir, Ambitious
-Set: SFD
-Rarity: Showcase
-Supertype: Champion
-Type: Unit
-Domain: Body
-Energy: 6
+Name: Sivir, Ambitious (SFD, Champion)
+Type: Unit (Body)
+Cost: 6 Energy, 3 Power
 Might: 7
-Power: 3
 Text: [Deflect 2] (Opponents must pay {1 Power (Any)}{1 Power (Any)} to choose me with a spell or Ability.)When I conquer after an attack, if you assigned 5 or more excess damage to enemy units, you may deal that much to an enemy unit.
 ---
-Name: Thousand-Tailed Watcher
-Set: Origins
-Rarity: Rare
-Type: Unit
-Domain: Mind
-Energy: 7
+Name: Thousand-Tailed Watcher (Origins)
+Type: Unit (Mind)
+Cost: 7 Energy, 1 Power
 Might: 7
-Power: 1
 Text: [Accelerate] (You may pay {1 Energy}{1 Power (Mind)} as an additional cost to have me enter ready.)When you play me, give enemy units -3 {Might} this turn, to a minimum of 1 {Might}.
 ---
-Name: Tianna Crownguard
-Set: SFD
-Rarity: Epic
-Type: Unit
-Domain: Calm
-Energy: 7
+Name: Tianna Crownguard (SFD)
+Type: Unit (Calm)
+Cost: 7 Energy, 2 Power
 Might: 4
-Power: 2
 Text: [Deflect] (Opponents must pay {1 Power (Any)} to choose me with a spell or ability.)While I'm at a battlefield, opponents can't score points.
 ---
-Name: Ravenbloom Student
-Set: Origins
-Rarity: Uncommon
-Type: Unit
-Domain: Mind
-Energy: 2
+Name: Ravenbloom Student (Origins)
+Type: Unit (Mind)
+Cost: 2 Energy
 Might: 2
 Text: When you play a spell, give me +1 {Might} this turn.
 ---
-Name: Recruit (DE)
-Set: Origins
-Rarity: Common
-Supertype: Token
-Type: Unit
-Domain: Colorless
+Name: Recruit (DE) (Origins, Token)
+Type: Unit (Colorless)
 Might: 1
 ---
-Name: Recruit (NX)
-Set: Origins
-Rarity: Common
-Supertype: Token
-Type: Unit
-Domain: Colorless
+Name: Recruit (NX) (Origins, Token)
+Type: Unit (Colorless)
 Might: 1
 ---
-Name: Recruit (ZN)
-Set: Origins
-Rarity: Common
-Supertype: Token
-Type: Unit
-Domain: Colorless
+Name: Recruit (ZN) (Origins, Token)
+Type: Unit (Colorless)
 Might: 1
 ---
-Name: Raging Soul
-Set: Origins
-Rarity: Uncommon
-Type: Unit
-Domain: Fury
-Energy: 4
+Name: Raging Soul (Origins)
+Type: Unit (Fury)
+Cost: 4 Energy
 Might: 4
 Text: If you've discarded a card this turn, I have [Assault] and [Ganking]. (+1 {Might} while I'm an attacker. I can move from battlefield to battlefield.)
 ---
-Name: Rek'Sai, Breacher
-Set: SFD
-Rarity: Epic
-Supertype: Champion
-Type: Unit
-Domain: Fury
-Energy: 3
+Name: Rek'Sai, Breacher (SFD, Champion)
+Type: Unit (Fury)
+Cost: 3 Energy
 Might: 3
 Text: [Accelerate] (You may pay {1 Energy}{1 Power (Fury)} as an additional cost to have me enter ready.)
   [Assault]_ (+1 {Might} while I'm an attacker.)_Friendly units played from anywhere other than a player's hand have [Accelerate].
 ---
-Name: Rek'Sai, Swarm Queen
-Set: SFD
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Order
-Energy: 5
+Name: Rek'Sai, Swarm Queen (SFD, Champion)
+Type: Unit (Order)
+Cost: 5 Energy, 1 Power
 Might: 5
-Power: 1
 Text: When I attack, you may reveal the top 2 cards of your Main Deck. You may play one. Then recycle the rest. If the played card is a unit, you may play it here.
 ---
-Name: Rell, Magnetic
-Set: SFD
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Fury
-Energy: 4
+Name: Rell, Magnetic (SFD, Champion)
+Type: Unit (Fury)
+Cost: 4 Energy
 Might: 4
 Text: Tank (I must be assigned combat damage first.)When I attack, you may play an Equipment with Energy cost no more than {2 Energy}, ignoring its cost, and attach it to me.
 ---
-Name: Pouty Poro
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Fury
-Energy: 2
+Name: Pouty Poro (Origins)
+Type: Unit (Fury)
+Cost: 2 Energy
 Might: 2
 Text: [Deflect] (Opponents must pay {1 Power (Any)} to choose me with a spell or ability.)
 ---
-Name: Prize of Progress
-Set: SFD
-Rarity: Uncommon
-Type: Unit
-Domain: Mind
-Energy: 4
+Name: Prize of Progress (SFD)
+Type: Unit (Mind)
+Cost: 4 Energy, 1 Power
 Might: 3
-Power: 1
 Text: When you use an activated ability of a gear, give me +1 {Might} this turn.
 ---
-Name: Renata Glasc, Industrialist
-Set: SFD
-Rarity: Showcase
-Supertype: Champion
-Type: Unit
-Domain: Order
-Energy: 4
+Name: Renata Glasc, Industrialist (SFD, Champion)
+Type: Unit (Order)
+Cost: 4 Energy, 1 Power
 Might: 4
-Power: 1
 Text: Your tokens enter ready.
 ---
-Name: Qiyana, Victorious
-Set: Origins
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Body
-Energy: 4
+Name: Qiyana, Victorious (Origins, Champion)
+Type: Unit (Body)
+Cost: 4 Energy, 1 Power
 Might: 4
-Power: 1
 Text: [Deflect] (Opponents must pay {1 Power (Any)} to choose me with a spell or ability.)When I conquer, draw 1 or channel 1 rune exhausted.
 ---
-Name: Raging Firebrand
-Set: Origins
-Rarity: Rare
-Type: Unit
-Domain: Fury
-Energy: 6
+Name: Raging Firebrand (Origins)
+Type: Unit (Fury)
+Cost: 6 Energy, 1 Power
 Might: 4
-Power: 1
 Text: When you play me, the next spell you play this turn costs {5 Energy} less.
 ---
-Name: Sett, Kingpin
-Set: Origins
-Rarity: Showcase
-Supertype: Champion
-Type: Unit
-Domain: Order
-Energy: 4
+Name: Sett, Kingpin (Origins, Champion)
+Type: Unit (Order)
+Cost: 4 Energy, 1 Power
 Might: 5
-Power: 1
 Text: [Tank] (I must be assigned combat damage first.)I get +1 {Might} for each buffed friendly unit at my battlefield.
 ---
-Name: Sett, Brawler
-Set: Origins
-Rarity: Showcase
-Supertype: Champion
-Type: Unit
-Domain: Body
-Energy: 5
+Name: Sett, Brawler (Origins, Champion)
+Type: Unit (Body)
+Cost: 5 Energy, 1 Power
 Might: 4
-Power: 1
 Text: When I'm played and when I conquer, buff me. (If I don't have a buff, I get a +1 {Might} buff.)Spend my buff: Give me +4 {Might} this turn.
 ---
-Name: Shen, Kinkou
-Set: Origins
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Order
-Energy: 3
+Name: Shen, Kinkou (Origins, Champion)
+Type: Unit (Order)
+Cost: 3 Energy, 1 Power
 Might: 3
-Power: 1
 Text: [Reaction] (Play any time, even before spells and abilities resolve, including to a battlefield you control.)
   [Shield 2] (+2 {Might} while I'm a defender.)
   [Tank] (I must be assigned combat damage first.)
 ---
-Name: Shipyard Skulker
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Chaos
-Energy: 3
+Name: Shipyard Skulker (Origins)
+Type: Unit (Chaos)
+Cost: 3 Energy
 Might: 3
 ---
-Name: Ruin Runner
-Set: SFD
-Rarity: Uncommon
-Type: Unit
-Domain: Body
-Energy: 6
+Name: Ruin Runner (SFD)
+Type: Unit (Body)
+Cost: 6 Energy
 Might: 5
 Text: I can't be chosen by enemy spells and abilities.
 ---
-Name: Rengar, Pouncing
-Set: SFD
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Fury
-Energy: 3
+Name: Rengar, Pouncing (SFD, Champion)
+Type: Unit (Fury)
+Cost: 3 Energy, 1 Power
 Might: 3
-Power: 1
 Text: [Reaction] (Play any time, even before spells and abilities resolve, including to a battlefield you control.)
   [Assault 2] (+2 {Might} while I'm an attacker.)I can be played to a battlefield you're attacking.
 ---
-Name: Rhasa the Sunderer
-Set: Origins
-Rarity: Rare
-Type: Unit
-Domain: Chaos
-Energy: 10
+Name: Rhasa the Sunderer (Origins)
+Type: Unit (Chaos)
+Cost: 10 Energy, 1 Power
 Might: 6
-Power: 1
 Text: I cost {1 Energy} less for each card in your trash.
 ---
-Name: Riptide Rex
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Mind
-Energy: 6
+Name: Riptide Rex (Origins)
+Type: Unit (Mind)
+Cost: 6 Energy, 2 Power
 Might: 6
-Power: 2
 Text: When you play me, deal 6 to an enemy unit at a battlefield.
 ---
-Name: Royal Entourage
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Calm
-Energy: 3
+Name: Royal Entourage (SFD)
+Type: Unit (Calm)
+Cost: 3 Energy, 1 Power
 Might: 4
-Power: 1
 Text: When you play me, ready or exhaust a legend.
 ---
-Name: Royal Guard
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Order
-Energy: 4
+Name: Royal Guard (SFD)
+Type: Unit (Order)
+Cost: 4 Energy
 Might: 2
 Text: When you play me, play a 2 {Might} Sand Soldier unit token here.
 ---
-Name: Unsung Hero
-Set: SFD
-Rarity: Uncommon
-Type: Unit
-Domain: Order
-Energy: 2
+Name: Unsung Hero (SFD)
+Type: Unit (Order)
+Cost: 2 Energy
 Might: 2
 Text: [Deathknell] — If I was [Mighty], draw 2. (When I die, get the effect. I'm Mighty while I have 5+ {Might}.)
 ---
-Name: Rumble, Scrapper
-Set: SFD
-Rarity: Epic
-Supertype: Champion
-Type: Unit
-Domain: Mind
-Energy: 5
+Name: Rumble, Scrapper (SFD, Champion)
+Type: Unit (Mind)
+Cost: 5 Energy, 1 Power
 Might: 4
-Power: 1
 Text: Your Mechs have +1 {Might} (including me).When I hold, play a 3 {Might} Mech unit token to your base.
 ---
-Name: Sai Scout
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Chaos
-Energy: 6
+Name: Sai Scout (Origins)
+Type: Unit (Chaos)
+Cost: 6 Energy
 Might: 5
 Text: [Vision] (When you play me, look at the top card of your Main Deck. You may recycle it.)You may play me to an open battlefield.
 ---
-Name: Scrapyard Champion
-Set: Origins
-Rarity: Uncommon
-Type: Unit
-Domain: Fury
-Energy: 5
+Name: Scrapyard Champion (Origins)
+Type: Unit (Fury)
+Cost: 5 Energy, 1 Power
 Might: 5
-Power: 1
 Text: [Legion] — When you play me, discard 2, then draw 2. (Get the effect if you've played another card this turn.)
 ---
-Name: Gearhead
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Mind
-Energy: 5
+Name: Gearhead (SFD)
+Type: Unit (Mind)
+Cost: 5 Energy
 Might: 3
 Text: [Accelerate]_ _(You may pay {1 Energy}{1 Power (Mind)} as an additional cost to have me enter ready.)Each Equipment attached to me gives double its base Might bonus.
 ---
-Name: Harpoon Squad
-Set: SFD
-Rarity: Uncommon
-Type: Unit
-Domain: Chaos
-Energy: 4
+Name: Harpoon Squad (SFD)
+Type: Unit (Chaos)
+Cost: 4 Energy
 Might: 4
 Text: When I move from a battlefield, give me +2 {Might} this turn.
 ---
-Name: Laurent Bladekeeper
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Body
-Energy: 3
+Name: Laurent Bladekeeper (SFD)
+Type: Unit (Body)
+Cost: 3 Energy
 Might: 3
 Text: Ganking (I can move from battlefield to battlefield.)
 ---
-Name: Laurent Duelist
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Order
-Energy: 4
+Name: Laurent Duelist (SFD)
+Type: Unit (Order)
+Cost: 4 Energy
 Might: 3
 Text: [Assault 2] (+2 {Might} while I'm an attacker.)
 ---
-Name: Master Bingwen
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Chaos
-Energy: 6
+Name: Master Bingwen (SFD)
+Type: Unit (Chaos)
+Cost: 6 Energy
 Might: 6
 Text: [Weaponmaster] (When you play me, you may [Equip] one of your Equipment to me for {1 Power (Any)} less, even if it's already attached.)
 ---
-Name: Minotaur Reckoner
-Set: SFD
-Rarity: Uncommon
-Type: Unit
-Domain: Fury
-Energy: 5
+Name: Minotaur Reckoner (SFD)
+Type: Unit (Fury)
+Cost: 5 Energy
 Might: 5
 Text: Units can't move to base.
 ---
-Name: Navori Scout
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Calm
-Energy: 4
+Name: Navori Scout (SFD)
+Type: Unit (Calm)
+Cost: 4 Energy
 Might: 4
 Text: [Deflect] (Opponents must pay {1 Power (Any)} to choose me with a spell or ability.)
 ---
-Name: Perched Grimwyrm
-Set: SFD
-Rarity: Uncommon
-Type: Unit
-Domain: Fury
-Energy: 4
+Name: Perched Grimwyrm (SFD)
+Type: Unit (Fury)
+Cost: 4 Energy
 Might: 5
 Text: Play me only to a battlefield you conquered this turn. (You can't play me anywhere else.)
 ---
-Name: Direwing
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Body
-Energy: 7
+Name: Direwing (SFD)
+Type: Unit (Body)
+Cost: 7 Energy
 Might: 7
 Text: I enter ready if you control another Dragon.
 ---
-Name: Dropboarder
-Set: SFD
-Rarity: Uncommon
-Type: Unit
-Domain: Mind
-Energy: 4
+Name: Dropboarder (SFD)
+Type: Unit (Mind)
+Cost: 4 Energy
 Might: 4
 Text: When you play me, if you control two or more gear, ready me.
 ---
-Name: Eager Drakehound
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Fury
-Energy: 3
+Name: Eager Drakehound (SFD)
+Type: Unit (Fury)
+Cost: 3 Energy, 1 Power
 Might: 3
-Power: 1
 Text: I enter ready.
 ---
-Name: Eminent Benefactor
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Order
-Energy: 6
+Name: Eminent Benefactor (SFD)
+Type: Unit (Order)
+Cost: 6 Energy
 Might: 5
 Text: When I hold, play two Gold gear tokens exhausted.
 ---
-Name: Ezreal, Prodigy
-Set: SFD
-Rarity: Showcase
-Supertype: Champion
-Type: Unit
-Domain: Chaos
-Energy: 3
+Name: Ezreal, Prodigy (SFD, Champion)
+Type: Unit (Chaos)
+Cost: 3 Energy, 1 Power
 Might: 3
-Power: 1
 Text: When you play me, discard 1, then draw 2.Optional additional costs you pay cost {1 Energy} or {1 Power (Any)} less.
 ---
-Name: Fae Dragon
-Set: SFD
-Rarity: Uncommon
-Type: Unit
-Domain: Body
-Energy: 7
+Name: Fae Dragon (SFD)
+Type: Unit (Body)
+Cost: 7 Energy, 1 Power
 Might: 7
-Power: 1
 Text: When you play me, buff up to four friendly units. (Give each a +1 {Might} buff if it doesn't have one.)When you spend a buff, play a Gold gear token exhausted.
 ---
-Name: Fae Porter
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Chaos
-Energy: 4
+Name: Fae Porter (SFD)
+Type: Unit (Chaos)
+Cost: 4 Energy
 Might: 4
 Text: When I move to a battlefield, you may pay {1 Power (Chaos)} to move a unit you control to the same battlefield.
 ---
-Name: Forecaster
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Mind
-Energy: 2
+Name: Forecaster (SFD)
+Type: Unit (Mind)
+Cost: 2 Energy
 Might: 2
 Text: Your Mechs have [Vision]. (When you play us, look at the top card of your Main Deck. You may recycle it.)
 ---
-Name: Sentinel Adept
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Fury
-Energy: 3
+Name: Sentinel Adept (SFD)
+Type: Unit (Fury)
+Cost: 3 Energy
 Might: 3
 Text: [Weaponmaster] (When you play me, you may [Equip] one of your Equipment to me for {1 Power (Any)} less, even if it's already attached.)
 ---
-Name: Simian Ancestor
-Set: SFD
-Rarity: Uncommon
-Type: Unit
-Domain: Calm
-Energy: 5
+Name: Simian Ancestor (SFD)
+Type: Unit (Calm)
+Cost: 5 Energy, 1 Power
 Might: 5
-Power: 1
 Text: When you buff me, ready me.
 ---
-Name: Trusty Ramhound
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Order
-Energy: 2
+Name: Trusty Ramhound (SFD)
+Type: Unit (Order)
+Cost: 2 Energy
 Might: 2
 Text: While you have another unit here, I have +1 {Might}.
 ---
-Name: Zaun Punk
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Order
-Energy: 3
+Name: Zaun Punk (SFD)
+Type: Unit (Order)
+Cost: 3 Energy
 Might: 3
 Text: You may kill a friendly gear as an additional cost to play me.When you play me, if you paid the additional cost, kill a gear.
 ---
-Name: Ribbon Dancer
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Calm
-Energy: 3
+Name: Ribbon Dancer (SFD)
+Type: Unit (Calm)
+Cost: 3 Energy
 Might: 3
 Text: When I move to a battlefield, give another friendly unit +1 {Might} this turn.
 ---
-Name: Pickpocket
-Set: SFD
-Rarity: Uncommon
-Type: Unit
-Domain: Mind
-Energy: 3
+Name: Pickpocket (SFD)
+Type: Unit (Mind)
+Cost: 3 Energy
 Might: 3
 Text: When you play me, you may kill a gear with Energy cost no more than {1 Energy}. If you do, play a Gold gear token exhausted.
 ---
-Name: Plundering Poro
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Mind
-Energy: 2
+Name: Plundering Poro (SFD)
+Type: Unit (Mind)
+Cost: 2 Energy
 Might: 2
 Text: When I conquer, play a Gold gear token exhausted.
 ---
-Name: Renata Glasc, Mastermind
-Set: SFD
-Rarity: Showcase
-Supertype: Champion
-Type: Unit
-Domain: Mind
-Energy: 5
+Name: Renata Glasc, Mastermind (SFD, Champion)
+Type: Unit (Mind)
+Cost: 5 Energy
 Might: 4
 Text: {1 Energy}{1 Power (Mind)}: Draw 1.{4 Energy}{1 Power (Mind)}{1 Power (Mind)}{1 Power (Mind)}{1 Power (Mind)}, {Exhaust}: Score 1 point.Use my abilities only while I'm at a battlefield.
 ---
-Name: Rumble, Hotheaded
-Set: SFD
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Fury
-Energy: 4
+Name: Rumble, Hotheaded (SFD, Champion)
+Type: Unit (Fury)
+Cost: 4 Energy
 Might: 4
 Text: Your Mechs each have [Assault]._ (+1 {Might} while we're attackers.)_When I conquer, you may recycle another friendly unit to play a Mech from your trash. Reduce its Energy cost by the Might of the unit you recycled.
 ---
-Name: Sandshifter
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Order
-Energy: 5
+Name: Sandshifter (SFD)
+Type: Unit (Order)
+Cost: 5 Energy, 2 Power
 Might: 6
-Power: 2
 Text: When you play me, kill an enemy unit with 3 {Might} or less.
 ---
-Name: Sea Monkey
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Body
-Energy: 2
+Name: Sea Monkey (SFD)
+Type: Unit (Body)
+Cost: 2 Energy
 Might: 2
 Text: You may pay {1 Energy} as an additional cost to play me.When you play me, if you paid the additional cost, buff me. (Give me a +1 {Might} buff if I don't already have one.)
 ---
-Name: Void Drone
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Fury
-Energy: 3
+Name: Void Drone (SFD)
+Type: Unit (Fury)
+Cost: 3 Energy
 Might: 3
 Text: I cost {2 Energy} less to play from anywhere other than your hand.
 ---
-Name: Void Hatchling
-Set: SFD
-Rarity: Uncommon
-Type: Unit
-Domain: Fury
-Energy: 2
+Name: Void Hatchling (SFD)
+Type: Unit (Fury)
+Cost: 2 Energy
 Might: 2
 Text: If you would reveal cards from a deck, look at the top card first. You may recycle it. Then reveal those cards.
 ---
-Name: Volibear, Furious
-Set: Origins
-Rarity: Showcase
-Supertype: Champion
-Type: Unit
-Domain: Fury
-Energy: 10
+Name: Volibear, Furious (Origins, Champion)
+Type: Unit (Fury)
+Cost: 10 Energy, 2 Power
 Might: 9
-Power: 2
 Text: [Deflect 2] (Opponents must pay {1 Power (Any)}{1 Power (Any)} to choose me with a spell or ability.)When I attack, deal 5 damage split among any number of enemy units here.
 ---
-Name: Volibear, Imposing
-Set: Origins
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Body
-Energy: 12
+Name: Volibear, Imposing (Origins, Champion)
+Type: Unit (Body)
+Cost: 12 Energy, 2 Power
 Might: 10
-Power: 2
 Text: [Shield 3] (+3 {Might} while I'm a defender.)
   [Tank] (I must be assigned combat damage first.)When an opponent moves to a battlefield other than mine, draw 1. (Bases are not battlefield.)
 ---
-Name: Warwick, Hunter
-Set: Origins
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Body
-Energy: 6
+Name: Warwick, Hunter (Origins, Champion)
+Type: Unit (Body)
+Cost: 6 Energy, 1 Power
 Might: 5
-Power: 1
 Text: I enter ready.When I attack, kill all damaged enemy units here.
 ---
-Name: Watchful Sentry
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Mind
-Energy: 2
+Name: Watchful Sentry (Origins)
+Type: Unit (Mind)
+Cost: 2 Energy
 Might: 1
 Text: [Deathknell] — Draw 1. (When I die, get the effect.)
 ---
-Name: Whiteflame Protector
-Set: Origins
-Rarity: Epic
-Type: Unit
-Domain: Calm
-Energy: 8
+Name: Whiteflame Protector (Origins)
+Type: Unit (Calm)
+Cost: 8 Energy, 2 Power
 Might: 8
-Power: 2
 Text: When you play me, give a unit +8 {Might} this turn.
 ---
-Name: Wielder of Water
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Calm
-Energy: 3
+Name: Wielder of Water (Origins)
+Type: Unit (Calm)
+Cost: 3 Energy
 Might: 2
 Text: While I'm attacking or defending alone, I have +2 {Might}.
 ---
-Name: Wildclaw Shaman
-Set: Origins
-Rarity: Uncommon
-Type: Unit
-Domain: Body
-Energy: 4
+Name: Wildclaw Shaman (Origins)
+Type: Unit (Body)
+Cost: 4 Energy
 Might: 3
 Text: When you play me, you may spend a buff to buff me and ready me. (If I don't have a buff, I get a +1 {Might} buff.)
 ---
-Name: Windsinger
-Set: SFD
-Rarity: Uncommon
-Type: Unit
-Domain: Chaos
-Energy: 2
+Name: Windsinger (SFD)
+Type: Unit (Chaos)
+Cost: 2 Energy
 Might: 1
 Text: Hidden (Hide now for {1 Power (Any)} to react with later for {0 Energy}.)When you play me, you may return another unit at a battlefield with 3 {Might} or less to its owner's hand.
 ---
-Name: Vanguard Attendant
-Set: Proving Grounds
-Rarity: Common
-Type: Unit
-Domain: Order
-Energy: 6
+Name: Vanguard Attendant (Proving Grounds)
+Type: Unit (Order)
+Cost: 6 Energy, 1 Power
 Might: 5
-Power: 1
 Text: I enter ready.
 ---
-Name: Vanguard Captain
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Order
-Energy: 3
+Name: Vanguard Captain (Origins)
+Type: Unit (Order)
+Cost: 3 Energy, 1 Power
 Might: 3
-Power: 1
 Text: [Legion] — When you play me, play two 1 {Might} Recruit unit tokens here._ (Get the effect if you've played another card this turn.)_
 ---
-Name: Vanguard Sergeant
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Order
-Energy: 4
+Name: Vanguard Sergeant (Origins)
+Type: Unit (Order)
+Cost: 4 Energy
 Might: 4
 ---
-Name: Vayne, Hunter
-Set: SFD
-Rarity: Showcase
-Supertype: Champion
-Type: Unit
-Domain: Fury
-Energy: 4
+Name: Vayne, Hunter (SFD, Champion)
+Type: Unit (Fury)
+Cost: 4 Energy, 1 Power
 Might: 2
-Power: 1
 Text: [Assault 3]_ (+3 {Might} while I'm an attacker.)_If an opponent controls a battlefield, I enter ready.When I conquer, you may pay {1 Energy} to return me to my owner's hand.
 ---
-Name: Wizened Elder
-Set: Origins
-Rarity: Uncommon
-Type: Unit
-Domain: Calm
-Energy: 4
+Name: Wizened Elder (Origins)
+Type: Unit (Calm)
+Cost: 4 Energy
 Might: 4
 Text: While I'm buffed, I have an additional +1 {Might}.
 ---
-Name: Veteran Poro
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Body
-Energy: 2
+Name: Veteran Poro (SFD)
+Type: Unit (Body)
+Cost: 2 Energy
 Might: 2
 Text: [Weaponmaster] (When you play me, you may [Equip] one of your Equipment to me for {1 Power (Any)} less, even if it's already attached.)
 ---
-Name: Vex, Cheerless
-Set: SFD
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Chaos
-Energy: 5
+Name: Vex, Cheerless (SFD, Champion)
+Type: Unit (Chaos)
+Cost: 5 Energy, 1 Power
 Might: 5
-Power: 1
 Text: While I'm in combat, friendly spells cost {1 Energy}{1 Power (Any)} less to a minimum of {1 Energy}, and enemy spells cost {1 Energy}{1 Power (Any)} more.
 ---
-Name: Vi, Destructive
-Set: Origins
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Fury
-Energy: 2
+Name: Vi, Destructive (Origins, Champion)
+Type: Unit (Fury)
+Cost: 2 Energy, 1 Power
 Might: 3
-Power: 1
 Text: [Ganking] (I can move from battlefield to battlefield.)Recycle 1 from your trash: Give me +1 {Might} this turn.
 ---
-Name: Viktor, Innovator
-Set: Origins
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Mind
-Energy: 4
+Name: Viktor, Innovator (Origins, Champion)
+Type: Unit (Mind)
+Cost: 4 Energy, 1 Power
 Might: 3
-Power: 1
 Text: When you play a card on an opponent's turn, play a 1 {Might} Recruit unit token in your base.
 ---
-Name: Viktor, Leader
-Set: Origins
-Rarity: Epic
-Supertype: Champion
-Type: Unit
-Domain: Order
-Energy: 4
+Name: Viktor, Leader (Origins, Champion)
+Type: Unit (Order)
+Cost: 4 Energy, 1 Power
 Might: 4
-Power: 1
 Text: When another non-Recruit unit you control dies, play a 1 {Might} Recruit unit token into your base.
 ---
-Name: Beast Below
-Set: SFD
-Rarity: Uncommon
-Type: Unit
-Domain: Chaos
-Energy: 7
+Name: Beast Below (SFD)
+Type: Unit (Chaos)
+Cost: 7 Energy, 2 Power
 Might: 8
-Power: 2
 Text: When you play me, return another friendly unit and an enemy unit to their owners' hands.
 ---
-Name: Ancient Warmonger
-Set: SFD
-Rarity: Uncommon
-Type: Unit
-Domain: Chaos
-Energy: 5
+Name: Ancient Warmonger (SFD)
+Type: Unit (Chaos)
+Cost: 5 Energy
 Might: 4
 Text: [Accelerate] _(Y_ou may pay {1 Energy}{1 Power (Chaos)} as an additional cost to have me enter ready.)I have [Assault] equal to the number of enemy units here. (+1 {Might} while I'm an attacker for each instance of Assault.)
 ---
-Name: Aphelios, Exalted
-Set: SFD
-Rarity: Showcase
-Supertype: Champion
-Type: Unit
-Domain: Calm
-Energy: 4
+Name: Aphelios, Exalted (SFD, Champion)
+Type: Unit (Calm)
+Cost: 4 Energy, 1 Power
 Might: 4
-Power: 1
 Text: When you attach an Equipment to me, choose one that hasn't been chosen this turn —Ready 2 runes.Channel 1 rune exhausted.Buff a friendly unit.
 ---
-Name: Armed Assailant
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Fury
-Energy: 6
+Name: Armed Assailant (SFD)
+Type: Unit (Fury)
+Cost: 6 Energy, 1 Power
 Might: 6
-Power: 1
 Text: [Accelerate] (You may pay {1 Energy}{1 Power (Fury)} as an additional cost to have me enter ready.)
   [Weaponmaster] (When you play me, you may [Equip] one of your Equipment to me for {1 Power (Any)} less, even if it's already attached.)
 ---
-Name: Battering Ram
-Set: SFD
-Rarity: Uncommon
-Type: Unit
-Domain: Fury
-Energy: 5
+Name: Battering Ram (SFD)
+Type: Unit (Fury)
+Cost: 5 Energy
 Might: 5
 Text: I cost {1 Energy} less for each card you've played this turn, to a minimum of {1 Energy}.
 ---
-Name: Akshan, Mischievous
-Set: SFD
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Body
-Energy: 4
+Name: Akshan, Mischievous (SFD, Champion)
+Type: Unit (Body)
+Cost: 4 Energy
 Might: 4
 Text: [Weaponmaster]You may pay {1 Power (Body)}{1 Power (Body)} as an additional cost to play me.When you play me, if you paid the additional cost, move an enemy gear to your base. You control it until I leave the board. If it's an Equipment, attach it to me.
 ---
-Name: Black Market Broker
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Chaos
-Energy: 3
+Name: Black Market Broker (SFD)
+Type: Unit (Chaos)
+Cost: 3 Energy
 Might: 3
 Text: When you play a card from face down, play a Gold gear token exhausted.
 ---
-Name: Blast Corps Cadet
-Set: SFD
-Rarity: Uncommon
-Type: Unit
-Domain: Fury
-Energy: 2
+Name: Blast Corps Cadet (SFD)
+Type: Unit (Fury)
+Cost: 2 Energy
 Might: 2
 Text: You may pay {1 Energy}{1 Power (Fury)} as an additional cost to play me.When you play me, if you paid the additional cost, deal 2 to a unit at a battlefield.
 ---
-Name: Combat Chef
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Body
-Energy: 5
+Name: Combat Chef (SFD)
+Type: Unit (Body)
+Cost: 5 Energy
 Might: 5
 Text: [Weaponmaster] (When you play me, you may [Equip] one of your Equipment to me for {1 Power (Any)} less, even if it's already attached.)
 ---
-Name: Corrupt Enforcer
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Chaos
-Energy: 3
+Name: Corrupt Enforcer (SFD)
+Type: Unit (Chaos)
+Cost: 3 Energy, 1 Power
 Might: 4
-Power: 1
 Text: When I move to a battlefield, discard 1.When I win a combat, draw 1.
 ---
-Name: Yi, Meditative
-Set: Proving Grounds
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Calm
-Energy: 5
+Name: Yi, Meditative (Proving Grounds, Champion)
+Type: Unit (Calm)
+Cost: 5 Energy, 1 Power
 Might: 4
-Power: 1
 Text: While you have 8+ runes, I have +4 {Might}.
 ---
-Name: Wraith of Echoes
-Set: Origins
-Rarity: Rare
-Type: Unit
-Domain: Mind
-Energy: 6
+Name: Wraith of Echoes (Origins)
+Type: Unit (Mind)
+Cost: 6 Energy, 1 Power
 Might: 5
-Power: 1
 Text: The first time a friendly unit dies each turn, draw 1.
 ---
-Name: Xin Zhao, Vigilant
-Set: SFD
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Order
-Energy: 3
+Name: Xin Zhao, Vigilant (SFD, Champion)
+Type: Unit (Order)
+Cost: 3 Energy, 1 Power
 Might: 4
-Power: 1
 Text: [Tank] (I must be assigned combat damage first.)I enter ready if you have two or more other units in your base.
 ---
-Name: Yasuo, Remorseful
-Set: Origins
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Calm
-Energy: 6
+Name: Yasuo, Remorseful (Origins, Champion)
+Type: Unit (Calm)
+Cost: 6 Energy, 2 Power
 Might: 6
-Power: 2
 Text: When I attack, deal damage equal to my Might to an enemy unit here.
 ---
-Name: Yasuo, Windrider
-Set: Origins
-Rarity: Showcase
-Supertype: Champion
-Type: Unit
-Domain: Chaos
-Energy: 5
+Name: Yasuo, Windrider (Origins, Champion)
+Type: Unit (Chaos)
+Cost: 5 Energy, 1 Power
 Might: 4
-Power: 1
 Text: [Ganking] (I can move from battlefield to battlefield.)The third time I move in a turn, you score 1 point.
 ---
-Name: Yi, Honed
-Set: Proving Grounds
-Rarity: Epic
-Supertype: Champion
-Type: Unit
-Domain: Body
-Energy: 7
+Name: Yi, Honed (Proving Grounds, Champion)
+Type: Unit (Body)
+Cost: 7 Energy, 1 Power
 Might: 6
-Power: 1
 Text: [Ganking] (I can move from battlefield to battlefield.)I enter ready.
 ---
-Name: Poro Herder
-Set: Origins
-Rarity: Uncommon
-Type: Unit
-Domain: Calm
-Energy: 3
+Name: Poro Herder (Origins)
+Type: Unit (Calm)
+Cost: 3 Energy, 1 Power
 Might: 3
-Power: 1
 Text: When you play me, if you control a Poro, buff me and draw 1. (If I don't have a buff, I get a +1 {Might} buff.)
 ---
-Name: Yone, Blademaster
-Set: SFD
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Body
-Energy: 5
+Name: Yone, Blademaster (SFD, Champion)
+Type: Unit (Body)
+Cost: 5 Energy, 1 Power
 Might: 5
-Power: 1
 Text: [Weaponmaster] (When you play me, you may [Equip] one of your Equipment to me for {1 Power (Any)} less, even if it's already attached.)When I conquer an open battlefield, deal damage equal to my Might to an enemy unit in a base.
 ---
-Name: Yordle Explorer
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Body
-Energy: 4
+Name: Yordle Explorer (SFD)
+Type: Unit (Body)
+Cost: 4 Energy
 Might: 4
 Text: When you play a card with Power cost {1 Power (Any)}{1 Power (Any)} or more, draw 1.
 ---
-Name: Zaunite Bouncer
-Set: Origins
-Rarity: Uncommon
-Type: Unit
-Domain: Chaos
-Energy: 4
+Name: Zaunite Bouncer (Origins)
+Type: Unit (Chaos)
+Cost: 4 Energy, 2 Power
 Might: 2
-Power: 2
 Text: When you play me, return another unit at a battlefield to its owner's hand.
 ---
-Name: Zephyr Sage
-Set: Proving Grounds
-Rarity: Uncommon
-Type: Unit
-Domain: Calm
-Energy: 6
+Name: Zephyr Sage (Proving Grounds)
+Type: Unit (Calm)
+Cost: 6 Energy, 1 Power
 Might: 6
-Power: 1
 Text: [Shield] (+1 {Might} while I'm a defender.)
 ---
-Name: Dauntless Vanguard
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Body
-Energy: 4
+Name: Dauntless Vanguard (SFD)
+Type: Unit (Body)
+Cost: 4 Energy, 1 Power
 Might: 4
-Power: 1
 Text: You may play me to an occupied enemy battlefield.
 ---
-Name: Deadbloom Predator
-Set: Origins
-Rarity: Epic
-Type: Unit
-Domain: Body
-Energy: 8
+Name: Deadbloom Predator (Origins)
+Type: Unit (Body)
+Cost: 8 Energy, 2 Power
 Might: 8
-Power: 2
 Text: [Deflect] (Opponents must pay {1 Power (Any)} to choose me with a spell or ability.)You may play me to an occupied enemy battlefield.
 ---
-Name: Disarming Rake
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Calm
-Energy: 3
+Name: Disarming Rake (SFD)
+Type: Unit (Calm)
+Cost: 3 Energy, 1 Power
 Might: 2
-Power: 1
 Text: When you play me, you may kill a gear.
 ---
-Name: Dr. Mundo, Expert
-Set: Origins
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Mind
-Energy: 8
+Name: Dr. Mundo, Expert (Origins, Champion)
+Type: Unit (Mind)
+Cost: 8 Energy, 2 Power
 Might: 6
-Power: 2
 Text: My Might is increased by the number of cards in your trash.At the start of your Beginning Phase, recycle 3 from your trash.
 ---
-Name: Draven, Audacious
-Set: SFD
-Rarity: Epic
-Supertype: Champion
-Type: Unit
-Domain: Chaos
-Energy: 6
+Name: Draven, Audacious (SFD, Champion)
+Type: Unit (Chaos)
+Cost: 6 Energy, 1 Power
 Might: 6
-Power: 1
 Text: [Deflect] (Opponents must pay {1 Power (Any)} to choose me with a spell or ability.)The first time I win a combat each turn, you score 1 point.When I die in combat, choose an opponent. They score 1 point.
 ---
-Name: Dangerous Duo
-Set: Origins
-Rarity: Uncommon
-Type: Unit
-Domain: Fury
-Energy: 3
+Name: Dangerous Duo (Origins)
+Type: Unit (Fury)
+Cost: 3 Energy
 Might: 3
 Text: [Legion] — When you play me, give a unit +2 {Might} this turn. (Get the effect if you've played another card this turn.)
 ---
-Name: Commander Ledros
-Set: Origins
-Rarity: Rare
-Type: Unit
-Domain: Order
-Energy: 6
+Name: Commander Ledros (Origins)
+Type: Unit (Order)
+Cost: 6 Energy, 4 Power
 Might: 8
-Power: 4
 Text: As you play me, you may kill any number of friendly units as an additional cost. Reduce my cost by {1 Power (Order)} for each killed this way.
   [Deflect] (Opponents must pay {1 Power (Any)} to choose me with a spell or ability.)
   [Ganking] (I can move from battlefield to battlefield.)
 ---
-Name: Corina Veraza
-Set: SFD
-Rarity: Epic
-Type: Unit
-Domain: Order
-Energy: 7
+Name: Corina Veraza (SFD)
+Type: Unit (Order)
+Cost: 7 Energy, 1 Power
 Might: 6
-Power: 1
 Text: [Accelerate] (You may pay {1 Energy}{1 Power (Order)} as an additional cost to have me enter ready.)When I move to a battlefield, play three 1 {Might} Recruit unit tokens here.
 ---
-Name: Crackshot Corsair
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Body
-Energy: 3
+Name: Crackshot Corsair (Origins)
+Type: Unit (Body)
+Cost: 3 Energy
 Might: 3
 Text: When I attack, deal 1 to an enemy unit here.
 ---
-Name: Cruel Patron
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Order
-Energy: 4
+Name: Cruel Patron (Origins)
+Type: Unit (Order)
+Cost: 4 Energy
 Might: 6
 Text: As an additional cost to play me, kill a friendly unit.
 ---
-Name: Draven, Showboat
-Set: Origins
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Fury
-Energy: 5
+Name: Draven, Showboat (Origins, Champion)
+Type: Unit (Fury)
+Cost: 5 Energy, 1 Power
 Might: 3
-Power: 1
 Text: My Might is increased by your points.
 ---
-Name: Daring Poro
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Order
-Energy: 2
+Name: Daring Poro (Origins)
+Type: Unit (Order)
+Cost: 2 Energy
 Might: 2
 Text: [Assault] (+1 {Might} while I'm an attacker.)
 ---
-Name: Darius, Executioner
-Set: Origins
-Rarity: Showcase
-Supertype: Champion
-Type: Unit
-Domain: Order
-Energy: 6
+Name: Darius, Executioner (Origins, Champion)
+Type: Unit (Order)
+Cost: 6 Energy, 1 Power
 Might: 6
-Power: 1
 Text: [Legion] — When you play me, ready me. (Get the effect if you've played another card this turn)Other friendly units have +1 {Might} here.
 ---
-Name: Darius, Trifarian
-Set: Origins
-Rarity: Showcase
-Supertype: Champion
-Type: Unit
-Domain: Fury
-Energy: 5
+Name: Darius, Trifarian (Origins, Champion)
+Type: Unit (Fury)
+Cost: 5 Energy, 1 Power
 Might: 5
-Power: 1
 Text: When you play your second card in a turn, give me +2 {Might} this turn and ready me.
 ---
-Name: Ferrous Forerunner
-Set: SFD
-Rarity: Rare
-Type: Unit
-Domain: Fury
-Energy: 6
+Name: Ferrous Forerunner (SFD)
+Type: Unit (Fury)
+Cost: 6 Energy, 1 Power
 Might: 6
-Power: 1
 Text: [Deathknell] — Play two 3 {Might} Mech unit tokens to your base. (When I die, get the effect.)
 ---
-Name: Fiora, Peerless
-Set: SFD
-Rarity: Showcase
-Supertype: Champion
-Type: Unit
-Domain: Body
-Energy: 3
+Name: Fiora, Peerless (SFD, Champion)
+Type: Unit (Body)
+Cost: 3 Energy, 1 Power
 Might: 3
-Power: 1
 Text: When I attack or defend one on one, double my Might this combat.
 ---
-Name: Fiora, Victorious
-Set: Origins
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Order
-Energy: 4
+Name: Fiora, Victorious (Origins, Champion)
+Type: Unit (Order)
+Cost: 4 Energy
 Might: 4
 Text: While I'm [Mighty], I have [Deflect], [Ganking], and [Shield]. (I'm Mighty while I have 5+ {Might}.)
 ---
-Name: Fiora, Worthy
-Set: SFD
-Rarity: Showcase
-Supertype: Champion
-Type: Unit
-Domain: Order
-Energy: 3
+Name: Fiora, Worthy (SFD, Champion)
+Type: Unit (Order)
+Cost: 3 Energy
 Might: 3
 Text: When a unit you control becomes [Mighty], you may pay {1 Power (Order)} to ready it. (A unit is Mighty while it has 5+ {Might}.)
 ---
-Name: First Mate
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Body
-Energy: 3
+Name: First Mate (Origins)
+Type: Unit (Body)
+Cost: 3 Energy
 Might: 3
 Text: When you play me, ready another unit.
 ---
-Name: Fizz, Trickster
-Set: SFD
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Chaos
-Energy: 3
+Name: Fizz, Trickster (SFD, Champion)
+Type: Unit (Chaos)
+Cost: 3 Energy, 1 Power
 Might: 3
-Power: 1
 Text: When you play me, you may play a spell from your trash with Energy cost no more than {3 Energy}, ignoring its Energy cost. Recycle that spell after you play it. (You must still pay its Power cost.)
 ---
-Name: Flame Chompers
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Fury
-Energy: 3
+Name: Flame Chompers (Origins)
+Type: Unit (Fury)
+Cost: 3 Energy
 Might: 3
 Text: When you discard me, you may pay {1 Power (Fury)} to play me.
 ---
-Name: Draven, Vanquisher
-Set: SFD
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Fury
-Energy: 4
+Name: Draven, Vanquisher (SFD, Champion)
+Type: Unit (Fury)
+Cost: 4 Energy
 Might: 4
 Text: When I win a combat, play a Gold gear token exhausted.When I attack or defend, you may pay {1 Power (Fury)}. If you do, give me +2 {Might} this turn.
 ---
-Name: Dune Drake
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Body
-Energy: 5
+Name: Dune Drake (Origins)
+Type: Unit (Body)
+Cost: 5 Energy
 Might: 5
 Text: When I attack, give me +2 {Might} if there is a ready enemy unit here.
 ---
-Name: Dunebreaker
-Set: SFD
-Rarity: Epic
-Type: Unit
-Domain: Fury
-Energy: 7
+Name: Dunebreaker (SFD)
+Type: Unit (Fury)
+Cost: 7 Energy, 1 Power
 Might: 7
-Power: 1
 Text: If you have two or fewer cards in your hand, I enter ready.When I hold, draw 2.
 ---
-Name: Eager Apprentice
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Mind
-Energy: 3
+Name: Eager Apprentice (Origins)
+Type: Unit (Mind)
+Cost: 3 Energy
 Might: 3
 Text: While I'm at a battlefield, the Energy costs for spells you play is reduced by {1 Energy}, to a minimum of {1 Energy}.
 ---
-Name: Eclipse Herald
-Set: Origins
-Rarity: Uncommon
-Type: Unit
-Domain: Calm
-Energy: 7
+Name: Eclipse Herald (Origins)
+Type: Unit (Calm)
+Cost: 7 Energy, 1 Power
 Might: 7
-Power: 1
 Text: When you stun an enemy unit, ready me and give me +1 {Might} this turn.
 ---
-Name: Ekko, Recurrent
-Set: Origins
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Mind
-Energy: 5
+Name: Ekko, Recurrent (Origins, Champion)
+Type: Unit (Mind)
+Cost: 5 Energy, 1 Power
 Might: 5
-Power: 1
 Text: [Accelerate] (You may pay {1 Energy}{1 Power (Mind)} as an additional cost to have me enter ready.)
   [Deathknell] — Recycle me to ready your runes. (When I die, get the effect.)
 ---
-Name: Ember Monk
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Chaos
-Energy: 4
+Name: Ember Monk (Origins)
+Type: Unit (Chaos)
+Cost: 4 Energy
 Might: 4
 Text: When you play a card from [Hidden], give me +2 {Might} this turn.
 ---
-Name: Clockwork Keeper
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Calm
-Energy: 2
+Name: Clockwork Keeper (Origins)
+Type: Unit (Calm)
+Cost: 2 Energy
 Might: 2
 Text: As you play me, you may pay {1 Power (Calm)} as an additional cost. If you do, draw 1.
 ---
-Name: Ezreal, Dashing
-Set: SFD
-Rarity: Showcase
-Supertype: Champion
-Type: Unit
-Domain: Mind
-Energy: 4
+Name: Ezreal, Dashing (SFD, Champion)
+Type: Unit (Mind)
+Cost: 4 Energy, 1 Power
 Might: 3
-Power: 1
 Text: When I attack or defend, deal damage equal to my Might to an enemy unit here.I don't deal combat damage.{1 Power (Mind)}: [Action] — Move me to your base.
 ---
-Name: Faithful Manufactor
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Order
-Energy: 3
+Name: Faithful Manufactor (Origins)
+Type: Unit (Order)
+Cost: 3 Energy
 Might: 2
 Text: When you play me, play a 1 {Might} Recruit unit token here.
 ---
-Name: Bard, Mercurial
-Set: SFD
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Mind
-Energy: 4
+Name: Bard, Mercurial (SFD, Champion)
+Type: Unit (Mind)
+Cost: 4 Energy, 1 Power
 Might: 4
-Power: 1
 Text: You may exhaust your legend as an additional cost to play me.When you play me, if you paid the additional cost, move any number of your units to an open battlefield.
 ---
-Name: Ava Achiever
-Set: Origins
-Rarity: Rare
-Type: Unit
-Domain: Mind
-Energy: 5
+Name: Ava Achiever (Origins)
+Type: Unit (Mind)
+Cost: 5 Energy
 Might: 4
 Text: When I attack, you may pay {1 Power (Mind)} to play a card with [Hidden] from your hand here, ignoring its cost.
 ---
-Name: Azir, Ascendant
-Set: SFD
-Rarity: Showcase
-Supertype: Champion
-Type: Unit
-Domain: Calm
-Energy: 6
+Name: Azir, Ascendant (SFD, Champion)
+Type: Unit (Calm)
+Cost: 6 Energy, 1 Power
 Might: 6
-Power: 1
 Text: {1 Power (Calm)}: [Action] — Choose a unit you control. Move me to its location and it to my original location. If it's equipped, you may attach one of its Equipment to me. Use only once per turn.
 ---
-Name: Azir, Sovereign
-Set: SFD
-Rarity: Epic
-Supertype: Champion
-Type: Unit
-Domain: Order
-Energy: 4
+Name: Azir, Sovereign (SFD, Champion)
+Type: Unit (Order)
+Cost: 4 Energy
 Might: 4
 Text: [Accelerate] (You may pay {1 Energy}{1 Power (Order)} as an additional cost to have me enter ready.)When I attack, you may move any number of your token units to this battlefield.
 ---
-Name: Aspiring Engineer
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Mind
-Energy: 3
+Name: Aspiring Engineer (SFD)
+Type: Unit (Mind)
+Cost: 3 Energy, 1 Power
 Might: 3
-Power: 1
 Text: When you play me, return a gear from your trash to your hand.
 ---
-Name: Bilgewater Bully
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Body
-Energy: 6
+Name: Bilgewater Bully (Origins)
+Type: Unit (Body)
+Cost: 6 Energy
 Might: 6
 Text: While I'm buffed, I have [Ganking]. (I can move from battlefield to battlefield.)
 ---
-Name: Blastcone Fae
-Set: Origins
-Rarity: Uncommon
-Type: Unit
-Domain: Mind
-Energy: 2
+Name: Blastcone Fae (Origins)
+Type: Unit (Mind)
+Cost: 2 Energy, 1 Power
 Might: 2
-Power: 1
 Text: [Hidden] (Hide now for {1 Power (Any)} to react with later for {0 Energy}.)When you play me, give a unit -2 {Might} this turn, to a minimum of 1 {Might}.
 ---
-Name: Blazing Scorcher
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Fury
-Energy: 5
+Name: Blazing Scorcher (Origins)
+Type: Unit (Fury)
+Cost: 5 Energy
 Might: 5
 Text: [Accelerate] (You may pay {1 Energy}{1 Power (Fury)} as an additional cost to have me enter ready.)
 ---
-Name: Adaptatron
-Set: Origins
-Rarity: Uncommon
-Type: Unit
-Domain: Calm
-Energy: 4
+Name: Adaptatron (Origins)
+Type: Unit (Calm)
+Cost: 4 Energy
 Might: 3
 Text: When I conquer, you may kill a gear. If you do, buff me. (If I don't have a buff, I get a +1 {Might} buff.)
 ---
-Name: Ahri, Alluring
-Set: Origins
-Rarity: Showcase
-Supertype: Champion
-Type: Unit
-Domain: Calm
-Energy: 5
+Name: Ahri, Alluring (Origins, Champion)
+Type: Unit (Calm)
+Cost: 5 Energy, 1 Power
 Might: 4
-Power: 1
 Text: When I hold, you score 1 point.
 ---
-Name: Ahri, Inquisitive
-Set: Origins
-Rarity: Epic
-Supertype: Champion
-Type: Unit
-Domain: Mind
-Energy: 3
+Name: Ahri, Inquisitive (Origins, Champion)
+Type: Unit (Mind)
+Cost: 3 Energy, 1 Power
 Might: 3
-Power: 1
 Text: When I attack or defend, give an enemy unit here -2 {Might} this turn, to a minimum of 1 {Might}.
 ---
-Name: Albus Ferros
-Set: Origins
-Rarity: Rare
-Type: Unit
-Domain: Order
-Energy: 4
+Name: Albus Ferros (Origins)
+Type: Unit (Order)
+Cost: 4 Energy
 Might: 3
 Text: When you play me, spend any number of buffs. For each buff spent, channel 1 rune exhausted.
 ---
-Name: Anivia, Primal
-Set: Origins
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Body
-Energy: 7
+Name: Anivia, Primal (Origins, Champion)
+Type: Unit (Body)
+Cost: 7 Energy, 2 Power
 Might: 8
-Power: 2
 Text: When I attack, deal 3 to all enemy units here.
 ---
-Name: Annie, Fiery
-Set: Proving Grounds
-Rarity: Epic
-Supertype: Champion
-Type: Unit
-Domain: Fury
-Energy: 5
+Name: Annie, Fiery (Proving Grounds, Champion)
+Type: Unit (Fury)
+Cost: 5 Energy, 1 Power
 Might: 4
-Power: 1
 Text: Your spells and abilities deal 1 Bonus Damage. (Each instance of damage the spell deals is increased by 1.)
 ---
-Name: Annie, Stubborn
-Set: Proving Grounds
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Chaos
-Energy: 4
+Name: Annie, Stubborn (Proving Grounds, Champion)
+Type: Unit (Chaos)
+Cost: 4 Energy, 1 Power
 Might: 3
-Power: 1
 Text: When you play me, return a spell from your trash to your hand.
 ---
-Name: Apprentice Smith
-Set: SFD
-Rarity: Uncommon
-Type: Unit
-Domain: Calm
-Energy: 2
+Name: Apprentice Smith (SFD)
+Type: Unit (Calm)
+Cost: 2 Energy
 Might: 2
 Text: When I move, reveal the top card of your Main Deck. If it's a gear, draw it. Otherwise, recycle it.
 ---
-Name: Cemetery Attendant
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Chaos
-Energy: 3
+Name: Cemetery Attendant (Origins)
+Type: Unit (Chaos)
+Cost: 3 Energy, 1 Power
 Might: 3
-Power: 1
 Text: When you play me, return a unit from your trash to your hand.
 ---
-Name: Caitlyn, Patrolling
-Set: Origins
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Calm
-Energy: 3
+Name: Caitlyn, Patrolling (Origins, Champion)
+Type: Unit (Calm)
+Cost: 3 Energy, 1 Power
 Might: 3
-Power: 1
 Text: I must be assigned combat damage last.{Exhaust}: Deal damage equal to my Might to a unit at a battlefield. Use this ability only while I'm at a battlefield.
 ---
-Name: Captain Farron
-Set: Origins
-Rarity: Uncommon
-Type: Unit
-Domain: Fury
-Energy: 4
+Name: Captain Farron (Origins)
+Type: Unit (Fury)
+Cost: 4 Energy, 1 Power
 Might: 5
-Power: 1
 Text: Other friendly units here have [Assault]. (+1 {Might} while they're attackers.)
 ---
-Name: Card Sharp
-Set: SFD
-Rarity: Rare
-Type: Unit
-Domain: Mind
-Energy: 3
+Name: Card Sharp (SFD)
+Type: Unit (Mind)
+Cost: 3 Energy
 Might: 3
 Text: When you play me, you and each opponent may play a Gold gear token exhausted. For each opponent who did, you play a Gold gear token exhausted.
 ---
-Name: Carnivorous Snapvine
-Set: Origins
-Rarity: Rare
-Type: Unit
-Domain: Body
-Energy: 5
+Name: Carnivorous Snapvine (Origins)
+Type: Unit (Body)
+Cost: 5 Energy, 2 Power
 Might: 6
-Power: 2
 Text: When you play me, choose an enemy unit at a battlefield. We deal damage equal to our Mights to each other.
 ---
-Name: Chemtech Enforcer
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Fury
-Energy: 2
+Name: Chemtech Enforcer (Origins)
+Type: Unit (Fury)
+Cost: 2 Energy
 Might: 2
 Text: [Assault 2] (+2 {Might} while I'm an attacker.)When you play me, discard 1.
 ---
-Name: Cithria of Cloudfield
-Set: Origins
-Rarity: Uncommon
-Type: Unit
-Domain: Body
-Energy: 2
+Name: Cithria of Cloudfield (Origins)
+Type: Unit (Body)
+Cost: 2 Energy
 Might: 1
 Text: When you play another unit, buff me. (If I don't have a buff, I get a +1 {Might} buff.)
 ---
-Name: Blitzcrank, Impassive
-Set: Origins
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Calm
-Energy: 5
+Name: Blitzcrank, Impassive (Origins, Champion)
+Type: Unit (Calm)
+Cost: 5 Energy, 1 Power
 Might: 5
-Power: 1
 Text: [Tank] (I must be assigned combat damage first.)When you play me to a battlefield, you may move an enemy unit to here.When I hold, return me to my owner's hand.
 ---
-Name: Frostcoat Cub
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Mind
-Energy: 3
+Name: Frostcoat Cub (SFD)
+Type: Unit (Mind)
+Cost: 3 Energy
 Might: 3
 Text: You may pay {1 Power (Mind)} as an additional cost to play me.When you play me, if you paid the additional cost, give a unit -2 {Might} this turn.
 ---
-Name: Brazen Buccaneer
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Fury
-Energy: 6
+Name: Brazen Buccaneer (Origins)
+Type: Unit (Fury)
+Cost: 6 Energy
 Might: 5
 Text: As you play me, you may discard 1 as an additional cost. If you do, reduce my cost by {2 Energy}.
 ---
-Name: Breakneck Mech
-Set: SFD
-Rarity: Uncommon
-Type: Unit
-Domain: Mind
-Energy: 8
+Name: Breakneck Mech (SFD)
+Type: Unit (Mind)
+Cost: 8 Energy, 2 Power
 Might: 7
-Power: 2
 Text: Your Mechs have [Deflect] and [Ganking]. (Opponents must pay {1 Power (Any)} to choose us with a spell or ability. We can move from battlefield to battlefield.)I enter ready if you control another Mech.
 ---
-Name: Brynhir Thundersong
-Set: Origins
-Rarity: Rare
-Type: Unit
-Domain: Fury
-Energy: 6
+Name: Brynhir Thundersong (Origins)
+Type: Unit (Fury)
+Cost: 6 Energy
 Might: 5
 Text: When you play me, opponents can't play cards this turn.
 ---
-Name: Bubble Bot
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Mind
-Energy: 3
+Name: Bubble Bot (SFD)
+Type: Unit (Mind)
+Cost: 3 Energy
 Might: 3
 Text: When you play me, ready another friendly Mech.
 ---
-Name: Buhru Captain
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Body
-Energy: 3
+Name: Buhru Captain (SFD)
+Type: Unit (Body)
+Cost: 3 Energy, 1 Power
 Might: 3
-Power: 1
 Text: When you play me, you may draw 1 or buff me. (To buff a unit, give it a +1 {Might} buff if it doesn't already have one.)
 ---
-Name: Lux, Crownguard
-Set: Proving Grounds
-Rarity: Epic
-Supertype: Champion
-Type: Unit
-Domain: Order
-Energy: 4
+Name: Lux, Crownguard (Proving Grounds, Champion)
+Type: Unit (Order)
+Cost: 4 Energy
 Might: 2
 Text: {Exhaust}: [Reaction] — [Add] {2 Energy}. Use only to play spells. (Abilities that add resources can't be reacted to.)
 ---
-Name: Lux, Illuminated
-Set: Proving Grounds
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Mind
-Energy: 6
+Name: Lux, Illuminated (Proving Grounds, Champion)
+Type: Unit (Mind)
+Cost: 6 Energy, 1 Power
 Might: 5
-Power: 1
 Text: When you play a spell that costs {5 Energy} or more, give me +3 {Might} this turn.
 ---
-Name: Machine Evangel
-Set: Origins
-Rarity: Rare
-Type: Unit
-Domain: Order
-Energy: 5
+Name: Machine Evangel (Origins)
+Type: Unit (Order)
+Cost: 5 Energy, 1 Power
 Might: 4
-Power: 1
 Text: [Deathknell] — Play three 1 {Might} Recruit unit tokens into your base. (When I die, get the effect.)
 ---
-Name: Maddened Marauder
-Set: Origins
-Rarity: Rare
-Type: Unit
-Domain: Chaos
-Energy: 5
+Name: Maddened Marauder (Origins)
+Type: Unit (Chaos)
+Cost: 5 Energy
 Might: 4
 Text: [Tank] (I must be assigned combat damage first.)When you play me, move a unit from a battlefield to its base.
 ---
-Name: Mageseeker Warden
-Set: Origins
-Rarity: Rare
-Type: Unit
-Domain: Calm
-Energy: 6
+Name: Mageseeker Warden (Origins)
+Type: Unit (Calm)
+Cost: 6 Energy, 1 Power
 Might: 5
-Power: 1
 Text: While I'm at a battlefield, opponents can only play units to their base.While I'm at a battlefield, spells and abilities can't ready enemy units and gear.
 ---
-Name: Magma Wurm
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Fury
-Energy: 8
+Name: Magma Wurm (Origins)
+Type: Unit (Fury)
+Cost: 8 Energy, 1 Power
 Might: 8
-Power: 1
 Text: Other friendly units enter ready.
 ---
-Name: Malzahar, Fanatic
-Set: Origins
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Mind
-Energy: 4
+Name: Malzahar, Fanatic (Origins, Champion)
+Type: Unit (Mind)
+Cost: 4 Energy
 Might: 3
 Text: Kill a friendly unit or gear, {Exhaust}: [Action] — [Add] {1 Power (Any)}{1 Power (Any)}. (Use on your turn or in showdowns. Abilities that add resources can't be reacted to.)
 ---
-Name: Lucian, Merciless
-Set: SFD
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Body
-Energy: 3
+Name: Lucian, Merciless (SFD, Champion)
+Type: Unit (Body)
+Cost: 3 Energy
 Might: 3
 Text: [Weaponmaster] (When you play me, you may [Equip] one of your Equipment to me for {1 Power (Any)} less, even if it's already attached.)The first time I conquer each turn, ready me.
 ---
-Name: Mega-Mech
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Mind
-Energy: 7
+Name: Mega-Mech (Origins)
+Type: Unit (Mind)
+Cost: 7 Energy
 Might: 8
 ---
-Name: Mindsplitter
-Set: Origins
-Rarity: Rare
-Type: Unit
-Domain: Chaos
-Energy: 7
+Name: Mindsplitter (Origins)
+Type: Unit (Chaos)
+Cost: 7 Energy, 2 Power
 Might: 7
-Power: 2
 Text: When you play me, choose an opponent. They reveal their hand. Choose a card from it, and they discard that card.
 ---
-Name: Miss Fortune, Buccaneer
-Set: Origins
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Chaos
-Energy: 4
+Name: Miss Fortune, Buccaneer (Origins, Champion)
+Type: Unit (Chaos)
+Cost: 4 Energy, 1 Power
 Might: 4
-Power: 1
 Text: You may play me to an open battlefield.Friendly units may be played to open battlefields.
 ---
-Name: Miss Fortune, Captain
-Set: Origins
-Rarity: Epic
-Supertype: Champion
-Type: Unit
-Domain: Body
-Energy: 5
+Name: Miss Fortune, Captain (Origins, Champion)
+Type: Unit (Body)
+Cost: 5 Energy, 1 Power
 Might: 5
-Power: 1
 Text: [Accelerate] (You may pay {1 Energy}{1 Power (Body)} as an additional cost to have me enter ready.)
   [Ganking] (I can move from battlefield to battlefield.)The first time I move each turn, you may ready something else that's exhausted.
 ---
-Name: Leona, Zealot
-Set: Origins
-Rarity: Showcase
-Supertype: Champion
-Type: Unit
-Domain: Calm
-Energy: 6
+Name: Leona, Zealot (Origins, Champion)
+Type: Unit (Calm)
+Cost: 6 Energy, 1 Power
 Might: 6
-Power: 1
 Text: If an opponent's score is within 3 points of the Victory Score, I enter ready.Stunned enemy units here have -8 {Might}, to a minimum of 1 {Might}.
 ---
-Name: Lee Sin, Ascetic
-Set: Origins
-Rarity: Epic
-Supertype: Champion
-Type: Unit
-Domain: Calm
-Energy: 5
+Name: Lee Sin, Ascetic (Origins, Champion)
+Type: Unit (Calm)
+Cost: 5 Energy, 1 Power
 Might: 5
-Power: 1
 Text: [Shield]_ (+1 {Might} while I'm a defender.)_{Exhaust}: Buff me. (I get a +1 {Might} buff.)I can have any number of buffs.
 ---
-Name: Lee Sin, Centered
-Set: Origins
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Body
-Energy: 6
+Name: Lee Sin, Centered (Origins, Champion)
+Type: Unit (Body)
+Cost: 6 Energy
 Might: 6
 Text: [Accelerate] (You may pay {1 Energy}{1 Power (Body)} as an additional cost to have me enter ready.)Other buffed friendly units at my battlefield have +2 {Might}.
 ---
-Name: Legion Quartermaster
-Set: SFD
-Rarity: Uncommon
-Type: Unit
-Domain: Calm
-Energy: 3
+Name: Legion Quartermaster (SFD)
+Type: Unit (Calm)
+Cost: 3 Energy
 Might: 4
 Text: As an additional cost to play me, return a friendly gear to its owner's hand.
 ---
-Name: Legion Rearguard
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Fury
-Energy: 2
+Name: Legion Rearguard (Origins)
+Type: Unit (Fury)
+Cost: 2 Energy
 Might: 2
 Text: [Accelerate] (You may pay {1 Energy}{1 Power (Fury)} as an additional cost to have me enter ready.)
 ---
-Name: Leona, Determined
-Set: Origins
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Order
-Energy: 4
+Name: Leona, Determined (Origins, Champion)
+Type: Unit (Order)
+Cost: 4 Energy, 1 Power
 Might: 4
-Power: 1
 Text: [Shield] (+1 {Might} while I'm a defender.)When I attack, stun an enemy unit here. (It doesn't deal combat damage this turn.)
 ---
-Name: Lonely Poro
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Calm
-Energy: 2
+Name: Lonely Poro (SFD)
+Type: Unit (Calm)
+Cost: 2 Energy
 Might: 2
 Text: [Deathknell] — If I died alone, draw 1. (When I die, get the effect. I'm alone if there are no other friendly units here.)
 ---
-Name: Loyal Pup
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Chaos
-Energy: 3
+Name: Loyal Pup (SFD)
+Type: Unit (Chaos)
+Cost: 3 Energy
 Might: 3
 Text: When you defend at a battlefield, you may move me there.
 ---
-Name: Lucian, Gunslinger
-Set: SFD
-Rarity: Showcase
-Supertype: Champion
-Type: Unit
-Domain: Fury
-Energy: 3
+Name: Lucian, Gunslinger (SFD, Champion)
+Type: Unit (Fury)
+Cost: 3 Energy
 Might: 2
 Text: [Assault]_ (+1 {Might} while I'm an attacker.)_When I attack, deal damage equal to my [Assault] to an enemy unit here.
 ---
-Name: Ornn, Blacksmith
-Set: SFD
-Rarity: Showcase
-Supertype: Champion
-Type: Unit
-Domain: Calm
-Energy: 5
+Name: Ornn, Blacksmith (SFD, Champion)
+Type: Unit (Calm)
+Cost: 5 Energy, 1 Power
 Might: 5
-Power: 1
 Text: When you play me or when I hold, look at the top 4 cards of your Main Deck. You may reveal a gear from among them and draw it. Then recycle the rest.
 ---
-Name: Ornn, Forge God
-Set: SFD
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Mind
-Energy: 6
+Name: Ornn, Forge God (SFD, Champion)
+Type: Unit (Mind)
+Cost: 6 Energy
 Might: 4
 Text: [Deflect 2] (Opponents must pay {1 Power (Any)}{1 Power (Any)} to choose me with a spell or ability.)
   [Weaponmaster] (When you play me, you may [Equip] one of your Equipment to me for {1 Power (Any)} less, even if it's already attached.)I have +1 {Might} for each friendly gear.
 ---
-Name: Overzealous Fan
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Chaos
-Energy: 2
+Name: Overzealous Fan (SFD)
+Type: Unit (Chaos)
+Cost: 2 Energy
 Might: 2
 Text: When I defend, you may kill me to move an attacking unit to its base.
 ---
-Name: Pakaa Cub
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Body
-Energy: 3
+Name: Pakaa Cub (Origins)
+Type: Unit (Body)
+Cost: 3 Energy
 Might: 3
 Text: [Hidden] (Hide now for {1 Power (Any)} to react with later for {0 Energy}.)
 ---
-Name: Peak Guardian
-Set: Origins
-Rarity: Uncommon
-Type: Unit
-Domain: Order
-Energy: 6
+Name: Peak Guardian (Origins)
+Type: Unit (Order)
+Cost: 6 Energy, 1 Power
 Might: 5
-Power: 1
 Text: When you play me, buff me. Then, if I am at a battlefield, buff all other friendly units there. (To buff a unit, give it a +1 {Might} buff if it doesn't already have one.)
 ---
-Name: Petty Officer
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Order
-Energy: 5
+Name: Petty Officer (Origins)
+Type: Unit (Order)
+Cost: 5 Energy
 Might: 5
 Text: [Assault] (+1 {Might} while I'm an attacker.)
 ---
-Name: Pit Crew
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Mind
-Energy: 3
+Name: Pit Crew (Origins)
+Type: Unit (Mind)
+Cost: 3 Energy
 Might: 3
 Text: When you play a gear, ready me.
 ---
-Name: Pit Rookie
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Body
-Energy: 2
+Name: Pit Rookie (Origins)
+Type: Unit (Body)
+Cost: 2 Energy
 Might: 2
 Text: When you play me, buff another friendly unit. (If it doesn't have a buff, it gets a +1 {Might} buff.)
 ---
-Name: Playful Phantom
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Calm
-Energy: 5
+Name: Playful Phantom (Origins)
+Type: Unit (Calm)
+Cost: 5 Energy
 Might: 5
 ---
-Name: Needlessly Large Yordle
-Set: SFD
-Rarity: Rare
-Type: Unit
-Domain: Calm
-Energy: 10
+Name: Needlessly Large Yordle (SFD)
+Type: Unit (Calm)
+Cost: 10 Energy, 3 Power
 Might: 5
-Power: 3
 Text: [Shield 5] (+5 {Might} while I'm a defender.)
   [Tank] (I must be assigned combat damage first.)I cost {2 Energy}{1 Power (Calm)} less for each point you scored from holding this turn.
 ---
-Name: Mountain Drake
-Set: Origins
-Rarity: Uncommon
-Type: Unit
-Domain: Body
-Energy: 9
+Name: Mountain Drake (Origins)
+Type: Unit (Body)
+Cost: 9 Energy
 Might: 10
 ---
-Name: Mystic Poro
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Chaos
-Energy: 2
+Name: Mystic Poro (Origins)
+Type: Unit (Chaos)
+Cost: 2 Energy
 Might: 2
 Text: [Vision] (When you play me, look at the top card of your Main Deck. You may recycle it.)
 ---
-Name: Lecturing Yordle
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Mind
-Energy: 3
+Name: Lecturing Yordle (Origins)
+Type: Unit (Mind)
+Cost: 3 Energy
 Might: 2
 Text: [Tank] (I must be assigned combat damage first.)When you play me, draw 1.
 ---
-Name: Nocturne, Horrifying
-Set: Origins
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Chaos
-Energy: 4
+Name: Nocturne, Horrifying (Origins, Champion)
+Type: Unit (Chaos)
+Cost: 4 Energy, 1 Power
 Might: 4
-Power: 1
 Text: [Ganking] (I can move from battlefield to battlefield.)When you look at cards from the top of your deck (and don't draw them) and see me, you may play me for {1 Power (Any)}.
 ---
-Name: Noxian Drummer
-Set: Origins
-Rarity: Uncommon
-Type: Unit
-Domain: Order
-Energy: 3
+Name: Noxian Drummer (Origins)
+Type: Unit (Order)
+Cost: 3 Energy
 Might: 3
 Text: When I move to a battlefield, play a 1 {Might} Recruit unit token here. (It is also at the battlefield.)
 ---
-Name: Noxus Hopeful
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Fury
-Energy: 4
+Name: Noxus Hopeful (Origins)
+Type: Unit (Fury)
+Cost: 4 Energy
 Might: 4
 Text: [Legion] — I cost {2 Energy} less._ (Get the effect if you've played another card this turn.)_
 ---
-Name: Noxus Saboteur
-Set: Origins
-Rarity: Uncommon
-Type: Unit
-Domain: Fury
-Energy: 3
+Name: Noxus Saboteur (Origins)
+Type: Unit (Fury)
+Cost: 3 Energy
 Might: 3
 Text: Your opponents' [Hidden] cards can't be revealed here.
 ---
-Name: Harnessed Dragon
-Set: Origins
-Rarity: Rare
-Type: Unit
-Domain: Order
-Energy: 8
+Name: Harnessed Dragon (Origins)
+Type: Unit (Order)
+Cost: 8 Energy, 2 Power
 Might: 6
-Power: 2
 Text: When you play me, kill an enemy unit.
 ---
-Name: Heimerdinger, Inventor
-Set: Origins
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Mind
-Energy: 3
+Name: Heimerdinger, Inventor (Origins, Champion)
+Type: Unit (Mind)
+Cost: 3 Energy, 1 Power
 Might: 3
-Power: 1
 Text: I have all {Exhaust} abilities of all friendly legends, units, and gear.
 ---
-Name: Herald of Scales
-Set: Origins
-Rarity: Uncommon
-Type: Unit
-Domain: Body
-Energy: 4
+Name: Herald of Scales (Origins)
+Type: Unit (Body)
+Cost: 4 Energy
 Might: 3
 Text: Your Dragons' Energy costs are reduced by {2 Energy}, to a minimum of {1 Energy}.
 ---
-Name: Guardian of the Passage
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Calm
-Energy: 6
+Name: Guardian of the Passage (SFD)
+Type: Unit (Calm)
+Cost: 6 Energy
 Might: 6
 Text: When I hold, you may return a unit or gear from your trash to your hand.
 ---
-Name: Honest Broker
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Order
-Energy: 2
+Name: Honest Broker (SFD)
+Type: Unit (Order)
+Cost: 2 Energy
 Might: 2
 Text: [Deathknell] — Play a Gold gear token exhausted. (When I die, get the effect.)
 ---
-Name: Glasc Mixologist
-Set: SFD
-Rarity: Uncommon
-Type: Unit
-Domain: Order
-Energy: 5
+Name: Glasc Mixologist (SFD)
+Type: Unit (Order)
+Cost: 5 Energy, 1 Power
 Might: 5
-Power: 1
 Text: [Deathknell] — You may play a unit with cost no more than {3 Energy} and no more than {1 Power (Any)} from your trash, ignoring its cost. (When I die, get the effect.)
 ---
-Name: Garen, Commander
-Set: Proving Grounds
-Rarity: Epic
-Supertype: Champion
-Type: Unit
-Domain: Order
-Energy: 6
+Name: Garen, Commander (Proving Grounds, Champion)
+Type: Unit (Order)
+Cost: 6 Energy, 1 Power
 Might: 5
-Power: 1
 Text: Other friendly units have +1 {Might} here.
 ---
-Name: Garen, Rugged
-Set: Proving Grounds
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Body
-Energy: 6
+Name: Garen, Rugged (Proving Grounds, Champion)
+Type: Unit (Body)
+Cost: 6 Energy, 1 Power
 Might: 5
-Power: 1
 Text: [Assault 2], [Shield 2] (+2 {Might} while I'm an attacker or defender.)
 ---
-Name: Gem Jammer
-Set: SFD
-Rarity: Common
-Type: Unit
-Domain: Fury
-Energy: 2
+Name: Gem Jammer (SFD)
+Type: Unit (Fury)
+Cost: 2 Energy
 Might: 2
 Text: When you play me, give a unit [Ganking] this turn. (It can move from battlefield to battlefield.)
 ---
-Name: Gemcraft Seer
-Set: Origins
-Rarity: Uncommon
-Type: Unit
-Domain: Mind
-Energy: 3
+Name: Gemcraft Seer (Origins)
+Type: Unit (Mind)
+Cost: 3 Energy, 1 Power
 Might: 3
-Power: 1
 Text: [Vision] (When you play me, look at the top card of your Main Deck. You may recycle it.)Other friendly units have [Vision].
 ---
-Name: Immortal Phoenix
-Set: Origins
-Rarity: Epic
-Type: Unit
-Domain: Fury
-Energy: 3
+Name: Immortal Phoenix (Origins)
+Type: Unit (Fury)
+Cost: 3 Energy, 1 Power
 Might: 3
-Power: 1
 Text: [Assault 2] (+2 {Might} while I'm an attacker.)When you kill a unit with a spell, you may pay {1 Energy}{1 Power (Fury)} to play me from your trash.
 ---
-Name: Kato the Arm
-Set: SFD
-Rarity: Rare
-Type: Unit
-Domain: Body
-Energy: 4
+Name: Kato the Arm (SFD)
+Type: Unit (Body)
+Cost: 4 Energy, 1 Power
 Might: 3
-Power: 1
 Text: [Deflect] (Opponents must pay {1 Power (Any)} to choose me with a spell or ability.)When I move to a battlefield, give a friendly unit my keywords and +{Might} equal to my Might this turn.
 ---
-Name: Jinx, Demolitionist
-Set: Origins
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Fury
-Energy: 3
+Name: Jinx, Demolitionist (Origins, Champion)
+Type: Unit (Fury)
+Cost: 3 Energy, 1 Power
 Might: 4
-Power: 1
 Text: [Accelerate] (You may pay {1 Energy}{1 Power (Fury)} as an additional cost to have me enter ready.)
   [Assault 2] (+2 {Might} while I'm an attacker.)When you play me, discard 2.
 ---
-Name: Jinx, Rebel
-Set: Origins
-Rarity: Showcase
-Supertype: Champion
-Type: Unit
-Domain: Chaos
-Energy: 5
+Name: Jinx, Rebel (Origins, Champion)
+Type: Unit (Chaos)
+Cost: 5 Energy, 1 Power
 Might: 5
-Power: 1
 Text: When you discard one or more cards, ready me and give me +1 {Might} this turn.
 ---
-Name: Kadregrin the Infernal
-Set: Origins
-Rarity: Epic
-Type: Unit
-Domain: Fury
-Energy: 9
+Name: Kadregrin the Infernal (Origins)
+Type: Unit (Fury)
+Cost: 9 Energy, 2 Power
 Might: 9
-Power: 2
 Text: When you play me, draw 1 for each of your [Mighty] units. (A unit is Mighty while it has 5+ {Might}.)
 ---
-Name: Kai'Sa, Evolutionary
-Set: Origins
-Rarity: Showcase
-Supertype: Champion
-Type: Unit
-Domain: Mind
-Energy: 6
+Name: Kai'Sa, Evolutionary (Origins, Champion)
+Type: Unit (Mind)
+Cost: 6 Energy, 1 Power
 Might: 6
-Power: 1
 Text: [Ganking] (I can move from battlefield to battlefield.)When I conquer, you may play a spell from your trash with Energy cost less than your points without paying its Energy cost. Then recycle it. (You must still pay its Power cost.)
 ---
-Name: Kai'Sa, Survivor
-Set: Origins
-Rarity: Epic
-Supertype: Champion
-Type: Unit
-Domain: Fury
-Energy: 4
+Name: Kai'Sa, Survivor (Origins, Champion)
+Type: Unit (Fury)
+Cost: 4 Energy
 Might: 4
 Text: [Accelerate] (You may pay {1 Energy}{1 Power (Fury)} as an additional cost to have me enter ready.)When I conquer, draw 1.
 ---
-Name: Karma, Channeler
-Set: Origins
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Order
-Energy: 6
+Name: Karma, Channeler (Origins, Champion)
+Type: Unit (Order)
+Cost: 6 Energy, 1 Power
 Might: 6
-Power: 1
 Text: [Vision] (When you play me, look at the top card of your Main Deck. You may recycle it.)When you recycle one or more cards, buff a friendly unit. (If it doesn't have a buff, it gets a +1 {Might} buff. Runes aren't cards.)
 ---
-Name: Karthus, Eternal
-Set: Origins
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Order
-Energy: 3
+Name: Karthus, Eternal (Origins, Champion)
+Type: Unit (Order)
+Cost: 3 Energy, 1 Power
 Might: 3
-Power: 1
 Text: Your [Deathknell] effects trigger an additional time.
 ---
-Name: Kayn, Unleashed
-Set: Origins
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Chaos
-Energy: 6
+Name: Kayn, Unleashed (Origins, Champion)
+Type: Unit (Chaos)
+Cost: 6 Energy, 1 Power
 Might: 6
-Power: 1
 Text: [Ganking] (I can move from battlefield to battlefield.)If I have moved twice this turn, I don't take damage.
 ---
-Name: Kinkou Monk
-Set: Origins
-Rarity: Uncommon
-Type: Unit
-Domain: Body
-Energy: 4
+Name: Kinkou Monk (Origins)
+Type: Unit (Body)
+Cost: 4 Energy, 1 Power
 Might: 4
-Power: 1
 Text: When you play me, buff two other friendly units. (Each one that doesn't have a buff gets a +1 {Might} buff.)
 ---
-Name: Kog'Maw, Caustic
-Set: Origins
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Chaos
-Energy: 3
+Name: Kog'Maw, Caustic (Origins, Champion)
+Type: Unit (Chaos)
+Cost: 3 Energy, 1 Power
 Might: 1
-Power: 1
 Text: [Deathknell] — Deal 4 to all units at my battlefield. (When I die, get the effect.)
 ---
-Name: Kraken Hunter
-Set: Origins
-Rarity: Rare
-Type: Unit
-Domain: Body
-Energy: 3
+Name: Kraken Hunter (Origins)
+Type: Unit (Body)
+Cost: 3 Energy, 2 Power
 Might: 5
-Power: 2
 Text: [Accelerate] (You may pay {1 Energy}{1 Power (Body)} as an additional cost to have me enter ready.)
   [Assault] (+1 {Might} while I'm an attacker.)As you play me, you may spend any number of buffs as an additional cost. Reduce my cost by {1 Power (Body)} for each buff you spend.
 ---
-Name: Irelia, Fervent
-Set: SFD
-Rarity: Showcase
-Supertype: Champion
-Type: Unit
-Domain: Calm
-Energy: 5
+Name: Irelia, Fervent (SFD, Champion)
+Type: Unit (Calm)
+Cost: 5 Energy
 Might: 4
 Text: [Deflect] (Opponents must pay {1 Power (Any)} to choose me with a spell or ability.)When you choose or ready me, give me +1 {Might} this turn.
 ---
-Name: Irelia, Graceful
-Set: SFD
-Rarity: Showcase
-Supertype: Champion
-Type: Unit
-Domain: Chaos
-Energy: 4
+Name: Irelia, Graceful (SFD, Champion)
+Type: Unit (Chaos)
+Cost: 4 Energy, 1 Power
 Might: 4
-Power: 1
 Text: Your spells that choose me cost {1 Energy} or {1 Power (Any)} less.
 ---
-Name: Jae Medarda
-Set: SFD
-Rarity: Rare
-Type: Unit
-Domain: Chaos
-Energy: 5
+Name: Jae Medarda (SFD)
+Type: Unit (Chaos)
+Cost: 5 Energy, 2 Power
 Might: 5
-Power: 2
 Text: When you choose me with a spell, draw 1.
 ---
-Name: Janna, Savior
-Set: SFD
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Calm
-Energy: 3
+Name: Janna, Savior (SFD, Champion)
+Type: Unit (Calm)
+Cost: 3 Energy, 1 Power
 Might: 3
-Power: 1
 Text: [Reaction] (Play any time, even before spells and abilities resolve, including to a battlefield you control.)When you play me, heal your units here, then move an enemy unit from here to its base.
 ---
-Name: Jaull-Fish
-Set: SFD
-Rarity: Uncommon
-Type: Unit
-Domain: Body
-Energy: 7
+Name: Jaull-Fish (SFD)
+Type: Unit (Body)
+Cost: 7 Energy, 2 Power
 Might: 6
-Power: 2
 Text: [Accelerate]_ _(You may pay {1 Energy}{1 Power (Body)} as an additional cost to have me enter ready.)I cost {2 Energy} less for each of your [Mighty] units._ (A unit is Mighty while it has 5+ {Might}.)_
 ---
-Name: Jax, Unmatched
-Set: SFD
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Calm
-Energy: 5
+Name: Jax, Unmatched (SFD, Champion)
+Type: Unit (Calm)
+Cost: 5 Energy, 1 Power
 Might: 5
-Power: 1
 Text: [Deflect] (Opponents must pay {1 Power (Any)} to choose me with a spell or ability.)Each Equipment in your hand has [Quick-Draw]. (It gains [Reaction]. When you play it, attach it to a unit you control.)
 ---
-Name: Jax, Unrelenting
-Set: SFD
-Rarity: Epic
-Supertype: Champion
-Type: Unit
-Domain: Body
-Energy: 4
+Name: Jax, Unrelenting (SFD, Champion)
+Type: Unit (Body)
+Cost: 4 Energy, 1 Power
 Might: 3
-Power: 1
 Text: [Weaponmaster] (When you play me, you may [Equip] one of your Equipment to me for {1 Power (Any)} less, even if it's already attached.)When you attach an Equipment to me, you may pay {1 Energy} to draw 1.
 ---
-Name: Jayce, Man of Progress
-Set: SFD
-Rarity: Rare
-Supertype: Champion
-Type: Unit
-Domain: Mind
-Energy: 4
+Name: Jayce, Man of Progress (SFD, Champion)
+Type: Unit (Mind)
+Cost: 4 Energy
 Might: 4
 Text: When you play me, you may kill a friendly gear. If you do, you may play a gear with Energy cost no more than {7 Energy} from hand this turn, ignoring its Energy cost. (You must still pay its Power cost.)
 ---
-Name: Jeweled Colossus
-Set: Origins
-Rarity: Common
-Type: Unit
-Domain: Mind
-Energy: 5
+Name: Jeweled Colossus (Origins)
+Type: Unit (Mind)
+Cost: 5 Energy
 Might: 5
 Text: [Vision] (When you play me, look at the top card of your Main Deck. You may recycle it.)
   [Shield]** **(+1 {Might} while I'm a defender.)

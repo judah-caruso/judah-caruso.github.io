@@ -1,647 +1,400 @@
 == GEAR CARDS (73) ==
 
-Name: Sun Disc
-Set: Origins
-Rarity: Uncommon
-Type: Gear
-Domain: Fury
-Energy: 2
-Power: 1
+Name: Sun Disc (Origins)
+Type: Gear (Fury)
+Cost: 2 Energy, 1 Power
 Text: {Exhaust}: [Legion] — The next unit you play this turn enters ready. (Get the effect if you've played another card this turn.)
 ---
-Name: Sterak's Gage
-Set: SFD
-Rarity: Rare
-Type: Gear
-Domain: Calm
-Energy: 3
+Name: Sterak's Gage (SFD)
+Type: Gear (Calm)
+Cost: 3 Energy, 2 Power
 Might: 3
-Power: 2
 Text: [Quick-Draw] (This has [Reaction]. When you play it, attach it to a unit you control.)
   [Equip] {1 Power (Calm)} ({1 Power (Calm)}: Attach this to a unit you control.)
 ---
-Name: Svellsongur
-Set: SFD
-Rarity: Epic
-Type: Gear
-Domain: Calm
-Energy: 3
-Power: 1
+Name: Svellsongur (SFD)
+Type: Gear (Calm)
+Cost: 3 Energy, 1 Power
 Text: [Equip] {1 Energy}{1 Power (Calm)} ({1 Energy}{1 Power (Calm)}: Attach this to a unit you control.)As this is attached to a unit, copy that unit's text to this Equipment's effect text for as long as this is attached to it.
 ---
-Name: Symbol of the Solari
-Set: Origins
-Rarity: Uncommon
-Type: Gear
-Domain: Order
-Energy: 1
+Name: Symbol of the Solari (Origins)
+Type: Gear (Order)
+Cost: 1 Energy
 Text: If a combat where you are the attacker ends in a tie, recall ALL units instead. (Send them to base. This isn't a move. Ties are calculated after combat damage is dealt.)
 ---
-Name: Solari Shrine
-Set: Origins
-Rarity: Rare
-Type: Gear
-Domain: Calm
-Energy: 3
+Name: Solari Shrine (Origins)
+Type: Gear (Calm)
+Cost: 3 Energy
 Text: When you kill a stunned enemy unit, you may exhaust this to draw 1.
 ---
-Name: Spinning Axe
-Set: SFD
-Rarity: Epic
-Supertype: Signature
-Type: Gear
-Domain: Fury, Chaos
-Energy: 2
+Name: Spinning Axe (SFD, Signature)
+Type: Gear (Fury, Chaos)
+Cost: 2 Energy, 1 Power
 Might: 3
-Power: 1
 Text: [Quick-Draw] (This has [Reaction]. When you play it, attach it to a unit you control.)
   [Equip] {1 Power (Any)} ({1 Power (Any)}: Attach this to a unit you control.)
   [Temporary] (If this is unattached, kill it at the start of its controller's Beginning Phase, before scoring.)
 ---
-Name: Spirit's Refuge
-Set: Origins
-Rarity: Uncommon
-Type: Gear
-Domain: Calm
-Energy: 2
-Power: 1
+Name: Spirit's Refuge (Origins)
+Type: Gear (Calm)
+Cost: 2 Energy, 1 Power
 Text: When you play this, buff a friendly unit. (If it doesn't have a buff, it gets a +1 {Might} buff.)Friendly buffed units have [Deflect] if they didn't already. (Opponents must pay {1 Power (Any)} to choose those units with a spell or ability.)
 ---
-Name: Treasure Trove
-Set: Origins
-Rarity: Uncommon
-Type: Gear
-Domain: Chaos
-Energy: 2
+Name: Treasure Trove (Origins)
+Type: Gear (Chaos)
+Cost: 2 Energy
 Text: When this leaves the board, draw 1 and channel 1 rune exhausted.{1 Power (Chaos)}, {Exhaust}: Kill this.
 ---
-Name: Trinity Force
-Set: SFD
-Rarity: Rare
-Type: Gear
-Domain: Body
-Energy: 4
+Name: Trinity Force (SFD)
+Type: Gear (Body)
+Cost: 4 Energy
 Might: 2
 Text: [Equip] {1 Power (Body)} ({1 Power (Body)}: Attach this to a unit you control.)
 ---
-Name: Unlicensed Armory
-Set: Origins
-Rarity: Uncommon
-Type: Gear
-Domain: Fury
-Energy: 2
+Name: Unlicensed Armory (Origins)
+Type: Gear (Fury)
+Cost: 2 Energy
 Text: Discard 1, {Exhaust}: Choose a friendly unit. The next time it dies this turn, you may pay {1 Power (Fury)} to recall it exhausted instead. (Send it to base. This isn't a move.)
 ---
-Name: The Syren
-Set: Origins
-Rarity: Uncommon
-Type: Gear
-Domain: Chaos
-Energy: 2
+Name: The Syren (Origins)
+Type: Gear (Chaos)
+Cost: 2 Energy
 Text: {1 Energy}, {Exhaust}: Move a friendly unit at a battlefield to its base.
 ---
-Name: The Zero Drive
-Set: SFD
-Rarity: Epic
-Type: Gear
-Domain: Mind
-Energy: 3
+Name: The Zero Drive (SFD)
+Type: Gear (Mind)
+Cost: 3 Energy
 Might: 2
 Text: [Equip] {1 Energy}{1 Power (Mind)} ({1 Energy}{1 Power (Mind)}: Attach this to a unit you control.){3 Energy}{1 Power (Mind)}, Banish this: Play all units banished with this, ignoring their costs. (Use only if unattached.)
 ---
-Name: Ravenborn Tome
-Set: Origins
-Rarity: Rare
-Type: Gear
-Domain: Fury
-Energy: 3
+Name: Ravenborn Tome (Origins)
+Type: Gear (Fury)
+Cost: 3 Energy
 Text: {Exhaust}: The next spell you play deals 1 Bonus Damage. (Each instance of damage the spell deals is increased by 1.)
 ---
-Name: Seal of Discord
-Set: SFD
-Rarity: Showcase
-Type: Gear
-Domain: Chaos
-Energy: 0
-Power: 1
+Name: Seal of Discord (SFD)
+Type: Gear (Chaos)
+Cost: 0 Energy, 1 Power
 Text: {Exhaust}: [Reaction] — [Add] {1 Power (Chaos)}. (Abilities that add resources can't be reacted to.)
 ---
-Name: Seal of Focus
-Set: Origins
-Rarity: Epic
-Type: Gear
-Domain: Calm
-Energy: 0
-Power: 1
+Name: Seal of Focus (Origins)
+Type: Gear (Calm)
+Cost: 0 Energy, 1 Power
 Text: {Exhaust}: [Reaction] — [Add] {1 Power (Calm)}. (Abilities that add resources can't be reacted to.)
 ---
-Name: Seal of Insight
-Set: Origins
-Rarity: Epic
-Type: Gear
-Domain: Mind
-Energy: 0
-Power: 1
+Name: Seal of Insight (Origins)
+Type: Gear (Mind)
+Cost: 0 Energy, 1 Power
 Text: {Exhaust}: [Reaction] — [Add] {1 Power (Mind)}. (Abilities that add resources can't be reacted to.)
 ---
-Name: Seal of Rage
-Set: Origins
-Rarity: Epic
-Type: Gear
-Domain: Fury
-Energy: 0
-Power: 1
+Name: Seal of Rage (Origins)
+Type: Gear (Fury)
+Cost: 0 Energy, 1 Power
 Text: {Exhaust}: [Reaction] — [Add] {1 Power (Fury)}. (Abilities that add resources can't be reacted to.)
 ---
-Name: Seal of Strength
-Set: SFD
-Rarity: Showcase
-Type: Gear
-Domain: Body
-Energy: 0
-Power: 1
+Name: Seal of Strength (SFD)
+Type: Gear (Body)
+Cost: 0 Energy, 1 Power
 Text: {Exhaust}: [Reaction] — [Add] {1 Power (Body)}. (Abilities that add resources can't be reacted to.)
 ---
-Name: Seal of Unity
-Set: Origins
-Rarity: Epic
-Type: Gear
-Domain: Order
-Energy: 0
-Power: 1
+Name: Seal of Unity (Origins)
+Type: Gear (Order)
+Cost: 0 Energy, 1 Power
 Text: {Exhaust}: [Reaction] — [Add] {1 Power (Order)}. (Abilities that add resources can't be reacted to.)
 ---
-Name: Sacred Shears
-Set: SFD
-Rarity: Rare
-Type: Gear
-Domain: Order
-Energy: 2
+Name: Sacred Shears (SFD)
+Type: Gear (Order)
+Cost: 2 Energy, 1 Power
 Might: 1
-Power: 1
 Text: [Equip] {1 Power (Order)} ({1 Power (Order)}: Attach this to a unit you control.)
 ---
-Name: Scrapheap
-Set: Origins
-Rarity: Uncommon
-Type: Gear
-Domain: Chaos
-Energy: 2
+Name: Scrapheap (Origins)
+Type: Gear (Chaos)
+Cost: 2 Energy
 Text: When this is played, discarded, or killed, draw 1.
 ---
-Name: Forgefire Cape
-Set: SFD
-Rarity: Epic
-Supertype: Signature
-Type: Gear
-Domain: Calm, Mind
-Energy: 4
+Name: Forgefire Cape (SFD, Signature)
+Type: Gear (Calm, Mind)
+Cost: 4 Energy, 2 Power
 Might: 3
-Power: 2
 Text: [Unique]** **(Your deck can have only 1 card with this name.)
   [Equip] {1 Power (Any)} ({1 Power (Any)}: Attach this to a unit you control.)
 ---
-Name: Heart of Dark Ice
-Set: SFD
-Rarity: Rare
-Type: Gear
-Domain: Calm
-Energy: 3
-Power: 1
+Name: Heart of Dark Ice (SFD)
+Type: Gear (Calm)
+Cost: 3 Energy, 1 Power
 Text: {Exhaust}: Give a unit +3 {Might} this turn.
 ---
-Name: Hexdrinker
-Set: SFD
-Rarity: Uncommon
-Type: Gear
-Domain: Body
-Energy: 2
+Name: Hexdrinker (SFD)
+Type: Gear (Body)
+Cost: 2 Energy
 Might: 1
 Text: [Equip] {1 Power (Body)} ({1 Power (Body)}: Attach this to a unit you control.)
 ---
-Name: Cull
-Set: SFD
-Rarity: Uncommon
-Type: Gear
-Domain: Chaos
-Energy: 1
+Name: Cull (SFD)
+Type: Gear (Chaos)
+Cost: 1 Energy
 Might: 1
 Text: [Equip] {1 Power (Chaos)} ({1 Power (Chaos)}: Attach this to a unit you control.)
 ---
-Name: Petricite Monument
-Set: SFD
-Rarity: Uncommon
-Type: Gear
-Domain: Body
-Energy: 2
+Name: Petricite Monument (SFD)
+Type: Gear (Body)
+Cost: 2 Energy
 Text: [Temporary] (Kill this at the start of its controller's Beginning Phase, before scoring.)Friendly units have [Deflect]. (Opponents must pay {1 Power (Any)} to choose them with a spell or ability.)
 ---
-Name: Eye of the Herald
-Set: SFD
-Rarity: Common
-Type: Gear
-Domain: Order
-Energy: 1
+Name: Eye of the Herald (SFD)
+Type: Gear (Order)
+Cost: 1 Energy
 Text: [Equip] {1 Power (Order)} ({1 Power (Order)}: Attach this to a unit you control.)
 ---
-Name: Spirit Wheel
-Set: SFD
-Rarity: Rare
-Type: Gear
-Domain: Chaos
-Energy: 2
+Name: Spirit Wheel (SFD)
+Type: Gear (Chaos)
+Cost: 2 Energy
 Text: When you choose a friendly unit, you may pay {1 Energy} and exhaust this to draw 1.
 ---
-Name: Serrated Dirk
-Set: SFD
-Rarity: Common
-Type: Gear
-Domain: Fury
-Energy: 1
+Name: Serrated Dirk (SFD)
+Type: Gear (Fury)
+Cost: 1 Energy
 Text: [Equip] {1 Power (Fury)} ({1 Power (Fury)}: Attach this to a unit you control.)
 ---
-Name: Shurelya's Requiem
-Set: SFD
-Rarity: Epic
-Supertype: Signature
-Type: Gear
-Domain: Calm, Mind
-Energy: 4
+Name: Shurelya's Requiem (SFD, Signature)
+Type: Gear (Calm, Mind)
+Cost: 4 Energy, 2 Power
 Might: 2
-Power: 2
 Text: [Unique]** **(Your deck can have only 1 card with this name.)
   [Equip] {1 Power (Any)} ({1 Power (Any)}: Attach this to a unit you control.)When you play this, ready your units.
 ---
-Name: Skyfall of Areion
-Set: SFD
-Rarity: Epic
-Type: Gear
-Domain: Fury
-Energy: 3
+Name: Skyfall of Areion (SFD)
+Type: Gear (Fury)
+Cost: 3 Energy
 Might: 2
 Text: [Equip] {1 Energy}{1 Power (Fury)} ({1 Energy}{1 Power (Fury)}: Attach this to a unit you control.)
 ---
-Name: Temporal Portal
-Set: SFD
-Rarity: Uncommon
-Type: Gear
-Domain: Mind
-Energy: 3
+Name: Temporal Portal (SFD)
+Type: Gear (Mind)
+Cost: 3 Energy
 Text: {1 Power (Any)}, {Exhaust}: Give the next spell you play this turn [Repeat] equal to its cost. (You may pay the additional cost to repeat the spell's effect.)
 ---
-Name: Poro Snax
-Set: SFD
-Rarity: Uncommon
-Type: Gear
-Domain: Calm
-Energy: 1
-Power: 1
+Name: Poro Snax (SFD)
+Type: Gear (Calm)
+Cost: 1 Energy, 1 Power
 Text: When you play this, draw 1.{1 Energy}{1 Power (Calm)}, {Exhaust}, Kill this: Draw 1.
 ---
-Name: Rabadon's Deathcrown
-Set: SFD
-Rarity: Epic
-Supertype: Signature
-Type: Gear
-Domain: Calm, Mind
-Energy: 4
+Name: Rabadon's Deathcrown (SFD, Signature)
+Type: Gear (Calm, Mind)
+Cost: 4 Energy, 2 Power
 Might: 3
-Power: 2
 Text: [Unique]** **(Your deck can have only 1 card with this name.)
   [Equip] {1 Power (Any)} ({1 Power (Any)}: Attach this to a unit you control.)
 ---
-Name: Recurve Bow
-Set: SFD
-Rarity: Uncommon
-Type: Gear
-Domain: Fury
-Energy: 2
+Name: Recurve Bow (SFD)
+Type: Gear (Fury)
+Cost: 2 Energy
 Text: [Equip] {1 Power (Fury)} ({1 Power (Fury)}: Attach this to a unit you control.)
 ---
-Name: Warmog's Armor
-Set: SFD
-Rarity: Uncommon
-Type: Gear
-Domain: Body
-Energy: 1
+Name: Warmog's Armor (SFD)
+Type: Gear (Body)
+Cost: 1 Energy
 Might: 1
 Text: [Equip] {1 Power (Body)} ({1 Power (Body)}: Attach this to a unit you control.)
 ---
-Name: Vanguard Armory
-Set: SFD
-Rarity: Uncommon
-Type: Gear
-Domain: Order
-Energy: 7
-Power: 1
+Name: Vanguard Armory (SFD)
+Type: Gear (Order)
+Cost: 7 Energy, 1 Power
 Text: {Exhaust}: Play three 1 {Might} Recruit unit tokens. (You may play them to different locations.)
 ---
-Name: Vanguard Helm
-Set: Origins
-Rarity: Uncommon
-Type: Gear
-Domain: Order
-Energy: 2
+Name: Vanguard Helm (Origins)
+Type: Gear (Order)
+Cost: 2 Energy
 Text: When a buffed friendly unit dies, buff another friendly unit. (If it doesn't have a buff, it gets a +1 {Might} buff.)
 ---
-Name: Assembly Rig
-Set: SFD
-Rarity: Rare
-Type: Gear
-Domain: Fury
-Energy: 4
+Name: Assembly Rig (SFD)
+Type: Gear (Fury)
+Cost: 4 Energy
 Text: {1 Energy}{1 Power (Fury)}, Recycle a unit from your trash, {Exhaust}: Play a 3 {Might} Mech unit token to your base.
 ---
-Name: Cloth Armor
-Set: SFD
-Rarity: Common
-Type: Gear
-Domain: Mind
-Energy: 1
+Name: Cloth Armor (SFD)
+Type: Gear (Mind)
+Cost: 1 Energy
 Text: [Quick-Draw] (This has [Reaction]. When you play it, attach it to a unit you control.)
   [Equip] {1 Power (Mind)} ({1 Power (Mind)}: Attach this to a unit you control.)
 ---
-Name: World Atlas
-Set: SFD
-Rarity: Rare
-Type: Gear
-Domain: Mind
-Energy: 3
+Name: World Atlas (SFD)
+Type: Gear (Mind)
+Cost: 3 Energy
 Might: 2
 Text: [Equip] {1 Power (Mind)} ({1 Power (Mind)}: Attach this to a unit you control.)
 ---
-Name: Zhonya's Hourglass
-Set: Origins
-Rarity: Rare
-Type: Gear
-Domain: Calm
-Energy: 2
+Name: Zhonya's Hourglass (Origins)
+Type: Gear (Calm)
+Cost: 2 Energy
 Text: [Hidden] (Hide now for {1 Power (Any)} to react with later for {0 Energy}.)The next time a friendly unit would die, kill this instead. Recall that unit exhausted. (Send it to base. This isn't a move.)
 ---
-Name: Dazzling Aurora
-Set: Origins
-Rarity: Epic
-Type: Gear
-Domain: Body
-Energy: 9
-Power: 2
+Name: Dazzling Aurora (Origins)
+Type: Gear (Body)
+Cost: 9 Energy, 2 Power
 Text: At the end of your turn, reveal cards from the top of your Main Deck until you reveal a unit. Play it, ignoring its cost, and recycle the rest.
 ---
-Name: Doran's Blade
-Set: SFD
-Rarity: Common
-Type: Gear
-Domain: Body
-Energy: 2
+Name: Doran's Blade (SFD)
+Type: Gear (Body)
+Cost: 2 Energy
 Might: 2
 Text: [Equip] {1 Power (Body)} ({1 Power (Body)}: Attach this to a unit you control.)
 ---
-Name: Doran's Ring
-Set: SFD
-Rarity: Common
-Type: Gear
-Domain: Chaos
-Energy: 1
+Name: Doran's Ring (SFD)
+Type: Gear (Chaos)
+Cost: 1 Energy
 Might: 1
 Text: [Equip] {1 Power (Chaos)} ({1 Power (Chaos)}: Attach this to a unit you control.)
 ---
-Name: Doran's Shield
-Set: SFD
-Rarity: Common
-Type: Gear
-Domain: Calm
-Energy: 1
+Name: Doran's Shield (SFD)
+Type: Gear (Calm)
+Cost: 1 Energy
 Might: 1
 Text: [Equip] {1 Power (Calm)} ({1 Power (Calm)}: Attach this to a unit you control.)
 ---
-Name: Forge of the Future
-Set: Origins
-Rarity: Common
-Type: Gear
-Domain: Order
-Energy: 2
+Name: Forge of the Future (Origins)
+Type: Gear (Order)
+Cost: 2 Energy
 Text: When you play this, play a 1 {Might} Recruit unit token at your base.Kill this: Recycle up to 4 cards from trashes.
 ---
-Name: Edge of Night
-Set: SFD
-Rarity: Rare
-Type: Gear
-Domain: Chaos
-Energy: 3
+Name: Edge of Night (SFD)
+Type: Gear (Chaos)
+Cost: 3 Energy
 Might: 2
 Text: [Hidden] (Hide now for {1 Power (Any)} to react with later for {0 Energy}.)When you play this from face down, attach it to a unit you control here.
   [Equip] {1 Power (Chaos)} ({1 Power (Chaos)}: Attach this to a unit you control.)
 ---
-Name: Energy Conduit
-Set: Origins
-Rarity: Uncommon
-Type: Gear
-Domain: Mind
-Energy: 3
+Name: Energy Conduit (Origins)
+Type: Gear (Mind)
+Cost: 3 Energy
 Text: {Exhaust}: [Reaction] — [Add] {1 Energy}. (Abilities that add resources can't be reacted to.)
 ---
-Name: Experimental Hexplate
-Set: SFD
-Rarity: Uncommon
-Type: Gear
-Domain: Mind
-Energy: 1
+Name: Experimental Hexplate (SFD)
+Type: Gear (Mind)
+Cost: 1 Energy
 Might: 1
 Text: [Equip] {1 Power (Mind)} ({1 Power (Mind)}: Attach this to a unit you control.)
 ---
-Name: B.F. Sword
-Set: SFD
-Rarity: Uncommon
-Type: Gear
-Domain: Order
-Energy: 4
+Name: B.F. Sword (SFD)
+Type: Gear (Order)
+Cost: 4 Energy
 Might: 3
 Text: [Equip] {1 Power (Order)} ({1 Power (Order)}: Attach this to a unit you control.)
 ---
-Name: Baited Hook
-Set: Origins
-Rarity: Epic
-Type: Gear
-Domain: Order
-Energy: 3
+Name: Baited Hook (Origins)
+Type: Gear (Order)
+Cost: 3 Energy
 Text: {1 Energy}{1 Power (Order)}, {Exhaust}: Kill a friendly unit. Look at the top 5 cards of your Main Deck. You may play a unit from among them that has Might up to 1 more than the killed unit, ignoring its cost. Then recycle the rest.
 ---
-Name: Blade of the Ruined King
-Set: SFD
-Rarity: Epic
-Type: Gear
-Domain: Order
-Energy: 3
+Name: Blade of the Ruined King (SFD)
+Type: Gear (Order)
+Cost: 3 Energy, 1 Power
 Might: 4
-Power: 1
 Text: [Equip] — {1 Power (Order)}, Kill a friendly unit (Pay the cost: Attach this to a unit you control.)
 ---
-Name: Altar of Memories
-Set: SFD
-Rarity: Rare
-Type: Gear
-Domain: Order
-Energy: 2
+Name: Altar of Memories (SFD)
+Type: Gear (Order)
+Cost: 2 Energy
 Text: When a friendly unit dies, you may exhaust me to draw 1, then put a card from your hand on the top or bottom of your Main Deck.
 ---
-Name: Ancient Henge
-Set: SFD
-Rarity: Epic
-Type: Gear
-Domain: Body
-Energy: 2
-Power: 1
+Name: Ancient Henge (SFD)
+Type: Gear (Body)
+Cost: 2 Energy, 1 Power
 Text: {Exhaust}: [Reaction] — Pay any amount of Energy to [Add] that much {1 Power (Any)}. (Abilities that add resources can't be reacted to.)
 ---
-Name: Arena Bar
-Set: Origins
-Rarity: Common
-Type: Gear
-Domain: Body
-Energy: 3
+Name: Arena Bar (Origins)
+Type: Gear (Body)
+Cost: 3 Energy
 Text: {Exhaust}: Buff an exhausted friendly unit. (If it doesn't have a buff, it gets a +1 {Might} buff.)
 ---
-Name: Chemtech Cask
-Set: SFD
-Rarity: Common
-Type: Gear
-Domain: Mind
-Energy: 1
+Name: Chemtech Cask (SFD)
+Type: Gear (Mind)
+Cost: 1 Energy
 Text: When you play a spell on an opponent's turn, you may exhaust me to play a Gold gear token exhausted.
 ---
-Name: Boots of Swiftness
-Set: SFD
-Rarity: Uncommon
-Type: Gear
-Domain: Chaos
-Energy: 3
+Name: Boots of Swiftness (SFD)
+Type: Gear (Chaos)
+Cost: 3 Energy
 Might: 2
 Text: [Equip] {1 Power (Chaos)} ({1 Power (Chaos)}: Attach this to a unit you control.)
 ---
-Name: Boneshiver
-Set: SFD
-Rarity: Epic
-Type: Gear
-Domain: Body
-Energy: 3
+Name: Boneshiver (SFD)
+Type: Gear (Body)
+Cost: 3 Energy
 Might: 2
 Text: [Equip] {1 Energy}{1 Power (Body)} ({1 Energy}{1 Power (Body)}: Attach this to a unit you control.)
 ---
-Name: Brutalizer
-Set: SFD
-Rarity: Uncommon
-Type: Gear
-Domain: Calm
-Energy: 2
+Name: Brutalizer (SFD)
+Type: Gear (Calm)
+Cost: 2 Energy
 Might: 1
 Text: [Equip] {1 Power (Calm)} ({1 Power (Calm)}: Attach this to a unit you control.)
 ---
-Name: Mask of Foresight
-Set: Origins
-Rarity: Uncommon
-Type: Gear
-Domain: Calm
-Energy: 2
+Name: Mask of Foresight (Origins)
+Type: Gear (Calm)
+Cost: 2 Energy
 Text: When a friendly unit attacks or defends alone, give it +1 {Might} this turn.
 ---
-Name: Long Sword
-Set: SFD
-Rarity: Rare
-Type: Gear
-Domain: Fury
-Energy: 2
+Name: Long Sword (SFD)
+Type: Gear (Fury)
+Cost: 2 Energy, 1 Power
 Might: 2
-Power: 1
 Text: [Quick-Draw] (This has [Reaction]. When you play it, attach it to a unit you control.)
   [Equip] {1 Power (Fury)} ({1 Power (Fury)}: Attach this to a unit you control.)
 ---
-Name: Pack of Wonders
-Set: Origins
-Rarity: Uncommon
-Type: Gear
-Domain: Chaos
-Energy: 2
+Name: Pack of Wonders (Origins)
+Type: Gear (Chaos)
+Cost: 2 Energy
 Text: {Exhaust}: Return another friendly gear, unit, or [Hidden] card to its owner's hand.
 ---
-Name: Orb of Regret
-Set: Origins
-Rarity: Common
-Type: Gear
-Domain: Mind
-Energy: 1
+Name: Orb of Regret (Origins)
+Type: Gear (Mind)
+Cost: 1 Energy
 Text: {Exhaust}: Give a unit -1 {Might} this turn, to a minimum of 1 {Might}.
 ---
-Name: Pirate's Haven
-Set: Origins
-Rarity: Uncommon
-Type: Gear
-Domain: Body
-Energy: 3
+Name: Pirate's Haven (Origins)
+Type: Gear (Body)
+Cost: 3 Energy
 Text: When you ready a friendly unit, give it +1 {Might} this turn.
 ---
-Name: Mistfall
-Set: Origins
-Rarity: Rare
-Type: Gear
-Domain: Body
-Energy: 3
+Name: Mistfall (Origins)
+Type: Gear (Body)
+Cost: 3 Energy
 Text: When you buff a friendly unit, you may pay {1 Power (Body)} and exhaust this to ready it.
 ---
-Name: Mushroom Pouch
-Set: Origins
-Rarity: Uncommon
-Type: Gear
-Domain: Mind
-Energy: 2
+Name: Mushroom Pouch (Origins)
+Type: Gear (Mind)
+Cost: 2 Energy
 Text: At the start of your Beginning Phase, if you control a facedown card at a battlefield, draw 1.
 ---
-Name: Hextech Anomaly
-Set: SFD
-Rarity: Rare
-Type: Gear
-Domain: Mind
-Energy: 3
-Power: 1
+Name: Hextech Anomaly (SFD)
+Type: Gear (Mind)
+Cost: 3 Energy, 1 Power
 Text: {Exhaust}: [Reaction] — Pay any amount of {1 Power (Any)} to [Add] that much Energy. (Abilities that add resources can't be reacted to.)
 ---
-Name: Garbage Grabber
-Set: Origins
-Rarity: Uncommon
-Type: Gear
-Domain: Mind
-Energy: 2
+Name: Garbage Grabber (Origins)
+Type: Gear (Mind)
+Cost: 2 Energy
 Text: Recycle 3 from your trash, {1 Energy}, {Exhaust}: Draw 1.
 ---
-Name: Gold
-Set: SFD
-Rarity: Common
-Supertype: Token
-Type: Gear
-Domain: Colorless
+Name: Gold (SFD, Token)
+Type: Gear (Colorless)
 Text: Kill this, {Exhaust}: [Reaction] — [Add] {1 Power (Any)}. (Abilities that add resources can't be reacted to.)
 ---
-Name: Guardian Angel
-Set: SFD
-Rarity: Rare
-Type: Gear
-Domain: Calm
-Energy: 2
+Name: Guardian Angel (SFD)
+Type: Gear (Calm)
+Cost: 2 Energy
 Might: 1
 Text: [Equip] {1 Power (Calm)} ({1 Power (Calm)}: Attach this to a unit you control.)
 ---
-Name: Last Rites
-Set: SFD
-Rarity: Epic
-Type: Gear
-Domain: Chaos
-Energy: 3
+Name: Last Rites (SFD)
+Type: Gear (Chaos)
+Cost: 3 Energy
 Might: 2
 Text: [Equip] — {1 Power (Chaos)}, Recycle 2 cards from your trash (Pay the cost:** **Attach this to a unit you control.)
 ---
-Name: Iron Ballista
-Set: Origins
-Rarity: Uncommon
-Type: Gear
-Domain: Fury
-Energy: 3
+Name: Iron Ballista (Origins)
+Type: Gear (Fury)
+Cost: 3 Energy
 Text: This enters exhausted.{Exhaust}: Deal 2 to a unit at a battlefield.
